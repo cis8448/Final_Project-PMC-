@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.pmc.final_project">
+	<logger name="com.pmc.finalproject">
 		<level value="info" />
 	</logger>
 	
