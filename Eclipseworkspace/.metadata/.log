@@ -6700,6 +6700,7 @@ Caused by: java.io.FileNotFoundException: C:\Users\13\Documents\Final_Project-PM
 
 !ENTRY org.eclipse.jdt.debug 2 0 2019-07-22 14:53:56.758
 !MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+<<<<<<< HEAD
 
 !ENTRY org.springframework.ide.eclipse.beans.core 1 0 2019-07-22 14:57:15.063
 !MESSAGE Error occured processing '/Final_Project/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml'
@@ -6894,3 +6895,5 @@ Caused by: java.io.FileNotFoundException: C:\Users\52\Documents\Final_Project-PM
 
 !ENTRY org.eclipse.core.resources 2 10035 2019-07-22 14:57:19.607
 !MESSAGE The workspace will exit with unsaved changes in this session.
+=======
+>>>>>>> d7b1ce0b6cd79a2dbd9259105fee97e7b3d67f75
