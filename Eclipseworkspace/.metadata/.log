@@ -7637,6 +7637,7 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-22 16:47:06.714
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+<<<<<<< HEAD
 !SESSION 2019-07-24 14:21:15.608 -----------------------------------------------
 eclipse.buildId=4.11.0.I20190307-0500
 java.version=1.8.0_211
@@ -7671,4 +7672,29 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 14:24:49.179
+=======
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:01.393
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:01.400
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:02.509
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:02.522
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:47.673
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:47.696
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:50.687
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-24 15:03:50.704
+>>>>>>> 1052cc7e6e8628e7603c8df31069f90cd27b7616
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
