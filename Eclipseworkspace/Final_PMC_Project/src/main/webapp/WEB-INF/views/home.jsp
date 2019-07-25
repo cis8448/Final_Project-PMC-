@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -51,5 +50,9 @@ window.onload=function(){
 	</div>
 </center>
 
+<<<<<<< HEAD
+=======
+kdydkddkdkdy
+>>>>>>> 8aee5e3cc6b0457bcd35c393bf15d79fee5aa237
 </body>
 </html>
