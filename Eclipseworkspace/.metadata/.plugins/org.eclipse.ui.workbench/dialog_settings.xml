@@ -12,12 +12,4 @@
 		<list key="textArray">
 		</list>
 	</section>
-<<<<<<< HEAD
-	<section name="ImportExportAction">
-=======
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="651"/>
-		<item key="DIALOG_Y_ORIGIN" value="158"/>
->>>>>>> d7b1ce0b6cd79a2dbd9259105fee97e7b3d67f75
-	</section>
 </section>
