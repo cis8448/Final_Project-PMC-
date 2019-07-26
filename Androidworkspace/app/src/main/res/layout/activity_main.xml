@@ -47,27 +47,38 @@
             android:layout_gravity="start"
             android:background="#FFFFFF">
 
-
+        <!-- 비로그인 메뉴 (출력, 미출력) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
-                android:id="@+id/nlog">
+                android:visibility="visible"
+                android:id="@+id/nlog"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_gravity="center_vertical|center"
+                <!-- 비로그인 메뉴 -->
+                <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login이 필요합니다."/>
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:id="@+id/nLoginMenu">
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="로그인 하러 가기"
+                            android:textSize="20sp"
+                            android:onClick="LoginGo"/>
+                    </TableRow>
+                </TableLayout>
             </LinearLayout>
 
-
-
+            <!-- 로그인 메뉴(출력, 미출력) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/inlog">
                 <ImageView
                     android:layout_width="40dp"
@@ -106,6 +117,7 @@
                 android:layout_height="2dp"
                 android:layout_centerInParent="true"
                 android:background="#000000"/>
+            <!-- 로그인 후 메뉴 출력 -->
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
