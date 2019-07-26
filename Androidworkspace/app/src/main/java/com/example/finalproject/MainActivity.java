@@ -1,23 +1,44 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 
 import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
+    AndroidController andcon = AndroidController.getInstance();
+    DrawerLayout DL;
+    Button btn1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DL = findViewById(R.id.drawlay);
+        btn1 = findViewById(R.id.btn1);
         getHashKey();
+        //메뉴버튼 클릭시 메뉴창 출력
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DL.openDrawer(Gravity.LEFT);
+            }
+        });
+
+
+
     }
     private void getHashKey(){
         try {
@@ -33,5 +54,11 @@ public class MainActivity extends AppCompatActivity {
             // TODO Auto-generated catch block
             Log.e("name not found", e.toString());
         }
+    }
+    //비로그인시 메뉴 클릭 -> 로그인하러가기 클릭시 로그인액티비티 출력
+    public void LoginGo(View view) {
+
+        andcon.sub(this,"LoginOpen");
+
     }
 }
