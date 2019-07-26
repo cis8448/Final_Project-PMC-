@@ -9405,6 +9405,7 @@ java.lang.NullPointerException
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-25 20:00:36.219
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 <<<<<<< HEAD
+<<<<<<< HEAD
 !SESSION 2019-07-26 09:37:17.975 -----------------------------------------------
 eclipse.buildId=4.11.0.I20190307-0500
 java.version=1.8.0_211
@@ -10346,6 +10347,14 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 
 !ENTRY org.eclipse.jface.text 2 0 2019-07-26 10:20:10.676
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+=======
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-26 10:19:23.898
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-26 10:19:24.047
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+>>>>>>> c7428680fefcefbdd87178bafa1fa1dc4d6ada06
 =======
 >>>>>>> 56132634bbe5adc3b746a34d789fb25478aef37b
 >>>>>>> 44b799139594d5c62c2de85b34b1251519e047bc
