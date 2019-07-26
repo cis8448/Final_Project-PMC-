@@ -19,7 +19,6 @@ import java.security.MessageDigest;
 public class MainActivity extends AppCompatActivity {
 
     AndroidController andcon = AndroidController.getInstance();
-    final String LoginOpen = "LoginOpen";
     DrawerLayout DL;
     Button btn1;
 
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     //비로그인시 메뉴 클릭 -> 로그인하러가기 클릭시 로그인액티비티 출력
     public void LoginGo(View view) {
 
-        andcon.sub(MainActivity.this,LoginOpen);
+        andcon.sub(this,"LoginOpen");
 
     }
 }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Login extends AppCompatActivity {
-    AndroidController and = AndroidController.getInstance();
+    AndroidController andcon = AndroidController.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +15,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void SignUpSelect(View view) {
-        and.sub(this,"SignSelectOpen");
+        andcon.sub(this,"SignUpSelectOpen");
     }
 }

@@ -42,9 +42,15 @@ public class AndroidController {
             Intent LoginOpen = new Intent("com.example.finalproject.Login");
             activity.startActivity(LoginOpen);
         }
-        if (state.equals("SignSelectOpen")){
-            Intent SignSelectOpen = new Intent("com.example.finalproject.SignUpSelect");
-            activity.startActivity(SignSelectOpen);
+        // 로그인 -> 회원가입 버튼 클릭 -> 회원가입 선택창
+        if (state.equals("SignUpSelectOpen")){
+            Intent SignUpSelectOpen = new Intent("com.example.finalproject.SignUpSelect");
+            activity.startActivity(SignUpSelectOpen);
+        }
+        // 회원가입 선택창 -> 피모씨 회원가입 오픈
+        if (state.equals("SignUpOpen")){
+            Intent SignUpOpen = new Intent("com.example.finalproject.SignUp");
+            activity.startActivity(SignUpOpen);
         }
     }
 }
