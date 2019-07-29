@@ -73,5 +73,19 @@ public class MainController {
 		return "home";
 		
 	}
+	
+	@RequestMapping(value="/Product" )
+	public String Product() {
+		
+		return "Product";
+		
+	}
+	
+	@RequestMapping(value="/ProductAdd" )
+	public String ProductAdd() {
+		
+		return "ProductAdd";
+		
+	}
 
 }
