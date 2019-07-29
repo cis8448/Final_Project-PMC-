@@ -43,6 +43,7 @@
 		<option value="10" selected>10월</option>
 		<option value="11" selected>11월</option>
 		<option value="12" selected>12월</option>
+	
 		
 		</select>
 		
