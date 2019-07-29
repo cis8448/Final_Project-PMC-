@@ -49,10 +49,6 @@ window.onload=function(){
 		</div>
 	</div>
 </center>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 75485c7a618325cf9b30696abc404e9ab2131c01
 </body>
 </html>
