@@ -72,7 +72,6 @@ public class MainController {
 		return "home";
 		
 	}
-<<<<<<< HEAD
 	@RequestMapping(value="/MasterNotice" )
 	public String CustomerService() {
 		return "MasterNotice";
@@ -82,7 +81,7 @@ public class MainController {
 	@RequestMapping(value="/PcmasterNotice" )
 	public String PcmasterNotice() {
 		return "PcmasterNotice";
-=======
+	}
 	
 	@RequestMapping(value="/Product" )
 	public String Product() {
@@ -95,7 +94,6 @@ public class MainController {
 	public String ProductAdd() {
 		
 		return "ProductAdd";
->>>>>>> db03f5ec2aaa7b49adf74fed359ae138485d4e5a
 		
 	}
 
