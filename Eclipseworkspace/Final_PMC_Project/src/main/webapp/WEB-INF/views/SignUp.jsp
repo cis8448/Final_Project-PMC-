@@ -102,7 +102,6 @@
 				console.log(data)
 				if (data.cnt > 0) {
 					alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-					idck = 0;
 				} else {
 					alert("사용가능한 아이디입니다.");
 					//아이디가 중복하지 않으면  idck = 1 
@@ -117,7 +116,14 @@
 		});
 	};
 
-	
+	function sign_check() {
+		if (confirm("회원가입을 하시겠습니까?")) {
+			if (idck == 0) {
+				alert('아이디 중복체크를 해주세요');
+				return false;
+			}
+		}
+	}
 </script>
 </html>
 
