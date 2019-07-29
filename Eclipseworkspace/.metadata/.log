@@ -2871,9 +2871,12 @@ org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementExc
 =======
 >>>>>>> a92355315a2ca50d0852bd192ed32247924f588d
 >>>>>>> db03f5ec2aaa7b49adf74fed359ae138485d4e5a
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 18:25:47.792
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 18:25:47.802
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+>>>>>>> 63fbffd4b0b51028012cfd305f9b21008d3e7c8e
