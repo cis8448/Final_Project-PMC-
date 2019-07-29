@@ -4,7 +4,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.startup.HomesUserDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +33,7 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+
 
 
 		return "SeatState";   
@@ -71,6 +71,30 @@ public class MainController {
 		session.invalidate();
 		
 		return "home";
+		
+	}
+	@RequestMapping(value="/MasterNotice" )
+	public String CustomerService() {
+		return "MasterNotice";
+		
+	}
+	
+	@RequestMapping(value="/PcmasterNotice" )
+	public String PcmasterNotice() {
+		return "PcmasterNotice";
+	}
+	
+	@RequestMapping(value="/Product" )
+	public String Product() {
+		
+		return "Product";
+		
+	}
+	
+	@RequestMapping(value="/ProductAdd" )
+	public String ProductAdd() {
+		
+		return "ProductAdd";
 		
 	}
 
