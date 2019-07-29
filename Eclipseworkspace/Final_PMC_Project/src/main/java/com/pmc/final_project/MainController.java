@@ -72,5 +72,16 @@ public class MainController {
 		return "home";
 		
 	}
+	@RequestMapping(value="/MasterNotice" )
+	public String CustomerService() {
+		return "MasterNotice";
+		
+	}
+	
+	@RequestMapping(value="/PcmasterNotice" )
+	public String PcmasterNotice() {
+		return "PcmasterNotice";
+		
+	}
 
 }
