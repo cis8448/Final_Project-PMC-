@@ -51,18 +51,7 @@ public class PayListManagement {
 //		return paging.makeHtmlpaging;
 //	}
 	
-	public ModelAndView getPayContent(Integer ProductNum) {
-		mav  = new ModelAndView();
-		String view = null;
-		
-		PayMentDetail paymentdetail = payDao.getPayContent(ProductNum);
-		mav.addObject("paymentdetail", paymentdetail);
-		
-		view = "MemberPayList";
-		mav.setViewName(view);
-		
-		return mav;
-	}
+	
 	
 	
 }

@@ -8,7 +8,4 @@ public interface IPayDao {
 
 	List<PayMentDetail> getPayList(int num);
 
-	PayMentDetail getPayContent(Integer productNum);
-
-	
 }

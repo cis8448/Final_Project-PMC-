@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.bean.PcRoomBean;
 
-import com.pmc.final_project.dao.IPcRoomDao;
+import com.pmc.final_project.dao.IPcRoom;
 
 @Service
 public class PcroomManagement {
@@ -17,20 +17,20 @@ public class PcroomManagement {
 	private ModelAndView mav;
 	
 	@Autowired
-	private IPcRoomDao pDao;//servlet-context.xml의 pDao 객체와 연결
+	private IPcRoom pDao;//servlet-context.xml의 pDao 객체와 연결
 	
 	@Autowired
 	private HttpSession session;
 	
 
-	public ModelAndView pcroomInsert(PcRoomBean pr) {
+	public ModelAndView JSPSignUp(PcRoomBean pr) {
 		// TODO Auto-generated method stub
 		
 		mav = new ModelAndView();
 		String view = null;
 		
 		if(!(pr.getP_pass().equals(pr.getP_pass2()))) {//비밀번호, 비밀번호 확인의 String 값이 서로 다를 경우 
-			view = "joinfrm";
+			view = "SignUp";
 			mav.addObject("ck",1);
 			mav.setViewName(view);
 			return mav;
@@ -45,14 +45,14 @@ public class PcroomManagement {
 		pr.setP_pass(pwdEncoder.encode(pr.getP_pass()));
 		
 		//DB insert 
-		if(pDao.pcroomInsert(pr)) {
+		if(pDao.JSPSignUp(pr)) {
 			//성공
-			view = "home";//로그인 페이지로 이동
+			view = "Login";
 			mav.addObject("check",1);
 		}
 		else {
 			//실패
-			view="joinfrm";
+			view="SignUp";
 		}
 		mav.setViewName(view);
 		
@@ -61,7 +61,7 @@ public class PcroomManagement {
 	}
 
 
-	public ModelAndView memberAccess(PcRoomBean pr) {
+	public ModelAndView JSPLoginCall(PcRoomBean pr) {
 		// TODO Auto-generated method stub
 		
 		mav = new ModelAndView();
@@ -80,15 +80,15 @@ public class PcroomManagement {
 				// 로그인한 회원의 일부정보, 게시글 목록
 				pr = pDao.getMemberInfo(pr.getP_id());
 				mav.addObject("mb",pr);
-				view = "redirect:/joinfrm";
+				view = "redirect:/SignUp";
 			}
 			else {
-				view = "home";
+				view = "Login";
 				mav.addObject("check",2);
 			}
 		}
 		else {
-			view = "home";
+			view = "Login";
 			mav.addObject("check",2);
 		}
 		
@@ -97,5 +97,8 @@ public class PcroomManagement {
 		
 		return mav;
 	}
+
+
+	
 
 }
