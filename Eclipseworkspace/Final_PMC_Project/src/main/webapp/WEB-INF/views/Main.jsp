@@ -36,9 +36,9 @@
         <img src="./resources/img/pmc1.jpg">
         </div> 
         <ul id="Menu">
-            <li class="mainmenu"><a href="#">좌석</a></li>
-            <li class="mainmenu"><a href="#">회원</a></li>
+            <li class="mainmenu"><a href="./Main">좌석</a></li>
             <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
             <li class="mainmenu"><a href="#">매출</a></li>
             <li class="mainmenu"><a href="#">기타</a></li>
         </ul>    

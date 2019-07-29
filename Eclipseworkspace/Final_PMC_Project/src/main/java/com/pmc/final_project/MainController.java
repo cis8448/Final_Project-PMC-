@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.bean.PcRoomBean;
+import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 
 
@@ -29,6 +30,9 @@ public class MainController {
 	@Autowired
 	PcroomManagement pm;
 	
+	@Autowired
+	MemberManagement mm;
+
 	@Autowired
 	HttpSession session;
 
@@ -73,5 +77,38 @@ public class MainController {
 		return "home";
 		
 	}
+	
+	@RequestMapping(value="/Main")
+	public String Main() {
+		
+		return "Main";
+	}
+	
+	@RequestMapping(value="/MemberList")
+	public ModelAndView MemberList(Integer pageNum) {
+		mav = mm.getmemberAllList(pageNum);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/UsedMemberList")
+	public String UsedMemberList() {
+		
+		return "UsedMemberList";
+	}
+	
+	@RequestMapping(value="/ReseveMemberList")
+	public String ReseveMemberList() {
+		
+		return "ReseveMemberList";
+	}
+	
+	@RequestMapping(value="/MemberInfo")
+	public String MemberInfo() {
+		
+		return "MemberInfo";
+	}
+	
+	
 
 }
