@@ -35,7 +35,9 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
+
 		return "MemberPayList";   
+
 	}
 
 	@RequestMapping(value = "/joinfrm", method = RequestMethod.GET)//uri 매핑
@@ -95,4 +97,31 @@ public class MainController {
 		
 		return "TimePayList";
 	}
+
+	@RequestMapping(value="/MasterNotice" )
+	public String CustomerService() {
+		return "MasterNotice";
+		
+	}
+	
+	@RequestMapping(value="/PcmasterNotice" )
+	public String PcmasterNotice() {
+		return "PcmasterNotice";
+	}
+	
+	@RequestMapping(value="/Product" )
+	public String Product() {
+		
+		return "Product";
+		
+	}
+	
+	@RequestMapping(value="/ProductAdd" )
+	public String ProductAdd() {
+		
+		return "ProductAdd";
+		
+	}
+
+
 }
