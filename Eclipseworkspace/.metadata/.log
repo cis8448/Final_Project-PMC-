@@ -227,6 +227,54 @@ Created Time: 2019-07-29 09:52:46.382
 >>>>>>> bbd542b2555d69f497b71ce57f71a30905713074
 <<<<<<< HEAD
 
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:00:17.051
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:00:17.058
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-07-29 10:00:30.809
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-07-29 10:00:51.248
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-07-29 10:01:00.444
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-07-29 10:01:08.490
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.core.resources 4 368 2019-07-29 10:01:50.925
+!MESSAGE File not found: C:\Users\11\Documents\Final_Project-PMC-\Eclipseworkspace\Final_PMC_Project\src\main\webapp\WEB-INF\views\Main.jsp.
+!STACK 0
+java.lang.Exception: File not found: C:\Users\11\Documents\Final_Project-PMC-\Eclipseworkspace\Final_PMC_Project\src\main\webapp\WEB-INF\views\Main.jsp.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:833)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:280)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:271)
+	at org.eclipse.wst.server.core.util.PublishHelper.copyFile(PublishHelper.java:498)
+	at org.eclipse.wst.server.core.util.PublishHelper.publishDelta(PublishHelper.java:437)
+	at org.eclipse.wst.server.core.util.PublishHelper.publishDelta(PublishHelper.java:461)
+	at org.eclipse.wst.server.core.util.PublishHelper.publishDelta(PublishHelper.java:461)
+	at org.eclipse.jst.server.tomcat.core.internal.PublishOperation2.publishDir(PublishOperation2.java:143)
+	at org.eclipse.jst.server.tomcat.core.internal.PublishOperation2.execute(PublishOperation2.java:84)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.performTasks(ServerBehaviourDelegate.java:1337)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:956)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:776)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3184)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:357)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:01:51.553
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:01:51.564
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+<<<<<<< HEAD
+
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:00:54.331
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 
@@ -461,6 +509,7 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 =======
 >>>>>>> 237be9159487dbe90b1365cb3aa217bde96b2992
 >>>>>>> ad8846f207848ffd0363ebfa522710696e0f6637
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:25:09.139
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -2279,3 +2328,5 @@ org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementExc
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 18:17:37.746
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+>>>>>>> a92355315a2ca50d0852bd192ed32247924f588d

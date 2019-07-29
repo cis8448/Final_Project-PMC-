@@ -1,5 +1,65 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: 53
+=======
+<<<<<<< HEAD
+Built-By: 11
+=======
+<<<<<<< HEAD
+Built-By: 52
+=======
+<<<<<<< HEAD
+Built-By: 53
+=======
+<<<<<<< HEAD
+Built-By: 10
+=======
+<<<<<<< HEAD
+Built-By: 94
+=======
+<<<<<<< HEAD
+Built-By: 13
+=======
+<<<<<<< HEAD
+Built-By: 11
+=======
+<<<<<<< HEAD
+Built-By: 13
+=======
+<<<<<<< HEAD
+Built-By: 53
+=======
+<<<<<<< HEAD
+Built-By: 13
+=======
+<<<<<<< HEAD
+Built-By: 10
+=======
+<<<<<<< HEAD
+Built-By: 53
+=======
+<<<<<<< HEAD
+Built-By: 11
+=======
+<<<<<<< HEAD
+Built-By: 52
+=======
+Built-By: 94
+>>>>>>> e894a9aa85a7aeae8334f966c8c82bcb7991a71f
+>>>>>>> cb56f8737b6f7fb7e719cb568fd1a96d2e1ff0b9
+>>>>>>> e23c59f37c0b2a074752122aaa384ea7b72f1e7f
+>>>>>>> 8f9b28acff891bfcbc6a6ee31aee87c55dd4c9e2
+>>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
+>>>>>>> a6bbb578f0be241c6fb91edd1bb6d7d9176bfcd2
+>>>>>>> ed6844bd2b4ed7e3d3e1dba049b354a9565d3b2d
+>>>>>>> bbd542b2555d69f497b71ce57f71a30905713074
+>>>>>>> 8dc7bb81c36012dcaffe177cfea4e003253ffba6
+>>>>>>> 5d4626de3ea408e533688de4426423eaab134892
+>>>>>>> 05d46fb024b8954e7d16784b9d1759eb7d78c962
+>>>>>>> d20f961ade196f8a0f218ad51e7491d2515fdecd
+>>>>>>> 237be9159487dbe90b1365cb3aa217bde96b2992
+>>>>>>> ad8846f207848ffd0363ebfa522710696e0f6637
+>>>>>>> a92355315a2ca50d0852bd192ed32247924f588d
 Build-Jdk: 1.8.0_211
 Created-By: Maven Integration for Eclipse
 
