@@ -15,6 +15,8 @@ public class Member {
 	private String m_birthday;
 	private String m_profile;
 	private String m_point;
+	private String m_retime;
+	
 	
 	public int getM_kakaoid() {
 		return m_kakaoid;
@@ -75,6 +77,12 @@ public class Member {
 	}
 	public void setM_point(String m_point) {
 		this.m_point = m_point;
+	}
+	public String getM_retime() {
+		return m_retime;
+	}
+	public void setM_retime(String m_retime) {
+		this.m_retime = m_retime;
 	}
 	
 	
