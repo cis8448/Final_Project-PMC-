@@ -25,7 +25,7 @@ window.onload=function(){
 </head>
 <body>
 <div class="helloId">
-<h1 id="title">피모씨 PC방 관리자용</h1>
+<h1 id="title">한조 PC방 관리자용</h1>
 </div><br/>
 <center>
 	<div class="login">
