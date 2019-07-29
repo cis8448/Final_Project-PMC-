@@ -36,7 +36,7 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
-		return "home";   
+		return "SeatState";   
 	}
 
 	@RequestMapping(value = "/joinfrm", method = RequestMethod.GET)//uri 매핑
