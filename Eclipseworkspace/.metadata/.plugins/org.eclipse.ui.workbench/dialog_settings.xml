@@ -12,6 +12,7 @@
 		<list key="textArray">
 		</list>
 	</section>
+<<<<<<< HEAD
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="651"/>
 		<item key="DIALOG_Y_ORIGIN" value="158"/>
@@ -31,4 +32,14 @@
 			<item value="org.eclipse.jst.ws.ui.new"/>
 		</list>
 	</section>
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	<section name="ImportExportAction">
+	</section>
+=======
+>>>>>>> 56132634bbe5adc3b746a34d789fb25478aef37b
+>>>>>>> cb56f8737b6f7fb7e719cb568fd1a96d2e1ff0b9
+>>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
 </section>
