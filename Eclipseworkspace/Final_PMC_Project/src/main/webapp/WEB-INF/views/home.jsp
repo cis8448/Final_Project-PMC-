@@ -50,9 +50,5 @@ window.onload=function(){
 	</div>
 </center>
 
-<<<<<<< HEAD
-=======
-kdydkddkdkdy
->>>>>>> 8aee5e3cc6b0457bcd35c393bf15d79fee5aa237
 </body>
 </html>
