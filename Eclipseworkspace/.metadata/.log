@@ -372,3 +372,9 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 >>>>>>> 8dc7bb81c36012dcaffe177cfea4e003253ffba6
 >>>>>>> 05d46fb024b8954e7d16784b9d1759eb7d78c962
 >>>>>>> d20f961ade196f8a0f218ad51e7491d2515fdecd
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:05:09.588
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:05:09.596
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
