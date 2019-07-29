@@ -1,4 +1,5 @@
-<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
@@ -12,13 +13,16 @@
 	type="text/css">
 <script>
 window.onload=function(){
-	var chk=${check};
+	var chk=${ck};
 	
-	if(chk==1){
+	if(ck==1){
 		alert("회원가입 성공");
 	}
 	if(chk==2){
 		alert("로그인 실패");
+	}
+	if(chk==3){
+		alert("비밀번호가 서로 다릅니다!")
 	}
 }
 </script>
@@ -43,12 +47,11 @@ window.onload=function(){
 				</div>
 
 				<button class="btn">로그인</button>
-				<a class="login-link" href="./joinFrm"> 회원가입 </a>
+				<a class="login-link" href="./joinfrm"> 회원가입 </a><a class="login-link" href="./joinfrm"> 아이디/비밀번호찾기 </a>
 				</form>	
 			</div>
 		</div>
 	</div>
 </center>
-
 </body>
 </html>
