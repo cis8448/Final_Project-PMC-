@@ -129,9 +129,12 @@ Created Time: 2019-07-29 09:52:46.382
 >>>>>>> a6bbb578f0be241c6fb91edd1bb6d7d9176bfcd2
 >>>>>>> ed6844bd2b4ed7e3d3e1dba049b354a9565d3b2d
 >>>>>>> bbd542b2555d69f497b71ce57f71a30905713074
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:00:54.331
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 10:00:54.341
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+>>>>>>> 8dc7bb81c36012dcaffe177cfea4e003253ffba6
