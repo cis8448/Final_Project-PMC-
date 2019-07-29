@@ -46,7 +46,7 @@
 		<beans:property name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 		<beans:property name="mapperInterface"
-			value="com.pmc.final_project.dao.IPcRoomDao" />
+			value="com.pmc.final_project.dao.IPcRoom" />
 
 	</beans:bean>
 	

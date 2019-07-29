@@ -10,8 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.bean.PcRoomBean;
@@ -36,32 +38,44 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
-		return "home";   
+		return "Login";   
+	}
+	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
+	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
+
+		logger.info("JSPIdOverLap execute ");
+
+		String  str = "";
+
+
+		return str;
+
+	}
+	
+
+	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑
+	public String SignUp(Model model) {
+		logger.info("SignUp execute ");
+
+		return "SignUp";//jsp파일 이름고 ㅏ동일해야함
 	}
 
-	@RequestMapping(value = "/joinfrm", method = RequestMethod.GET)//uri 매핑
-	public String join1(Model model) {
-		logger.info("joinfrm execute ");
+	@RequestMapping(value="/JSPSignUp", method = RequestMethod.POST)
+	public ModelAndView JSPSignUp(PcRoomBean pr) {
 
-		return "joinfrm";//jsp파일 이름고 ㅏ동일해야함
-	}
+		logger.info("JSPSignUp execute ");
 
-	@RequestMapping(value="/pcroomInsert", method = RequestMethod.POST)
-	public ModelAndView pcroomInsert(PcRoomBean pr) {
-
-		logger.info("pcroomInsert execute ");
-
-		mav = pm.pcroomInsert(pr);
+		mav = pm.JSPSignUp(pr);
 
 
 		return mav;
 
 	}
 	
-	@RequestMapping(value="/access", method = RequestMethod.POST )
+	@RequestMapping(value="/JSPLoginCall", method = RequestMethod.POST )
 	public ModelAndView access(PcRoomBean pr) {
-		logger.info("access execute ");
-		mav = pm.memberAccess(pr);
+		logger.info("JSPLoginCall execute ");
+		mav = pm.JSPLoginCall(pr);
 		
 		return mav;
 	}
