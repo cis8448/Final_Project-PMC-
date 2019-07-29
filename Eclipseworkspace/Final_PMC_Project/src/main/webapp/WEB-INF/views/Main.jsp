@@ -37,8 +37,13 @@
         <img src="./resources/image/dd.png">
         </div> 
         <ul id="Menu">
+<<<<<<< HEAD
             <li class="mainmenu"><a href="./Main">좌석</a></li>
             <li class="mainmenu"><a href="#">상품</a></li>
+=======
+            <li class="mainmenu"><a href="#">좌석</a></li>
+            <li class="mainmenu"><a href="./Product">상품</a></li>
+>>>>>>> db03f5ec2aaa7b49adf74fed359ae138485d4e5a
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="#">매출</a></li>
             <li class="mainmenu"><a href="./CustomerService">기타</a></li>
