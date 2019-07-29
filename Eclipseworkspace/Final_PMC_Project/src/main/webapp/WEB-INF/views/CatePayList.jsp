@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <meta charset="UTF-8">
-<title>피모씨 관리자</title>
-<!-- 합쳐지고 최소화된 최신 CSS -->
+<title>Insert title here</title>
 </head>
-    <style>
+<body>
+  <style>
         html,body,ul{margin: 0;padding: 0;}
         div{display: inline-block;}
         ul{list-style: none}
@@ -19,7 +17,8 @@
         .mainmenu{float: left;; line-height: 100px; width: 19.8%; text-align: center;border: 1px solid black; font-size: 50px}
         .mainmenu:nth-child(4){background-color: azure}
         .SubMenu{margin-bottom: 50px; margin-left: 20px}
-        .SubMenu:first-child{margin-top: 200px;text-decoration: underline}
+        .SubMenu:first-child{margin-top: 200px;}
+        .SubMenu:nth-child(2){text-decoration: underline}
         header{position: fixed; z-index: 999;background-color: white;width: 100%}
         aside{position:  relative; top: 180px;float: left;width: 10%; left: 70px}
         section{position: relative; top: 250px;float: right;width: 80%}
@@ -30,7 +29,7 @@
         #aa{margin-left: 80%}
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+    	button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
                 
     </style>
 
@@ -58,8 +57,7 @@
 		</ul>
 	</aside>
 	<section>
-
-
+	
 	<table id="aa">
 		<tr>
 			<td><select name="pcselectyear">
@@ -89,9 +87,15 @@
 	</table>
 	<table id="bb">
 		<tr>
+			<td class="Paymenu"><button>카테고리</button></td>
+		</tr>
+	</table>
+
+	
+	<table id="bb">
+		<tr>
 			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
-			<td class="Paymenu">카테고리</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
@@ -105,8 +109,5 @@
 	</footer>
 
 
-
-
 </body>
-
 </html>
