@@ -4,7 +4,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.startup.HomesUserDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.bean.PcRoomBean;
-import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 
 
@@ -31,16 +29,15 @@ public class MainController {
 	PcroomManagement pm;
 	
 	@Autowired
-	MemberManagement mm;
-
-	@Autowired
 	HttpSession session;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
 
-		return "Main";   
+
+		return "MemberPayList";   
+
 	}
 
 	@RequestMapping(value = "/joinfrm", method = RequestMethod.GET)//uri 매핑
@@ -78,37 +75,53 @@ public class MainController {
 		
 	}
 	
-	@RequestMapping(value="/Main")
+	@RequestMapping(value = "/Main")
 	public String Main() {
 		
 		return "Main";
 	}
 	
-	@RequestMapping(value="/MemberList")
-	public ModelAndView MemberList(Integer pageNum) {
-		mav = mm.getmemberAllList(pageNum);
+	@RequestMapping(value = "/MemberPayList")
+	public String MemberPayList() {
 		
-		return mav;
+		return "MemberPayList";
 	}
 	
-	@RequestMapping(value="/UsedMemberList")
-	public String UsedMemberList() {
+	@RequestMapping(value = "/CatePayList")
+	public String CatePayList() {
 		
-		return "UsedMemberList";
+		return "CatePayList";
+	}
+	@RequestMapping(value = "/TimePayList")
+	public String TimePayList() {
+		
+		return "TimePayList";
+	}
+
+	@RequestMapping(value="/MasterNotice" )
+	public String CustomerService() {
+		return "MasterNotice";
+		
 	}
 	
-	@RequestMapping(value="/ReseveMemberList")
-	public String ReseveMemberList() {
-		
-		return "ReseveMemberList";
+	@RequestMapping(value="/PcmasterNotice" )
+	public String PcmasterNotice() {
+		return "PcmasterNotice";
 	}
 	
-	@RequestMapping(value="/MemberInfo")
-	public String MemberInfo() {
+	@RequestMapping(value="/Product" )
+	public String Product() {
 		
-		return "MemberInfo";
+		return "Product";
+		
 	}
 	
-	
+	@RequestMapping(value="/ProductAdd" )
+	public String ProductAdd() {
+		
+		return "ProductAdd";
+		
+	}
+
 
 }
