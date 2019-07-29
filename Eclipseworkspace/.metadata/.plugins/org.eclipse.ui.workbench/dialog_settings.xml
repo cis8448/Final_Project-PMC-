@@ -12,34 +12,4 @@
 		<list key="textArray">
 		</list>
 	</section>
-<<<<<<< HEAD
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="651"/>
-		<item key="DIALOG_Y_ORIGIN" value="158"/>
-	</section>
-	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.ajdt.wizards"/>
-			<item value="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"/>
-			<item value="org.eclipse.ajdt.wizards/org.eclipse.ajdt.pluginExamples"/>
-			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
-			<item value="org.eclipse.jdt.ui.java"/>
-			<item value="org.eclipse.wst.jsdt.ui.java"/>
-			<item value="org.eclipse.oomph"/>
-			<item value="org.eclipse.pde.PDE"/>
-			<item value="org.springsource.ide.eclipse.boot.wizards.category"/>
-			<item value="org.eclipse.jst.ws.ui.new"/>
-		</list>
-	</section>
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-	<section name="ImportExportAction">
-	</section>
-=======
->>>>>>> 56132634bbe5adc3b746a34d789fb25478aef37b
->>>>>>> cb56f8737b6f7fb7e719cb568fd1a96d2e1ff0b9
->>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
 </section>
