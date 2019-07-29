@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.startup.HomesUserDatabase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
-		return "home";
+		return "home";   
 	}
 
 	@RequestMapping(value = "/joinfrm", method = RequestMethod.GET)//uri 매핑
