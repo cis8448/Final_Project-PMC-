@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- Mybatis 공통 환경 설정 -->
+<!-- 이 xml은 데이터저장할 곳을 지정. -->
+<configuration>
+	<typeAliases>
+		<package name="com.pmc.final_project.bean" />
+	</typeAliases>
+</configuration>
