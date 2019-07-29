@@ -180,6 +180,11 @@ button {
 .add {
 	margin-left: 300px;
 }
+
+.select {
+	width: 350px;
+	height: 30px;
+}
 </style>
 <body>
 	<header>
@@ -215,12 +220,12 @@ button {
 		<table border="1">
 			<tr>
 				<td>카테고리</td>
-				<td><select>
-						<option value="전체" selected>전체</option>
-						<option value="라면" selected>라면</option>
-						<option value="식사" selected>식사</option>
-						<option value="음료" selected>음료</option>
-						<option value="커피" selected>커피</option>
+				<td><select class="select">
+						<option class = "btnfont" value="전체" selected>전체</option>
+						<option class = "btnfont" value="라면" selected>라면</option>
+						<option class = "btnfont" value="식사" selected>식사</option>
+						<option class = "btnfont" value="음료" selected>음료</option>
+						<option class = "btnfont" value="커피" selected>커피</option>
 				</select></td>
 			</tr>
 			<tr>
