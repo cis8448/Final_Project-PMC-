@@ -29,7 +29,7 @@ window.onload=function(){
 </head>
 <body>
 <div class="helloId">
-<h1 id="title">한조 PC방 관리자용</h1>
+<h1 id="title">PMC LogIn</h1>
 </div><br/>
 <center>
 	<div class="login">
@@ -38,16 +38,16 @@ window.onload=function(){
 				<img src="./resources/image/dd.png" width="200" height="140">
 			</div>
 			<div class="login-form">
-				<form action="access" method="post">
+				<form action="JSPLoginCall" method="post">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="아이디 입력" name="m_id">
+				<input type="text" class="login-field" value="" placeholder="아이디 입력" name="p_id">
 				</div>
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="비밀번호 입력" name="m_pwd">
+				<input type="password" class="login-field" value="" placeholder="비밀번호 입력" name="p_pass">
 				</div>
 
 				<button class="btn">로그인</button>
-				<a class="login-link" href="./joinfrm"> 회원가입 </a><a class="login-link" href="./joinfrm"> 아이디/비밀번호찾기 </a>
+				<a class="login-link" href="./SignUp"> 회원가입 </a><a class="login-link" href="./id/pwSelect"> 아이디/비밀번호찾기 </a>
 				</form>	
 			</div>
 		</div>
