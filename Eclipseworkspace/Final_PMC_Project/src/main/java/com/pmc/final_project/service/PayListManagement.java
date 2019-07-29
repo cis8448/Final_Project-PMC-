@@ -55,8 +55,8 @@ public class PayListManagement {
 		mav  = new ModelAndView();
 		String view = null;
 		
-		PayMentDetail paymentdetail = payDao.getPayContent(ProductNum);
-		mav.addObject("paymentdetail", paymentdetail);
+//		PayMentDetail paymentdetail = payDao.getPayContent(ProductNum);
+//		mav.addObject("paymentdetail", paymentdetail);
 		
 		view = "MemberPayList";
 		mav.setViewName(view);
