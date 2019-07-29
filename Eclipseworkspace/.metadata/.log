@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 !SESSION 2019-07-29 09:42:30.731 -----------------------------------------------
+=======
+!SESSION 2019-07-29 09:12:09.936 -----------------------------------------------
+>>>>>>> bbd542b2555d69f497b71ce57f71a30905713074
 eclipse.buildId=4.11.0.I20190307-0500
 java.version=1.8.0_211
 java.vendor=Oracle Corporation
@@ -6,6 +10,7 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
+<<<<<<< HEAD
 This is a continuation of log file C:\Users\11\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.bak_0.log
 Created Time: 2019-07-29 09:58:32.774
 
@@ -74,3 +79,53 @@ java.lang.Exception: Resource already exists on disk: '/Final_PMC_Project/target
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:58:34.557
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+This is a continuation of log file C:\Users\13\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.bak_0.log
+Created Time: 2019-07-29 09:52:46.382
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:52:46.386
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+<<<<<<< HEAD
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:52:46.406
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:43:49.160
+>>>>>>> cb56f8737b6f7fb7e719cb568fd1a96d2e1ff0b9
+>>>>>>> e23c59f37c0b2a074752122aaa384ea7b72f1e7f
+<<<<<<< HEAD
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+>>>>>>> 8f9b28acff891bfcbc6a6ee31aee87c55dd4c9e2
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:50:02.710
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:50:02.799
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:50:03.895
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:50:03.901
+=======
+>>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+<<<<<<< HEAD
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:49:14.894
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:49:14.903
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:49:15.947
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 09:49:15.966
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+=======
+>>>>>>> 8f9b28acff891bfcbc6a6ee31aee87c55dd4c9e2
+>>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
+>>>>>>> a6bbb578f0be241c6fb91edd1bb6d7d9176bfcd2
+>>>>>>> ed6844bd2b4ed7e3d3e1dba049b354a9565d3b2d
+>>>>>>> bbd542b2555d69f497b71ce57f71a30905713074
