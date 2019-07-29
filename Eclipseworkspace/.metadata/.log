@@ -2877,3 +2877,69 @@ org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementExc
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 18:31:19.028
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-07-29 19:18:39.540
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.pmc.final_project.service.PayListManagement]; nested exception is java.io.IOException: Could not find com.pmc.final_project.service$PayListManagement
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:183)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:308)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$4.run(BeansConfig.java:775)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.executePostProcessor(BeansConfig.java:758)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.postProcess(BeansConfig.java:641)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.access$8(BeansConfig.java:600)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$3.call(BeansConfig.java:460)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$3.call(BeansConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: Could not find com.pmc.final_project.service$PayListManagement
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:50)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:701)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:656)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:200)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:169)
+	... 15 more
+
+!ENTRY org.springframework.ide.eclipse.beans.core 2 0 2019-07-29 19:18:52.830
+!MESSAGE Error occured while running bean post processors
+!STACK 0
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.pmc.final_project.service.PayListManagement]; nested exception is java.io.IOException: Could not find com.pmc.final_project.service$PayListManagement
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:183)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:308)
+	at org.springframework.ide.eclipse.metadata.process.JdtConfigurationClassPostProcessor.postProcess(JdtConfigurationClassPostProcessor.java:88)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$4.run(BeansConfig.java:775)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.executePostProcessor(BeansConfig.java:758)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.postProcess(BeansConfig.java:641)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig.access$8(BeansConfig.java:600)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$3.call(BeansConfig.java:460)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansConfig$3.call(BeansConfig.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: Could not find com.pmc.final_project.service$PayListManagement
+	at org.springframework.ide.eclipse.core.java.classreading.JdtMetadataReaderFactory.getMetadataReader(JdtMetadataReaderFactory.java:50)
+	at org.springframework.ide.eclipse.core.java.classreading.CachingJdtMetadataReaderFactory.getMetadataReader(CachingJdtMetadataReaderFactory.java:38)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:701)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:656)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:200)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:169)
+	... 15 more
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 19:18:55.563
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-07-29 19:18:55.597
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
