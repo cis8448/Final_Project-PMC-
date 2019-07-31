@@ -25,8 +25,9 @@
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
 
-        img{width:150px;height:200px; padding:10px;}
-        
+        img{width:300px;height:200px; padding:10px;}
+
+
         
         
       
@@ -42,7 +43,7 @@
             <li class="mainmenu"><a href="./">좌석</a></li>
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
-            <li class="mainmenu"><a href="#">매출</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
             <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 
         </ul>    

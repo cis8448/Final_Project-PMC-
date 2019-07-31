@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,10 +44,10 @@
 			<img src="./resources/img/dd.png" width="200" height="140">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
+			<li class="mainmenu"><a href="./">좌석</a></li>
 			<li class="mainmenu"><a href="#">상품</a></li>
 			<li class="mainmenu"><a href="#">회원</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
 			<li class="mainmenu"><a href="#">기타</a></li>
 		</ul>
 	</header>
@@ -97,8 +98,21 @@
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
 			
-		</tr>
+		</tr>	
+		<c:forEach var="paymentdetail" items="${pList}">
+    	<tr>
+    		<td>${paymentdetail.u_start}</td>
+    		<td>${paymentdetail.u_finish}</td>
+    		<td>${paymentdetail.pc_name}</td>
+    		<td>${paymentdetail.m_id}</td>
+    		<td>${paymentdetail.pr_name}</td>
+    		<td>${paymentdetail.pl_qty}</td>
+    		<td>${paymentdetail.pl_price}</td>
+    		
+    	</tr>
+    	</c:forEach>
 	</table>
+	
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
@@ -108,5 +122,6 @@
 
 
 </body>
+
 
 </html>

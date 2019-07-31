@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/Style.css" type="text/css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 <body>
 <body>
@@ -30,18 +32,18 @@
 							<table>
 								<tr>
 									<th><input type="text" name="p_id" class="login-field"
-										value="" placeholder="아이디" id="userid" required="required"></th>
-									<td><button type="button" value="중복확인" onclick="btn1()" /></td>
+										value="" placeholder="아이디" id="userid" required="required" maxlength="20" size="20"></th>
+									<td><button type="button" onclick="btn1()" style="width: 80px; height: 40px">중복확인</button></td>
 								</tr>
 							</table>
 						</div>
 						<div class="control-group">
 							<input type="password" name="p_pass" class="login-field" value=""
-								placeholder="비밀번호" required="required">
+								placeholder="비밀번호" required="required" maxlength="20" size="20">
 						</div>
 						<div class="control-group">
 							<input type="password" name="p_pass2" class="login-field"
-								value="" placeholder="비밀번호 확인" required="required">
+								value="" placeholder="비밀번호 확인" required="required" maxlength="20" size="20">
 						</div>
 						<div class="control-group">
 							<input type="text" name="p_name" class="login-field" value=""
@@ -49,11 +51,11 @@
 						</div>
 						<div class="control-group">
 							<input type="text" name="p_addr" class="login-field" value=""
-								placeholder="주소" required="required">
+								placeholder="주소" required="required" >
 						</div>
 						<div class="control-group">
 							<input type="text" name="p_phone" class="login-field" value=""
-								placeholder="전화번호(숫자만입력하세요!)" required="required">
+								placeholder="전화번호(숫자만입력하세요!)" required="required" maxlength="11" size="11">
 						</div>
 						<div class="control-group">
 							<input type="text" name="p_email" class="login-field" value=""
@@ -70,6 +72,16 @@
 
 	</center>
 </body>
+<script>
+window.onload = function() {
+	var chk = ${param.ck};
+	
+	if (chk == 1) {
+		alert("비밀번호가 서로 다릅니다!");
+	}
+
+}
+</script>
 <script>
 	function check() {
 		var frm = document.SignUp;
@@ -105,6 +117,7 @@
 				} else {
 					alert("사용가능한 아이디입니다.");
 					//아이디가 중복하지 않으면  idck = 1 
+					document.all.userid.readOnly=true;
 					idck = 1;
 				}
 
@@ -125,6 +138,9 @@
 		}
 	}
 </script>
+
+
+
 </html>
 
 
