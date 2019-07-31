@@ -4,12 +4,18 @@
 
 <mapper namespace="com.pmc.final_project.dao.IMemberDao">
 	<select id="getmemberAllList" resultType="Member" parameterType="int">
-		SELECT * FROM MEMBER ORDER BY M_NAME ASC
+		SELECT * FROM PCMEMBER		
 	</select>
+
 	<select id="getMemberCount" resultType="int">
 		SELECT * FROM MEMBER
 	</select>
+	
 	<select id ="getmemberRetime" resultType="int">
 		SELECT SP_TIME AS M_RETIME FROM MYPC
+	</select>
+	
+	<select id="getmemberInfo" resultType="Member" parameterType="string">
+		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id}
 	</select>
 </mapper>

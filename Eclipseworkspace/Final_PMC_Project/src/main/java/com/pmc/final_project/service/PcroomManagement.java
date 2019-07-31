@@ -1,18 +1,32 @@
 package com.pmc.final_project.service;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+>>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
 
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.util.fileUpload;
 
 @Service
 public class PcroomManagement {
@@ -24,6 +38,11 @@ public class PcroomManagement {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	fileUpload fb;
+	
+	
 	
 
 	public ModelAndView JSPSignUp(PcRoomBean pr) {
@@ -157,7 +176,17 @@ public class PcroomManagement {
 		
 		return mav;
 	}
-
+	public ModelAndView insertfileroot(MultipartHttpServletRequest multi) {
+		ModelAndView mav = new ModelAndView();
+		MappingJackson2JsonView view = new MappingJackson2JsonView();
+		view.setPrettyPrint(true);
+		mav.setView(view);
+		String root = null;
+		root = fb.upFile(multi);
+		mav.addObject("src",root);
+		
+		return mav;
+	}
 
 	
 

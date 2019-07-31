@@ -2,7 +2,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("pcroom")
+@Alias("PcRoomBean")
 public class PcRoomBean {
 	
 	private String p_id;

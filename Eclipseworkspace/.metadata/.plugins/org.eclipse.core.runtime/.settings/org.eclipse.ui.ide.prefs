@@ -1,25 +1,16 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=2767435f93a9076cc038717bd7e71357e2653f3a
+>>>>>>>=7db53da1170e3a1f1645180584aaae9e5bd4fb58
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
 <<<<<<< HEAD
-platformState=1559090496459
+platformState=1559091507613
+=======
+<<<<<<< HEAD
+platformState=1559089976372
 =======
 platformState=1559090803530
-=======
-<<<<<<< HEAD
->>>>>>>=8aee5e3cc6b0457bcd35c393bf15d79fee5aa237
-PROBLEMS_FILTERS_MIGRATE=true
-eclipse.preferences.version=1
-platformState=1559089535156
-=======
->>>>>>>=28ac639075e9640a26e81a7da50d06dc4cb7fac4
-PROBLEMS_FILTERS_MIGRATE=true
-eclipse.preferences.version=1
-platformState=1559090595860
->>>>>>> 56132634bbe5adc3b746a34d789fb25478aef37b
->>>>>>> cb56f8737b6f7fb7e719cb568fd1a96d2e1ff0b9
->>>>>>> 7db53da1170e3a1f1645180584aaae9e5bd4fb58
+>>>>>>> 74ec1ff67a8cd5a46965d25414c4610203775026
+>>>>>>> 123d3664259488f1c4df30f3c63310bbb37f41b6
 quickStart=false
 tipsAndTricks=true
