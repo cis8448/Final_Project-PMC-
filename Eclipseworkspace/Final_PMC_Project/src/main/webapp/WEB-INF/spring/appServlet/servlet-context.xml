@@ -94,7 +94,6 @@
 
 	</beans:bean>
 	
-
 	<beans:bean id="nDao"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"
