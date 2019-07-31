@@ -5,14 +5,14 @@ public class Paging {
 	private int pageNum;//현재 페이지 번호
 	private int listCount;//10
 	private int pageCount;//2
-	private String memberName;//게시판 종류
+	private String PayListName;
 	
-	public Paging(int maxNum, int pageNum, int listCount, int pageCount, String boardName) {
+	public Paging(int maxNum, int pageNum, int listCount, int pageCount, String PayListName) {
 		this.maxNum = maxNum;
 		this.pageNum = pageNum;
 		this.listCount = listCount;
 		this.pageCount = pageCount;
-		this.memberName = memberName;
+		this.PayListName = PayListName;
 	}
 	
 	public String makeHtmlpaging() {
@@ -40,14 +40,14 @@ public class Paging {
 				? totalPage : curGroup * pageCount;
 		//이전 그룹으로 이동
 		if(start != 1) {
-			sb.append("<a href='" + memberName 
+			sb.append("<a href='" + PayListName 
 					+ "?pageNum=" + (start - 1) + "'>");
 			sb.append("[이전]</a>");
 		}
 		//페이지 번호들에 대한 처리
 		for(int i = start; i <= end; i++) {
 			if(pageNum != i) {//현재 페이지가 아니면 링크 설정
-				sb.append("<a href='" + memberName 
+				sb.append("<a href='" + PayListName 
 						+ "?pageNum=" + i + "'>");
 				sb.append(" [ " + i + " ]</a>");
 			}
@@ -58,7 +58,7 @@ public class Paging {
 		}
 		//다음 그룹으로 이동
 		if(end != totalPage) {
-			sb.append("<a href='" + memberName 
+			sb.append("<a href='" + PayListName 
 					+ "?pageNum=" + (end + 1) + "'>");
 			sb.append("[다음]</a>");
 		}

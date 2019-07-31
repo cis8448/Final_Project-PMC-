@@ -130,12 +130,13 @@ table {
 	</header>
 	<aside>
 		<ul id="SubMenu">
-			<li class="SubMenu"><a href="./MasterNotice">傍瘤荤亲</a>
+			<li class="SubMenu"><a href="#">傍瘤荤亲</a>
 				<ul>
+				<li class="SubsMenu"><a href="./MasterNotice">款康 包府磊 ->
+							PC规包府磊</a></li>
 					<li class="SubsMenu"><a href="./PcmasterNotice">PC规 包府磊 ->
 							绊按</a></li>
-					<li class="SubsMenu"><a href="./MasterNotice">款康 包府磊 ->
-							PC规包府磊</a></li>
+					
 				</ul></li>
 			<li class="SubMenu"><a href="#">绊按季磐</a>
 				<ul>
@@ -162,12 +163,11 @@ table {
 
 	</section>
 
-		<form action="#">
+		
+		<form action="./NoticeWrite">
 			<button>累己</button>
 		</form>
-		<form action="#">
-			<button>昏力</button>
-		</form>
+		
 
 	<footer>
 		<h1>ICIA Pc Project</h1>

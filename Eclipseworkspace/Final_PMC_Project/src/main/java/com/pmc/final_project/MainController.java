@@ -27,7 +27,7 @@ import com.pmc.final_project.service.SeatManagement;
 
 @Controller
 public class MainController {
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	
 	ModelAndView mav;
@@ -38,13 +38,15 @@ public class MainController {
 	SeatManagement sm;
 	
 	@Autowired
-	HttpSession session;
+	HttpSession session;	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
 
+
 		return "SeatState";   
+
 	}
 	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
 	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
@@ -97,6 +99,9 @@ public class MainController {
 		return mav;
 	}
 	
+
+	
+	
 	@RequestMapping(value="/logout" )
 	public String logout() {
 		session.invalidate();
@@ -104,5 +109,7 @@ public class MainController {
 		return "home";
 		
 	}
+	
+	
 
 }

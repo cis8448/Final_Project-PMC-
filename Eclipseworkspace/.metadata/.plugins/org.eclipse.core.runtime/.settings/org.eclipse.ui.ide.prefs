@@ -3,6 +3,14 @@
 >>>>>>>=7db53da1170e3a1f1645180584aaae9e5bd4fb58
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
+<<<<<<< HEAD
 platformState=1559091507613
+=======
+<<<<<<< HEAD
+platformState=1559089976372
+=======
+platformState=1559090803530
+>>>>>>> 74ec1ff67a8cd5a46965d25414c4610203775026
+>>>>>>> 123d3664259488f1c4df30f3c63310bbb37f41b6
 quickStart=false
 tipsAndTricks=true

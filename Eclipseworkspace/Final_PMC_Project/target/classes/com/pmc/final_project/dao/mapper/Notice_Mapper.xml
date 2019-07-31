@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pmc.final_project_dao_INotice">
+
+<insert id="NoticeInsert" parameterType="PcRoomNoticeBean"
+useGeneratedKeys="true" keyProperty="no_num">
+<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
+	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+</selectKey>
+	INSERT INTO NOTICE VALUES
+</insert>	
+</mapper>
