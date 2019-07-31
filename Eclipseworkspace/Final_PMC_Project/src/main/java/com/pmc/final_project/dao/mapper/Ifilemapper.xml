@@ -5,4 +5,7 @@
 	<insert id="fileInsert" parameterType="HashMap">
 		INSERT INTO SEATFILE(SF_P_ID, SF_NAME, SF_SYSNAME) VALUES(#{p_id},#{oriFileName},#{sysFileName})
 	</insert>
+	<select id="SelectFile" parameterType="String" resultType="FileBean">
+		SELECT * FROM FILES WHERE P_ID = #{id}
+	</select>
 </mapper>
