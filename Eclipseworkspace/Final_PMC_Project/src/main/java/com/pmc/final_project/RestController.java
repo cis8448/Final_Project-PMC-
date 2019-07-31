@@ -55,7 +55,25 @@ public class RestController {
 
 		return json;
 	}
+	@RequestMapping(value="/accept", method = RequestMethod.POST)  
+	public @ResponseBody String accept(@RequestBody String userid) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("accept execute ");
 
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		count = pDao.accept(userid);
+		map.put("cnt", count);
+
+		String json= null;
+		json = new Gson().toJson(map);
+
+
+		mav.setViewName("SeatState");
+
+		return json;
+	}
 
 
 

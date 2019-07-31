@@ -68,10 +68,11 @@ input {
 
 					<input type="submit" value="찾기"
 						style="background: #3232FF; color: white; margin-top: 150px; width: 100px">
-					<form action="" method="get"> 
-						<input type="submit" value="취소"
-							style="background: #3232FF; color: white; margin-top: 150px; width: 100px">
-					</form>
+
+					<input type="button" value="취소"
+						style="background: #3232FF; color: white; margin-top: 150px; width: 100px"
+						onclick="cancel()">
+
 
 
 				</form>
@@ -89,5 +90,12 @@ input {
 		}
 
 	}
+</script>
+<script type="text/javascript">
+function cancel() {
+	
+	location.href="./"
+	
+}
 </script>
 </html>

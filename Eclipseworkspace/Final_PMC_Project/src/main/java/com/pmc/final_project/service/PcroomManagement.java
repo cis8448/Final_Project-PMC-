@@ -4,10 +4,7 @@ package com.pmc.final_project.service;
 import java.util.HashMap;
 
 import java.util.Map;
-
-
-
-
+import java.util.Random;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +24,8 @@ import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
 
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.util.FindUtil;
+import com.pmc.final_project.util.MailUtil;
 import com.pmc.final_project.util.fileUpload;
 
 @Service
@@ -91,21 +90,23 @@ public class PcroomManagement {
 
 		mav = new ModelAndView();
 		String view = null;
-
+		System.out.println("첫번쨰11 ");
 		BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
-
+		System.out.println("첫번쨰222 ");
 		//DB에서 암호화된 패스워드 얻어오기
 		String endPwd = pDao.getSecurityPwd(pr.getP_id());
-
+		System.out.println("첫번쨰22 ");
 		if(endPwd != null) {
 			if(pwdEncoder.matches(pr.getP_pass(), endPwd)) {//내부적으로 db에 암호화된 비밀번호와 비교하여 일치하면T 아니면 f로 리턴
+				System.out.println("두번쨰 33");
+
 				session.setAttribute("id", pr.getP_id());
 				//메인 화면으로 전환..
 				//=>게시판 목록
 				// 로그인한 회원의 일부정보, 게시글 목록
 				pr = pDao.getMemberInfo(pr.getP_id());
 				mav.addObject("pr",pr);
-				view = "redirect:/Main";
+				view = "redirect:/SeatState";
 				System.out.println("로그인성공");
 			}
 			else {
@@ -132,13 +133,15 @@ public class PcroomManagement {
 
 		mav = new ModelAndView();
 		String view = null;
-		String id = pDao.idsearch(pr);
 
-		if(!(id.equals(""))) {
+
+		int count = 0;
+		count = pDao.idselinfo(pr);
+		if(count>0) {
+			String id = pDao.idsearch(pr);
 			mav.addObject("p_id",2);
 			mav.addObject("p_id2",id);
 			System.out.println("들어왔어");
-
 		}else {
 			mav.addObject("p_id",1);
 			System.out.println("틀렸어");
@@ -151,28 +154,47 @@ public class PcroomManagement {
 	}
 
 
-	public ModelAndView pwsearch(String cID) {
+	public ModelAndView pwsearch(PcRoomBean pr) {
 		// TODO Auto-generated method stub
 
 		mav = new ModelAndView();
 		String view = null;
-		String cid = (String)session.getAttribute("cid");
-		String keyCode = (String)session.getAttribute("keyCode");
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("cid",cid);
-		map.put("KeyCode",keyCode);
 
-		if(pDao.pwsearch(map)) {
-			//성공
-			view = "redirect:/pw";
-			mav.addObject("check",1);
-			System.out.println("비밀번호변경1");
-		}
-		else {
-			//실패
-			System.out.println("비밀번호변경2");
+		int count = 0;
+		count = pDao.pwselinfo(pr);
+		if(count>0){
+			String email=pDao.emailsearch(pr);
+			try {
+				findPwd(pr.getP_email());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			String keyCode = (String)session.getAttribute("keyCode");
+			map.put("cid",pr.getP_id());
+
+
+			BCryptPasswordEncoder pwdEncoder = 
+					new BCryptPasswordEncoder();
+			keyCode = pwdEncoder.encode(keyCode);
+			map.put("KeyCode",keyCode);
+			if(pDao.pwsearch(map)) {
+				//성공
+				view = "redirect:/pw";
+				mav.addObject("check",1);
+				System.out.println("비밀번호변경1");
+				session.removeAttribute("keyCode");
+			}
+			else {
+				//실패
+				System.out.println("비밀번호변경2");
+				view="redirect:/pw";
+			}
+		}else {
+			System.out.println("비밀번호변경3");
 			view="redirect:/pw";
 		}
+
 		mav.setViewName(view);
 
 		return mav;
@@ -189,9 +211,36 @@ public class PcroomManagement {
 		return mav;
 	}
 
+	public void findPwd(String id) throws Exception {
+
+		String keyCode = FindUtil.createKey();
+		session.setAttribute("keyCode", keyCode);
+
+		String subject = "임시 비밀번호 발송 안내";
+
+		String msg = "";
+		msg += "<div align='center' style='border:1px solid black; font-family:verdana'>";
+		msg += "<h3 style='color: blue;'>임시 비밀번호 입니다.</h3>";
+		msg += "<div style='font-size: 130%'>";
+		msg += "비밀번호가 임시 비밀번호로 변경 되었습니다! 로그인 후 비밀번호 변경 부탁드립니다! <strong>";
+		msg += keyCode + "</strong> 를 입력해주세요.</div><br/>";
+
+
+
+		MailUtil.sendMail(id, subject, msg);
+
+	}	
+	
 
 
 
 
 
 }
+
+
+
+
+
+
+
