@@ -22,6 +22,7 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
+<<<<<<< HEAD
 	@Autowired
 	HttpSession session;
 	
@@ -33,6 +34,9 @@ public class PayController {
 		
 		return mav;
 	}
+=======
+
+>>>>>>> 47d79b3a7b9585688b42e5f2734691f8a60c854d
 	
 	
 	@RequestMapping(value = "/CatePayList")

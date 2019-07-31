@@ -23,7 +23,7 @@ import com.pmc.final_project.service.PcroomManagement;
 
 @Controller
 public class MainController {
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	
 	ModelAndView mav;
@@ -32,7 +32,7 @@ public class MainController {
 	PcroomManagement pm;
 	
 	@Autowired
-	HttpSession session;
+	HttpSession session;	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -90,5 +90,12 @@ public class MainController {
 		return "home";
 		
 	}
+	
+	
+	@RequestMapping(value = "/MemberPayList")
+	public String MemberPayList() {
 
+
+		return "MemberPayList";   
+	}
 }

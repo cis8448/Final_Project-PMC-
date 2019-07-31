@@ -9,4 +9,9 @@
 <item elementID="=Final_PMC_Project/src\/test\/resources" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1564052423308_2" label="Window Working Set" name="Aggregate for window 1564052423307"/>
+<<<<<<< HEAD
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1564397452497_3" label="Window Working Set" name="Aggregate for window 1564392625835"/>
+=======
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1564443545137_3" label="Window Working Set" name="Aggregate for window 1564052732534"/>
+>>>>>>> 74ec1ff67a8cd5a46965d25414c4610203775026
 </workingSetManager>
