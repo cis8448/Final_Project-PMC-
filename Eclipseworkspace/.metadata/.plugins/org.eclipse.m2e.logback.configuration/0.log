@@ -4273,3 +4273,9 @@ org.eclipse.jface.text.BadLocationException: null
 2019-08-01 08:33:46,247 [Worker-430: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-email:1.5
 2019-08-01 08:33:46,682 [Worker-430: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://code.lds.org/nexus/content/groups/main-repo/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6-sources.jar
 2019-08-01 08:33:46,915 [Worker-430: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6-sources.jar
+2019-08-01 08:33:52,358 [Worker-430: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6-sources.jar
+2019-08-01 08:33:52,458 [Worker-430: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.sun.mail:javax.mail:1.5.6
+2019-08-01 08:33:52,707 [Worker-431: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-01 08:33:52,716 [Worker-431: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-01 08:33:52,720 [Worker-431: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-01 08:33:52,725 [Worker-431: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
