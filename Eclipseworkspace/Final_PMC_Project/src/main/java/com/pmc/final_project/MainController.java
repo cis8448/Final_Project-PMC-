@@ -92,10 +92,5 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 	}
 	
 	
-	@RequestMapping(value = "/MemberPayList")
-	public String MemberPayList() {
 
-
-		return "MemberPayList";   
-	}
 }

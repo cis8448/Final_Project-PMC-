@@ -67,13 +67,9 @@
 			value="com.pmc.final_project.dao.IMemberDao" />
 
 	</beans:bean>
-<<<<<<< HEAD
-	
-	<beans:bean id="payDao"
-=======
 
 	<beans:bean id="PayDao"
->>>>>>> 47d79b3a7b9585688b42e5f2734691f8a60c854d
+
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"
 			ref="sqlSessionFactory" />

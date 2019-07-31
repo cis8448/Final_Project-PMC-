@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.service.PayListManagement;
-import com.pmc.final_project.service.PcroomManagement;
+
 
 @Controller
 public class PayController {
@@ -22,7 +22,7 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
-<<<<<<< HEAD
+
 	@Autowired
 	HttpSession session;
 	
@@ -34,9 +34,7 @@ public class PayController {
 		
 		return mav;
 	}
-=======
 
->>>>>>> 47d79b3a7b9585688b42e5f2734691f8a60c854d
 	
 	
 	@RequestMapping(value = "/CatePayList")
