@@ -12,11 +12,17 @@
 		<list key="textArray">
 		</list>
 	</section>
+<<<<<<< HEAD
 	<section name="NewWizardAction">
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.wst.web.ui"/>
 			<item value="org.eclipse.wst.XMLCategory"/>
 		</list>
+=======
+	<section name="ImportExportAction">
+	</section>
+	<section name="FileSystemImportWizard">
+>>>>>>> 5a016e3726a14f016ce056242f181927eed123e7
 	</section>
 </section>
