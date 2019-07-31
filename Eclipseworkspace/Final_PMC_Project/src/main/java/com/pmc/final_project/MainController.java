@@ -1,6 +1,7 @@
 package com.pmc.final_project;
 
 import java.util.HashMap;
+
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.SessionAttributes;
-=======
+
 import org.springframework.web.multipart.MultipartHttpServletRequest;
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -43,7 +44,6 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 	SeatManagement sm;
 	
 	@Autowired
-<<<<<<< HEAD
 	HttpSession session;
 	
 	@RequestMapping(value = "/Main", method = RequestMethod.GET)
@@ -52,16 +52,16 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 
 		return "Main";   
 	}
-=======
-	HttpSession session;	
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
+
+
+
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
 
 
-		return "SeatState";   
+		return "Login";   
 
 	}
 	@RequestMapping(value = "/LoginFail", method = RequestMethod.GET)
@@ -122,20 +122,16 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 		return mav;
 	}
 	
-<<<<<<< HEAD
-=======
 
-	
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
 	
 	@RequestMapping(value="/logout" )
 	public String logout() {
 		session.invalidate();
 		
-		return "home";
+		return "Login";
 		
 	}
-<<<<<<< HEAD
+
 	@RequestMapping(value = "/id", method = RequestMethod.GET)//uri 매핑
 	public String id(Model model) {
 		logger.info("Id execute ");
@@ -146,10 +142,7 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 	@RequestMapping(value = "/pw", method = RequestMethod.GET)//uri 매핑
 	public String pw(Model model) {
 		logger.info("pw execute ");
-=======
-	
-	
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
+
 
 		
 		return "pw";//jsp파일 이름고 ㅏ동일해야함

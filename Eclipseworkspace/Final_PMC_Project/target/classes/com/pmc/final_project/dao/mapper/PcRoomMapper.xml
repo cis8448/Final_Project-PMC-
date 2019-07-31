@@ -16,21 +16,13 @@
 		SELECT p_pass FROM SBPCROOM WHERE p_id=#{id}
 	</select>
 
-	<select id="getMemberInfo" parameterType="String"
-<<<<<<< HEAD
-		resultType="pcroom">
+	<select id="getMemberInfo" parameterType="String" resultType="pcroom">
 		SELECT * FROM SBPCROOM WHERE p_id=#{id}
-=======
-		resultType="PcRoomBean">
-		SELECT * FROM PCROOM WHERE p_id=#{id}
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
 	</select>
 
 	<select id="PCIdCheck" parameterType="String" resultType="Integer">
-	
 		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{userid}
 	</select>
-	
 	<select id="idsearch" parameterType="pcroom" resultType="String">
 		SELECT P_ID FROM SBPCROOM WHERE (P_NAME=#{p_name} AND P_PHONE=#{p_phone})
 	</select>

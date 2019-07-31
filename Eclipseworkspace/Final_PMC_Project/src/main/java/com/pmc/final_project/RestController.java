@@ -30,14 +30,12 @@ public class RestController {
 	private static final Logger logger = LoggerFactory.getLogger(RestController.class);
 	@Autowired
 	private IPcRoom pDao;
-<<<<<<< HEAD
 
-=======
 	@Autowired
 	private PcroomManagement pm; 
 	
 	
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
+
 	@RequestMapping(value="/PCIdCheck", method = RequestMethod.POST)  
 	public @ResponseBody String idcheck(@RequestBody String userid) {
 		ModelAndView mav = new ModelAndView();
@@ -52,18 +50,15 @@ public class RestController {
 		String json= null;
 		json = new Gson().toJson(map);
 
-<<<<<<< HEAD
+
 		mav.setViewName("SignUp");
 
 		return json;
 	}
 
 
-=======
-        mav.setViewName("SignUp");
-      
-        return json;
-    }
+
+
 	@RequestMapping(value = "/imgsave", method = RequestMethod.POST, consumes = {"multipart/form-data"})
 	public ModelAndView insertSeatImg(MultipartHttpServletRequest multi) {
 		ModelAndView mav = new ModelAndView();
@@ -74,5 +69,4 @@ public class RestController {
 		    return mav;
 		   }
 	
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
 }

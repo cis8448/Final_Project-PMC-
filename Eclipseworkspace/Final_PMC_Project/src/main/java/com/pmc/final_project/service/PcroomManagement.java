@@ -1,10 +1,11 @@
 package com.pmc.final_project.service;
 
-<<<<<<< HEAD
+
 import java.util.HashMap;
+
 import java.util.Map;
 
-=======
+
 
 
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
->>>>>>> 5e48650e69009fe9921478f0aaf9c5972bac6a32
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,27 +31,27 @@ import com.pmc.final_project.util.fileUpload;
 
 @Service
 public class PcroomManagement {
-	
+
 	private ModelAndView mav;
-	
+
 	@Autowired
-	private IPcRoom pDao;//servlet-context.xml의 pDao 객체와 연결
-	
+	private IPcRoom pDao;
+
 	@Autowired
 	private HttpSession session;
-	
+
 	@Autowired
 	fileUpload fb;
-	
-	
-	
+
+
+
 
 	public ModelAndView JSPSignUp(PcRoomBean pr) {
 		// TODO Auto-generated method stub
-		
+
 		mav = new ModelAndView();
 		String view = null;
-		
+
 		if(!(pr.getP_pass().equals(pr.getP_pass2()))) {//비밀번호, 비밀번호 확인의 String 값이 서로 다를 경우 
 			System.out.println("오긴왔어1");
 			mav.addObject("ck",1);
@@ -58,13 +59,13 @@ public class PcroomManagement {
 			mav.setViewName(view);
 			return mav;
 		}
-		
-		
-		
+
+
+
 		//패스워드 spring-security로 이용하여 암호화
 		BCryptPasswordEncoder pwdEncoder = 
 				new BCryptPasswordEncoder();
-		
+
 		pr.setP_pass(pwdEncoder.encode(pr.getP_pass()));
 		System.out.println("오긴왔어2");
 		//DB insert 
@@ -79,15 +80,15 @@ public class PcroomManagement {
 			view="SignUp";
 		}
 		mav.setViewName(view);
-		
-		
+
+
 		return mav;
 	}
 
 
 	public ModelAndView JSPLoginCall(PcRoomBean pr) {
 		// TODO Auto-generated method stub
-		
+
 		mav = new ModelAndView();
 		String view = null;
 
@@ -118,41 +119,41 @@ public class PcroomManagement {
 			view = "redirect:/LoginFail";
 			//mav.addObject("check",2);
 		}
-		
-		
+
+
 		mav.setViewName(view);
-		
+
 		return mav;
 	}
 
 
 	public ModelAndView idsearch(PcRoomBean pr) {
 		// TODO Auto-generated method stub
-		
+
 		mav = new ModelAndView();
 		String view = null;
 		String id = pDao.idsearch(pr);
-		
+
 		if(!(id.equals(""))) {
 			mav.addObject("p_id",2);
 			mav.addObject("p_id2",id);
 			System.out.println("들어왔어");
-			
+
 		}else {
 			mav.addObject("p_id",1);
 			System.out.println("틀렸어");
 		}
-		
+
 		view="redirect:/id";
 		mav.setViewName(view);
-		
+
 		return mav;
 	}
 
 
 	public ModelAndView pwsearch(String cID) {
 		// TODO Auto-generated method stub
-		
+
 		mav = new ModelAndView();
 		String view = null;
 		String cid = (String)session.getAttribute("cid");
@@ -160,7 +161,7 @@ public class PcroomManagement {
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("cid",cid);
 		map.put("KeyCode",keyCode);
-		
+
 		if(pDao.pwsearch(map)) {
 			//성공
 			view = "redirect:/pw";
@@ -173,7 +174,7 @@ public class PcroomManagement {
 			view="redirect:/pw";
 		}
 		mav.setViewName(view);
-		
+
 		return mav;
 	}
 	public ModelAndView insertfileroot(MultipartHttpServletRequest multi) {
@@ -184,13 +185,13 @@ public class PcroomManagement {
 		String root = null;
 		root = fb.upFile(multi);
 		mav.addObject("src",root);
-		
+
 		return mav;
 	}
 
-	
 
 
-	
+
+
 
 }
