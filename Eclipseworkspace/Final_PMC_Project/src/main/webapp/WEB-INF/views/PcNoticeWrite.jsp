@@ -20,16 +20,16 @@
         .SubMenu:first-child{margin-top: 200px;text-decoration: underline}
         header{position: fixed; z-index: 999;background-color: white;width: 100%}
         aside{position:  relative; top: 180px;float: left;width: 10%; left: 70px}
-        section{background-color: red;position: relative; top: 250px;float: right;width: 80%}
+        section{position: relative; top: 250px;float: right;width: 60% }
         footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;position: fixed;bottom: 0px;width: 100%}
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
         img{width:150px;height:200px; padding:10px;}
+        .notice{text-align: center;}
+        .btn {margin-left: 47%; margin-top: 10px}
         
-        
-        
+       
       
-        
     </style>
 <body>
     <header>
@@ -52,7 +52,35 @@
     </ul>
     </aside>
     <section>
-        각각 탭의 대한 내용 들어갈곳
+    	<table border="1px solid black" class="noticewrite">
+			<tr >
+				<td colspan="3" class="notice">공지사항</td>
+				<br>
+			</tr>
+			<tr class="NoticeNum">
+				<td>제목</td>
+				<td><textarea type="text" 
+                           placeholder="글 제목" name="btitle" maxlength="100"
+                           style="width: 600px; height: 20px "  
+                           ></textarea></td>
+         </tr>
+         <tr>                  
+                <td>내용</td>
+                <td><textarea placeholder="글 내용" name="bcontent" maxlength="1000"
+                style="width: 600px; height: 300px"></textarea></td></tr>
+ 
+		</table>
+		
+		<table class="btn">
+		<tr>
+			<td><button>작성</button></td>
+			<td><form action="./MasterNotice"><button>취소</button></td></form>
+		</tr>
+		
+		
+		</table>
+
+
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>

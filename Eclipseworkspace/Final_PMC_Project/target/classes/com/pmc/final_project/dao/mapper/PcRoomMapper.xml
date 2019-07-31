@@ -4,7 +4,6 @@
 
 <mapper namespace="com.pmc.final_project.dao.IPcRoom">
 	<insert id="JSPSignUp" parameterType="pcroom"><!-- 회원가입 처리 -->
-
 		INSERT INTO SBPCROOM
 		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday) VALUES
 		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2)

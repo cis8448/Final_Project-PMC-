@@ -38,7 +38,7 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
-		return "Login";   
+		return "Main";   
 	}
 	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
 	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
