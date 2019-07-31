@@ -22,24 +22,25 @@ public class RestController {
 	private static final Logger logger = LoggerFactory.getLogger(RestController.class);
 	@Autowired
 	private IPcRoom pDao;
-	
+
 	@RequestMapping(value="/PCIdCheck", method = RequestMethod.POST)  
-    public @ResponseBody String idcheck(@RequestBody String userid) {
+	public @ResponseBody String idcheck(@RequestBody String userid) {
 		ModelAndView mav = new ModelAndView();
 		logger.info("asdasasd execute ");
-		
-        int count = 0;
-        Map<Object, Object> map = new HashMap<Object, Object>();
- 
-        count = pDao.PCIdCheck(userid);
-        map.put("cnt", count);
-        
-        String json= null;
+
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		count = pDao.PCIdCheck(userid);
+		map.put("cnt", count);
+
+		String json= null;
 		json = new Gson().toJson(map);
 
-        mav.setViewName("SignUp");
-      
-        return json;
-    }
-	
+		mav.setViewName("SignUp");
+
+		return json;
+	}
+
+
 }

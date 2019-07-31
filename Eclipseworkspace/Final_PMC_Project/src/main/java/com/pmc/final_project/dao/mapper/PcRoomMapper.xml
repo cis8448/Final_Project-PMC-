@@ -14,18 +14,28 @@
 	<!-- 암호화된 로그인 처리 -->
 	<select id="getSecurityPwd" parameterType="String"
 		resultType="String">
-		SELECT M_PWD FROM PCROOM WHERE p_id=#{id}
+		SELECT p_pass FROM SBPCROOM WHERE p_id=#{id}
 	</select>
 
 	<select id="getMemberInfo" parameterType="String"
 		resultType="pcroom">
-		SELECT * FROM PCROOM WHERE p_id=#{id}
+		SELECT * FROM SBPCROOM WHERE p_id=#{id}
 	</select>
 
 	<select id="PCIdCheck" parameterType="String" resultType="Integer">
 	
 		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{userid}
 	</select>
+	
+	<select id="idsearch" parameterType="pcroom" resultType="String">
+		SELECT P_ID FROM SBPCROOM WHERE (P_NAME=#{p_name} AND P_PHONE=#{p_phone})
+	</select>
+	
+	<update id="pwsearch" parameterType="hashmap">
+		UPDATE SBPCROOM SET P_PASS=#{keyCode} WHERE P_ID=#{cid}
+	</update>
+	
+	
 
 
 </mapper>

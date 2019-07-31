@@ -1,5 +1,8 @@
 package com.pmc.final_project.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +33,9 @@ public class PcroomManagement {
 		String view = null;
 		
 		if(!(pr.getP_pass().equals(pr.getP_pass2()))) {//비밀번호, 비밀번호 확인의 String 값이 서로 다를 경우 
-			view = "SignUp";
+			System.out.println("오긴왔어1");
 			mav.addObject("ck",1);
+			view = "redirect:/SignUp";
 			mav.setViewName(view);
 			return mav;
 		}
@@ -43,12 +47,13 @@ public class PcroomManagement {
 				new BCryptPasswordEncoder();
 		
 		pr.setP_pass(pwdEncoder.encode(pr.getP_pass()));
-		
+		System.out.println("오긴왔어2");
 		//DB insert 
 		if(pDao.JSPSignUp(pr)) {
 			//성공
 			view = "Login";
 			mav.addObject("check",1);
+			System.out.println("오긴왔어3");
 		}
 		else {
 			//실패
@@ -79,17 +84,20 @@ public class PcroomManagement {
 				//=>게시판 목록
 				// 로그인한 회원의 일부정보, 게시글 목록
 				pr = pDao.getMemberInfo(pr.getP_id());
-				mav.addObject("mb",pr);
-				view = "redirect:/SignUp";
+				mav.addObject("pr",pr);
+				view = "redirect:/Main";
+				System.out.println("로그인성공");
 			}
 			else {
-				view = "Login";
-				mav.addObject("check",2);
+				System.out.println("로그인실패1");
+				view = "redirect:/LoginFail";
+				//mav.addObject("check",2);
 			}
 		}
 		else {
-			view = "Login";
-			mav.addObject("check",2);
+			System.out.println("로그인실패2");
+			view = "redirect:/LoginFail";
+			//mav.addObject("check",2);
 		}
 		
 		
@@ -97,6 +105,61 @@ public class PcroomManagement {
 		
 		return mav;
 	}
+
+
+	public ModelAndView idsearch(PcRoomBean pr) {
+		// TODO Auto-generated method stub
+		
+		mav = new ModelAndView();
+		String view = null;
+		String id = pDao.idsearch(pr);
+		
+		if(!(id.equals(""))) {
+			mav.addObject("p_id",2);
+			mav.addObject("p_id2",id);
+			System.out.println("들어왔어");
+			
+		}else {
+			mav.addObject("p_id",1);
+			System.out.println("틀렸어");
+		}
+		
+		view="redirect:/id";
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
+
+	public ModelAndView pwsearch(String cID) {
+		// TODO Auto-generated method stub
+		
+		mav = new ModelAndView();
+		String view = null;
+		String cid = (String)session.getAttribute("cid");
+		String keyCode = (String)session.getAttribute("keyCode");
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("cid",cid);
+		map.put("KeyCode",keyCode);
+		
+		if(pDao.pwsearch(map)) {
+			//성공
+			view = "redirect:/pw";
+			mav.addObject("check",1);
+			System.out.println("비밀번호변경1");
+		}
+		else {
+			//실패
+			System.out.println("비밀번호변경2");
+			view="redirect:/pw";
+		}
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
+
+	
 
 
 	
