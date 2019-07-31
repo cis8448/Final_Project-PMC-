@@ -10,8 +10,7 @@ public interface IMemberDao {
 
 	public int getMemberCount();
 
-	public List<Member> getmemberRetime(int num);
-
+	public List<Member> getmemberInfo(String str);
 
 
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.bean.PcRoomBean;
+import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 
 
@@ -38,7 +39,7 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 
 
-		return "Login";   
+		return "Main";   
 	}
 	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
 	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
@@ -87,5 +88,11 @@ public class MainController {
 		return "home";
 		
 	}
+	@RequestMapping(value="/Main")
+	public String Main(Integer pageNum) {
+		
+		return "Main";
+	}
+	
 
 }
