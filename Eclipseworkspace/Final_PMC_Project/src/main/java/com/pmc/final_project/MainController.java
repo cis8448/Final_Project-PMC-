@@ -59,10 +59,8 @@ private static final Logger logger = LoggerFactory.getLogger(MainController.clas
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-
-
+		
 		return "Login";   
-
 	}
 	@RequestMapping(value = "/LoginFail", method = RequestMethod.GET)
 	public String LoginFail(Model model) {
