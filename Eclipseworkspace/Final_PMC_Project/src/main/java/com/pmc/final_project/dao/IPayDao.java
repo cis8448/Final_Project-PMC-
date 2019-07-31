@@ -6,9 +6,6 @@ import com.pmc.final_project.bean.PayMentDetail;
 
 public interface IPayDao {
 
-	List<PayMentDetail> getPayList(int num);
+	public List<PayMentDetail> getPayList();
 
-	PayMentDetail getPayContent(Integer productNum);
-
-	
 }
