@@ -24,17 +24,13 @@
         footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;position: fixed;bottom: 0px;width: 100%}
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
-        img{width:150px;height:200px; padding:10px;}
-        
-        
-        
       
         
     </style>
 <body>
     <header>
         <div>
-        <img src="./resources/image/dd.png">
+        <img src="./resources/img/dd.png">
         </div> 
         <ul id="Menu">
             <li class="mainmenu"><a href="./Main">좌석</a></li>

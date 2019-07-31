@@ -133,7 +133,7 @@ input::-moz-placeholder {
 
 input {
 	font-size: 16px;
-	width: 325px;
+	width: 305px;
 	padding: 10px;
 	border: 0px;
 	outline: none;
@@ -153,22 +153,23 @@ button {
 .my-box {
 	margin-top: 20px;
 	border: 1px solid;
-	width: 1200px;
+	width: 1100px;
 	height: 500px;
 	padding: 10px;
 }
 
 .margin {
 	margin-top : 20px;
-	margin-left: 650px;
+	margin-left: 462px;
 }
 
 .btnfont {
-	font-size: 18px
+	font-size: 20px;
+	width: 100px; height: 40px;
 }
 
 .img {
-	width: 1000px;
+	width: 300px;
 	height: 300px;
 }
 
@@ -178,18 +179,36 @@ button {
 }
 
 .add {
-	margin-left: 300px;
+	margin-left: 512px;
+	font-size: 25px;
 }
 
 .select {
-	width: 350px;
-	height: 30px;
+	width: 400px;
+	height: 40px;
+	font-size: 20px;
+	text-align: center;
+	
+}
+.ii{
+	margin-left: 10% ;
+}
+.a1{
+	width: 400px;
+	height: 20px;
+	font-size: 20px;	
+}
+.a2{
+	margin-left: 300px
+}
+.center{
+	text-align: center;
 }
 </style>
 <body>
 	<header>
 		<div>
-			<img src="./resources/img/pmc1.jpg">
+			<img src="./resources/img/dd.png">
 
 		</div>
 		<ul id="Menu">
@@ -213,13 +232,26 @@ button {
 	</aside>
 	<section>
 		<h1 class="add">상품 추가</h1>
-		<input type='file' id='upload' name='upload' />
-		<div id='preview'>
+		<table border="1px solid black" class ="ii">
+		<tr>
+		<td>
+		<table class="a2">
+		<tr>
+		<td>
+		<input type='file' id='upload' name='upload'/>
+		</td>
+		</tr>
+		<tr>
+		<td><div id='preview'> </div></td>
 			<!-- 사진들어가는곳  -->
-		</div>
-		<table border="1">
+		
+		</td>
+		<td>
+		</tr>
+		</table>
+		<table border="1" class="center">
 			<tr>
-				<td>카테고리</td>
+				<td class="a1">카테고리</td>
 				<td><select class="select">
 						<option class = "btnfont" value="전체" selected>전체</option>
 						<option class = "btnfont" value="라면" selected>라면</option>
@@ -229,23 +261,37 @@ button {
 				</select></td>
 			</tr>
 			<tr>
-				<td>제품명</td>
+				<td class="a1" >제품명</td>
 				<td><input type="text"></td>
 			</tr>
 			<tr>
-				<td>가격</td>
+				<td class="a1">가격</td>
 				<td><input type="text"></td>
 			</tr>
 			<tr>
-				<td>수량</td>
+				<td class="a1">수량</td>
 				<td><input type="text"></td>
 			</tr>
 
 		</table>
+		</td>
+		</tr>
+		</table>
 		<div class="margin">
-			<button class="btnfont">취소</button>
-			<button class="btnfont">추가</button>
+		<table>
+			<tr>
+				<td>
+				<button class="btnfont">추가</button>
+				</td>
+				<td>
+				<form action="./Product"><button class="btnfont">취소</button></form>
+				</td>
+			</tr>
+		</table>
+			
+			
 		</div>
+		
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>

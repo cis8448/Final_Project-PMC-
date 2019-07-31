@@ -12,6 +12,4 @@ public interface IMemberDao {
 
 	public List<Member> getmemberRetime(int num);
 
-
-
 }

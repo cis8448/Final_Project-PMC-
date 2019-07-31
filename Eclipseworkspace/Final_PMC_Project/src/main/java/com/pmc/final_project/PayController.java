@@ -14,11 +14,6 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
-	@RequestMapping(value = "/MemberPayList")
-	public ModelAndView MemberPayList(Integer ProductNum) {
-		mav = pm.getPayList(ProductNum);
-		
-		return mav;
-	}
+
 	
 }

@@ -63,33 +63,30 @@
     </ul>
     </aside>
     <section>
-        <div class="Search">
-       <input type="text" placeholder="검색">
-       <button>검색</button>
-    </div><br>
 	<div class="my-box">
-	<table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
-       <tr align="center" bgcolor="skybule">
-            <td>카테고리</td>
-            <td>이름</td>
-            <td>수량</td>
-            <td>가격</td>
-            <td>비고</td>
-       </tr> 
-       <c:forEach var="product" items="${prList}">
-       <tr align="center">
-          <td>${product.pc_id}</td>
-          <td>${product.pr_name}</td>
-          <td>${product.pr_qty}</td>
-          <td>${product.pr_price}</td>
-          <td align="center"><a href="./ProductDetail">상세보기</a></td>
-       </tr>
-       </c:forEach>
-    </table>
+	<table border="1" class="center">
+			<tr>
+				<td class="a1">카테고리</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td class="a1" >제품명</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td class="a1">가격</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td class="a1">수량</td>
+				<td><input type="text"></td>
+			</tr>
+
+		</table>
 	</div><br>
 	<div class="margin">
 	<button class="btnfont">삭제</button>
-	<button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
+	<button class="btnfont">수정</button>
 	</div>
     </section>
     <footer>
