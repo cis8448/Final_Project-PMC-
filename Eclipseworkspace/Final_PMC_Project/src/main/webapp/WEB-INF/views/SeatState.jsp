@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%session.setAttribute("P_id", "eodud9603"); %>
@@ -28,7 +28,7 @@
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
         .Pc_roomImg{text-align: center;}
-        .Img{display: block; margin: auto; width: 30%;}
+        .Img{display: block; margin: auto; width: 30%;height: 200px}
         button{width: 50%; margin: auto; display: block}
         table{width: 81%; margin-top: 30px; text-align: center}
         .AddMenu{display: inline-block; width: 1200px}
@@ -36,14 +36,16 @@
         .AddMenu > li:last-child{margin: 0}
         li:after{display: block;content: '';clear: both;}
         .addbtn{font-size: 30px; width: 100%}
-        #imgbix{width: 81%}
+        #imgbix{width: 81%;}
         input{display:block;magin: auto;}
+        #enbtn{margin-left: 75%}
     </style>
     
 
 <body>
     <header>
         <div>
+        
         <img src="./resources/img/dd.png" id="pcimg">
         </div> 
         <ul id="Menu">
@@ -63,10 +65,10 @@
     </aside>
     <section>
         <div id="imgbix">
-            <img src="./resources/img/No_image.png" class="Pc_roomImg Img" alt="pc방 배치도">
-            <input type="file" name="files" id="files" onchange="fileChk(this)" value="이미지를 등록해주세요">
+            <img src="./resources/img/No_image.png" class="Pc_roomImg Img" alt="pc방 배치도" id= "img">
+            <input type="file" name="files" id="files" value="이미지를 등록해주세요" multiple>
         </div>
-        <table border="1px solid black">
+        <table border="1px solid black" id="tb1">
             <tr>
                 <td>Pc번호</td>
                 <td>사용 상태</td>
@@ -77,60 +79,107 @@
         
         
             <ul class="AddMenu">
-                <li><button class="addbtn">+</button></li>
-                <li><button class="addbtn">-</button></li>
+                <li><button type="button" class="addbtn" onclick="AddSeat()">+</button></li>
+                <li><button type="button" class="addbtn" onclick="SubSeat()">-</button></li>
             </ul>
-        
+        <button type="button" id="enbtn" value="완료" onclick="updateSeat()"/>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-    	function fileChk(elem){
-		var name = elem.value.substring(elem.value.indexOf('.'))
-		var p_id =  '${sessionScope.P_id}';
-		console.log(name)
-            
-            name.remove
-        if(name == '.jpg' || name == '.png'){
-            var $obj = $("#files");//배열형태로 넘어옴.
-            console.log($obj[0]);
-            console.log($obj[0].files);
-            console.log($obj[0].files.length);
-            console.log($obj[0].files[0]);
-
-		//form 데이터 가져오기
-            var fData = new FormData();
-            fData.append("p_id",p_id);
-            var files = $obj[0].files;
-            
-            for (var i = 0; i < files.length; i++) {
-                fData.append("files" + i, files[i]);
+     <script>
+        var upload = document.getElementById('files');
+        var img = document.getElementById('img')
+          
+        upload.addEventListener('change',function(e){
+            var name = upload.value.substring(upload.value.indexOf('.'));
+            if(name == '.jpg' || name == '.png'){
+            	 var get_file = e.target.files;
+            	var reader = new FileReader();
+            	reader.onload = (function(aImg) {
+                    console.log(1);
+                    return function(e) {
+                       console.log(3);
+                       aImg.src = e.target.result
+                    }
+                 })(img)
+                 if (get_file) {
+                     reader.readAsDataURL(get_file[0]);
+                     console.log(2);
+                  }      
+            }else{
+            	upload.value = '';
+                alert("'jpg파일이나 png파일을 올려주세요'");
             }
-        	$.ajax({
-                type : "post",
-                url:"imgsave?cnt="+files.length,
-                date : fData,
-                processData:false,
+            
+        });
+        
+        var number = 0;
+        function AddSeat(){
+            var tb = document.getElementById('tb1');
+            var Addtr = document.createElement('tr');
+            tb.appendChild(Addtr);
+            for(var i=0;i<4;i++){
+                var Addtd = document.createElement('td');
+                if(i==0){Addtd.innerHTML = number; Addtd.setAttribute("name","seatIds");}
+                if(i==1){Addtd.innerHTML = '추가대기'}
+                if(i==2){Addtd.innerHTML = ''}
+                if(i==3){Addtd.innerHTML = ''}
+                Addtr.appendChild(Addtd)
+            }
+            number++;
+        };
+        
+        
+        function SubSeat(){
+            if(number > 0){
+            	var tb = document.getElementById('tb1');
+            	tb.deleteRow(tb.rows.length-1);
+            	number--;
+            }else{
+            	alert("더 삭제할 좌석이 없습니다.")
+            }
+        };
+        
+        function updateSeat(){
+            var $obj = $('#files');
+            
+
+            var filevalue = $("td[name='seatIds']").length;
+            var fileData = new Array(filevalue);
+            var fData = new FormData();
+            fData.append("P_id", '${sessionScope.p_id}')
+            for(var i = 0; i < filevalue;i++){
+                fileData[i] = $("td[name='seatIds']")[i].innerHTML;
+                 fData.append("seatId"+i , fileData[i]);
+            };
+            console.log(fileData);
+            console.log(fData);
+            var files = $obj[0].files;
+            for(var i = 0; i<files.length;i++){
+                fData.append("files" + i,files[i])
+                console.log("files"+i+"///"+files[i]);
+            };
+            
+            $.ajax({
+                type : 'post',
+                url  : 'seatInsert',
+                data : fData,
+                processData : false,
                 contentType : false,
-                success: function(data){
+                dataType : "json",
+                success : function(data){
                     alert("성공");
-                    var img = document.querySelector('.Img')
-                    img.src = data.src;
+                    
                 },
-                error: function(error){
+                error : function(error){
                     alert("실패");
-                    console.log(error);
                 }
-            })
-        	
-        }else{
-        	elem.value = ''
-        	alert('jpg파일이나 png파일을 올려주세요');
+                   
+            })    
         }
-		
-	}		
+    	
     </script>
 </html>

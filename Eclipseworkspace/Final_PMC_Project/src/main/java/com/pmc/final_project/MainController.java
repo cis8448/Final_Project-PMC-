@@ -1,5 +1,6 @@
 package com.pmc.final_project;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -14,32 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
-import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
+import com.pmc.final_project.service.SeatManagement;
 
 
 
 @Controller
 public class MainController {
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	
 	ModelAndView mav;
 	
 	@Autowired
 	PcroomManagement pm;
+	@Autowired
+	SeatManagement sm;
 	
 	@Autowired
-	HttpSession session;
+	HttpSession session;	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		
 
 
-		return "Main";   
+		return "SeatState";   
+
 	}
 	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
 	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
@@ -52,7 +59,18 @@ public class MainController {
 		return str;
 
 	}
+	@RequestMapping(value = "/seatInsert")
+	public @ResponseBody String seatInsert(MultipartHttpServletRequest multi) {
 	
+		System.out.println("와주세요 제발...");
+		HashMap<String, String> ll = new HashMap<String, String>();
+		ll.put("success", ",씨발");
+		String Json = new Gson().toJson(ll);
+		
+		sm.SeatUpdate(multi);
+		
+		return Json;
+	}
 
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑
 	public String SignUp(Model model) {
@@ -81,6 +99,9 @@ public class MainController {
 		return mav;
 	}
 	
+
+	
+	
 	@RequestMapping(value="/logout" )
 	public String logout() {
 		session.invalidate();
@@ -88,11 +109,7 @@ public class MainController {
 		return "home";
 		
 	}
-	@RequestMapping(value="/Main")
-	public String Main(Integer pageNum) {
-		
-		return "Main";
-	}
+	
 	
 
 }
