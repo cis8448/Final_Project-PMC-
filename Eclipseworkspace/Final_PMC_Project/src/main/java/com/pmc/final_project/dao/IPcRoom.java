@@ -18,6 +18,14 @@ public interface IPcRoom {
 
 	public boolean pwsearch(Map<String,String> map);
 
+	public String emailsearch(PcRoomBean pr);
+
+	public int idselinfo(PcRoomBean pr);
+
+	public int pwselinfo(PcRoomBean pr);
+
+	public int accept(String userid);
+
 	
 
 }

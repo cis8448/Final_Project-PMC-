@@ -52,10 +52,10 @@ input {
 	<div class="login" style="width: 550px; height: 400px;">
 		<div class="login-screen" style="width: 550px; height: 400px;">
 			<div class="login-form">
-				<form action="mail" method="post">
+				<form action="pwsearch" method="post">
 
 					<div class="contror-group">
-						<input type="text" name="cid" placeholder="아이디를 입력해주세요"
+						<input type="text" name="p_id" placeholder="아이디를 입력해주세요"
 							class="login-field" style="margin-top: 80px;">
 					</div>
 					
@@ -82,16 +82,20 @@ input {
 
 <script type="text/javascript">
 	window.onload = function() {
-		var chk = $
-		{
-			param.check
-		}
-		;
+		var chk = '${param.check}';
 
 		if (chk == 1) {
 			alert("비밀번호 변경 완료");
 		}
 
 	}
+</script>
+<script>
+function cancel() {
+	
+	location.href="./"
+	
+}
+
 </script>
 </html>
