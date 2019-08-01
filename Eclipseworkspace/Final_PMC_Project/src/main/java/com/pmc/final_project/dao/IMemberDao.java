@@ -10,7 +10,8 @@ public interface IMemberDao {
 
 	public int getMemberCount();
 
-	public List<Member> getmemberInfo(String str);
+	public Member getmemberInfo(String m_id);
+
 
 
 }
