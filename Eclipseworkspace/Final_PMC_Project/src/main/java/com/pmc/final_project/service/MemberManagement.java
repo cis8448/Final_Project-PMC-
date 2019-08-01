@@ -57,15 +57,17 @@ public class MemberManagement {
 				
 		return mempaging.makeHtmlpaging();
 	}
-	public ModelAndView getmemberInfo(Integer pageNum) {
+	
+	public ModelAndView getMemberInfo(String m_id) {
 		mav = new ModelAndView();
 		String view = null;
-		List<Member> mInfoList = null;
-		String str = null;
-		mInfoList = mDao.getmemberInfo(str);
-		mav.addObject("mInfoList",mInfoList);
+		
+		Member member = mDao.getmemberInfo(m_id);
+		mav.addObject("member", member);
+		
 		view = "MemberInfo";
 		mav.setViewName(view);
+		
 		return mav;
 	}
 	
