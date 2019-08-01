@@ -2,12 +2,12 @@ package com.pmc.final_project.dao;
 
 import java.util.Map;
 
-import com.pmc.final_project.bean.FileBeans;
+import com.pmc.final_project.bean.FileBean;
 
 public interface IFileDao {
 
-	public boolean fileInsert(Map<String, String> fMap);
-	
-	public FileBeans SelectFile(String p_id);
+	boolean fileInsert(Map<String, String> fMap);
+
+	FileBean SelectFile(String p_id);
 
 }

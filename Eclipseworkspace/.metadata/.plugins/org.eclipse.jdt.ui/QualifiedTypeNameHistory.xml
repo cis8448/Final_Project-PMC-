@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.pmc.final_project.dao.IPcRoom"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="com.pmc.final_project.util.FindUtil"/>
+<fullyQualifiedTypeName name="com.pmc.final_project.util.MailUtil"/>
+<fullyQualifiedTypeName name="com.pmc.final_project.bean.PcRoomBean"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.dao.IProductDao"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.bean.ProductBean"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.service.ProductManagement"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.util.Paging"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.bean.FileBean"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.type.Alias"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.pmc.final_project.bean.FileBeans"/>
 </qualifiedTypeNameHistroy>
