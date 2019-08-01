@@ -13,15 +13,16 @@
 		</list>
 	</section>
 <<<<<<< HEAD
-	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="587"/>
-		<item key="DIALOG_Y_ORIGIN" value="158"/>
-=======
 	<section name="NewWizardAction">
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.xml.ui.internal.wizards.NewXMLWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
 			<item value="org.eclipse.wst.XMLCategory"/>
 		</list>
->>>>>>> 74ec1ff67a8cd5a46965d25414c4610203775026
+=======
+	<section name="ImportExportAction">
+	</section>
+	<section name="FileSystemImportWizard">
+>>>>>>> 5a016e3726a14f016ce056242f181927eed123e7
 	</section>
 </section>

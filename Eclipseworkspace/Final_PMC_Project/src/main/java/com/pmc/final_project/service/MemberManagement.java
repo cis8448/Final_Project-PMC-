@@ -2,6 +2,7 @@ package com.pmc.final_project.service;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class MemberManagement {
 	
 	@Autowired
 	private HttpSession session;
+
 	
 	//회원 전체 가져오기
 	public ModelAndView getmemberAllList(Integer pageNum) {
@@ -49,28 +51,23 @@ public class MemberManagement {
 		int pageCnt = 3;
 		//게시판이 여러 종류가 있다면 
 		String memberName = "MemberList";
-		Paging paging = 
+		Paging mempaging = 
 			new Paging(maxNum, num, listCnt, 
 						pageCnt, memberName);
 				
-		return paging.makeHtmlpaging();
+		return mempaging.makeHtmlpaging();
 	}
-	public ModelAndView getmemberRetime(Integer pageNum) {
+	public ModelAndView getmemberInfo(Integer pageNum) {
 		mav = new ModelAndView();
 		String view = null;
-		List<Member> mList = null;
-		
-		int num = (pageNum == null) ? 1 : pageNum;
-		
-		mList = mDao.getmemberRetime(num);
-		
-		mav.addObject("mList", mList);
-		mav.addObject("memberPaging", getMemberPaging(num));
-		view = "MemberList";
+		List<Member> mInfoList = null;
+		String str = null;
+		mInfoList = mDao.getmemberInfo(str);
+		mav.addObject("mInfoList",mInfoList);
+		view = "MemberInfo";
 		mav.setViewName(view);
-		
 		return mav;
 	}
-
+	
 
 }
