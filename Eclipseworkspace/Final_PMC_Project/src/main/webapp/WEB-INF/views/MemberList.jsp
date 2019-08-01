@@ -5,13 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript">
-	function popup(){
-		var url="MemberInfo.jsp";
-		var option="width=300, height=400, top=300"
-		window.open(url, "", option);		
-	}
-</script>
 <title>피모씨 관리자</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 </head>
@@ -39,7 +32,7 @@
         .Search{height: 40px; width: 400px; border: 1px solid #1b5ac2; background: #ffffff; margin-left: 60%;}
         input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 0px; background: #1b5ac2; outline: none; float: right; color: #ffffff}
-        .btnDetail{width: 100%; height: 100%;}
+        .MemberInfo{width: 100px; height: 100%; background: #1b5ac2; color: #ffffff}
     </style>
 
 <body>
@@ -49,9 +42,9 @@
         </div> 
         <ul id="Menu">
             <li class="mainmenu"><a href="./Main">좌석</a></li>
-            <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="./MemberList">회원</a></li>
-            <li class="mainmenu"><a href="#">매출</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
             <li class="mainmenu"><a href="#">기타</a></li>
         </ul>    
     </header>
@@ -77,14 +70,14 @@
     		<td>생년월일</td>
     		<td>보유시간</td>
     		<td>비고</td>
-    	</tr>
+    	</tr> 
     	<c:forEach var="member" items="${mList}">
-    	<tr>
+    	<tr align="center">
     		<td>${member.m_id}</td>
     		<td>${member.m_name}</td>
     		<td>${member.m_birthday}</td>
     		<td>${member.m_retime}</td>
-    		<td><a href="javascript:popup()" target="_blank">상세보기</a></td>
+    		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
     	</tr>
     	</c:forEach>
     </table>

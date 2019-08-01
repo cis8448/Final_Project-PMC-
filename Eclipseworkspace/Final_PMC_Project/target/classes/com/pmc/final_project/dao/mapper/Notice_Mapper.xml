@@ -4,7 +4,7 @@
 
 <mapper namespace="com.pmc.final_project_dao_INotice">
 
-<insert id="NoticeInsert" parameterType="notice"
+<insert id="NoticeInsert" parameterType="PcRoomNoticeBean"
 useGeneratedKeys="true" keyProperty="no_num">
 <selectKey keyProperty="no_num" resultType="int" order="BEFORE">
 	SELECT BOARD_SEQ.NEXTVAL FROM DUAL

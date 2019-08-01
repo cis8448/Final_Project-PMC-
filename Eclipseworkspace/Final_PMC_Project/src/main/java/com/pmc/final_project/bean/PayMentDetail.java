@@ -1,75 +1,71 @@
 package com.pmc.final_project.bean;
 
-import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("PayMentDetail")
+@Alias("paymentdetail")
 public class PayMentDetail {
 	
-	private String PL_M_ID;
-	private String PL_P_ID;
-	private String PL_PC_NAME;
-	private String PL_U_START;
-	private String PL_U_FINISH;
-	private String PL_PL_ID;
-	private String PL_PL_NAME;
-	private int PL_PL_QTY;
-	private int PL_PL_PRICE;
+	private String m_id;
+	private String p_id;
+	private String pc_name;
+	private String u_start;
+	private String u_finish;
+	private String pr_name;
+	private int pl_qty;
+	private int pl_price;
 	
-	public String getPL_M_ID() {
-		return PL_M_ID;
+	public String getM_id() {
+		return m_id;
 	}
-	public void setPL_M_ID(String pL_M_ID) {
-		PL_M_ID = pL_M_ID;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
-	public String getPL_P_ID() {
-		return PL_P_ID;
+	public String getP_id() {
+		return p_id;
 	}
-	public void setPL_P_ID(String pL_P_ID) {
-		PL_P_ID = pL_P_ID;
+	public void setP_id(String p_id) {
+		this.p_id = p_id;
 	}
-	public String getPL_PC_NAME() {
-		return PL_PC_NAME;
+	public String getPc_name() {
+		return pc_name;
 	}
-	public void setPL_PC_NAME(String pL_PC_NAME) {
-		PL_PC_NAME = pL_PC_NAME;
+	public void setPc_name(String pc_name) {
+		this.pc_name = pc_name;
 	}
-	public String getPL_U_START() {
-		return PL_U_START;
+	public String getU_start() {
+		return u_start;
 	}
-	public void setPL_U_START(String pL_U_START) {
-		PL_U_START = pL_U_START;
+	public void setU_start(String u_start) {
+		this.u_start = u_start;
 	}
-	public String getPL_U_FINISH() {
-		return PL_U_FINISH;
+	public String getU_finish() {
+		return u_finish;
 	}
-	public void setPL_U_FINISH(String pL_U_FINISH) {
-		PL_U_FINISH = pL_U_FINISH;
+	public void setU_finish(String u_finish) {
+		this.u_finish = u_finish;
 	}
-	public String getPL_PL_ID() {
-		return PL_PL_ID;
+	public String getPr_name() {
+		return pr_name;
 	}
-	public void setPL_PL_ID(String pL_PL_ID) {
-		PL_PL_ID = pL_PL_ID;
+	public void setPr_name(String pr_name) {
+		this.pr_name = pr_name;
 	}
-	public String getPL_PL_NAME() {
-		return PL_PL_NAME;
+	public int getPl_qty() {
+		return pl_qty;
 	}
-	public void setPL_PL_NAME(String pL_PL_NAME) {
-		PL_PL_NAME = pL_PL_NAME;
+	public void setPl_qty(int pl_qty) {
+		this.pl_qty = pl_qty;
 	}
-	public int getPL_PL_QTY() {
-		return PL_PL_QTY;
+	public int getPl_price() {
+		return pl_price;
 	}
-	public void setPL_PL_QTY(int pL_PL_QTY) {
-		PL_PL_QTY = pL_PL_QTY;
+	public void setPl_price(int pl_price) {
+		this.pl_price = pl_price;
 	}
-	public int getPL_PL_PRICE() {
-		return PL_PL_PRICE;
-	}
-	public void setPL_PL_PRICE(int pL_PL_PRICE) {
-		PL_PL_PRICE = pL_PL_PRICE;
-	}
+	
+	
+	
+	
 	
 }

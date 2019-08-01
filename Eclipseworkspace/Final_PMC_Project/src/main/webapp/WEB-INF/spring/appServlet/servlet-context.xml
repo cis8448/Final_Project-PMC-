@@ -69,11 +69,28 @@
 	</beans:bean>
 
 	<beans:bean id="PayDao"
+
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 		<beans:property name="mapperInterface"
 			value="com.pmc.final_project.dao.IPayDao" />
+
+	</beans:bean>
+	<beans:bean id="fDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.IFileDao" />
+
+	</beans:bean>
+	<beans:bean id="sDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.ISeatDao" />
 
 	</beans:bean>
 	
@@ -83,8 +100,19 @@
 			ref="sqlSessionFactory" />
 		<beans:property name="mapperInterface"
 			value="com.pmc.final_project.dao.INotice" />
-
 	</beans:bean>
+
+	<beans:bean id="PrDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.IProductDao" />
+	</beans:bean>
+	
+
+	
+
 
 	<!-- multipart 처리용 빈 -->
 	<beans:bean id="multipartResolver"
@@ -93,8 +121,4 @@
 		<beans:property name="maxUploadSize" value="10000000" />
 		<beans:property name="maxInMemorySize" value="10000000" />
 	</beans:bean>
-
-
-
-
 </beans:beans>
