@@ -30,18 +30,20 @@ public class SeatController {
 
 		System.out.println("와주세요 제발...");
 		HashMap<String, String> ll = new HashMap<String, String>();
-		ll.put("success", ",씨발");
+		boolean state = sm.SeatUpdate(multi);
+		if(state) {
+			ll.put("success", "성공");
+		}else {
+			ll.put("success", "실패");
+		}
 		String Json = new Gson().toJson(ll);
-
-		sm.SeatUpdate(multi);
-
 		return Json;
 	}
 	@RequestMapping(value = "/SeatState", method = RequestMethod.GET)
-	public String SeatState( Model model) {
-
-
-		return "SeatState";   
+	public ModelAndView SeatState() {
+		String p_id = (String)session.getAttribute("p_id");
+		mav = sm.SelectSeat(p_id);
+		return mav;   
 	}
 
 }

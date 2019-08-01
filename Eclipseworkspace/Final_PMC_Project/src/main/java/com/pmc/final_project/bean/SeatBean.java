@@ -9,6 +9,9 @@ public class SeatBean {
 	private String s_state;
 	private String s_spec;
 	private String s_noreserve;
+	private String m_id;
+	private String m_time;
+	
 	public String getP_id() {
 		return p_id;
 	}

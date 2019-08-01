@@ -204,7 +204,7 @@ input {
 	</aside>
 	<section>
 		<div id="imgbix">
-			<img src="./resources/img/No_image.png" class="Pc_roomImg Img"
+			<img src="${not empty param.Sfile ? ${sysFileName} : "./resources/img/No_image.png"}" class="Pc_roomImg Img"
 				alt="pc방 배치도" id="img"> <input type="file" name="files"
 				id="files" value="이미지를 등록해주세요" multiple>
 		</div>
@@ -215,6 +215,13 @@ input {
 				<td>사용자 아이디</td>
 				<td>남은시간</td>
 			</tr>
+			<c:forEach var="SeatUpdate" items="${Slist}">
+			<tr>
+				<td name = "name='seatIds'">${s_id}</td>
+				<td>${s_state}</td>
+				<td>${m_id}</td>
+				<td>${m_time}</td>
+			</c:forEach>
 		</table>
 
 
@@ -312,11 +319,15 @@ input {
                 contentType : false,
                 dataType : "json",
                 success : function(data){
-                    alert("성공");
+                    if(data.success == "성공"){
+                    	location.href = "./";
+                    }else{
+                    	alert("파일 업로드에 실패했습니다.")
+                    }
                     
                 },
                 error : function(error){
-                    alert("실패");
+                    alert("파일 업로드에 실패했습니다.");
                 }
                    
             })    
