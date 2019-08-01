@@ -3,6 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pmc.final_project.dao.IFileDao">
 	<insert id="fileInsert" parameterType="HashMap">
-		INSERT INTO SEATFILE(SF_P_ID, SF_NAME, SF_SYSNAME) VALUES(#{p_id},#{oriFileName},#{sysFileName})
+		INSERT INTO COMMENTS(P_ID, C_CONTENT) VALUES(#{p_id},#{sysFileName})
 	</insert>
+	<select id="SelectFile" parameterType="String" resultType="FileBean">
+		SELECT * FROM COMMENTS WHERE C_P_ID = #{id}
+	</select>
 </mapper>

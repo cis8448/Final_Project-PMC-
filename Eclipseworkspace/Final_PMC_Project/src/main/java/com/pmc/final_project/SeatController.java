@@ -41,7 +41,7 @@ public class SeatController {
 	}
 	@RequestMapping(value = "/SeatState", method = RequestMethod.GET)
 	public ModelAndView SeatState() {
-		String p_id = (String)session.getAttribute("p_id");
+		String p_id = (String)session.getAttribute("id");
 		mav = sm.SelectSeat(p_id);
 		return mav;   
 	}
