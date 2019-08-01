@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.FileBean;
 import com.pmc.final_project.bean.SeatBean;
+import com.pmc.final_project.dao.IFileDao;
 import com.pmc.final_project.dao.ISeatDao;
 @Service
 public class SeatManagement {
