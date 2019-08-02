@@ -103,21 +103,25 @@
 			value="com.pmc.final_project.dao.IProductDao" />
 	</beans:bean>
 	
-<<<<<<< HEAD
 	<beans:bean id="fDao"
-=======
-	<beans:bean id="cateDao"
->>>>>>> a68210643a203e65c1004df2ddcbdd2562479288
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 		<beans:property name="mapperInterface"
-<<<<<<< HEAD
 			value="com.pmc.final_project.dao.IFileDao" />
-=======
-			value="com.pmc.final_project.dao.ICateDao" />
->>>>>>> a68210643a203e65c1004df2ddcbdd2562479288
 	</beans:bean>
+	
+	<beans:bean id="cateDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.ICateDao" />
+	</beans:bean>
+	
+	
+	
+
 	
 
 	
