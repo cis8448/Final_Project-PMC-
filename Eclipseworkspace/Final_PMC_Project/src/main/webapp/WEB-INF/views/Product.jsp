@@ -44,7 +44,7 @@
         <img src="./resources/img/dd.png">
         </div> 
         <ul id="Menu">
-            <li class="mainmenu"><a href="./">좌석</a></li>
+            <li class="mainmenu"><a href="./Main">좌석</a></li>
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="#">매출</a></li>
@@ -88,7 +88,6 @@
     </table>
 	</div><br>
 	<div class="margin">
-	<button class="btnfont">삭제</button>
 	<button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
 	</div>
     </section>

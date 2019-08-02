@@ -2,7 +2,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("member")
+@Alias("Member")
 public class Member {
 	
 	private int m_kakaoid;
