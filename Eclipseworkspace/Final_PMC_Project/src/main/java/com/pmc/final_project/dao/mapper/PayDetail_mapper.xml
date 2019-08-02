@@ -6,5 +6,9 @@
 	 <select id="getPayList" resultType="PayMentDetail">
       SELECT * FROM PAYLIST
    </select>
-
+   <select id="SearchPayList" resultType="int">
+   		SELECT COUNT(U_START) FROM PAYLIST 
+   </select>
+   
+	
 </mapper>

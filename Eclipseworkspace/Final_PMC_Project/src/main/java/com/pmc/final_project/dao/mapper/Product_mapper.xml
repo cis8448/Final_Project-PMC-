@@ -10,4 +10,6 @@
 	<select id="getProductCount" resultType="int">
       SELECT COUNT(*) FROM PRODUCT
    </select>
+  
+	
 </mapper>
