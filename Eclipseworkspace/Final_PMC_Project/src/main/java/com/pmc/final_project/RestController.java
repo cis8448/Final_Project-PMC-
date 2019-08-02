@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.google.gson.Gson;
+import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.service.PcroomManagement;
 
@@ -30,6 +31,9 @@ public class RestController {
 	private static final Logger logger = LoggerFactory.getLogger(RestController.class);
 	@Autowired
 	private IPcRoom pDao;
+	
+	@Autowired
+	private IPayDao paDao;
 
 	@Autowired
 	private PcroomManagement pm; 
@@ -71,6 +75,26 @@ public class RestController {
 
 
 		mav.setViewName("SeatState");
+
+		return json;
+	}
+
+	@RequestMapping(value="/paysearch", method = RequestMethod.POST)  
+	public @ResponseBody String paysearch(@RequestBody String userid) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("accept execute ");
+
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		count = paDao.accept(userid);
+		map.put("cnt", count);
+
+		String json= null;
+		json = new Gson().toJson(map);
+
+
+		mav.setViewName("MemberPayList");
 
 		return json;
 	}

@@ -5,7 +5,12 @@
 	<insert id="fileInsert" parameterType="HashMap">
 		INSERT INTO COMMENTS(P_ID, C_CONTENT) VALUES(#{p_id},#{sysFileName})
 	</insert>
+<<<<<<< HEAD
 	<select id="SelectFile" parameterType="String" resultType="fileBean">
 		SELECT * FROM COMMENTS WHERE P_ID = #{id}
+=======
+	<select id="SelectFile" parameterType="String" resultType="FileBean">
+		SELECT * FROM COMMENTS WHERE C_P_ID = #{id}
+>>>>>>> a68210643a203e65c1004df2ddcbdd2562479288
 	</select>
 </mapper>

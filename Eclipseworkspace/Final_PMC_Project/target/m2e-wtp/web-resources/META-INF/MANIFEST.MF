@@ -1,5 +1,13 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: 53
+=======
+<<<<<<< HEAD
+Built-By: 10
+=======
+Built-By: 13
+>>>>>>> af80f2d5fb60521690799f9a3f5d3a9f4aae0320
+>>>>>>> a68210643a203e65c1004df2ddcbdd2562479288
 Build-Jdk: 1.8.0_211
 Created-By: Maven Integration for Eclipse
 
