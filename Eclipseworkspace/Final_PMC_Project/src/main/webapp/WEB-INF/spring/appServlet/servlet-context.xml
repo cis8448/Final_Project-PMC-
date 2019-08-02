@@ -102,6 +102,7 @@
 		<beans:property name="mapperInterface"
 			value="com.pmc.final_project.dao.IProductDao" />
 	</beans:bean>
+	
 	<beans:bean id="fDao"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"

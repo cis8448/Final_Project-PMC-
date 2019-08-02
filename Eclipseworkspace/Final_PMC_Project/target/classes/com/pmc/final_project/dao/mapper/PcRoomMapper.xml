@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pmc.final_project.dao.IPcRoom">
+	<insert id="JSPSignUp" parameterType="PcRoomBean"><!-- 회원가입 처리 -->
+		INSERT INTO SBPCROOM
+		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday) VALUES
+		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2)
+	</insert>
+
+
+	<!-- 암호화된 로그인 처리 -->
+	<select id="getSecurityPwd" parameterType="String"
+		resultType="String">
+		SELECT p_pass FROM SBPCROOM WHERE p_id=#{id}
+	</select>
+
+	<select id="getMemberInfo" parameterType="String" resultType="PcRoomBean">
+		SELECT * FROM SBPCROOM WHERE p_id=#{id}
+	</select>
+
+	<select id="PCIdCheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{userid}
+	</select>
+	<select id="idsearch" parameterType="PcRoomBean" resultType="String">
+		SELECT P_ID FROM SBPCROOM WHERE (P_NAME=#{p_name} AND P_PHONE=#{p_phone})
+	</select>
+	
+	<update id="pwsearch" parameterType="hashmap">
+		UPDATE SBPCROOM SET P_PASS=#{KeyCode} WHERE P_ID=#{cid}
+	</update>
+	
+	<select id="emailsearch" parameterType="PcRoomBean" resultType="String">
+		SELECT P_EMAIL FROM SBPCROOM WHERE (P_ID=#{p_id} AND P_PHONE=#{p_phone})
+	</select>
+	<select id="idselinfo" parameterType="PcRoomBean" resultType="Integer">
+		SELECT COUNT(*) FROM SBPCROOM WHERE p_name=#{p_name} AND p_phone=#{p_phone}
+	</select>
+	<select id="pwselinfo" parameterType="PcRoomBean" resultType="Integer">
+		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{p_id} AND p_phone=#{p_phone}
+	</select>
+	<select id="accept" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{p_id}
+	</select>
+	
+	
+
+
+</mapper>

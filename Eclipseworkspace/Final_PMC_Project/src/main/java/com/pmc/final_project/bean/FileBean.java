@@ -2,7 +2,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("FileBean")
+@Alias("fileBean")
 public class FileBean {
 	private String p_id;
 	private String sysFileName;

@@ -16,7 +16,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
-import com.pmc.final_project.bean.FileBeans;
+import com.pmc.final_project.bean.FileBean;
+
 import com.pmc.final_project.bean.SeatBean;
 import com.pmc.final_project.dao.IFileDao;
 import com.pmc.final_project.dao.ISeatDao;
@@ -120,7 +121,7 @@ public class SeatManagement {
 		String View = "SeatUpdate";
 		List<SeatBean> seats = sDao.selectAll(p_id);
 		mav.addObject("Slist", seats);
-		FileBeans fileroot = fDao.SelectFile(p_id);
+		FileBean fileroot = fDao.SelectFile(p_id);
 		mav.addObject("Sfile", fileroot);
 		mav.setViewName(View);
 
