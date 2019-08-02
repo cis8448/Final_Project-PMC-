@@ -186,8 +186,8 @@ input {
 		<div>
 			<a href=#>'${id}'님 안녕하세요</a>
 			<p />
-			<form action="#">
-				<input type="submit" value="정보 수정">
+			<form action=>
+				<input type="button" value="정보 수정" onclick="btn2()">
 			</form>
 
 			<form action="#">
@@ -368,6 +368,17 @@ function btn1() {
 window.onload = function() {
 	
 
+}
+
+</script>
+<script type="text/javascript">
+function btn2(){
+	var url = "PCInfoUpdate";
+	var name = "popup2222";
+	var option = "width=700 , height=600"; 
+	window.open(url,name,option);
+	
+	
 }
 
 </script>

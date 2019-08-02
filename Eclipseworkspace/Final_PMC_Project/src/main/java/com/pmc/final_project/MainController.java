@@ -155,4 +155,22 @@ public class MainController {
 
 		return "mail";//jsp파일 이름고 ㅏ동일해야함
 	}
+	
+	//Ajax로 처리하는 Write 메소드
+		@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
+		public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
+			
+			mav= pm.fileupload(multi);
+			
+			
+			return mav;
+		}
+		@RequestMapping(value = "/PCInfoUpdate")//uri 매핑
+		public String PCInfoUpdate(Model model) {
+			logger.info("PCInfoUpdate execute ");
+
+
+			return "PCInfoUpdate";//jsp파일 이름고 ㅏ동일해야함
+		}
+	
 }

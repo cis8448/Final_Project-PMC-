@@ -54,7 +54,7 @@ public class SeatManagement {
 		 //DB에서 해당 pc방 좌석 갯수 가져로기
 		 int datacnt = sDao.selectCount(p_id);
 		 //DB값과 requst값이 같을때 처리
-		 if(seatv.size() == datacnt) {
+		 if(seatv.size()   == datacnt) {
 			 System.out.println("좌석은 넘어감");
 		 //DB값보다 requst값 클때
 		 }else if(seatv.size() > datacnt) {
