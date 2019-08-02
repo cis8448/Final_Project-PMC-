@@ -6,11 +6,14 @@ import java.util.Map;
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +26,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.service.PcroomManagement;
+import com.pmc.final_project.service.SeatManagement;
 
 @Controller
 public class RestController {
@@ -32,8 +36,12 @@ public class RestController {
 	private IPcRoom pDao;
 
 	@Autowired
-	private PcroomManagement pm; 
+	private PcroomManagement pm;
 	
+	@Autowired
+	private SeatManagement sm;
+	@Autowired
+	HttpSession session;
 	
 
 	@RequestMapping(value="/PCIdCheck", method = RequestMethod.POST)  
@@ -87,4 +95,24 @@ public class RestController {
 		    return mav;
 		   }
 	
+	@RequestMapping(value = "/SeatChecker", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody String SeatCheck(@RequestBody String param) {
+		String json = sm.seatcheck(param);
+		return json;
+	}
+	@RequestMapping(value = "/SeatIdDetail", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody String SeatIdDetail(@RequestBody String param) {
+		String p_id = (String)session.getAttribute("id");
+		int snum = Integer.parseInt(param);
+		String json = sm.SelectIdCate(p_id , snum);
+		
+		return json;
+	}
+	@RequestMapping(value = "/specUpdate", method = RequestMethod.GET,produces = "application/text; charset=utf8")
+	public @ResponseBody String specUpdate(@RequestParam("param1") String param1, @RequestParam("param2") String param2,@RequestParam("param3") String param3) {
+		String p_id = (String)session.getAttribute("id");
+		String json = sm.UpdateSpec(p_id,param1,param2,param3);
+		
+		return json;
+	}
 }

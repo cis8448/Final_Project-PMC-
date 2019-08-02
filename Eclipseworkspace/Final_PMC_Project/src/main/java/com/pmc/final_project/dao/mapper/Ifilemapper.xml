@@ -3,9 +3,12 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pmc.final_project.dao.IFileDao">
 	<insert id="fileInsert" parameterType="HashMap">
-		INSERT INTO COMMENTS(P_ID, C_CONTENT) VALUES(#{p_id},#{sysFileName})
+		INSERT INTO COMMENTS(C_P_ID, C_CONTENT) VALUES(#{p_id},#{sysFileName})
 	</insert>
 	<select id="SelectFile" parameterType="String" resultType="FileBean">
 		SELECT * FROM COMMENTS WHERE C_P_ID = #{id}
 	</select>
+	<delete id="delete" parameterType="String">
+		DELETE FROM COMMENTS WHERE C_P_ID = #{id}
+	</delete>
 </mapper>
