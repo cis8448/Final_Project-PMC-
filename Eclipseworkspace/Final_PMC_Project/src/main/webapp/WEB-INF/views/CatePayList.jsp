@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
     	button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
-                
+        #cate{width: 100px; height: 40px;}        
     </style>
 
 
@@ -58,33 +59,7 @@
 	</aside>
 	<section>
 	
-	<table id="aa">
-		<tr>
-			<td><select name="pcselectyear">
-					<option value="2018" selected>2018년</option>
-					<option value="2019" selected>2019년</option>
-			</select></td>
 
-			<td><select name="pcselectmonth">
-					<option value="1" selected>1월</option>
-					<option value="2" selected>2월</option>
-					<option value="3" selected>3월</option>
-					<option value="4" selected>4월</option>
-					<option value="5" selected>5월</option>
-					<option value="6" selected>6월</option>
-					<option value="7" selected>7월</option>
-					<option value="8" selected>8월</option>
-					<option value="9" selected>9월</option>
-					<option value="10" selected>10월</option>
-					<option value="11" selected>11월</option>
-					<option value="12" selected>12월</option>
-
-
-			</select></td>
-
-				<td><button>검색</button></td>
-		</tr>
-	</table>
 	<table id="bb">
 		<tr>
 			<td class="Paymenu"><button>카테고리</button></td>
@@ -92,7 +67,20 @@
 	</table>
 
 	
-	<table id="bb">
+	<form method="post" action="./CatePayList.jsp"></form>
+	<table>
+		<tr>
+			<td><select id="selectCate">
+			<c:forEach var="catelist" items="${cateList}">
+			<c:set var="Cate" value="${catelist.pc_name}"/>
+					<option>${catelist.pc_name}</option>
+			</c:forEach>		
+			</select></td>
+			
+			<td><input type="button" onclick="search(${catelist.pc_name});return false;" id="catesearch" value="선택"></input></td>
+		</tr>
+	</table>		
+    	<table id="bb">
 		<tr>
 			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
@@ -110,4 +98,15 @@
 
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$("#catesearch").click(function(){
+		var a = $("#catesearch input:click").val();
+		alert(a);
+		console.log(a);
+	});
+	
+	
+</script>
+
 </html>

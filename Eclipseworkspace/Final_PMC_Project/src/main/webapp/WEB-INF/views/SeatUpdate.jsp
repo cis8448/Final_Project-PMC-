@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%session.setAttribute("p_id", "eodud96031"); %>
 <!DOCTYPE html>
 
 <html>
@@ -185,10 +184,10 @@ input {
 	<aside>
 
 		<div>
-			<a href=#>'${p_id}'님 안녕하세요</a>
+			<a href=#>'${id}'님 안녕하세요</a>
 			<p />
-			<form action="#">
-				<input type="submit" value="정보 수정">
+			<form action=>
+				<input type="button" value="정보 수정" onclick="btn2()">
 			</form>
 
 			<form action="#">
@@ -204,7 +203,7 @@ input {
 	</aside>
 	<section>
 		<div id="imgbix">
-			<img src="${not empty param.Sfile ? ${sysFileName} : "./resources/img/No_image.png"}" class="Pc_roomImg Img"
+			<img src="${not empty param.Sfile ? "${comment}" : "./resources/img/No_image.png"}" class="Pc_roomImg Img"
 				alt="pc방 배치도" id="img"> <input type="file" name="files"
 				id="files" value="이미지를 등록해주세요" multiple>
 		</div>
@@ -298,7 +297,7 @@ input {
             var filevalue = $("td[name='seatIds']").length;
             var fileData = new Array(filevalue);
             var fData = new FormData();
-            fData.append("P_id", '${sessionScope.p_id}')
+            fData.append("p_id", '${sessionScope.id}')
             for(var i = 0; i < filevalue;i++){
                 fileData[i] = $("td[name='seatIds']")[i].innerHTML;
                  fData.append("seatId"+i , fileData[i]);
@@ -339,7 +338,7 @@ input {
 
 function btn1() {
 	
-	var userid ='<%=(String)session.getAttribute("p_id")%>'
+	var userid ='<%=(String)session.getAttribute("id")%>'
 	console.log(userid)
 	$.ajax({
 		type : 'POST',
@@ -369,6 +368,17 @@ function btn1() {
 window.onload = function() {
 	
 
+}
+
+</script>
+<script type="text/javascript">
+function btn2(){
+	var url = "PCInfoUpdate";
+	var name = "popup2222";
+	var option = "width=700 , height=600"; 
+	window.open(url,name,option);
+	
+	
 }
 
 </script>

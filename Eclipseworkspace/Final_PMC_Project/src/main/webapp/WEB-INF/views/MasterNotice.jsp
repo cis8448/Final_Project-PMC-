@@ -118,11 +118,12 @@ table {
 </style>
 <body>
 	<header>
-		<div>
+		<div> 
+		
 			<img src="./resources/image/dd.png">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./">좌석</a></li>
+			<li class="mainmenu"><a href="./pppw ">좌석</a></li>
 			<li class="mainmenu"><a href="#">상품</a></li>
 			<li class="mainmenu"><a href="#">회원</a></li>
 			<li class="mainmenu"><a href="#">매출</a></li>

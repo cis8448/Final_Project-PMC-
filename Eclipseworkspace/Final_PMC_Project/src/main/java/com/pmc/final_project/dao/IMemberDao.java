@@ -1,3 +1,4 @@
+  
 package com.pmc.final_project.dao;
 
 import java.util.List;
@@ -10,7 +11,8 @@ public interface IMemberDao {
 
 	public int getMemberCount();
 
-	public List<Member> getmemberInfo(String str);
+	public Member getmemberInfo(String m_id);
+
 
 
 }
