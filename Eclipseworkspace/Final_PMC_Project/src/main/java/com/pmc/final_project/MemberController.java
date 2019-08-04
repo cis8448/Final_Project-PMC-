@@ -41,16 +41,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/MemberInfo")
-	public ModelAndView MemberInfo(Integer pageNum) {
-<<<<<<< HEAD
-		//mav = mm.getmemberInfo(pageNum);
-=======
+	public ModelAndView MemberInfo(String id) {
 
-		//mav = mm.getmemberInfo(pageNum);
+		//mav = mm.getmemberInfo(id);
 
-//		mav = mm.getmemberInfo(pageNum);
-
->>>>>>> 37f34118f5c386fbcfdaec93705a05d304b1ceff
 		
 		return mav;
 	}
