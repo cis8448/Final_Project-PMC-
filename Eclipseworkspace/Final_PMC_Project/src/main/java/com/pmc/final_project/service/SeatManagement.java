@@ -366,5 +366,25 @@ public class SeatManagement {
 		return json;
 	}
 
+	public String SeatreserveChage(String s_id, String state) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("s_id", s_id);
+		if(state.equals("대기")) {
+			map.put("stat", "가능");	
+		}else {
+			map.put("stat", "대기");
+		}
+		if(sDao.UpdateSeatReserve(map)) {
+			map.clear();
+			map.put("reser", sDao.SelectRe(s_id));
+		}else {
+			map.clear();
+			map.put("reser", sDao.SelectRe(s_id));
+		}
+		String json = new Gson().toJson(map);
+		
+		return json;
+	}
+
 	
 }

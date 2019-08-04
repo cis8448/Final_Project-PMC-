@@ -4,9 +4,9 @@
 
 <mapper namespace="com.pmc.final_project.dao.IPcRoom">
 	<insert id="JSPSignUp" parameterType="PcRoomBean"><!-- 회원가입 처리 -->
-		INSERT INTO PCROOM
-		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday) VALUES
-		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2)
+		INSERT INTO SBPCROOM
+		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun) VALUES
+		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
 
 
@@ -41,8 +41,13 @@
 		SELECT COUNT(*) FROM PCROOM WHERE p_id=#{p_id} AND p_phone=#{p_phone}
 	</select>
 	<select id="accept" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) FROM PCROOM WHERE p_id=#{p_id}
+		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{p_id}
 	</select>
+	
+	<insert id="fileupdate" parameterType="HashMap">
+		INSERT INTO PCFILE VALUES (#{sysid},#{oriFileName},#{sysFileName})
+	</insert>
+	
 	
 	
 

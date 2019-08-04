@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="UTF-8">
-<title>í”¼ëª¨ì”¨ ê´€ë¦¬ì</title>
-<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
+<title>ÇÇ¸ğ¾¾ °ü¸®ÀÚ</title>
+
+<!-- ÇÕÃÄÁö°í ÃÖ¼ÒÈ­µÈ ÃÖ½Å CSS -->
 </head>
 <style>
 html, body, ul {
@@ -62,8 +61,6 @@ a {
 
 .SubMenu:first-child {
 	margin-top: 200px;
-}
-.SubMenu:last_child{
 	text-decoration: underline
 }
 
@@ -119,6 +116,11 @@ footer {
 	height: 200px
 }
 
+button {
+	width: 50%;
+	margin: auto;
+	display: block
+}
 
 table {
 	width: 81%;
@@ -161,7 +163,7 @@ input {
 }
 
 #enbtn {
-	margin-left: 75%;
+	margin-left: 75%
 }
 </style>
 
@@ -172,20 +174,20 @@ input {
 			<img src="./resources/img/dd.png" id="pcimg">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="#">ì¢Œì„</a></li>
-			<li class="mainmenu"><a href="./MemberList">íšŒì›</a></li>
-			<li class="mainmenu"><a href="./product">ìƒí’ˆ</a></li>
-			<li class="mainmenu"><a href="./MemberPayList">ë§¤ì¶œ</a></li>
-			<li class="mainmenu"><a href="./pcmasternotice">ê¸°íƒ€</a></li>
+			<li class="mainmenu"><a href="#">ÁÂ¼®</a></li>
+			<li class="mainmenu"><a href="#">È¸¿ø</a></li>
+			<li class="mainmenu"><a href="#">»óÇ°</a></li>
+			<li class="mainmenu"><a href="#">¸ÅÃâ</a></li>
+			<li class="mainmenu"><a href="#">±âÅ¸</a></li>
 		</ul>
 	</header>
 	<aside>
 
 		<div>
-			<a href=#>'${id}'ë‹˜ ì•ˆë…•í•˜ì„¸ìš”</a>
+			<a href=#>'${id}'´Ô ¾È³çÇÏ¼¼¿ä</a>
 			<p />
-			<form action="#">
-				<input type="submit" value="ì •ë³´ ìˆ˜ì •">
+			<form action=>
+				<input type="button" value="Á¤º¸ ¼öÁ¤" onclick="btn2()">
 			</form>
 
 			<form action="#">
@@ -194,31 +196,30 @@ input {
 		</div>
 
 		<ul id="SubMenu">
-			<li class="SubMenu"><a href="./SeatState">ì¢Œì„ì •ë³´</a></li>
-			<li class="SubMenu"><a href="./SeatDetail">ì¢Œì„ ìƒì„¸ë³´ê¸° / ìˆ˜ì •</a></li>
-			<li class="SubMenu"><a href="./SeatUpdate">ì¢Œì„ ë°°ì¹˜ ë³€ê²½</a></li>
+			<li class="SubMenu"><a href="#">ÁÂ¼®Á¤º¸</a></li>
+			<li class="SubMenu"><a href="#">ÁÂ¼® »ó¼¼º¸±â / ¼öÁ¤</a></li>
+			<li class="SubMenu"><a href="#">ÁÂ¼® ¹èÄ¡ º¯°æ</a></li>
 		</ul>
 	</aside>
 	<section>
 		<div id="imgbix">
-			<img src="./resources/${(not empty Sfile) ?    Sfile.c_content: 'img/No_image.png'}" class="Pc_roomImg Img"
-				alt="pcë°© ë°°ì¹˜ë„" id="img"> <input type="file" name="files"
-				id="files" value="ì´ë¯¸ì§€ë¥¼ ë“±ë¡í•´ì£¼ì„¸ìš”" multiple>
+			<img src="${not empty param.Sfile ? "${comment}" : "./resources/img/No_image.png"}" class="Pc_roomImg Img"
+				alt="pc¹æ ¹èÄ¡µµ" id="img"> <input type="file" name="files"
+				id="files" value="ÀÌ¹ÌÁö¸¦ µî·ÏÇØÁÖ¼¼¿ä" multiple>
 		</div>
 		<table border="1px solid black" id="tb1">
 			<tr>
-				<td>Pcë²ˆí˜¸</td>
-				<td>ì‚¬ìš© ìƒíƒœ</td>
-				<td>ì‚¬ìš©ì ì•„ì´ë””</td>
-				<td>ë‚¨ì€ì‹œê°„</td>
+				<td>Pc¹øÈ£</td>
+				<td>»ç¿ë »óÅÂ</td>
+				<td>»ç¿ëÀÚ ¾ÆÀÌµğ</td>
+				<td>³²Àº½Ã°£</td>
 			</tr>
-			<c:forEach var="SeatBean" items="${Slist}">
+			<c:forEach var="SeatUpdate" items="${Slist}">
 			<tr>
-				<td name = "seatIds">${SeatBean.s_id}</td>
-				<td>${SeatBean.s_state}</td>
-				<td>${SeatBean.m_id}</td>
-				<td>${SeatBean.m_time}</td>
-			</tr>
+				<td name = "name='seatIds'">${s_id}</td>
+				<td>${s_state}</td>
+				<td>${m_id}</td>
+				<td>${m_time}</td>
 			</c:forEach>
 		</table>
 
@@ -227,7 +228,7 @@ input {
 			<li><button type="button" class="addbtn" onclick="AddSeat()">+</button></li>
 			<li><button type="button" class="addbtn" onclick="SubSeat()">-</button></li>
 		</ul>
-		<button type="button" id="enbtn"  onclick="updateSeat()" >ì™„ë£Œ</button>
+		<button type="button" id="enbtn" value="¿Ï·á" onclick="updateSeat()" />
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
@@ -238,9 +239,6 @@ input {
 <script>
         var upload = document.getElementById('files');
         var img = document.getElementById('img')
-        var num = 0;
-        var imgsrc = img.src;
-        console.log(imgsrc);
           
         upload.addEventListener('change',function(e){
             var name = upload.value.substring(upload.value.indexOf('.'));
@@ -252,7 +250,6 @@ input {
                     return function(e) {
                        console.log(3);
                        aImg.src = e.target.result
-                       num = 1;
                     }
                  })(img)
                  if (get_file) {
@@ -261,12 +258,12 @@ input {
                   }      
             }else{
             	upload.value = '';
-                alert("'jpgíŒŒì¼ì´ë‚˜ pngíŒŒì¼ì„ ì˜¬ë ¤ì£¼ì„¸ìš”'");
+                alert("'jpgÆÄÀÏÀÌ³ª pngÆÄÀÏÀ» ¿Ã·ÁÁÖ¼¼¿ä'");
             }
             
         });
         
-        var number = ${(not empty cnt ? cnt : '0')} ;
+        var number = 0;
         function AddSeat(){
             var tb = document.getElementById('tb1');
             var Addtr = document.createElement('tr');
@@ -274,7 +271,7 @@ input {
             for(var i=0;i<4;i++){
                 var Addtd = document.createElement('td');
                 if(i==0){Addtd.innerHTML = number; Addtd.setAttribute("name","seatIds");}
-                if(i==1){Addtd.innerHTML = 'ì¶”ê°€ëŒ€ê¸°'}
+                if(i==1){Addtd.innerHTML = 'Ãß°¡´ë±â'}
                 if(i==2){Addtd.innerHTML = ''}
                 if(i==3){Addtd.innerHTML = ''}
                 Addtr.appendChild(Addtd)
@@ -285,26 +282,23 @@ input {
         
         function SubSeat(){
             if(number > 0){
-            
             	var tb = document.getElementById('tb1');
             	tb.deleteRow(tb.rows.length-1);
             	number--;
             }else{
-            	alert("ë” ì‚­ì œí•  ì¢Œì„ì´ ì—†ìŠµë‹ˆë‹¤.")
+            	alert("´õ »èÁ¦ÇÒ ÁÂ¼®ÀÌ ¾ø½À´Ï´Ù.")
             }
         };
         
         function updateSeat(){
             var $obj = $('#files');
-           
+            
 
             var filevalue = $("td[name='seatIds']").length;
             var fileData = new Array(filevalue);
             var fData = new FormData();
             fData.append("p_id", '${sessionScope.id}')
-            fData.append("num", num);
-            fData.append("src",imgsrc);
-            for(var i = 0; i <= fileData.length -1;i++){
+            for(var i = 0; i < filevalue;i++){
                 fileData[i] = $("td[name='seatIds']")[i].innerHTML;
                  fData.append("seatId"+i , fileData[i]);
             };
@@ -324,16 +318,15 @@ input {
                 contentType : false,
                 dataType : "json",
                 success : function(data){
-                	console.log(data);
-                    if(data.success == "1"){
-                    	location.href = "./SeatState";
+                    if(data.success == "¼º°ø"){
+                    	location.href = "./";
                     }else{
-                    	alert("íŒŒì¼ ì—…ë¡œë“œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.!!")              
+                    	alert("ÆÄÀÏ ¾÷·Îµå¿¡ ½ÇÆĞÇß½À´Ï´Ù.")
                     }
                     
                 },
                 error : function(error){
-                    alert("íŒŒì¼ ì—…ë¡œë“œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+                    alert("ÆÄÀÏ ¾÷·Îµå¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
                 }
                    
             })    
@@ -356,10 +349,10 @@ function btn1() {
 		success : function(data) {
 			console.log(data)
 			if (data.cnt > 0) {
-			document.getElementById("button1").value = "ìŠ¹ì¸ ì™„ë£Œ";	
+			document.getElementById("button1").value = "½ÂÀÎ ¿Ï·á";	
 			} else {
-			document.getElementById("button1").value = "ë¯¸ìŠ¹ì¸ ì•„ì´ë””";					
-				//ì•„ì´ë””ê°€ ì¤‘ë³µí•˜ì§€ ì•Šìœ¼ë©´  idck = 1 
+			document.getElementById("button1").value = "¹Ì½ÂÀÎ ¾ÆÀÌµğ";					
+				//¾ÆÀÌµğ°¡ Áßº¹ÇÏÁö ¾ÊÀ¸¸é  idck = 1 
 				
 				
 			}
@@ -372,9 +365,17 @@ function btn1() {
 	});
 };
 
-window.onload = function() {
-	
 
+
+</script>
+<script type="text/javascript">
+function btn2(){
+	var url = "PCInfoUpdate";
+	var name = "popup2222";
+	var option = "width=700 , height=600"; 
+	window.open(url,name,option);
+	
+	
 }
 
 </script>

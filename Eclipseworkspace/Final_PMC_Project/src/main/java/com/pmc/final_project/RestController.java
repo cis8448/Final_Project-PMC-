@@ -86,6 +86,8 @@ public class RestController {
 
 		return json;
 	}
+	
+	
 
 	@RequestMapping(value="/paysearch", method = RequestMethod.POST)  
 	public @ResponseBody String paysearch(@RequestBody String userid) {
@@ -136,6 +138,12 @@ public class RestController {
 	public @ResponseBody String specUpdate(@RequestParam("param1") String param1, @RequestParam("param2") String param2,@RequestParam("param3") String param3) {
 		String p_id = (String)session.getAttribute("id");
 		String json = sm.UpdateSpec(p_id,param1,param2,param3);
+		
+		return json;
+	}
+	@RequestMapping(value = "/reserveChage", method = RequestMethod.GET,produces = "application/text; charset=utf8")
+	public @ResponseBody String reserveChage(@RequestParam("param1") String S_id, @RequestParam String state) {
+		String json = sm.SeatreserveChage(S_id,state);
 		
 		return json;
 	}

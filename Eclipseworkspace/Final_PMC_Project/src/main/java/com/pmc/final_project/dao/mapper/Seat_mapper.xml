@@ -21,4 +21,10 @@
 		<select id="selectSpec" parameterType="String" resultType="String">
 			SELECT S_SPEC FROM SEAT WHERE S_ID = #{p_id}
 		</select>
+		<update id="UpdateSeatReserve" parameterType="HashMap">
+			UPDATE SEAT SET RESERVE = #{state} WHERE S_ID = #{s_id} 
+		</update>
+		<select id="SelectRe" parameterType="String" resultType="String">
+			SELECT S_RE FROM SEAT WHERE S_ID = #{#s_id}
+		</select>
 	</mapper>
