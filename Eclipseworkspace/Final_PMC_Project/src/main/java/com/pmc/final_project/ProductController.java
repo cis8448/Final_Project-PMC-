@@ -36,10 +36,17 @@ public class ProductController {
 		return "ProductAdd";   
 	}
 	
+	@RequestMapping(value = "/ProductCateAdd")
+	public String ProductCateAdd() {
+		 
+		return "ProductCateAdd";   
+	}
+	
 	@RequestMapping(value = "/ProductDetail")
-	public String ProductDetail() {
-		
-		return "ProductDetail";   
+	public ModelAndView ProductDetail(String pr_id) {
+		 mav = prm.ProductDetail(pr_id);
+		 
+		return mav;   
 	}
 	
 	@RequestMapping(value = "/Product")   //db 검색 하여 목록 생성

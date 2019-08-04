@@ -64,24 +64,25 @@
     </aside>
     <section>
 	<div class="my-box">
-	<table border="1" class="center">
+	<table  border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center"  class="center">
+	<tr>
+	</tr>
 			<tr>
 				<td class="a1">카테고리</td>
-				<td>${product.pc_id}</td>
+				<td>${productall.pc_name}</td>
 			</tr>
 			<tr>
 				<td class="a1" >제품명</td>
-				<td>${product.pr_name}</td>
-			</tr>
-			<tr>
-				<td class="a1">가격</td>
-				<td>${product.pr_price}</td>
+				<td>${productall.pr_name}</td>
 			</tr>
 			<tr>
 				<td class="a1">수량</td>
-				<td>${product.pr_qty}</td>
+				<td>${productall.pr_qty}</td>
 			</tr>
-
+			<tr>
+				<td class="a1">가격</td>
+				<td>${productall.pr_price}</td>
+			</tr>
 		</table>
 	</div><br>
 	<div class="margin">

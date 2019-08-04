@@ -54,6 +54,23 @@ public class ProductManagement {
 		
 		return propaging.makeHtmlpaging();
 	}
+
+	
+
+	public ModelAndView ProductDetail(String pr_id) {
+		 mav = new ModelAndView();
+	      String view = null;
+	      
+	      ProductBean product = prDao.ProductDetail(pr_id);
+	      session.setAttribute("m_id", product.getPr_id());
+	      
+	      mav.addObject("product", product);
+	      
+	      view = "ProductDetail";
+	      mav.setViewName(view);
+	      
+	      return mav;
+	}
 	
 //	public ModelAndView producAdd(ProductBean product) {
 //		mav = new ModelAndView();

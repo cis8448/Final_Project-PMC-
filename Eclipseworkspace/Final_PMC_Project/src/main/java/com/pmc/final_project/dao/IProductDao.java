@@ -10,5 +10,7 @@ public interface IProductDao {
 
 	int getProductCount();
 
+	ProductBean ProductDetail(String pr_id);
+
 
 }
