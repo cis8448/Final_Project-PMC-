@@ -19,5 +19,9 @@ public interface ISeatDao {
 
 	public String selectSpec(String p_id);
 
+	public boolean UpdateSeatReserve(HashMap<String, String> map);
+
+	public String SelectRe(String s_id);
+
 
 }

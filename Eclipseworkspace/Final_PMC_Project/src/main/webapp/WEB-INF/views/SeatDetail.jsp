@@ -248,7 +248,7 @@ select { width: 100px;height: 30px}
                 </tr>
                 <tr>
                     <td><h3></h3></td>
-                    <td><h3 id="re">예약 : ${SeatSet.s_noreserve} </h3><button type="button" onclick="chager()">변경</button></td>
+                    <td><h3 id="re">예약 : <span>${SeatSet.s_noreserve}</span> </h3><button type="button" onclick="chager()">변경</button></td>
                 </tr>
                 
                 <tr>
@@ -343,6 +343,26 @@ if(inputString != ''){
 });
 }
 }
-
+function chager(){
+    var id = '${sessionScope.p_id}'
+    var number = document.getElementById('id');
+    var state= document.getElementById('reser');
+    var param = 'param1=pc'+id+number+'&param2='var.innerHTML;
+    console.log(state.innerHTML);
+    $.ajax({
+        type: 'get',
+		url: 'reserveChage',
+		data: param,
+		dataType: 'json',
+ 		contentType : "application/json; charset=UTF-8",
+		success: function(data){
+       		state.innerHTML=data.reser;
+		},
+		error: function(data){
+            alert("서버접속에 실패했습니다");
+		}
+    })
+    
+}
 </script>
 </html>

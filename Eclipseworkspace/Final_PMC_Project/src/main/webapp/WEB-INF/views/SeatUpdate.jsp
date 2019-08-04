@@ -365,10 +365,7 @@ function btn1() {
 	});
 };
 
-window.onload = function() {
-	
 
-}
 
 </script>
 <script type="text/javascript">
