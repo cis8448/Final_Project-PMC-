@@ -10,6 +10,6 @@ public interface IFileDao {
 
 	FileBean SelectFile(String p_id);
 
-	
+	void delete(String p_id);
 
 }

@@ -4,20 +4,24 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("fileBean")
 public class FileBean {
-	private String p_id;
-	private String comment;
-	public String getComment() {
-		return comment;
+	private String c_p_id;
+	private String c_content;
+	public String getC_p_id() {
+		return c_p_id;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setC_p_id(String c_p_id) {
+		this.c_p_id = c_p_id;
 	}
-	public String getP_id() {
-		return p_id;
+	public String getC_content() {
+		return c_content;
 	}
-	public void setP_id(String p_id) {
-		this.p_id = p_id;
+	public void setC_content(String c_content) {
+		this.c_content = c_content;
 	}
+	
+	
+	
+	
 	
 	
 

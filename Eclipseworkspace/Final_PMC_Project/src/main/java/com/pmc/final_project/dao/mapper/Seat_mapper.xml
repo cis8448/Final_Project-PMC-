@@ -7,12 +7,24 @@
 			SELECT COUNT(*) FROM SEAT WHERE S_P_ID = #{id}
 		</select>
 		<insert id="insertSeat" parameterType="SeatBean">
-			INSERT INTO SEAT(S_P_ID , S_ID , S_STATE , S_NORESERCE) VALUES(#{p_id},#{s_id},#{s_state},#{s_noreserve})
+			INSERT INTO SEAT(S_P_ID , S_ID , S_STATE , S_NORESERVE) VALUES(#{p_id},#{s_id},#{s_state},#{s_noreserve})
 		</insert>
 		<select id="selectAll" resultType="SeatBean" parameterType="String">
-			SELECT S_P_ID AS "P_ID", S_ID, S_STATE, S_SPEC, S_NORESERVE FROM SEAT WHERE S_P_ID = #{ID} ORDER BY S_ID ASC
+			SELECT * FROM PCUSING WHERE S_P_ID = #{ID}
 		</select>
 		<delete id="deleteSeat" parameterType="SeatBean">
 			DELETE FROM SEAT WHERE S_ID = #{s_id}
 		</delete>
+		<update id="UpdateSpec" parameterType="HashMap">
+			UPDATE SEAT SET S_SPEC = #{spec} WHERE S_ID = #{p_id}
+		</update>
+		<select id="selectSpec" parameterType="String" resultType="String">
+			SELECT S_SPEC FROM SEAT WHERE S_ID = #{p_id}
+		</select>
+		<update id="UpdateSeatReserve" parameterType="HashMap">
+			UPDATE SEAT SET RESERVE = #{state} WHERE S_ID = #{s_id} 
+		</update>
+		<select id="SelectRe" parameterType="String" resultType="String">
+			SELECT S_RE FROM SEAT WHERE S_ID = #{#s_id}
+		</select>
 	</mapper>
