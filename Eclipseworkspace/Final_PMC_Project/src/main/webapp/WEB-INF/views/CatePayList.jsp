@@ -60,11 +60,6 @@
 	<section>
 	
 
-	<table id="bb">
-		<tr>
-			<td class="Paymenu"><button>카테고리</button></td>
-		</tr>
-	</table>
 
 	
 	<form method="post" action="./CatePayList.jsp"></form>
@@ -74,22 +69,27 @@
 			<c:forEach var="catelist" items="${cateList}">
 			<c:set var="Cate" value="${catelist.pc_name}"/>
 					<option>${catelist.pc_name}</option>
-			</c:forEach>		
+			</c:forEach>
+					
 			</select></td>
 			
-			<td><input type="button" onclick="search(${catelist.pc_name});return false;" id="catesearch" value="선택"></input></td>
+			<td><input type="button" onclick="catesearch(${selectCate});return false;" id="catesearch" value="선택"></input></td>
 		</tr>
 	</table>		
     	<table id="bb">
 		<tr>
-			<td class="Paymenu">일</td>
-			<td class="Paymenu">시간</td>
+			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
-			
+		
+				
 		</tr>
+		<tr>
+			<td><div id="list" style="border:1px blue solid"></div></td>
+		</tr>
+		
 	</table>
 	</section>
 	<footer>
@@ -100,12 +100,21 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	$("#catesearch").click(function(){
-		var a = $("#catesearch input:click").val();
-		alert(a);
-		console.log(a);
-	});
 	
+	var a = $("#selectCate option:selected").val();	
+	$("#catesearch").click(function(){
+		$.ajax({
+			type:'get'
+			url : 'cateajax'
+			data: a,
+			dateType : 'html',
+			sucess:function(data){
+				console.log.(data);
+				${"#list"}.html(data);
+			}
+		});					
+	
+	});
 	
 </script>
 

@@ -66,18 +66,25 @@
 	<table id="aa">
 		<tr>
 			<td><select id="selectyear">
-			<c:forEach var="paymentdetail" items="${pList}">
-			<c:set var="Year" value="${paymentdetail.u_start}"/>
-					<option>${fn:substring(Year,0,4)}</option>
-			</c:forEach>		
+			
+					<option>2019</option>
+					<option>2018</option>
 			</select></td>
 			
-				<td><select id="selectmonth">
-					<c:forEach var="paymentdetail" items="${pList}">
-			<c:set var="Month" value="${paymentdetail.u_start}"/>
-					<option>${fn:substring(Month,5,7)}</option>
-			</c:forEach>	
-
+		<td><select id = "selectmonth">		
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+			
 
 			</select></td>
 		
@@ -129,6 +136,7 @@ $("#search").click(function(){
 	
 			console.log(c);
 			console.log(d);
+		
 	
 });
 

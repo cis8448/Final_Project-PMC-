@@ -14,7 +14,17 @@ public class PayMentDetail {
 	private String pr_name;
 	private int pl_qty;
 	private int pl_price;
+	private String pr_id;
 	
+	public String getPr_id() {
+		return pr_id;
+	}
+	public void setPr_id(String pr_id) {
+		this.pr_id = pr_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
 	public String getM_id() {
 		return m_id;
 	}

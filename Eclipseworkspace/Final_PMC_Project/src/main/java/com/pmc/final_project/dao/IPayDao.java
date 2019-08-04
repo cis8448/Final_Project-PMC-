@@ -14,6 +14,8 @@ public interface IPayDao {
 
 	public boolean PayDate(Map<String, String> map);
 
+
+
 	
 
 }
