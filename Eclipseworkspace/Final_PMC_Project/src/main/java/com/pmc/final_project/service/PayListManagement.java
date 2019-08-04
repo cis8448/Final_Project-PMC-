@@ -82,6 +82,50 @@ public class PayListManagement {
 
 
 
+	public ModelAndView getmemberPayList(Integer pageNum) {
+		mav = new ModelAndView();
+		String view = null;
+		List<PayMentDetail> mpList = null;
+		
+		String u_m_id = (String)session.getAttribute("m_id");
+		
+		int num = (pageNum == null) ? 1 : pageNum;
+		
+		System.out.println(u_m_id+"첫번쨰");
+		
+		mpList = payDao.getmemberPaylist(u_m_id);
+		System.out.println(mpList.get(0).getU_m_id());
+		System.out.println(mpList.get(0).getU_start());
+		
+		mav.addObject("mpList", mpList);
+
+		mav.addObject("memberpayPaging", getmemberPayPaging(num));
+		
+		view = "MemberPayCheck";
+		mav.setViewName(view);
+		session.removeAttribute("m_id");
+		return mav;
+	}
+
+
+	private String getmemberPayPaging(int num) {
+		String u_m_id = (String)session.getAttribute("m_id");
+		System.out.println(u_m_id+"두번쨰");
+		int maxNum = payDao.getmemberPayCount(u_m_id);
+		//페이지 당 회원 수
+		int listCnt = 10;
+		//그룹당 페이지 수
+		int pageCnt = 3;
+		//게시판이 여러 종류가 있다면 
+		String memberpayName = "MemberPayCheck";
+		Paging memberpayPaging = 
+			new Paging(maxNum, num, listCnt, 
+						pageCnt, memberpayName);
+						
+		return memberpayPaging.makeHtmlpaging();
+	}
+
+
 //	private String getPayPaging(int num) {
 //		int maxNum = payDao.getPayList();
 //		

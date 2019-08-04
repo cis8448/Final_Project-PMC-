@@ -57,8 +57,8 @@
     </aside>
     <section>
     <div class="Search">
-    	<input type="text" placeholder="회원 검색">
-    	<button>검색</button>
+    	<input type="text" placeholder="검색할 회원 아이디">
+    	<button onclick="MemberSearch">검색</button>
     </div><br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
@@ -73,10 +73,10 @@
     	</tr> 
     	<c:forEach var="member" items="${mList}">
     	<tr align="center">
-    		<td>${member.m_id}</td>
+    		<td id="Search">${member.m_id}</td>
     		<td>${member.m_name}</td>
     		<td>${member.m_birthday}</td>
-    		<td>${member.m_retime}</td>
+    		<td>${member.m_time}</td>
     		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
     	</tr>
     	</c:forEach>
@@ -87,5 +87,24 @@
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script>
+function MemberSearch() {
+	
+	var
+	
+	$.ajax({
+		type:'post',
+		url:'MemberSearch',
+		data:result,
+		dataType:'json',
+		contentType : "application/json; charset=UTF-8",
+		success: function(data){
+			
+		}
+		
+	});
+	
+};
+</script>
 
 </html>

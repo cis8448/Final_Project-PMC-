@@ -11,6 +11,27 @@ public class SeatBean {
 	private String s_noreserve;
 	private String m_id;
 	private String m_time;
+	private String m_birthday;
+	
+	public String getM_birthday() {
+		return m_birthday;
+	}
+	public void setM_birthday(String m_birthday) {
+		this.m_birthday = m_birthday;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+	public String getM_time() {
+		return m_time;
+	}
+	public void setM_time(String m_time) {
+		this.m_time = m_time;
+	}
+
 	
 	public String getP_id() {
 		return p_id;
