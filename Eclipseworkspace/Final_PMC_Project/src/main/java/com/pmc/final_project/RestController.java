@@ -22,6 +22,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 
 @Controller
@@ -32,7 +33,11 @@ public class RestController {
 	private IPcRoom pDao;
 
 	@Autowired
-	private PcroomManagement pm; 
+	private PcroomManagement pm;
+	
+	@Autowired
+	private MemberManagement mm;
+	
 	
 	
 
@@ -87,4 +92,26 @@ public class RestController {
 		    return mav;
 		   }
 	
+	@RequestMapping(value="/TimeAdd", method = RequestMethod.POST)  
+	public @ResponseBody String TimeAdd(@RequestBody String m_time) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("TimeAdd execute ");
+		System.out.println(m_time+"출력값 2222222222");
+		String json = null;
+		json = mm.MemberTimeAdd(m_time);
+		
+		return json;
+	}
+	
+	@RequestMapping(value="/MemberSearch", method = RequestMethod.POST)  
+	public @ResponseBody String MemberSearch(@RequestBody String m_id) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("MemberSearch execute ");
+		System.out.println(m_id+"출력값 2222222222");
+		String json = null;
+		json = mm.MemberSearCh(m_id);
+		
+		return json;
+	}
+
 }

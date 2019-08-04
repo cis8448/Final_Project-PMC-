@@ -8,4 +8,8 @@ public interface IPayDao {
 
 	public List<PayMentDetail> getPayList();
 
+	public List<PayMentDetail> getmemberPaylist(String u_m_id);
+
+	public int getmemberPayCount(String u_m_id);
+
 }

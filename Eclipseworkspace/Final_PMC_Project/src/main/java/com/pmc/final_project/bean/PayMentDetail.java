@@ -3,8 +3,9 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("paymentdetail")
+@Alias("PayMentDetail")
 public class PayMentDetail {
+	
 	
 	private String m_id;
 	private String p_id;
@@ -14,7 +15,21 @@ public class PayMentDetail {
 	private String pr_name;
 	private int pl_qty;
 	private int pl_price;
+	private String u_m_id;
+	private String pc_p_id;
 	
+	public String getU_m_id() {
+		return u_m_id;
+	}
+	public void setU_m_id(String u_m_id) {
+		this.u_m_id = u_m_id;
+	}
+	public String getPc_p_id() {
+		return pc_p_id;
+	}
+	public void setPc_p_id(String pc_p_id) {
+		this.pc_p_id = pc_p_id;
+	}
 	public String getM_id() {
 		return m_id;
 	}

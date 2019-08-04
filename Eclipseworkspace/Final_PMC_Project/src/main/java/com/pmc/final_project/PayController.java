@@ -48,6 +48,14 @@ public class PayController {
 		return "TimePayList";
 	}
 	
+	@RequestMapping(value = "/MemberPayCheck")
+	public ModelAndView MemberPayCheck(Integer pageNum) {
+		
+		mav = pm.getmemberPayList(pageNum);
+		
+		return mav;
+	}
+	
 	
 
 }
