@@ -36,12 +36,6 @@ public class PayController {
 	}
 
 	
-	
-	@RequestMapping(value = "/CatePayList")
-	public String CatePayList() {
-		
-		return "CatePayList";
-	}
 	@RequestMapping(value = "/TimePayList")
 	public String TimePayList() {
 		

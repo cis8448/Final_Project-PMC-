@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,7 @@
         #aa{margin-left: 80%}
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+        button{width: 100px; height: 30px; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
                 
     </style>
 
@@ -60,35 +62,32 @@
 	</aside>
 	<section>
 
-
+<form method="post" action="./MemberPayList.jsp"></form>
 	<table id="aa">
 		<tr>
-			<td><select name="pcselectyear">
-					<option value="2018" selected>2018년</option>
-					<option value="2019" selected>2019년</option>
+			<td><select id="selectyear">
+			<c:forEach var="paymentdetail" items="${pList}">
+			<c:set var="Year" value="${paymentdetail.u_start}"/>
+					<option>${fn:substring(Year,0,4)}</option>
+			</c:forEach>		
 			</select></td>
-
-			<td><select name="pcselectmonth">
-					<option value="1" selected>1월</option>
-					<option value="2" selected>2월</option>
-					<option value="3" selected>3월</option>
-					<option value="4" selected>4월</option>
-					<option value="5" selected>5월</option>
-					<option value="6" selected>6월</option>
-					<option value="7" selected>7월</option>
-					<option value="8" selected>8월</option>
-					<option value="9" selected>9월</option>
-					<option value="10" selected>10월</option>
-					<option value="11" selected>11월</option>
-					<option value="12" selected>12월</option>
+			
+				<td><select id="selectmonth">
+					<c:forEach var="paymentdetail" items="${pList}">
+			<c:set var="Month" value="${paymentdetail.u_start}"/>
+					<option>${fn:substring(Month,5,7)}</option>
+			</c:forEach>	
 
 
 			</select></td>
+		
 
-				<td><button>검색</button></td>
+		
+				<td><input type="button" onclick="search(${selectyear}, ${selectmonth});return false;" id="search" value="선택"></input></td>
+			
 		</tr>
 	</table>
-	<table id="bb">
+	<table id="bb" border="1">
 		<tr>
 			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
@@ -100,9 +99,10 @@
 			
 		</tr>	
 		<c:forEach var="paymentdetail" items="${pList}">
+		<c:set var="Date" value="${paymentdetail.u_start}"/>
     	<tr>
-    		<td>${paymentdetail.u_start}</td>
-    		<td>${paymentdetail.u_finish}</td>
+    		<td>${fn:substring(Date,8,10)}</td>
+            <td>${fn:substring(Date,11,19)}</td>
     		<td>${paymentdetail.pc_name}</td>
     		<td>${paymentdetail.m_id}</td>
     		<td>${paymentdetail.pr_name}</td>
@@ -112,16 +112,25 @@
     	</tr>
     	</c:forEach>
 	</table>
-	
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
 
 
-
-
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$("#search").click(function(){
+	var c = $("#selectyear option:selected").val();
+	var d = $("#selectmonth option:selected").val();
 
+	
+			console.log(c);
+			console.log(d);
+	
+});
 
+</script>
 </html>

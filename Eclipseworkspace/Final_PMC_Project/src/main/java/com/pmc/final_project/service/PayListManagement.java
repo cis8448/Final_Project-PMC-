@@ -1,14 +1,20 @@
 package com.pmc.final_project.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.PayMentDetail;
+import com.pmc.final_project.bean.ProductCate;
 import com.pmc.final_project.dao.IPayDao;
+import com.pmc.final_project.dao.IProductDao;
 import com.pmc.final_project.util.Paging;
 
 @Service
@@ -18,6 +24,7 @@ public class PayListManagement {
 	
 	@Autowired
 	private IPayDao payDao;
+	
 	
 	@Autowired
 	private HttpSession session;
@@ -41,6 +48,35 @@ public class PayListManagement {
 		return mav;
 		
 	}
+	
+	public String PayDate(String u_start) {
+		mav = new ModelAndView();
+		String view = null;
+		System.out.println(u_start + "출력");
+		
+		String id=(String)session.getAttribute("u_start");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("u_start", u_start);
+		Map<Object, Object> fmap = new HashMap<Object, Object>();
+		
+		String json = null;
+		System.out.println();
+		System.out.println("드루와");
+		if(payDao.PayDate(map)) {
+			System.out.println("드루와2");
+			fmap.put("cnt",1);
+			
+		}else {
+			System.out.println("실패");
+		}
+		json = new Gson().toJson(fmap);
+		mav.setViewName(view);
+		return json;
+			
+	}
+	
+
 
 
 	public ModelAndView getmemberPayList(Integer pageNum) {

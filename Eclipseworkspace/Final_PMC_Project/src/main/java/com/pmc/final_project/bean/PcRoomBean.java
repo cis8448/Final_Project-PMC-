@@ -11,7 +11,8 @@ public class PcRoomBean {
 	private String p_name;
 	private String p_phone;
 	private String p_email;
-	private String p_sigungu;
+	private String p_gugun;
+	private String p_sido;
 	private String p_dong;
 	private String p_addr;
 	private String p_holiday;
@@ -21,6 +22,20 @@ public class PcRoomBean {
 	private String p_sysName2;
 	private String p_oriName3;
 	private String p_sysName3;
+	private String p_oriName4;
+	private String p_sysName4;
+	public String getP_oriName4() {
+		return p_oriName4;
+	}
+	public void setP_oriName4(String p_oriName4) {
+		this.p_oriName4 = p_oriName4;
+	}
+	public String getP_sysName4() {
+		return p_sysName4;
+	}
+	public void setP_sysName4(String p_sysName4) {
+		this.p_sysName4 = p_sysName4;
+	}
 	public String getP_id() {
 		return p_id;
 	}
@@ -57,11 +72,17 @@ public class PcRoomBean {
 	public void setP_email(String p_email) {
 		this.p_email = p_email;
 	}
-	public String getP_sigungu() {
-		return p_sigungu;
+	public String getP_gugun() {
+		return p_gugun;
 	}
-	public void setP_sigungu(String p_sigungu) {
-		this.p_sigungu = p_sigungu;
+	public void setP_gugun(String p_gugun) {
+		this.p_gugun = p_gugun;
+	}
+	public String getP_sido() {
+		return p_sido;
+	}
+	public void setP_sido(String p_sido) {
+		this.p_sido = p_sido;
 	}
 	public String getP_dong() {
 		return p_dong;

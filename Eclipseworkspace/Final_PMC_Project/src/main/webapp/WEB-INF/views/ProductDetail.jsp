@@ -67,19 +67,19 @@
 	<table border="1" class="center">
 			<tr>
 				<td class="a1">카테고리</td>
-				<td><input type="text"></td>
+				<td>${product.pc_id}</td>
 			</tr>
 			<tr>
 				<td class="a1" >제품명</td>
-				<td><input type="text"></td>
+				<td>${product.pr_name}</td>
 			</tr>
 			<tr>
 				<td class="a1">가격</td>
-				<td><input type="text"></td>
+				<td>${product.pr_price}</td>
 			</tr>
 			<tr>
 				<td class="a1">수량</td>
-				<td><input type="text"></td>
+				<td>${product.pr_qty}</td>
 			</tr>
 
 		</table>

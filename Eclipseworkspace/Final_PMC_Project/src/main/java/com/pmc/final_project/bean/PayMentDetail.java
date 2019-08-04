@@ -33,7 +33,7 @@ public class PayMentDetail {
 	public String getM_id() {
 		return m_id;
 	}
-	public void setM_id(String m_id) {
+	public void setU_M_id(String m_id) {
 		this.m_id = m_id;
 	}
 	public String getP_id() {
