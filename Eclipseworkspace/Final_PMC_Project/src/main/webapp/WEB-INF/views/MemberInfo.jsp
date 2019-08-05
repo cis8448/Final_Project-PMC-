@@ -207,7 +207,7 @@ h2 {
 		</div>
 
 		<div class=right>
-			<p class="content">${member.m_id}</p>
+			<p class="content" id="m_id">${member.m_id}</p>
 			<p class="content">${member.m_name}</p>
 			<p class="content">${member.m_birthday}</p>
 			<p class="content">${member.m_email}</p>
@@ -246,21 +246,27 @@ h2 {
 <script>
 	function TimeAdd() {
 
-		var res = parseInt($("#sel option:selected").val());
+		var res = $("#sel option:selected").val();
+		var m_id = document.getElementById('m_id').innerHTML;
+		
 		//var t = parseInt($("#t").val());
-		var result = String(res);
-
+		var result = 'time='+res+'&m_id='+m_id
+		console.log(result);
 		$.ajax({
 			type : 'post',
+			url : 'TimeAdd',
 			data : result,
-			url : "TimeAdd",
+			//contentType : "application/json; charset=UTF-8",
 			dataType : 'json',
-			contentType : "application/json; charset=UTF-8",
 			success : function(data) {
 				var time = document.getElementById('times');
 				time.innerHTML = data.cnt;
 				
 			},
+			error : function(data) {
+				console.log("ang")
+				
+			}
 		});
 	};
 </script>

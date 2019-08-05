@@ -57,8 +57,8 @@
     </aside>
     <section>
     <div class="Search">
-    	<input type="text" placeholder="검색할 회원 아이디">
-    	<button onclick="MemberSearch">검색</button>
+    	<input type="text" placeholder="검색할 회원 아이디" id="SearchArea" value="">
+    	<button type="button" onclick="MemberSearch()">검색</button>
     </div><br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
@@ -70,9 +70,10 @@
     		<td>생년월일</td>
     		<td>보유시간</td>
     		<td>비고</td>
-    	</tr> 
+    	</tr>
+    	<tbody id="resultSearch" align="center"> 
     	<c:forEach var="member" items="${mList}">
-    	<tr align="center">
+    	<tr align="center" >
     		<td id="Search">${member.m_id}</td>
     		<td>${member.m_name}</td>
     		<td>${member.m_birthday}</td>
@@ -80,6 +81,7 @@
     		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
     	</tr>
     	</c:forEach>
+    	</tbody>
     </table>
     <div align="center">${paging}</div>
     </section>
@@ -87,21 +89,37 @@
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
 function MemberSearch() {
 	
-	var
+	var res = $('#SearchArea').val();//입력한 값 받아오기
+	
+	console.log(res);
 	
 	$.ajax({
 		type:'post',
 		url:'MemberSearch',
-		data:result,
+		data:res,
 		dataType:'json',
 		contentType : "application/json; charset=UTF-8",
 		success: function(data){
-			
-		}
+			console.log(data)
+			var tbl = document.getElementById('resultSearch');
+			var result = "";
+			for(var i=0;i<data.length;i++){
+				result += '<td id="Search">'+data[i].m_id+'</td>'
+				result += '<td>'+data[i].m_name+'</td>'
+				result += '<td>'+data[i].m_birthday+'</td>'
+				result += '<td>'+data[i].m_time+'</td>'
+				result += '<td><a href="./MemberInfo?m_id='+data[i].m_id+'" class="MemberInfo">상세보기</a></td>'
+		}		
+				
+				tbl.innerHTML = result;
 		
+		}
 	});
 	
 };
