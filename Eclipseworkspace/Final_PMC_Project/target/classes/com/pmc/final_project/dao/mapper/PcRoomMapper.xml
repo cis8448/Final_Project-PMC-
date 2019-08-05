@@ -4,7 +4,7 @@
 
 <mapper namespace="com.pmc.final_project.dao.IPcRoom">
 	<insert id="JSPSignUp" parameterType="PcRoomBean"><!-- 회원가입 처리 -->
-		INSERT INTO SBPCROOM
+		INSERT INTO PCROOM
 		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun) VALUES
 		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
@@ -17,7 +17,7 @@
 	</select>
 
 	<select id="getMemberInfo" parameterType="String" resultType="PcRoomBean">
-		SELECT * FROM PCROOM WHERE p_id=#{id}
+		SELECT * FROM PCROOM WHERE P_ID=#{id}
 	</select>
 
 	<select id="PCIdCheck" parameterType="String" resultType="Integer">
@@ -47,7 +47,18 @@
 	<insert id="fileupdate" parameterType="HashMap">
 		INSERT INTO PCFILE VALUES (#{sysid},#{oriFileName},#{sysFileName})
 	</insert>
-	
+	<update id="changeName" parameterType="PcRoomBean">
+		UPDATE PCROOM SET P_NAME=#{p_name} WHERE P_ID=#{p_id}
+	</update>
+	<update id="changePhone" parameterType="PcRoomBean">
+		UPDATE PCROOM SET P_PHONE=#{p_phone} WHERE P_ID=#{p_id}
+	</update>
+	<update id="changepw2" parameterType="HashMap">
+		UPDATE PCROOM SET P_PASS=#{pw} WHERE P_ID=#{id}
+	</update>
+	<select id="selectAll" parameterType="String" resultType="PcRoomBean">
+		SELECT * FROM SBPCROOM
+	</select>
 	
 	
 

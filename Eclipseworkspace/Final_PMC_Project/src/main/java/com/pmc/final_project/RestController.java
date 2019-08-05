@@ -26,6 +26,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.service.ManagerManagement;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
 
@@ -44,6 +45,10 @@ public class RestController {
 	
 	@Autowired
 	private SeatManagement sm;
+	
+	@Autowired
+	private ManagerManagement om;
+	
 	@Autowired
 	HttpSession session;
 	
@@ -141,4 +146,5 @@ public class RestController {
 		
 		return json;
 	}
+
 }

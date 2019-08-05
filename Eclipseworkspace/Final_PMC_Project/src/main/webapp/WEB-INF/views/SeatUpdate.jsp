@@ -377,8 +377,6 @@ function btn2(){
 	var name = "popup2222";
 	var option = "width=700 , height=600"; 
 	window.open(url,name,option);
-	
-	
 }
 
 </script>
