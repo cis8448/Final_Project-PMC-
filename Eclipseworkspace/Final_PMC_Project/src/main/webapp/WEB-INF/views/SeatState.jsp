@@ -194,7 +194,7 @@ input {
 		</div>
 
 		<ul id="SubMenu">
-			<li class="SubMenu"><a href="./SeatState">좌석정보</a></li>
+			<li class="SubMenu"><a href="#">좌석정보</a></li>
 			<li class="SubMenu"><a href="./SeatDetail">좌석 상세보기 / 수정</a></li>
 			<li class="SubMenu"><a href="./SeatUpdate">좌석 배치 변경</a></li>
 		</ul>

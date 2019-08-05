@@ -26,7 +26,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
-import com.pmc.final_project.service.ManagerManagement;
+import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
 
@@ -47,7 +47,7 @@ public class RestController {
 	private SeatManagement sm;
 	
 	@Autowired
-	private ManagerManagement om;
+	private MemberManagement mm;
 	
 	@Autowired
 	HttpSession session;
@@ -144,6 +144,28 @@ public class RestController {
 		String p_id = (String)session.getAttribute("id");
 		String json = sm.UpdateSpec(p_id,param1,param2,param3);
 		
+		return json;
+	}
+	@RequestMapping(value = "/reserveChage", method = RequestMethod.GET,produces = "application/text; charset=utf8")
+	public @ResponseBody String reserveChage(@RequestParam("param1") String S_id, @RequestParam String state) {
+		String json = sm.SeatreserveChage(S_id,state);
+		
+		return json;
+	}
+	
+	@RequestMapping(value="/TimeAdd", method = RequestMethod.POST)  
+	public @ResponseBody String TimeAdd(@RequestParam("m_id") String m_id,@RequestParam("time") String time) {
+		logger.info("TimeAdd execute ");
+		String json = mm.MemberTimeAdd(time ,m_id);
+		System.out.println(json);
+		return json;
+	}
+	
+	@RequestMapping(value="/MemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String MemberSearch(@RequestBody String res) {
+		logger.info("MemberSearch execute ");
+		String json = mm.MemberSearch(res);
+		System.out.println(json);
 		return json;
 	}
 

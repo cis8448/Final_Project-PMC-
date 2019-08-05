@@ -66,7 +66,6 @@ public class SeatManagement {
 		 //DB에서 해당 pc방 좌석 갯수 가져로기
 		 int datacnt = sDao.selectCount(p_id);
 		 //DB값과 requst값이 같을때 처리
-		 System.out.println(seatv.size());
 		 if(seatv.size() == datacnt) {
 			 
 		 //DB값보다 requst값 클때
@@ -121,13 +120,12 @@ public class SeatManagement {
 					fDao.delete(p_id);
 				}
 				File[] list = dir.listFiles();
-				
+				if(list != null) {
 				for(int i = 0; i < list.length; i++) {
 					if(src.equals(list[i].getName())) {
 						list[i].delete();
 					}
-					 
-					
+				}
 				}
 				Iterator<String> files = multi.getFileNames();
 
@@ -175,7 +173,9 @@ public class SeatManagement {
 		mav.addObject("Slist", seatset);
 		mav.addObject("cnt",seats.size());
 		FileBean fileroot = fDao.SelectFile(p_id);
+		if(fileroot != null) {
 		fileroot.setC_content(fileroot.getC_p_id() + "\\" + fileroot.getC_content());
+		}
 		mav.addObject("Sfile", fileroot);
 		mav.setViewName(View);
 
@@ -295,11 +295,55 @@ public class SeatManagement {
 						map.put("c", "스펙을 입력해주세요");
 						String jsonset = new Gson().toJson(map);
 						seats.get(j).setS_spec(jsonset);
+					}else {
+						HashMap<String, String> map = new HashMap<String, String>();
+						JsonParser parser = new JsonParser();
+						JsonObject jsons = (JsonObject)parser.parse(check);
+						String a=null;
+						String b=null;
+						String c=null;
+						try {
+						 a = jsons.get("a").getAsString();
+						}catch (Exception e) {
+							System.out.println("a");
+						}
+						try {
+							 b = jsons.get("b").getAsString();
+							}catch (Exception e) {
+								System.out.println("b");
+							}
+						try {
+							 c = jsons.get("c").getAsString();
+							}catch (Exception e) {
+								System.out.println("c");
+							}
+						if(a != null ) {
+							map.put("a",a);
+						}else{
+							map.put("a","스펙을 입력해주세요");
+						}
+						
+						if(b != null ){
+							map.put("b", b);
+						}else {
+							map.put("b","스펙을 입력해주세요");
+						}
+						
+						if(c != null){
+							map.put("c", c);
+						}else {
+							map.put("c","스펙을 입력해주세요");
+						}
+						
+						String jsonset = new Gson().toJson(map);
+						
+						seats.get(j).setS_spec(jsonset);
 					}
 					seatset.add(seats.get(j));
+					}	
 				}
 			}
-		}
+		System.out.println(seatset.get(4).getS_spec());
 		String json = new Gson().toJson(seatset.get(snum));
 		
 		return json;
@@ -363,6 +407,27 @@ public class SeatManagement {
 			map.put("success", "1");
 		}
 		json = new Gson().toJson(map);
+		return json;
+	}
+
+	public String SeatreserveChage(String s_id, String state) {
+		s_id = s_id.substring(0,s_id.length()-1);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("s_id", s_id);
+		if(state.equals("불가")) {
+			map.put("stat", "가능");	
+		}else {
+			map.put("stat", "불가");
+		}
+		if(sDao.UpdateSeatReserve(map)) {
+			map.clear();
+			map.put("reser", sDao.SelectRe(s_id));
+		}else {
+			map.clear();
+			map.put("reser", sDao.SelectRe(s_id));
+		}
+		String json = new Gson().toJson(map);
+		
 		return json;
 	}
 

@@ -116,11 +116,6 @@ footer {
 	height: 200px
 }
 
-button {
-	width: 50%;
-	margin: auto;
-	display: block
-}
 
 table {
 	width: 81%;
@@ -175,10 +170,10 @@ input {
 		</div>
 		<ul id="Menu">
 			<li class="mainmenu"><a href="#">좌석</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
+			<li class="mainmenu"><a href="./MemberList">회원</a></li>
+			<li class="mainmenu"><a href="./product">상품</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+			<li class="mainmenu"><a href="./pcmasternotice">기타</a></li>
 		</ul>
 	</header>
 	<aside>
@@ -196,15 +191,15 @@ input {
 		</div>
 
 		<ul id="SubMenu">
-			<li class="SubMenu"><a href="#">좌석정보</a></li>
-			<li class="SubMenu"><a href="#">좌석 상세보기 / 수정</a></li>
+			<li class="SubMenu"><a href="./SeatState">좌석정보</a></li>
+			<li class="SubMenu"><a href="./SeatDetail">좌석 상세보기 / 수정</a></li>
 			<li class="SubMenu"><a href="#">좌석 배치 변경</a></li>
 		</ul>
 	</aside>
 	<section>
 		<div id="imgbix">
-			<img src="${not empty param.Sfile ? "${comment}" : "./resources/img/No_image.png"}" class="Pc_roomImg Img"
-				alt="pc방 배치도" id="img"> <input type="file" name="files"
+			<img src="./resources/${(not empty Sfile) ?    Sfile.c_content: 'img/No_image.png'}" class="Pc_roomImg Img"
+				alt="pc방 배치도" id="img">  <input type="file" name="files"
 				id="files" value="이미지를 등록해주세요" multiple>
 		</div>
 		<table border="1px solid black" id="tb1">
@@ -214,12 +209,13 @@ input {
 				<td>사용자 아이디</td>
 				<td>남은시간</td>
 			</tr>
-			<c:forEach var="SeatUpdate" items="${Slist}">
+			<c:forEach var="SeatBean" items="${Slist}">
 			<tr>
-				<td name = "name='seatIds'">${s_id}</td>
-				<td>${s_state}</td>
-				<td>${m_id}</td>
-				<td>${m_time}</td>
+				<td>${SeatBean.s_id}</td>
+				<td>${SeatBean.s_state}</td>
+				<td>${SeatBean.m_id}</td>
+				<td>${SeatBean.m_time}</td>
+			</tr>
 			</c:forEach>
 		</table>
 
@@ -228,7 +224,7 @@ input {
 			<li><button type="button" class="addbtn" onclick="AddSeat()">+</button></li>
 			<li><button type="button" class="addbtn" onclick="SubSeat()">-</button></li>
 		</ul>
-		<button type="button" id="enbtn" value="완료" onclick="updateSeat()" />
+		<button type="button" id="enbtn" value="완료" onclick="updateSeat()" >완료</button>
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
@@ -238,8 +234,10 @@ input {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
         var upload = document.getElementById('files');
-        var img = document.getElementById('img')
-          
+        var img = document.getElementById('img');
+        var imgsrc = img.src;
+        var num = 0;
+        console.log(img.src)
         upload.addEventListener('change',function(e){
             var name = upload.value.substring(upload.value.indexOf('.'));
             if(name == '.jpg' || name == '.png'){
@@ -255,7 +253,8 @@ input {
                  if (get_file) {
                      reader.readAsDataURL(get_file[0]);
                      console.log(2);
-                  }      
+                  }
+            	num =1;
             }else{
             	upload.value = '';
                 alert("'jpg파일이나 png파일을 올려주세요'");
@@ -298,6 +297,8 @@ input {
             var fileData = new Array(filevalue);
             var fData = new FormData();
             fData.append("p_id", '${sessionScope.id}')
+            fData.append("num",num)
+            fData.append("src",imgsrc)
             for(var i = 0; i < filevalue;i++){
                 fileData[i] = $("td[name='seatIds']")[i].innerHTML;
                  fData.append("seatId"+i , fileData[i]);
@@ -318,10 +319,10 @@ input {
                 contentType : false,
                 dataType : "json",
                 success : function(data){
-                    if(data.success == "성공"){
-                    	location.href = "./";
+                    if(data.success == "1"){
+                    	location.href = "./SeatState";
                     }else{
-                    	alert("파일 업로드에 실패했습니다.")
+                    	alert("파일 업로드에 실패했습니다.!!")
                     }
                     
                 },
@@ -365,10 +366,7 @@ function btn1() {
 	});
 };
 
-window.onload = function() {
-	
 
-}
 
 </script>
 <script type="text/javascript">

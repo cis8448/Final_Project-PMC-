@@ -1,7 +1,8 @@
 package com.pmc.final_project.service;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.dao.IMemberDao;
 import com.pmc.final_project.util.Paging;
@@ -30,9 +32,11 @@ public class MemberManagement {
 		String view = null;
 		List<Member> mList = null;
 		
+		String p_id = (String)session.getAttribute("id");
+		
 		int num = (pageNum == null) ? 1 : pageNum;
 		
-		mList = mDao.getmemberAllList(num);
+		mList = mDao.getmemberAllList(p_id);
 		
 		mav.addObject("mList", mList);
 		mav.addObject("memberPaging", getMemberPaging(num));
@@ -43,8 +47,10 @@ public class MemberManagement {
 	}
 	//페이징 처리용 메소드
 	private String getMemberPaging(int num) {
+		
+		String id = (String)session.getAttribute("id");
 		//전체 회원
-		int maxNum = mDao.getMemberCount();
+		int maxNum = mDao.getMemberCount(id);
 		//페이지 당 회원 수
 		int listCnt = 10;
 		//그룹당 페이지 수
@@ -58,11 +64,12 @@ public class MemberManagement {
 		return mempaging.makeHtmlpaging();
 	}
 	
-	public ModelAndView getMemberInfo(String m_id) {
+	public ModelAndView getmemberInfo(String m_id) {
 		mav = new ModelAndView();
 		String view = null;
 		
 		Member member = mDao.getmemberInfo(m_id);
+		
 		mav.addObject("member", member);
 		
 		view = "MemberInfo";
@@ -70,6 +77,44 @@ public class MemberManagement {
 		
 		return mav;
 	}
+	public String MemberTimeAdd(String m_time, String m_id) {
+		
+		String id=(String)session.getAttribute("id");
+		
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("p_id", id);
+		map.put("m_id", m_id);
+		String Time = mDao.TimeSelect(map);
+		
+		String Times[] = Time.split(":"); 
+		m_time = (Integer.parseInt(Times[0]) + Integer.parseInt(m_time)) + ":" + Times[1];
+		map.put("m_time",m_time);
+		if(mDao.memberTimeAdd(map)) {
+			map.clear();
+			map.put("cnt",m_time);
+		}else {
+			System.out.println("실패");
+		}
+		String json = new Gson().toJson(map);
+		return json;
+	}
 	
+	public String MemberSearch(String res) {
+
+		String id=(String)session.getAttribute("id");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", id);
+		map.put("res", "%"+res+"%");
+		
+		System.out.println(res);
+		
+		List<Member> smember = mDao.memberSearch(map);
+		
+		String json = new Gson().toJson(smember);
+		return json;
+		
+	}
+
 
 }

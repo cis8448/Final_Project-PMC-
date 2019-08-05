@@ -26,13 +26,15 @@
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
         img{width:300px;height:200px; padding:10px;}
-        input:-ms-input-placeholder {color:#a8a8a8;}
-        input::-webkit-input-placeholer {color:a8a8a8;}
-        input::-moz-placeholder {color:a8a8a8;}
-        .Search{height: 40px; width: 400px; border: 1px solid #1b5ac2; background: #ffffff; margin-left: 60%;}
-        input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 0px; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         .MemberInfo{width: 100px; height: 100%; background: #1b5ac2; color: #ffffff}
+        .button2{border: 1px solid skyblue; background-color:dodgerblue; color: white; padding: 5px; margin-left: 30px;}
+        .LastButton{margin-left: 77%; margin-top: 10px;}
+        .right{width: 30%; float: right; box-sizing: border-box; margin-right: 510px; border: 2px solid black;}
+        .left{width: 100px; float: left; box-sizing: border-box; background-color: cadetblue; margin-left: 450px;  border: 2px solid black; }
+        .right2{float: right; margin-right: 510px; margin-top: 10px; margin-bottom: 10px;}
+        .content{border-bottom: 2px solid black;}
+        h2{margin-left: 700px;}
     </style>
 
 <body>
@@ -56,73 +58,38 @@
     </ul>
     </aside>
     <section>
-    <div class="Search">
-    	<input type="text" placeholder="검색할 회원 아이디" id="SearchArea" value="">
-    	<button type="button" onclick="MemberSearch()">검색</button>
-    </div><br>
+      <br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
-				<p><td colspan = "5" span style="color:white">전체 회원</td></p>
+				<p><td colspan = "5" span style="color:white">회원 매출확인</td></p>
     		</tr>
     	<tr align="center" bgcolor="skybule">
+    		<td>날짜</td>
     		<td>회원아이디</td>
-    		<td>회원이름</td>
-    		<td>생년월일</td>
-    		<td>보유시간</td>
-    		<td>비고</td>
-    	</tr>
-    	<tbody id="resultSearch" align="center"> 
-    	<c:forEach var="member" items="${mList}">
-    	<tr align="center" >
-    		<td id="Search">${member.m_id}</td>
-    		<td>${member.m_name}</td>
-    		<td>${member.m_birthday}</td>
-    		<td>${member.m_time}</td>
-    		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
+    		<td>상품이름</td>
+    		<td>갯수</td>
+            <td>가격</td>
+    	</tr> 
+    	<c:forEach var="memberpay" items="${mpList}">
+    	<tr align="center">
+    		<td>${memberpay.u_start}</td>
+    		<td>${memberpay.u_m_id}</td>
+    		<td>${memberpay.pr_name}</td>
+    		<td>${memberpay.pl_qty}</td>
+            <td>${memberpay.pl_price}</td>
     	</tr>
     	</c:forEach>
-    	</tbody>
+    	
     </table>
+
     <div align="center">${paging}</div>
+                       <div class="LastButton">
+                <a href="./MemberList" class="button2">회원목록보기</a>
+        </div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-function MemberSearch() {
-	
-	var res = $('#SearchArea').val();//입력한 값 받아오기
-	
-	console.log(res);
-	
-	$.ajax({
-		type:'post',
-		url:'MemberSearch',
-		data:res,
-		dataType:'json',
-		contentType : "application/json; charset=UTF-8",
-		success: function(data){
-			console.log(data)
-			var tbl = document.getElementById('resultSearch');
-			var result = "";
-			for(var i=0;i<data.length;i++){
-				result += '<td id="Search">'+data[i].m_id+'</td>'
-				result += '<td>'+data[i].m_name+'</td>'
-				result += '<td>'+data[i].m_birthday+'</td>'
-				result += '<td>'+data[i].m_time+'</td>'
-				result += '<td><a href="./MemberInfo?m_id='+data[i].m_id+'" class="MemberInfo">상세보기</a></td>'
-		}		
-				
-				tbl.innerHTML = result;
-		
-		}
-	});
-	
-};
-</script>
 
 </html>

@@ -41,17 +41,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/MemberInfo")
-	public ModelAndView MemberInfo(String id) {
-		mav = mm.getMemberInfo(id);
+	public ModelAndView MemberInfo(String m_id) {
+		mav = mm.getmemberInfo(m_id);
 		
 		return mav;
 	}
-	
-	@RequestMapping(value="/MemberInfoTimeAdd")
-	public String MemberInfoTimeAdd() {
-		
-		return "MemberInfoTimeAdd";
-	}
-
 	
 }
