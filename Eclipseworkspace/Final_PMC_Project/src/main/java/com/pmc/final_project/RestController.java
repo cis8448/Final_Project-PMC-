@@ -26,6 +26,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
 
@@ -44,6 +45,10 @@ public class RestController {
 	
 	@Autowired
 	private SeatManagement sm;
+	
+	@Autowired
+	private MemberManagement mm;
+	
 	@Autowired
 	HttpSession session;
 	
@@ -147,4 +152,21 @@ public class RestController {
 		
 		return json;
 	}
+	
+	@RequestMapping(value="/TimeAdd", method = RequestMethod.POST)  
+	public @ResponseBody String TimeAdd(@RequestParam("m_id") String m_id,@RequestParam("time") String time) {
+		logger.info("TimeAdd execute ");
+		String json = mm.MemberTimeAdd(time ,m_id);
+		System.out.println(json);
+		return json;
+	}
+	
+	@RequestMapping(value="/MemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String MemberSearch(@RequestBody String res) {
+		logger.info("MemberSearch execute ");
+		String json = mm.MemberSearch(res);
+		System.out.println(json);
+		return json;
+	}
+
 }

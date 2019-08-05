@@ -6,5 +6,7 @@
 	 
    <select id="getCateList" resultType="catelist">
 		SELECT  * FROM PRODUCTCATE
+		
 	</select>
+	
 </mapper>
