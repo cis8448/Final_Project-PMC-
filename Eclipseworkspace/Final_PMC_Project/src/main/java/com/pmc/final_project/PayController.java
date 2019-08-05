@@ -38,12 +38,6 @@ public class PayController {
 	
 
 	
-	@RequestMapping(value = "/TimePayList")
-	public String TimePayList() {
-		
-		return "TimePayList";
-	}
-	
 	@RequestMapping(value = "/MemberPayCheck")
 	public ModelAndView MemberPayCheck(Integer pageNum) {
 		

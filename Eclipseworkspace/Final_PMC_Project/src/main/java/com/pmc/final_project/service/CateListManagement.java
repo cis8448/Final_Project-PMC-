@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pmc.final_project.bean.ProductCate;
+import com.pmc.final_project.bean.PayMentDetail;
 import com.pmc.final_project.dao.ICateDao;
 
 @Service
@@ -25,7 +25,7 @@ public class CateListManagement {
 	public ModelAndView getCateList(Integer CateNum) {
 		mav = new ModelAndView();
 		String view = null;
-		List<ProductCate> cateList = null;
+		List<PayMentDetail> cateList = null;
 		
 		int num = (CateNum == null) ? 1 : CateNum;
 		

@@ -28,7 +28,7 @@
         .mainmenu:hover{background-color: azure}
         img{width:300px;height:200px; padding:10px;}
         #aa{margin-left: 80%}
-        #bb{width: 100%}
+        #catelist{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
     	button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         #cate{width: 100px; height: 40px;}        
@@ -44,17 +44,20 @@
 		</div>
 		<ul id="Menu">
 			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
+			<li class="mainmenu"><a href="./Product">상품</a></li>
+			<li class="mainmenu"><a href="./MemberList">회원</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
+			
+			
+			
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
 			<li class="SubMenu"><a href="./CatePayList">카테고리별 매출</a></li>
-			<li class="SubMenu"><a href="./TimePayList">충전시간 매출</a></li>
+	
 		</ul>
 	</aside>
 	<section>
@@ -76,7 +79,7 @@
 			<td><input type="button" onclick="catesearch(${selectCate});return false;" id="catesearch" value="선택"></input></td>
 		</tr>
 	</table>		
-    	<table id="bb">
+    	<table id="catelist">
 		<tr>
 			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
@@ -86,6 +89,15 @@
 		
 				
 		</tr>
+			<c:forEach var="paymentdetail" items="${pList}">
+			<tr>
+				<td>${paymentdetail.u_start}</td>
+				<td>${paymentdetail.m_id}</td>
+				<td>${paymentdetail.pr_name}</td>
+				<td>${paymentdetail.pl_qty}</td>
+				<td>${paymentdetail.pl_price}</td>
+			</tr>
+			</c:forEach>
 		<tr>
 			<td><div id="list" style="border:1px blue solid"></div></td>
 		</tr>
@@ -100,21 +112,25 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	
-var a = $("#selectCate option:selected").val();	
-$("#catesearch").click(function(){
-	$.ajax({
-		type:'get'
-		url : 'cateajax'
-		data: a,
-		dateType : 'html',
-		sucess:function(data){
-			console.log.(data);
-			${"#list"}.html(data);
-		}
-	});					
 
-});
+function cate(){
+	var a = $("#selectCate option:selected").val();
+	console.log(a);
+	$.ajax({
+		type : 'get',
+		url : 'cate',
+		data : param,
+		contentType : "application/json; charset=UTF-8",
+		dataType : "json"
+		success : function(data){
+			var catelist = document.getElementById('') 
+		}
+	})
+}
+
+
+
+
 					
 	
 </script>

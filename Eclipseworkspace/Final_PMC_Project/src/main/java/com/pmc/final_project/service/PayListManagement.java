@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.PayMentDetail;
-import com.pmc.final_project.bean.ProductCate;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IProductDao;
 import com.pmc.final_project.util.Paging;

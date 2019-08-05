@@ -46,18 +46,18 @@
 			<img src="./resources/img/dd.png" width="200" height="140">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./">좌석</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
+			<li class="mainmenu"><a href="./Main">좌석</a></li>
+			<li class="mainmenu"><a href="./Product">상품</a></li>
+			<li class="mainmenu"><a href="MemberList">회원</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
+			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
 			<li class="SubMenu"><a href="./CatePayList">카테고리별 매출</a></li>
-			<li class="SubMenu"><a href="./TimePayList">충전시간 매출</a></li>
+		
 		</ul>
 	</aside>
 	<section>
@@ -103,18 +103,6 @@
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
-		</tr>
-			
-</table>
-	<table id="bb" border="1">
-		<tr>
-			<td class="Paymenu">일</td>
-			<td class="Paymenu">시간</td>
-			<td class="Paymenu">카테고리</td>
-			<td class="Paymenu">ID</td>
-			<td class="Paymenu">상품명</td>
-			<td class="Paymenu">수량</td>
-			<td class="Paymenu">가격</td>
 			
 		</tr>	
 		<c:forEach var="paymentdetail" items="${pList}">
@@ -140,14 +128,14 @@
 </body>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
+	var param = "${}"
 $("#search").click(function(){
 	var c = $("#selectyear option:selected").val();
 	var d = $("#selectmonth option:selected").val();
 
 	
-			console.log(c);
-			console.log(d);
+
 		
 	
 });
