@@ -147,4 +147,15 @@ public class RestController {
 		
 		return json;
 	}
+	
+	@RequestMapping(value="/TimeAdd", method = RequestMethod.POST)  
+	public @ResponseBody String TimeAdd(@RequestBody String m_time) {
+		ModelAndView mav = new ModelAndView();
+		logger.info("TimeAdd execute ");
+		System.out.println(m_time+"출력값 2222222222");
+		String json = null;
+		json = mm.MemberTimeAdd(m_time);
+		
+		return json;
+	}
 }
