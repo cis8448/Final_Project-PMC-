@@ -103,6 +103,18 @@
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
+		</tr>
+			
+</table>
+	<table id="bb" border="1">
+		<tr>
+			<td class="Paymenu">일</td>
+			<td class="Paymenu">시간</td>
+			<td class="Paymenu">카테고리</td>
+			<td class="Paymenu">ID</td>
+			<td class="Paymenu">상품명</td>
+			<td class="Paymenu">수량</td>
+			<td class="Paymenu">가격</td>
 			
 		</tr>	
 		<c:forEach var="paymentdetail" items="${pList}">

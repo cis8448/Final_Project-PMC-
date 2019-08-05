@@ -101,20 +101,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 	
-	var a = $("#selectCate option:selected").val();	
-	$("#catesearch").click(function(){
-		$.ajax({
-			type:'get'
-			url : 'cateajax'
-			data: a,
-			dateType : 'html',
-			sucess:function(data){
-				console.log.(data);
-				${"#list"}.html(data);
-			}
-		});					
-	
-	});
+var a = $("#selectCate option:selected").val();	
+$("#catesearch").click(function(){
+	$.ajax({
+		type:'get'
+		url : 'cateajax'
+		data: a,
+		dateType : 'html',
+		sucess:function(data){
+			console.log.(data);
+			${"#list"}.html(data);
+		}
+	});					
+
+});
+					
 	
 </script>
 
