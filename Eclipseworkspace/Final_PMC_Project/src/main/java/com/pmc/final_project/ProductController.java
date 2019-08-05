@@ -44,6 +44,7 @@ public class ProductController {
 	
 	@RequestMapping(value = "/ProductDetail")
 	public ModelAndView ProductDetail(String pr_id) {
+		
 		 mav = prm.ProductDetail(pr_id);
 		 
 		return mav;   

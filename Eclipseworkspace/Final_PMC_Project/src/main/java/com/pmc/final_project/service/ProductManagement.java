@@ -62,7 +62,7 @@ public class ProductManagement {
 	      String view = null;
 	      
 	      ProductBean product = prDao.ProductDetail(pr_id);
-	      session.setAttribute("m_id", product.getPr_id());
+	      session.setAttribute("pr_id", product.getPr_id());
 	      
 	      mav.addObject("product", product);
 	      
