@@ -203,7 +203,7 @@ select { width: 100px;height: 30px}
 
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./SeatState">좌석정보</a></li>
-			<li class="SubMenu"><a href="./SeatDetail">좌석 상세보기 / 수정</a></li>
+			<li class="SubMenu"><a href="#">좌석 상세보기 / 수정</a></li>
 			<li class="SubMenu"><a href="./SeatUpdate">좌석 배치 변경</a></li>
 		</ul>
 	</aside>
@@ -248,7 +248,7 @@ select { width: 100px;height: 30px}
                 </tr>
                 <tr>
                     <td><h3></h3></td>
-                    <td><h3 id="re">예약 : <span>${SeatSet.s_noreserve}</span> </h3><button type="button" onclick="chager()">변경</button></td>
+                    <td><h3 id="re">예약 : <span id="state">${SeatSet.s_noreserve}</span> </h3><button type="button" onclick="chager()">변경</button></td>
                 </tr>
                 
                 <tr>
@@ -295,7 +295,7 @@ function chagerSeat(elem){
         var result ='<tr><td><h3>PC 번호 : '+data.s_id+'번 Pc</h3></td><td><h3>좌석 상태 : '+data.s_state+'</h3></td></tr>'
         result +='<tr><td><h3>사용자 : '+data.m_id+'</h3></td><td><h3>남은 시간 :'+ data.m_time+'</h3></td></tr>'
         result +='<tr><td><h3>생년월일 :'+data.m_birthday+'</h3></td><td><h3>시간추가 :<select><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option><option>12</option></select><button type="button" >충전</button></h3></td></tr>'
-        result +='<tr><td><h3></h3></td><td><h3>예약 : '+data.s_noreserve+'</h3></td></tr>'
+        result +='<tr><td><h3></h3></td><td><h3>예약 : <span id="state">'+data.s_noreserve+'</span></h3><button type="button" onclick="chager()">변경</button></td></tr>'
         result +='<tr><td><h3 id="spec1">그래픽카드 : '+d[0]+'</h3><button type="button" onclick="specin(1)">수정하기</button></td></tr>'
         result +='<tr><td><h3 id="spec2">CPU : '+d[1]+'</h3><button type="button" onclick="specin(2)">수정하기</button></td></tr>'
         result +='<tr><td><h3 id="spec3">모니터 : '+d[2]+'</h3><button type="button" onclick="specin(3)">수정하기</button></td></tr>'
@@ -344,10 +344,11 @@ if(inputString != ''){
 }
 }
 function chager(){
-    var id = '${sessionScope.p_id}'
+    var id = '${sessionScope.id}';
     var number = document.getElementById('id');
-    var state= document.getElementById('reser');
-    var param = 'param1=pc'+id+number+'&param2='var.innerHTML;
+    var state= document.getElementById('state');
+    var param = 'param1=pc'+id+number.value+'&param2='+state.innerHTML;
+    console.log(param);
     console.log(state.innerHTML);
     $.ajax({
         type: 'get',

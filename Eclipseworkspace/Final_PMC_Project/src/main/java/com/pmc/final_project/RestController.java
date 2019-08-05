@@ -142,7 +142,7 @@ public class RestController {
 		return json;
 	}
 	@RequestMapping(value = "/reserveChage", method = RequestMethod.GET,produces = "application/text; charset=utf8")
-	public @ResponseBody String reserveChage(@RequestParam("param1") String S_id, @RequestParam String state) {
+	public @ResponseBody String reserveChage(@RequestParam("param1") String S_id, @RequestParam("param2") String state) {
 		String json = sm.SeatreserveChage(S_id,state);
 		
 		return json;
