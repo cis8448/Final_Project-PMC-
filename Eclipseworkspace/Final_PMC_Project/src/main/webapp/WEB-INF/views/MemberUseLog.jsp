@@ -8,7 +8,7 @@
 <title>피모씨 관리자</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 </head>
-    <style>
+        <style>
         html,body,ul{margin: 0;padding: 0;}
         div{display: inline-block;}
         ul{list-style: none}
@@ -26,16 +26,18 @@
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
         img{width:300px;height:200px; padding:10px;}
-        input:-ms-input-placeholder {color:#a8a8a8;}
-        input::-webkit-input-placeholer {color:a8a8a8;}
-        input::-moz-placeholder {color:a8a8a8;}
-        .Search{height: 40px; width: 400px; border: 1px solid #1b5ac2; background: #ffffff; margin-left: 60%;}
-        input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 0px; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         .MemberInfo{width: 100px; height: 100%; background: #1b5ac2; color: #ffffff}
+        .button2{border: 1px solid skyblue; background-color:dodgerblue; color: white; padding: 5px; margin-left: 30px;}
+        .LastButton{margin-left: 77%; margin-top: 10px;}
+        .right{width: 30%; float: right; box-sizing: border-box; margin-right: 510px; border: 2px solid black;}
+        .left{width: 100px; float: left; box-sizing: border-box; background-color: cadetblue; margin-left: 450px;  border: 2px solid black; }
+        .right2{float: right; margin-right: 510px; margin-top: 10px; margin-bottom: 10px;}
+        .content{border-bottom: 2px solid black;}
+        h2{margin-left: 700px;}
     </style>
 
-<body>
+	<body>
     <header>
         <div>
         <img src="./resources/img/pmc1.jpg">
@@ -56,55 +58,36 @@
     </ul>
     </aside>
     <section>
-    <div class="Search">
-    	<input type="text" placeholder="검색할 회원 아이디">
-    	<button onclick="MemberSearch">검색</button>
-    </div><br>
+     <br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
-				<p><td colspan = "5" span style="color:white">전체 회원</td></p>
+				<p><td colspan = "4" span style="color:white">회원 사용기록</td></p>
     		</tr>
     	<tr align="center" bgcolor="skybule">
     		<td>회원아이디</td>
-    		<td>회원이름</td>
-    		<td>생년월일</td>
-    		<td>보유시간</td>
-    		<td>비고</td>
-    	</tr> 
-    	<c:forEach var="member" items="${mList}">
+    		<td>좌석아이디</td>
+    		<td>시작일</td>
+    		<td>종료일</td>
+    	</tr> <!-- 여기서 시작 foreach -->
+    	<c:forEach var="uselog" items="${uList}">
     	<tr align="center">
-    		<td id="Search">${member.m_id}</td>
-    		<td>${member.m_name}</td>
-    		<td>${member.m_birthday}</td>
-    		<td>${member.m_time}</td>
-    		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
+    		<td>${uselog.u_m_id}</td>
+    		<td>${uselog.u_s_id}</td>
+    		<td>${uselog.u_start}</td>
+    		<td>${uselog.u_finish}</td>
     	</tr>
     	</c:forEach>
+
     </table>
+
     <div align="center">${paging}</div>
+                       <div class="LastButton">
+                <a href="./MemberList" class="button2">회원목록보기</a>
+        </div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
-</body>
-<script>
-function MemberSearch() {
-	
-	var
-	
-	$.ajax({
-		type:'post',
-		url:'MemberSearch',
-		data:result,
-		dataType:'json',
-		contentType : "application/json; charset=UTF-8",
-		success: function(data){
-			
-		}
-		
-	});
-	
-};
-</script>
+	</body>
 
 </html>
