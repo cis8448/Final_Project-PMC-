@@ -44,7 +44,7 @@
         <img src="./resources/img/dd.png">
         </div> 
         <ul id="Menu">
-            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="./Main">좌석</a></li>
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="#">매출</a></li>
@@ -53,66 +53,34 @@
     </header>
     <aside>
     <ul id="SubMenu">
-        <li class="SubMenu"><a href="./Product">전체</a></li>
-        <c:forEach var="productcate" items="${catelist}">
-        <li class="SubMenu"><a href="./cateinfo?pc_id=${productcate.pc_id}">${productcate.pc_name}</a><button>x</button><button>수정</button></li>
-        </c:forEach>
-        <li class="SubMenu"><button type="button" onclick="cateadd()">카테고리 추가</button></li>
+        <li class="SubMenu"><a href="#">전체</a></li>
+        <li class="SubMenu"><a href="#">라면</a></li>
+        <li class="SubMenu"><a href="#">식사</a></li>
+        <li class="SubMenu"><a href="#">음료</a></li>
+        <li class="SubMenu"><a href="#">커피</a></li>
+        <li class="SubMenu"><a href="#">토핑추가</a></li>
+        <li class="SubMenu"><a href="#">카테고리 추가</a></li>
     </ul>
     </aside>
     <section>
-        <div class="Search">
-       <input type="text" placeholder="검색">
-       <button>검색</button>
-    </div><br>
 	<div class="my-box">
-	<table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
+	<table  border="1" bordercolor="#3D3D3D" align = "center" >
        <tr align="center" bgcolor="skybule">
-            <td>카테고리</td>
-            <td>이름</td>
-            <td>수량</td>
-            <td>가격</td>
-            <td>비고</td>
+            <td>추가할 카테고리를 입력하세요:</td>
+            <td><input type="text"></td>
        </tr>     
        
-       <c:forEach var="ProductBean" items="${prList}">
-       <tr align="center">
-          <td>${ProductBean.pc_name}</td>
-          <td>${ProductBean.pr_name}</td>
-          <td>${ProductBean.pr_qty}</td>
-          <td>${ProductBean.pr_price}</td>
-          <td align="center"><a href="./ProductDetail?pr_id=${ProductBean.pr_id}">상세보기</a></td>
-       </tr>
-       </c:forEach>
+      
       
     </table>
 	</div><br>
 	<div class="margin">
-	<button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
+	<button class="btnfont"><a href="./Product">취소</a></button>
+	<button class="btnfont"><a href="./Product">추가</a></button>
 	</div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-    
-    function cateadd(){
-	var inputString = prompt('추가할 카테고리를 입력해주세요', '');
-        $.ajax({
-        type : 'post',
-        url  : 'productcateadd',
-        data : inputString,
-        contentType : "application/json; charset=UTF-8" ,
-        dataType : "json",
-        success : function(data){
-        if(data.ttt == "성공"){
-            $("#SubMenu").append('<li>'+inputString +'</li>');
-        }
-        
-    }         
-})
-  }
-</script>
 </html>

@@ -12,6 +12,7 @@ public interface IMemberDao {
 
 	public int getMemberCount(String id);
 
+	public Member getmemberInfo(String m_id);
 
 	public boolean memberTimeAdd(Map<String, String> map);
 
@@ -19,7 +20,7 @@ public interface IMemberDao {
 
 	public List<Member> memberSearch(Map<String, String> map);
 
-	public Member getmemberInfo(String m_id);
+
 
 
 

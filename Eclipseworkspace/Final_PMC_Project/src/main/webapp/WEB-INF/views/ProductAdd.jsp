@@ -281,7 +281,7 @@ button {
 		<table>
 			<tr>
 				<td>
-				<button class="btnfont">추가</button>
+				<button type="button" class="btnfont" value="추가" onclick="add()" id = "puls">추가</button>
 				</td>
 				<td>
 				<form action="./Product"><button class="btnfont">취소</button></form>
@@ -333,6 +333,14 @@ button {
 		}
 		preview.appendChild(image);
 
-	})
+	});
+	
+	function updateSeat(){
+        var $obj = $('#puls');
+        
+        var pulsvalue = $().length;
+
+        
+        };
 </script>
 </html>
