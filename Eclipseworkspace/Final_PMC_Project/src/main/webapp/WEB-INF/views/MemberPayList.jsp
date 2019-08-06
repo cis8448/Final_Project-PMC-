@@ -71,7 +71,7 @@
 					<option value="18">2018</option>
 			</select></td>
 			<td>
-				년
+				1년
 			</td>
 			
 		<td><select id = "selectmonth">		

@@ -80,7 +80,7 @@
 	</table>		
     	<table id="bb">
 		<tr>
-			<td class="Paymenu">날짜</td>
+			<td class="Paymenu">1날짜</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
