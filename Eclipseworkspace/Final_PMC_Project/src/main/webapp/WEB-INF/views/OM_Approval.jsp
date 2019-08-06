@@ -52,9 +52,9 @@ table {
 		var id = $(obj).val();
 		console.log(id)
 
-		$.ajax({
+		$.ajax(   {
 			type : 'post',
-			url : 'approval',
+			url : 'approvalx',
 			data : id,
 			dataType : 'json',
 			success : function(data) {
@@ -87,7 +87,7 @@ table {
 	function btn1(obj) {
 		
 		console.log(obj);
-		var url = "OM_PCDetail?param="+obj;
+		var url = "OM_PCDetail?param="+obj+"/1";
 		var name = "popup11";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);

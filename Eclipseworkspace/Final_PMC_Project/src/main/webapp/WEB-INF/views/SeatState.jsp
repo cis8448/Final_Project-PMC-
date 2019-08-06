@@ -276,8 +276,8 @@ input {
 </script>
 <script type="text/javascript">
 	function btn3() {
-		var url = "PC";
-		var name = "popup2222";
+		var url = "PCPictureUpdate";
+		var name = "popup21";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);
 	}
