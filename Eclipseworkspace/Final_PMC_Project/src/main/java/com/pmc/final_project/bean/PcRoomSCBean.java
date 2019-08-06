@@ -2,7 +2,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("pcroomsc")
+@Alias("pcroomscbean")
 public class PcRoomSCBean {
 
 	private String se_m_id; //회원아이디

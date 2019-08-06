@@ -102,7 +102,7 @@
 	</table>
 	<table id="bb" border="1">
 		<tr>
-			<td class="Paymenu">2일</td>
+			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
 			<td class="Paymenu">카테고리</td>
 			<td class="Paymenu">ID</td>

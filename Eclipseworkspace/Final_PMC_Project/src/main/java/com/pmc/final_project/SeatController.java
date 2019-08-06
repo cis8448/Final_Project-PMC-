@@ -19,13 +19,13 @@ import com.pmc.final_project.service.SeatManagement;
 
 @Controller
 public class SeatController {
-	
+
 	ModelAndView mav;
 	@Autowired
 	HttpSession session;
 	@Autowired
 	SeatManagement sm;
-	
+
 	@RequestMapping(value = "/seatInsert")
 	public @ResponseBody String seatInsert(MultipartHttpServletRequest multi) {
 		HashMap<String, String> ll = new HashMap<String, String>();
@@ -55,7 +55,7 @@ public class SeatController {
 	public ModelAndView SeatDetail() {
 		String p_id = (String)session.getAttribute("id");
 		mav = sm.SelectCate(p_id , 0);
-		
+
 		return mav;
 	}
 
