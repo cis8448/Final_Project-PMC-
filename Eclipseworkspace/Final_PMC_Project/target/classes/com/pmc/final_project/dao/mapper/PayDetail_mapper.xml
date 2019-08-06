@@ -8,11 +8,11 @@
    </select>
    
 	<select id="getmemberPaylist" parameterType="String" resultType="PayMentDetail" >
-		SELECT * FROM PAYLIST WHERE U_M_ID=#{u_m_id}
+		SELECT * FROM PAYLIST WHERE U_M_ID=#{m_id}
 	</select>
 	
 	<select id="getmemberPayCount" resultType="int" parameterType="String">
-		SELECT COUNT(U_M_ID) FROM PAYLIST WHERE U_M_ID=#{u_m_id}
+		SELECT COUNT(U_M_ID) FROM PAYLIST WHERE U_M_ID=#{m_id}
 	</select>
 
 </mapper>
