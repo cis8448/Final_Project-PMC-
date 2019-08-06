@@ -31,9 +31,9 @@
 	</center>
     <table>
         <tr>
-            <th><input type="submit" value="승인 관리" style=""></th>
-            <th><input type="submit" value="고객센터 관리" style=""></th>
-            <th><input type="submit" value="공지사항 관리" style=""></th>
+            <th><input type="button" value="승인 관리" style="" onclick="btn1(1)"></th>
+            <th><input type="button" value="공지사항 관리" style="" onclick="btn1(2)"></th>
+            <th><input type="button" value="고객센터 관리" style="" onclick="btn1(3)"></th>
         </tr>
         
     </table>
@@ -41,6 +41,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	function btn1(a){
+		if(a==1){
+			location.href="OM_Approval"
+		}else if(a==2){
+			
+		}else if(a==3){
+			
+		}
+		
+	}
 </script>
 </html>

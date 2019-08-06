@@ -37,7 +37,21 @@ public interface IPcRoom {
 
 	public void changepw2(Map<String, String> map);
 
-	public List<PcRoomBean> selectAll(String param);
+	public List<PcRoomBean> selectAll(int num);
+
+	public int getSBPCCount();
+
+	public void approvalDelete(String id);
+
+	public PcRoomBean approvalSelect(String id);
+
+	public boolean approvalInsert(PcRoomBean pr);
+
+	public List<PcRoomBean> getFileList(String id);
+
+	
+
+	
 
 	
 

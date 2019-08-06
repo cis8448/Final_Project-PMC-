@@ -187,6 +187,7 @@ input {
 			<a href=#>'${id}'님 안녕하세요</a>
 			<p />
 			<button onclick="btn2()">정보 수정</button>
+			<button onclick="btn3()">PC방 사진등록</button>
 			<form action="#">
 				<input type="button" onclick="btn1()" id="button1" value=""
 					style="width: 70px; height: 30px;">
@@ -268,6 +269,14 @@ input {
 <script type="text/javascript">
 	function btn2() {
 		var url = "PCInfoUpdate";
+		var name = "popup2222";
+		var option = "width=700 , height=600";
+		window.open(url, name, option);
+	}
+</script>
+<script type="text/javascript">
+	function btn3() {
+		var url = "PC";
 		var name = "popup2222";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);
