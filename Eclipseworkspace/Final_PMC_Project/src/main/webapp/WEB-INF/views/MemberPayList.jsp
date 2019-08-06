@@ -102,7 +102,7 @@
 	</table>
 	<table id="bb" border="1">
 		<tr>
-			<td class="Paymenu">2일</td>
+			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
 			<td class="Paymenu">카테고리</td>
 			<td class="Paymenu">ID</td>
@@ -150,7 +150,7 @@ function search(){
                 result += '<td>'+data[i].u_start.substring(8,10)+'</td>'
                 result += '<td>'+data[i].u_start.substring(11,19)+'</td>'
 	            result += '<td>'+data[i].pc_name+'</td>'
-	            result += '<td>'+data[i].m_id+'</td>'
+	            result += '<td>'+data[i].u_m_id+'</td>'
 	            result += '<td>'+data[i].pr_name+'</td>'
 	            result += '<td>'+data[i].pl_qty+'</td>'
 	            result += '<td>'+data[i].pl_price+'</td>'
