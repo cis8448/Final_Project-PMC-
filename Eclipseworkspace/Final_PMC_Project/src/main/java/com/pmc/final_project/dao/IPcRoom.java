@@ -2,11 +2,13 @@ package com.pmc.final_project.dao;
 
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import com.pmc.final_project.bean.PcRoomBean;
 
 public interface IPcRoom {
 
-	public boolean JSPSignUp(PcRoomBean pr);
+	public boolean JSPSignUp(PcRoomBean pcroom);
 
 	public String getSecurityPwd(String id);
 
@@ -25,6 +27,8 @@ public interface IPcRoom {
 	public int pwselinfo(PcRoomBean pr);
 
 	public int accept(String userid);
+
+	public boolean fileupdate(Map<String, String> fMap);
 
 	
 

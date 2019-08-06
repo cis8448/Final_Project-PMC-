@@ -77,14 +77,7 @@
 			value="com.pmc.final_project.dao.IPayDao" />
 
 	</beans:bean>
-	<beans:bean id="fDao"
-		class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<beans:property name="sqlSessionFactory"
-			ref="sqlSessionFactory" />
-		<beans:property name="mapperInterface"
-			value="com.pmc.final_project.dao.IFileDao" />
-
-	</beans:bean>
+	
 	<beans:bean id="sDao"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<beans:property name="sqlSessionFactory"
@@ -109,6 +102,25 @@
 		<beans:property name="mapperInterface"
 			value="com.pmc.final_project.dao.IProductDao" />
 	</beans:bean>
+	
+	<beans:bean id="fDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.IFileDao" />
+	</beans:bean>
+	
+		<beans:bean id="uDao"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<beans:property name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+		<beans:property name="mapperInterface"
+			value="com.pmc.final_project.dao.IUseLogDao" />
+	</beans:bean>
+	
+	
+
 	
 
 	

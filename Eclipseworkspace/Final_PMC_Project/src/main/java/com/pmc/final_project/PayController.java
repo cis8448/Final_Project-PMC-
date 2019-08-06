@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.service.PayListManagement;
@@ -22,6 +24,7 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
+	
 
 	@Autowired
 	HttpSession session;
@@ -35,17 +38,22 @@ public class PayController {
 		return mav;
 	}
 
-	
-	
 	@RequestMapping(value = "/CatePayList")
-	public String CatePayList() {
+	public ModelAndView CatePayList(Integer CateNum) {
+		mav = pm.getCateList(CateNum);
 		
-		return "CatePayList";
+		return mav;
 	}
-	@RequestMapping(value = "/TimePayList")
-	public String TimePayList() {
+	   
+	 
+
+	
+	@RequestMapping(value = "/MemberPayCheck")
+	public @ResponseBody ModelAndView MemberPayCheck(Integer pageNum, @RequestParam("m_id") String m_id) {
 		
-		return "TimePayList";
+		mav = pm.getmemberPayList(pageNum, m_id);
+		
+		return mav;
 	}
 	
 	

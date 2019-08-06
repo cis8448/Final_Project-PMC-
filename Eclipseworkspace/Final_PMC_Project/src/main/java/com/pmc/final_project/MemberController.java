@@ -28,30 +28,11 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/UsedMemberList")
-	public String UsedMemberList() {
-		
-		return "UsedMemberList";
-	}
-	
-	@RequestMapping(value="/ReseveMemberList")
-	public String ReseveMemberList() {
-		
-		return "ReseveMemberList";
-	}
-	
 	@RequestMapping(value="/MemberInfo")
-	public ModelAndView MemberInfo(Integer pageNum) {
-		mav = mm.getMemberInfo(pageNum);
+	public ModelAndView MemberInfo(String m_id) {
+		mav = mm.getmemberInfo(m_id);
 		
 		return mav;
 	}
-	
-	@RequestMapping(value="/MemberInfoTimeAdd")
-	public String MemberInfoTimeAdd() {
-		
-		return "MemberInfoTimeAdd";
-	}
-
 	
 }

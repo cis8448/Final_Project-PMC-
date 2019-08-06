@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +31,8 @@
         #aa{margin-left: 80%}
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-    	button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
-                
+    	button{ border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+        #cate{width: 100px; height: 40px;}        
     </style>
 
 
@@ -53,55 +55,56 @@
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
 			<li class="SubMenu"><a href="./CatePayList">카테고리별 매출</a></li>
-			<li class="SubMenu"><a href="./TimePayList">충전시간 매출</a></li>
+			
 		</ul>
 	</aside>
 	<section>
 	
-	<table id="aa">
-		<tr>
-			<td><select name="pcselectyear">
-					<option value="2018" selected>2018년</option>
-					<option value="2019" selected>2019년</option>
-			</select></td>
 
-			<td><select name="pcselectmonth">
-					<option value="1" selected>1월</option>
-					<option value="2" selected>2월</option>
-					<option value="3" selected>3월</option>
-					<option value="4" selected>4월</option>
-					<option value="5" selected>5월</option>
-					<option value="6" selected>6월</option>
-					<option value="7" selected>7월</option>
-					<option value="8" selected>8월</option>
-					<option value="9" selected>9월</option>
-					<option value="10" selected>10월</option>
-					<option value="11" selected>11월</option>
-					<option value="12" selected>12월</option>
-
-
-			</select></td>
-
-				<td><button>검색</button></td>
-		</tr>
-	</table>
-	<table id="bb">
-		<tr>
-			<td class="Paymenu"><button>카테고리</button></td>
-		</tr>
-	</table>
 
 	
-	<table id="bb">
+	<form method="post" action="./CatePayList.jsp"></form>
+	<table>
 		<tr>
-			<td class="Paymenu">일</td>
-			<td class="Paymenu">시간</td>
+			<td><select id="selectCate">
+			<c:forEach var="pay" items="${cateList}">
+			<c:set var="Cate" value="${pay.pc_name}"/>
+					<option id="pc_name">${pay.pc_name}</option>
+				
+			</c:forEach>
+					
+			</select></td>
+			
+			<td><button type="button" onclick="cateSearch()" id="catesearch" >선택</button></td>
+		</tr>
+	</table>		
+    	<table id="bb">
+		<tr>
+			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
-			
+		
+				
 		</tr>
+		
+		<tr>
+			<td></td>
+		<tr>
+			<td><div id="list" style="border:1px blue solid"></div></td>
+		</tr>
+		<tbody id="cateResult" align="center">
+		<c:forEach var="cate" items="${cateList}">
+			<tr>
+				<td>${cateResult.u_start}</td>
+				<td>${cateResult.m_id}</td>
+				<td>${cateResult.p_name}</td>
+				<td>${cateResult.pl_qty}</td>
+				<td>${cateResult.pl_price}</td>
+			</tr>
+		</c:forEach>
+		</tbody>
 	</table>
 	</section>
 	<footer>
@@ -110,4 +113,39 @@
 
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+function cateSearch(){
+	var selcate = $("#selectCate option:selected").val();
+	var pc_name = document.getElementById("pc_name").innerHTML;
+	
+	console.log(selcate);
+	console.log(pc_name);
+	$.ajax({
+        type : 'post',
+        url : 'casearch',
+		data : pc_name,
+		dataType : 'json',
+		contentType : "application/json; charset=UTF-8",
+		success : function(data){
+            var tbl = document.getElementById('cateResult');
+	         var result = "";
+	         for(var i=0;i<data.length;i++){
+                result += '<td>'+data[i].u_start+'</td>'
+	            result += '<td>'+data[i].u_m_id+'</td>'
+	            result += '<td>'+data[i].pr_name+'</td>'
+	            result += '<td>'+data[i].pl_qty+'</td>'
+	            result += '<td>'+data[i].pl_price+'</td>'
+		}
+                 
+             
+        tbl.innerHTML = result;
+        }
+    })
+    }
+		      
+		    
+	
+</script>
+
 </html>

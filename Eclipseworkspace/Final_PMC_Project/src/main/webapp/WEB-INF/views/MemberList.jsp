@@ -45,20 +45,18 @@
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="./MemberList">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="#">기타</a></li>
+            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
         </ul>    
     </header>
     <aside>
     <ul id="SubMenu">
         <li class="SubMenu"><a href="./MemberList">전체회원</a></li>
-        <li class="SubMenu"><a href="./UsedMemberList">사용중인회원</a></li>
-        <li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
     </ul>
     </aside>
     <section>
     <div class="Search">
-    	<input type="text" placeholder="회원 검색">
-    	<button>검색</button>
+    	<input type="text" placeholder="회원 아이디 OR 회원 이름" id="SearchArea" value="">
+    	<button type="button" onclick="MemberSearch()">검색</button>
     </div><br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
@@ -70,16 +68,18 @@
     		<td>생년월일</td>
     		<td>보유시간</td>
     		<td>비고</td>
-    	</tr> 
+    	</tr>
+    	<tbody id="resultSearch" align="center"> 
     	<c:forEach var="member" items="${mList}">
-    	<tr align="center">
-    		<td>${member.m_id}</td>
+    	<tr align="center" >
+    		<td id="Search">${member.m_id}</td>
     		<td>${member.m_name}</td>
     		<td>${member.m_birthday}</td>
-    		<td>${member.m_retime}</td>
+    		<td>${member.m_time}</td>
     		<td><a href="./MemberInfo?m_id=${member.m_id}" class="MemberInfo">상세보기</a></td>
     	</tr>
     	</c:forEach>
+    	</tbody>
     </table>
     <div align="center">${paging}</div>
     </section>
@@ -87,5 +87,40 @@
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+function MemberSearch() {
+	
+	var res = $('#SearchArea').val();//입력한 값 받아오기
+	
+	console.log(res);
+	
+	$.ajax({
+		type:'post',
+		url:'MemberSearch',
+		data:res,
+		dataType:'json',
+		contentType : "application/json; charset=UTF-8",
+		success: function(data){
+			console.log(data)
+			var tbl = document.getElementById('resultSearch');
+			var result = "";
+			for(var i=0;i<data.length;i++){
+				result += '<td id="Search">'+data[i].m_id+'</td>'
+				result += '<td>'+data[i].m_name+'</td>'
+				result += '<td>'+data[i].m_birthday+'</td>'
+				result += '<td>'+data[i].m_time+'</td>'
+				result += '<td><a href="./MemberInfo?m_id='+data[i].m_id+'" class="MemberInfo">상세보기</a></td>'
+		}		
+				
+				tbl.innerHTML = result;
+		
+		}
+	});
+	
+};
+</script>
 
 </html>

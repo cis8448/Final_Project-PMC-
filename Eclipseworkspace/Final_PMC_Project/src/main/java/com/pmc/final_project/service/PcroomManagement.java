@@ -1,4 +1,4 @@
-package com.pmc.final_project.service;
+ package com.pmc.final_project.service;
 
 
 import java.util.HashMap;
@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
 
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.util.FileProcess;
 import com.pmc.final_project.util.FindUtil;
 import com.pmc.final_project.util.MailUtil;
 import com.pmc.final_project.util.fileUpload;
@@ -41,6 +42,9 @@ public class PcroomManagement {
 
 	@Autowired
 	fileUpload fb;
+	
+	@Autowired
+	FileProcess fileProc;
 
 
 
@@ -50,7 +54,7 @@ public class PcroomManagement {
 
 		mav = new ModelAndView();
 		String view = null;
-
+		
 		if(!(pr.getP_pass().equals(pr.getP_pass2()))) {//비밀번호, 비밀번호 확인의 String 값이 서로 다를 경우 
 			System.out.println("오긴왔어1");
 			mav.addObject("ck",1);
@@ -58,15 +62,17 @@ public class PcroomManagement {
 			mav.setViewName(view);
 			return mav;
 		}
-
-
+		
+		
+		
 
 		//패스워드 spring-security로 이용하여 암호화
 		BCryptPasswordEncoder pwdEncoder = 
 				new BCryptPasswordEncoder();
 
-		pr.setP_pass(pwdEncoder.encode(pr.getP_pass()));
+		pr.setP_pass((pwdEncoder.encode(pr.getP_pass())));
 		System.out.println("오긴왔어2");
+		boolean f = false;
 		//DB insert 
 		if(pDao.JSPSignUp(pr)) {
 			//성공
@@ -99,11 +105,11 @@ public class PcroomManagement {
 		if(endPwd != null) {
 			if(pwdEncoder.matches(pr.getP_pass(), endPwd)) {//내부적으로 db에 암호화된 비밀번호와 비교하여 일치하면T 아니면 f로 리턴
 				System.out.println("두번쨰 33");
-
 				session.setAttribute("id", pr.getP_id());
 				//메인 화면으로 전환..
 				//=>게시판 목록
 				// 로그인한 회원의 일부정보, 게시글 목록
+				System.out.println("비밀번호변경");
 				pr = pDao.getMemberInfo(pr.getP_id());
 				mav.addObject("pr",pr);
 				view = "redirect:/SeatState";
@@ -166,7 +172,7 @@ public class PcroomManagement {
 		if(count>0){
 			String email=pDao.emailsearch(pr);
 			try {
-				findPwd(pr.getP_email());
+				findPwd(email);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -189,10 +195,12 @@ public class PcroomManagement {
 				//실패
 				System.out.println("비밀번호변경2");
 				view="redirect:/pw";
+				mav.addObject("check",2);
 			}
 		}else {
 			System.out.println("비밀번호변경3");
 			view="redirect:/pw";
+			mav.addObject("check",2);
 		}
 
 		mav.setViewName(view);
@@ -229,12 +237,33 @@ public class PcroomManagement {
 
 		MailUtil.sendMail(id, subject, msg);
 
+	}
+
+
+	public ModelAndView fileupload(MultipartHttpServletRequest multi) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+		
+		String check = multi.getParameter("fileCheck");
+		String _id = multi.getParameter("_id");
+		System.out.println(_id);
+		
+		boolean f = false;
+		
+		if(check.equals("1")) {
+			System.out.println("들어옴");
+			f= fileProc.upFile(multi,_id);
+		}
+		if(f) {
+			view = "SignUp";
+		}
+		
+		mav.setViewName(view);
+		
+		return mav;
 	}	
 	
-
-
-
-
 
 }
 

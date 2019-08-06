@@ -1,5 +1,6 @@
 package com.pmc.final_project;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -27,23 +28,35 @@ public class SeatController {
 	
 	@RequestMapping(value = "/seatInsert")
 	public @ResponseBody String seatInsert(MultipartHttpServletRequest multi) {
-
-		System.out.println("와주세요 제발...");
 		HashMap<String, String> ll = new HashMap<String, String>();
 		boolean state = sm.SeatUpdate(multi);
 		if(state) {
-			ll.put("success", "성공");
+			ll.put("success", "1");
 		}else {
-			ll.put("success", "실패");
+			ll.put("success", "0");
 		}
 		String Json = new Gson().toJson(ll);
 		return Json;
+	}
+	@RequestMapping(value = "/SeatUpdate", method = RequestMethod.GET)
+	public ModelAndView SeatUpdate() {
+		String p_id = (String)session.getAttribute("id");
+		mav = sm.SelectSeat(p_id);
+		return mav;   
 	}
 	@RequestMapping(value = "/SeatState", method = RequestMethod.GET)
 	public ModelAndView SeatState() {
 		String p_id = (String)session.getAttribute("id");
 		mav = sm.SelectSeat(p_id);
+		mav.setViewName("SeatState");
 		return mav;   
+	}
+	@RequestMapping(value = "/SeatDetail", method = RequestMethod.GET)
+	public ModelAndView SeatDetail() {
+		String p_id = (String)session.getAttribute("id");
+		mav = sm.SelectCate(p_id , 0);
+		
+		return mav;
 	}
 
 }

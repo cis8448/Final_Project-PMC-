@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,7 @@
         #aa{margin-left: 80%}
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+        button{ border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
                 
     </style>
 
@@ -44,51 +46,61 @@
 			<img src="./resources/img/dd.png" width="200" height="140">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./">좌석</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
+			<li class="mainmenu"><a href="./Main">좌석</a></li>
+			<li class="mainmenu"><a href="./Product">상품</a></li>
+			<li class="mainmenu"><a href="MemberList">회원</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
+			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
 			<li class="SubMenu"><a href="./CatePayList">카테고리별 매출</a></li>
-			<li class="SubMenu"><a href="./TimePayList">충전시간 매출</a></li>
+		
 		</ul>
 	</aside>
 	<section>
 
-
+<form method="post" action="./MemberPayList.jsp"></form>
 	<table id="aa">
 		<tr>
-			<td><select name="pcselectyear">
-					<option value="2018" selected>2018년</option>
-					<option value="2019" selected>2019년</option>
+			<td><select id="selectyear">
+			
+					<option value="19">2019</option>
+					<option value="18">2018</option>
 			</select></td>
-
-			<td><select name="pcselectmonth">
-					<option value="1" selected>1월</option>
-					<option value="2" selected>2월</option>
-					<option value="3" selected>3월</option>
-					<option value="4" selected>4월</option>
-					<option value="5" selected>5월</option>
-					<option value="6" selected>6월</option>
-					<option value="7" selected>7월</option>
-					<option value="8" selected>8월</option>
-					<option value="9" selected>9월</option>
-					<option value="10" selected>10월</option>
-					<option value="11" selected>11월</option>
-					<option value="12" selected>12월</option>
-
+			<td>
+				년
+			</td>
+			
+		<td><select id = "selectmonth">		
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option>08</option>
+					<option>09</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+			
 
 			</select></td>
+			<td>
+				월
+			</td>
+		
 
-				<td><button>검색</button></td>
+		
+				<td><button type="button" onclick="search()" id="search" >선택</button></td>
+			
 		</tr>
 	</table>
-	<table id="bb">
+	<table id="bb" border="1">
 		<tr>
 			<td class="Paymenu">일</td>
 			<td class="Paymenu">시간</td>
@@ -98,30 +110,63 @@
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
 			
-		</tr>	
+		</tr>
+		<tbody id="prlist">	
 		<c:forEach var="paymentdetail" items="${pList}">
-    	<tr>
-    		<td>${paymentdetail.u_start}</td>
-    		<td>${paymentdetail.u_finish}</td>
-    		<td>${paymentdetail.pc_name}</td>
-    		<td>${paymentdetail.m_id}</td>
-    		<td>${paymentdetail.pr_name}</td>
-    		<td>${paymentdetail.pl_qty}</td>
-    		<td>${paymentdetail.pl_price}</td>
-    		
-    	</tr>
+		<c:set var="Date" value="${paymentdetail.u_start}"/>
+    
     	</c:forEach>
+		</tbody>
 	</table>
-	
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
 
 
-
-
 </body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function search(){
+	var selyear = $("#selectyear option:selected").val();
+	var selmonth = $("#selectmonth option:selected").val();
+	var plus = selyear +"/"+ selmonth + "%";
+	
+	console.log(plus);
+	
+	$.ajax({
+		type : 'post',
+		url : 'datesearch',
+		data : plus,
+		dataType : 'json',
+		contentType : "application/json; charset=UTF-8",
+		success : function(data){
+			console.log(data)
+			var tbl = document.getElementById('prlist');
+			var result = "";
+			for(var i=0; i<data.length; i++){
+                result += '<td>'+data[i].u_start.substring(8,10)+'</td>'
+                result += '<td>'+data[i].u_start.substring(11,19)+'</td>'
+	            result += '<td>'+data[i].pc_name+'</td>'
+	            result += '<td>'+data[i].u_m_id+'</td>'
+	            result += '<td>'+data[i].pr_name+'</td>'
+	            result += '<td>'+data[i].pl_qty+'</td>'
+	            result += '<td>'+data[i].pl_price+'</td>'
+		}
+			tbl.innerHTML = result;
+              
+		}
+	})
+}
 
 
+
+	
+
+		
+
+
+</script>
 </html>

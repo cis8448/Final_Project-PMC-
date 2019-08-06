@@ -2,7 +2,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("member")
+@Alias("Member")
 public class Member {
 	
 	private int m_kakaoid;
@@ -15,7 +15,7 @@ public class Member {
 	private String m_birthday;
 	private String m_profile;
 	private String m_point;
-	private String m_retime;
+	private String m_time;
 	
 	
 	public int getM_kakaoid() {
@@ -78,11 +78,11 @@ public class Member {
 	public void setM_point(String m_point) {
 		this.m_point = m_point;
 	}
-	public String getM_retime() {
-		return m_retime;
+	public String getM_time() {
+		return m_time;
 	}
-	public void setM_retime(String m_retime) {
-		this.m_retime = m_retime;
+	public void setM_time(String m_retime) {
+		this.m_time = m_retime;
 	}
 	
 	
