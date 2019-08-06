@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +29,9 @@
         .mainmenu:hover{background-color: azure}
         img{width:300px;height:200px; padding:10px;}
         #aa{margin-left: 80%}
-        #catelist{width: 100%}
+        #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-    	button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+    	button{ border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         #cate{width: 100px; height: 40px;}        
     </style>
 
@@ -44,20 +45,17 @@
 		</div>
 		<ul id="Menu">
 			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="./Product">상품</a></li>
-			<li class="mainmenu"><a href="./MemberList">회원</a></li>
-			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
-			
-			
-			
+			<li class="mainmenu"><a href="#">상품</a></li>
+			<li class="mainmenu"><a href="#">회원</a></li>
+			<li class="mainmenu"><a href="#">매출</a></li>
+			<li class="mainmenu"><a href="#">기타</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
 			<li class="SubMenu"><a href="./CatePayList">카테고리별 매출</a></li>
-	
+			
 		</ul>
 	</aside>
 	<section>
@@ -69,17 +67,18 @@
 	<table>
 		<tr>
 			<td><select id="selectCate">
-			<c:forEach var="catelist" items="${cateList}">
-			<c:set var="Cate" value="${catelist.pc_name}"/>
-					<option>${catelist.pc_name}</option>
+			<c:forEach var="pay" items="${cateList}">
+			<c:set var="Cate" value="${pay.pc_name}"/>
+					<option id="pc_name">${pay.pc_name}</option>
+				
 			</c:forEach>
 					
 			</select></td>
 			
-			<td><input type="button" onclick="catesearch(${selectCate});return false;" id="catesearch" value="선택"></input></td>
+			<td><button type="button" onclick="cateSearch()" id="catesearch" >선택</button></td>
 		</tr>
 	</table>		
-    	<table id="catelist">
+    	<table id="bb">
 		<tr>
 			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
@@ -89,19 +88,23 @@
 		
 				
 		</tr>
-			<c:forEach var="paymentdetail" items="${pList}">
-			<tr>
-				<td>${paymentdetail.u_start}</td>
-				<td>${paymentdetail.m_id}</td>
-				<td>${paymentdetail.pr_name}</td>
-				<td>${paymentdetail.pl_qty}</td>
-				<td>${paymentdetail.pl_price}</td>
-			</tr>
-			</c:forEach>
+		
+		<tr>
+			<td></td>
 		<tr>
 			<td><div id="list" style="border:1px blue solid"></div></td>
 		</tr>
-		
+		<tbody id="cateResult" align="center">
+		<c:forEach var="cate" items="${cateList}">
+			<tr>
+				<td>${cateResult.u_start}</td>
+				<td>${cateResult.m_id}</td>
+				<td>${cateResult.p_name}</td>
+				<td>${cateResult.pl_qty}</td>
+				<td>${cateResult.pl_price}</td>
+			</tr>
+		</c:forEach>
+		</tbody>
 	</table>
 	</section>
 	<footer>
@@ -112,26 +115,36 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-
-function cate(){
-	var a = $("#selectCate option:selected").val();
-	console.log(a);
+function cateSearch(){
+	var selcate = $("#selectCate option:selected").val();
+	var pc_name = document.getElementById("pc_name").innerHTML;
+	
+	console.log(selcate);
+	console.log(pc_name);
 	$.ajax({
-		type : 'get',
-		url : 'cate',
-		data : param,
+        type : 'post',
+        url : 'casearch',
+		data : pc_name,
+		dataType : 'json',
 		contentType : "application/json; charset=UTF-8",
-		dataType : "json"
 		success : function(data){
-			var catelist = document.getElementById('') 
+            var tbl = document.getElementById('cateResult');
+	         var result = "";
+	         for(var i=0;i<data.length;i++){
+                result += '<td>'+data[i].u_start+'</td>'
+	            result += '<td>'+data[i].u_m_id+'</td>'
+	            result += '<td>'+data[i].pr_name+'</td>'
+	            result += '<td>'+data[i].pl_qty+'</td>'
+	            result += '<td>'+data[i].pl_price+'</td>'
 		}
-	})
-}
-
-
-
-
-					
+                 
+             
+        tbl.innerHTML = result;
+        }
+    })
+    }
+		      
+		    
 	
 </script>
 

@@ -22,6 +22,7 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
+	
 
 	@Autowired
 	HttpSession session;
@@ -35,7 +36,14 @@ public class PayController {
 		return mav;
 	}
 
-	
+	@RequestMapping(value = "/CatePayList")
+	public ModelAndView CatePayList(Integer CateNum) {
+		mav = pm.getCateList(CateNum);
+		
+		return mav;
+	}
+	   
+	 
 
 	
 	@RequestMapping(value = "/MemberPayCheck")

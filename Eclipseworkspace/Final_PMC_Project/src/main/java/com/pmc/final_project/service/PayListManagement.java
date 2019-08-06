@@ -34,19 +34,42 @@ public class PayListManagement {
 		String view = null;
 		List<PayMentDetail> pList = null;
 		
+	    String p_id = (String)session.getAttribute("id");
+	  	
 		
 		int num = (ProductNum == null) ? 1 : ProductNum;
 		
-		pList = payDao.getPayList();
+		pList = payDao.getPayList(p_id);
 		
 		mav.addObject("pList" ,pList);
-		//mav.addObject("paypaging" , getPayPaging(num));
+//		mav.addObject("paypaging" , getPayPaging(num));
 		view = "MemberPayList";
 		mav.setViewName(view);
 		
 		return mav;
 		
 	}
+	
+	
+
+	 public ModelAndView getCateList(Integer CateNum) {
+	      mav = new ModelAndView();
+	      String view = null;
+	      List<PayMentDetail> cateList = null;
+	      
+	      String p_id = (String)session.getAttribute("id");
+	      
+	      int num = (CateNum == null) ? 1 : CateNum;
+	      
+	      cateList = payDao.getPayList(p_id);
+	      
+	      mav.addObject("cateList", cateList);
+	      view = "CatePayList";
+	      mav.setViewName(view);
+	      
+	      return mav;
+	   }
+
 	
 	
 	
@@ -123,6 +146,36 @@ public class PayListManagement {
 						
 		return memberpayPaging.makeHtmlpaging();
 	}
+
+
+
+	public String casearch(String pc_name) {
+		
+		List<PayMentDetail> pmList = payDao.cateSearch(pc_name);
+		String json = new Gson().toJson(pmList);
+		
+		
+		return json;
+	}
+
+
+
+	public String datesearch(String plus) {
+		
+		String p_id = (String)session.getAttribute("id");
+		
+		System.out.println(p_id);
+		System.out.println(plus);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", p_id);
+		map.put("plus", plus);
+		List<PayMentDetail> payList = payDao.datesearch(map);
+		String json = new Gson().toJson(payList);
+		
+		return json;
+	}
+
 
 
 //	private String getPayPaging(int num) {

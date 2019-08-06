@@ -33,7 +33,7 @@
         #aa{margin-left: 80%}
         #bb{width: 100%}
         .Paymenu{width: 10%;height:40px; text-align: center;border: 1px solid black; font-size: 12px}
-        button{width: 100px; height: 30px; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
+        button{ border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
                 
     </style>
 
@@ -67,30 +67,36 @@
 		<tr>
 			<td><select id="selectyear">
 			
-					<option>2019</option>
-					<option>2018</option>
+					<option value="19">2019</option>
+					<option value="18">2018</option>
 			</select></td>
+			<td>
+				년
+			</td>
 			
 		<td><select id = "selectmonth">		
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option>08</option>
+					<option>09</option>
 					<option>10</option>
 					<option>11</option>
 					<option>12</option>
 			
 
 			</select></td>
+			<td>
+				월
+			</td>
 		
 
 		
-				<td><input type="button" onclick="search(${selectyear}, ${selectmonth});return false;" id="search" value="선택"></input></td>
+				<td><button type="button" onclick="search()" id="search" >선택</button></td>
 			
 		</tr>
 	</table>
@@ -104,20 +110,13 @@
 			<td class="Paymenu">수량</td>
 			<td class="Paymenu">가격</td>
 			
-		</tr>	
+		</tr>
+		<tbody id="prlist">	
 		<c:forEach var="paymentdetail" items="${pList}">
 		<c:set var="Date" value="${paymentdetail.u_start}"/>
-    	<tr>
-    		<td>${fn:substring(Date,8,10)}</td>
-            <td>${fn:substring(Date,11,19)}</td>
-    		<td>${paymentdetail.pc_name}</td>
-    		<td>${paymentdetail.m_id}</td>
-    		<td>${paymentdetail.pr_name}</td>
-    		<td>${paymentdetail.pl_qty}</td>
-    		<td>${paymentdetail.pl_price}</td>
-    		
-    	</tr>
+    
     	</c:forEach>
+		</tbody>
 	</table>
 	</section>
 	<footer>
@@ -129,16 +128,45 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-	var param = "${}"
-$("#search").click(function(){
-	var c = $("#selectyear option:selected").val();
-	var d = $("#selectmonth option:selected").val();
+
+function search(){
+	var selyear = $("#selectyear option:selected").val();
+	var selmonth = $("#selectmonth option:selected").val();
+	var plus = selyear +"/"+ selmonth + "%";
+	
+	console.log(plus);
+	
+	$.ajax({
+		type : 'post',
+		url : 'datesearch',
+		data : plus,
+		dataType : 'json',
+		contentType : "application/json; charset=UTF-8",
+		success : function(data){
+			console.log(data)
+			var tbl = document.getElementById('prlist');
+			var result = "";
+			for(var i=0; i<data.length; i++){
+                result += '<td>'+data[i].u_start.substring(8,10)+'</td>'
+                result += '<td>'+data[i].u_start.substring(11,19)+'</td>'
+	            result += '<td>'+data[i].pc_name+'</td>'
+	            result += '<td>'+data[i].m_id+'</td>'
+	            result += '<td>'+data[i].pr_name+'</td>'
+	            result += '<td>'+data[i].pl_qty+'</td>'
+	            result += '<td>'+data[i].pl_price+'</td>'
+		}
+			tbl.innerHTML = result;
+              
+		}
+	})
+}
+
+
 
 	
 
 		
-	
-});
+
 
 </script>
 </html>
