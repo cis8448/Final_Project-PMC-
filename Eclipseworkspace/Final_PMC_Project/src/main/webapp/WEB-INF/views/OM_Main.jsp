@@ -25,10 +25,10 @@
 </head>
 <body>
     <br><br>
-	<center>
+	
 	   <h1>운영관리자</h1>
 	   <hr style="border: solid;1px; width:70%; margin-bottom: 200px;">
-	</center>
+	
     <table>
         <tr>
             <th><input type="button" value="승인 관리" style="" onclick="btn1(1)"></th>
@@ -45,7 +45,7 @@
 		if(a==1){
 			location.href="OM_Approval"
 		}else if(a==2){
-			
+			location.href="OM_Notice"
 		}else if(a==3){
 			
 		}

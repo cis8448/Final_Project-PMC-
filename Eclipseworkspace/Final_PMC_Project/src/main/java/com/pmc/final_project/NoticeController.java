@@ -33,6 +33,8 @@ public class NoticeController {
 	@Autowired
 	HttpSession session;
 	
+	
+	
 		
 	@RequestMapping(value = "/MasterNotice") //기타 공지사항 전체보기
 	public String MasterNotice() {
@@ -96,6 +98,16 @@ public class NoticeController {
 		mav = nm.NoticeDelete(no_num);
 		return mav;
 	}
+	
+ 
+	
+
+	
+
+
+	
+	
+	
 	
 //	@RequestMapping(value = "/NoticeUpdate")
 //	public ModelAndView NoticeUpdate(Integer no_num) throws RuntimeException{

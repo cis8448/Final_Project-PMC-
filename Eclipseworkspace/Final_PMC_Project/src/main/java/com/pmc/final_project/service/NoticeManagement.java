@@ -177,19 +177,8 @@ public class NoticeManagement {
 	}
 
 
-
-
 	
 
-
-//	public ModelAndView NoticeUpdate(Integer no_num) 
-//			throws RuntimeException{
-//		mav = new ModelAndView();
-//		
-//		
-//		
-//		return mav;
-//	}
 
 }
 

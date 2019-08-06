@@ -175,11 +175,8 @@ table {
 				<tr>
 					<td align="center">${pcroomnoticebean.no_num}</td>
 					<td align="center">
-					<a href="./contents?no_num=${pcroomnoticebean.no_num}">
-					${pcroomnoticebean.no_title}</a></td>
+					<a href="./contents?no_num=${pcroomnoticebean.no_num}">${pcroomnoticebean.no_title}</a></td>
 					<td align="center">${pcroomnoticebean.no_date}</td>
-					<td align="center">${pcroomnoticebean.no_content}</td>
-					<td align="center">${pcroomnoticebean.no_cate}</td>
 				</tr>
 			</c:forEach>
 		</table>
