@@ -12,13 +12,14 @@ public interface IMemberDao {
 
 	public int getMemberCount(String id);
 
-	public Member getmemberInfo(Integer m_id);
 
 	public boolean memberTimeAdd(Map<String, String> map);
 
 	public String TimeSelect(Map<String, String> map);
 
 	public List<Member> memberSearch(Map<String, String> map);
+
+	public Member getmemberInfo(String m_id);
 
 
 
