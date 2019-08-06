@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
@@ -106,14 +107,18 @@ public class PcroomManagement {
 			if(pwdEncoder.matches(pr.getP_pass(), endPwd)) {//내부적으로 db에 암호화된 비밀번호와 비교하여 일치하면T 아니면 f로 리턴
 				System.out.println("두번쨰 33");
 				session.setAttribute("id", pr.getP_id());
-				//메인 화면으로 전환..
-				//=>게시판 목록
 				// 로그인한 회원의 일부정보, 게시글 목록
-				System.out.println("비밀번호변경");
 				pr = pDao.getMemberInfo(pr.getP_id());
+				System.out.println("여기넘어오냐 ?");
 				mav.addObject("pr",pr);
-				view = "redirect:/SeatState";
 				System.out.println("로그인성공");
+				if(pr.getP_id().equals("master")) {
+					view = "redirect:/OM_Main";
+				}else {
+				view = "redirect:/SeatState";
+				}
+				System.out.println("로그인성공2");
+
 			}
 			else {
 				System.out.println("로그인실패1");
@@ -262,10 +267,113 @@ public class PcroomManagement {
 		mav.setViewName(view);
 		
 		return mav;
-	}	
+	}
+
+
+	public ModelAndView PCInfoUpdate(PcRoomBean pr) {
+		// TODO Auto-generated method stub
+		
+		mav = new ModelAndView();
+		String view = null;
+		
+		System.out.println("멤버인포"+session.getAttribute("id").toString());
+		pDao.getMemberInfo(session.getAttribute("id").toString());
+		
+		view = "PCInfoUpdate";
+		
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
+
+	public ModelAndView InfoUpdate(PcRoomBean pr) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+		Map<String,String> map = new HashMap<String, String>();
+		int count=0 ;
+		
+		
+		if(!(pr.getP_name().equals(""))) {
+			pDao.changeName(pr);
+			count = 1;
+		}
+		
+		if(!(pr.getP_phone().equals(""))) {
+			pDao.changePhone(pr);
+			count = 1;
+		}
+		
+		mav.addObject("iu",count);
+		
+		view = "redirect:/PCInfoUpdate";
+		
+		mav.setViewName(view);
+		return mav;
+	}
+
+
+	public ModelAndView changepw2(PcRoomBean pr) {
+		// TODO Auto-generated method stub
+		
+		mav = new ModelAndView();
+		String view = null;
+		String pass=null;
+		System.out.println("c2"+session.getAttribute("id"));
+		String id =(String)session.getAttribute("id");
+		System.out.println(id);
+		System.out.println(pr.getP_pass());
+		Map<String,String> map = new HashMap<String, String>();
+		if((pr.getP_pass().equals(pr.getP_pass2()))) {
+			BCryptPasswordEncoder pwdEncoder = 
+					new BCryptPasswordEncoder();
+			pass = pwdEncoder.encode(pr.getP_pass());
+			System.out.println(pr.getP_id()+"비번ㅂㄴ경아디");
+			map.put("id",id);
+			map.put("pw",pass);
+			pDao.changepw2(map);
+			mav.addObject("cpw",1);
+			view ="redirect:/changepw";
+		}else {
+			mav.addObject("cpw",2);
+			view = "redirect:/changepw";
+		}
+		
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
+
+	public ModelAndView changepw(PcRoomBean pr) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+		view = "changepw";
+		
+		mav.setViewName(view);
+		return mav;
+	}
+
+
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

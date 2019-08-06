@@ -5,7 +5,28 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
+<<<<<<< HEAD
+  <updated>2019-08-05T23:54:25Z</updated>
+  <entry>
+    <title>Spring Security 5.1.6 and 5.0.13 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/08/05/spring-security-5-1-6-and-5-0-13-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Josh Cummings</name>
+    </author>
+    <id>tag:spring.io,2019-08-05:3761</id>
+    <updated>2019-08-05T23:54:25Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community I am pleased to announce the release of Spring Security 5.1.6 (&lt;a href="https://github.com/spring-projects/spring-security/milestone/144?closed=1"&gt;changelog&lt;/a&gt;) and 5.0.13 (&lt;a href="https://github.com/spring-projects/spring-security/milestone/145?closed=1"&gt;changelog&lt;/a&gt;). These releases deliver bug fixes along with some minor improvements. Users are encouraged to update to the latest patch release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+=======
   <updated>2019-08-05T18:32:57Z</updated>
+>>>>>>> 2465686301aaa19685d6b8070f0b44e172236471
   <entry>
     <title>Spring Security 5.2.0.M4 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/08/05/spring-security-5-2-0-m4-released" />
@@ -624,6 +645,8 @@ Of course, if you have not done so already, you should first read the &lt;a href
 &lt;p&gt;We appreciate &lt;strong&gt;everyone&amp;rsquo;s help and feedback&lt;/strong&gt; as we continue learning and iterating on the site and the initializr library. &lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
+<<<<<<< HEAD
+=======
   <entry>
     <title>Spring Cloud Hoxton.M1 is available.</title>
     <link rel="alternate" href="https://spring.io/blog/2019/07/03/spring-cloud-hoxton-m1-is-available" />
@@ -813,4 +836,5 @@ dependencies {&#xD;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
+>>>>>>> 2465686301aaa19685d6b8070f0b44e172236471
 </feed>
