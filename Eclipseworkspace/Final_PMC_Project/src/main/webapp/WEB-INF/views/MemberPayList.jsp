@@ -150,7 +150,7 @@ function search(){
                 result += '<td>'+data[i].u_start.substring(8,10)+'</td>'
                 result += '<td>'+data[i].u_start.substring(11,19)+'</td>'
 	            result += '<td>'+data[i].pc_name+'</td>'
-	            result += '<td>'+data[i].m_id+'</td>'
+	            result += '<td>'+data[i].u_m_id+'</td>'
 	            result += '<td>'+data[i].pr_name+'</td>'
 	            result += '<td>'+data[i].pl_qty+'</td>'
 	            result += '<td>'+data[i].pl_price+'</td>'
