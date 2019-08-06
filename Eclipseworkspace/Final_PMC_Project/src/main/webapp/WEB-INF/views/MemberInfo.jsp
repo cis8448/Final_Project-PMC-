@@ -56,6 +56,7 @@
         <li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
     </ul>
     </aside>
+    
     <section>
     <h2>회원 상세보기</h2>
         <br>

@@ -58,7 +58,7 @@ public class MemberManagement {
 		return mempaging.makeHtmlpaging();
 	}
 	
-	public ModelAndView getMemberInfo(String m_id) {
+	public ModelAndView getMemberInfo(Integer m_id) {
 		mav = new ModelAndView();
 		String view = null;
 		

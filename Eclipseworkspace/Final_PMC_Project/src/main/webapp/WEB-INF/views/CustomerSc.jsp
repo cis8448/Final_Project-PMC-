@@ -125,7 +125,6 @@ table {
 	margin-left: 30px;
 	
 }
-
 </style>
 <body>
 	<header>
@@ -141,10 +140,9 @@ table {
 		</ul>
 	</header>
 
-	
-	
-	<table>
+
 	<aside>
+	  
     <ul id="SubMenu">
     	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
     </ul>
@@ -158,31 +156,30 @@ table {
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
 	</aside>
-</table>
 
 	<section>
 		<table border="1px solid black">
-			<tr class="Notice">
-				<td colspan="3">공지사항</td>
+			<tr class="Sc">
+				<td colspan="3">고객센터</td>
 				<br>
 			</tr>
 
-			<tr class="NoticeNum">
+			<tr class="ScNum">
 				<td>No</td>
 				<td>제목</td>
 				<td>작성날짜</td>
 			</tr>
 			
 	<% session.setAttribute("id", "test1"); %>
-			<c:forEach var="pcroomnoticebean" items="${nList}">
+			<c:forEach var="pcroomscbean" items="${sList}">
 				<tr>
-					<td align="center">${pcroomnoticebean.no_num}</td>
+					<td align="center">${pcroomscbean.se_num}</td>
 					<td align="center">
-					<a href="./MaContents?no_num=${pcroomnoticebean.no_num}">
-					${pcroomnoticebean.no_title}</a></td>
-					<td align="center">${pcroomnoticebean.no_date}</td>
-					<td align="center">${pcroomnoticebean.no_content}</td>
-					<td align="center">${pcroomnoticebean.no_cate}</td>
+					<a href="./SCcontents?no_num=${pcroomscbean.se_num}">
+					${pcroomscbean.se_title}</a></td>
+					<td align="center">${pcroomscbean.se_date}</td>
+					<td align="center">${pcroomscbean.se_content}</td>
+					<td align="center">${pcroomscbean.se_cate}</td>
 				</tr>
 			</c:forEach>
 		</table>
