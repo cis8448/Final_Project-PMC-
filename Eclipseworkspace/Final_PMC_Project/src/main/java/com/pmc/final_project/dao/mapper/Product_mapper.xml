@@ -11,9 +11,20 @@
       SELECT COUNT(*) FROM PRODUCT
    </select>
    
-   <select id="ProductDetail" resultType="ProductBean" parameterType="string">
+   <select id="ProductDetail" resultType="ProductBean" parameterType="String">
       SELECT * FROM PRODUCTALL WHERE PR_ID=#{pr_id}
    </select>
   
-	
+  <select id="selectcountcate" resultType="String" parameterType="String">
+  	  SELECT MAX(PC_ID) FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+  </select>
+  
+  <insert id="dbsend" parameterType="HashMap">
+  	  INSERT INTO PRODUCTCATE VALUES (#{pc_id},#{name},#{p_id})
+  </insert>
+  
+  <select id="getCateList" resultType="ProductCate" >
+	SELECT * FROM PRODUCTCATE
+	</select>
+  
 </mapper>

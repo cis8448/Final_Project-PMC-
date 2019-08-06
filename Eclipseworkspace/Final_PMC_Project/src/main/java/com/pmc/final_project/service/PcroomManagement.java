@@ -106,6 +106,7 @@ public class PcroomManagement {
 			if(pwdEncoder.matches(pr.getP_pass(), endPwd)) {//내부적으로 db에 암호화된 비밀번호와 비교하여 일치하면T 아니면 f로 리턴
 				System.out.println("두번쨰 33");
 				session.setAttribute("id", pr.getP_id());
+				
 				//메인 화면으로 전환..
 				//=>게시판 목록
 				// 로그인한 회원의 일부정보, 게시글 목록

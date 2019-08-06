@@ -44,7 +44,7 @@
         <img src="./resources/img/dd.png">
         </div> 
         <ul id="Menu">
-            <li class="mainmenu"><a href="./Main">좌석</a></li>
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="#">매출</a></li>
@@ -54,12 +54,10 @@
     <aside>
     <ul id="SubMenu">
         <li class="SubMenu"><a href="#">전체</a></li>
-        <li class="SubMenu"><a href="#">라면</a></li>
-        <li class="SubMenu"><a href="#">식사</a></li>
-        <li class="SubMenu"><a href="#">음료</a></li>
-        <li class="SubMenu"><a href="#">커피</a></li>
-        <li class="SubMenu"><a href="#">토핑추가</a></li>
-        <li class="SubMenu"><a href="./ProductCateAdd">카테고리 추가</a></li>
+        <c:forEach var="productcate" items="${catelist}">
+        <li class="SubMenu"><a>${productcate.pc_name}</a></li>
+        </c:forEach>
+        <li class="SubMenu"><button type="button" onclick="cateadd()">카테고리 추가</button></li>
     </ul>
     </aside>
     <section>
@@ -83,7 +81,7 @@
           <td>${productall.pr_name}</td>
           <td>${productall.pr_qty}</td>
           <td>${productall.pr_price}</td>
-          <td align="center"><a href="./ProductDetail">상세보기</a></td>
+          <td align="center"><a href="./ProductDetail?pr_id=${productall.pr_id}">상세보기</a></td>
        </tr>
        </c:forEach>
       
@@ -97,4 +95,24 @@
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    function cateadd(){
+	var inputString = prompt('추가할 카테고리를 입력해주세요', '');
+        $.ajax({
+        type : 'post',
+        url  : 'productcateadd',
+        data : inputString,
+        contentType : "application/json; charset=UTF-8" ,
+        dataType : "json",
+        success : function(data){
+        if(data.ttt == "성공"){
+            $("#SubMenu").append('<li>'+inputString +'</li>');
+        }
+        
+    }         
+})
+  }
+</script>
 </html>
