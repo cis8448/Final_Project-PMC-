@@ -3,7 +3,7 @@ package com.pmc.final_project.bean;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("paymentdetail")
+@Alias("PayMentDetail")
 public class PayMentDetail {
 	
 	

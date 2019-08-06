@@ -24,6 +24,7 @@ public class PayController {
 	@Autowired
 	PayListManagement pm;
 	
+	
 
 	@Autowired
 	HttpSession session;
@@ -37,14 +38,15 @@ public class PayController {
 		return mav;
 	}
 
-	
-
-	
-	@RequestMapping(value = "/TimePayList")
-	public String TimePayList() {
+	@RequestMapping(value = "/CatePayList")
+	public ModelAndView CatePayList(Integer CateNum) {
+		mav = pm.getCateList(CateNum);
 		
-		return "TimePayList";
+		return mav;
 	}
+	   
+	 
+
 	
 	@RequestMapping(value = "/MemberPayCheck")
 	public @ResponseBody ModelAndView MemberPayCheck(Integer pageNum, @RequestParam("m_id") String m_id) {

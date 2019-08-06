@@ -7,7 +7,7 @@ import com.pmc.final_project.bean.PayMentDetail;
 
 public interface IPayDao {
 
-	public List<PayMentDetail> getPayList();
+	public List<PayMentDetail> getPayList(String p_id);
 
 	public List<PayMentDetail> getmemberPaylist(String m_id);
 
@@ -16,5 +16,14 @@ public interface IPayDao {
 	public int accept(String userid);
 
 	public boolean PayDate(Map<String, String> map);
+
+	public List<PayMentDetail> cateSearch(String pc_name);
+
+	public List<PayMentDetail> datesearch(Map<String, String> map);
+
+	
+
+
+
 
 }
