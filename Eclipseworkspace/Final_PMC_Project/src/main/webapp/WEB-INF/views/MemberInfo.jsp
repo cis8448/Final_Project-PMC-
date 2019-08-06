@@ -190,8 +190,6 @@ h2 {
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberList">전체회원</a></li>
-			<li class="SubMenu"><a href="./UsedMemberList">사용중인회원</a></li>
-			<li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
 		</ul>
 	</aside>
 	<section>
@@ -207,7 +205,7 @@ h2 {
 		</div>
 
 		<div class=right>
-			<p class="content">${member.m_id}</p>
+			<p class="content" id="m_id">${member.m_id}</p>
 			<p class="content">${member.m_name}</p>
 			<p class="content">${member.m_birthday}</p>
 			<p class="content">${member.m_email}</p>
@@ -231,8 +229,8 @@ h2 {
 
 		<br>
 		<div class="LastButton">
-			<a href="./MemberPayCheck" class="button2">매출확인</a> 
-			<a href="./MemberUseLog" class="button2">사용기록</a>
+			<a href="./MemberPayCheck?m_id=${member.m_id}" class="button2">매출확인</a> 
+			<a href="./MemberUseLog?m_id=${member.m_id}" class="button2">사용기록</a>
 			<a href="./MemberList" class="button2">뒤로가기</a>
 		</div>
 	</section>
@@ -246,21 +244,27 @@ h2 {
 <script>
 	function TimeAdd() {
 
-		var res = parseInt($("#sel option:selected").val());
+		var res = $("#sel option:selected").val();
+		var m_id = document.getElementById('m_id').innerHTML;
+		
 		//var t = parseInt($("#t").val());
-		var result = String(res);
-
+		var result = 'time='+res+'&m_id='+m_id
+		console.log(result);
 		$.ajax({
 			type : 'post',
+			url : 'TimeAdd',
 			data : result,
-			url : "TimeAdd",
+			//contentType : "application/json; charset=UTF-8",
 			dataType : 'json',
-			contentType : "application/json; charset=UTF-8",
 			success : function(data) {
 				var time = document.getElementById('times');
 				time.innerHTML = data.cnt;
 				
 			},
+			error : function(data) {
+				console.log("ang")
+				
+			}
 		});
 	};
 </script>

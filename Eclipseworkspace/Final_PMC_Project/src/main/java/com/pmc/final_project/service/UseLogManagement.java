@@ -24,29 +24,26 @@ public class UseLogManagement {
 	@Autowired
 	private HttpSession session;
 
-	public ModelAndView getmemberUseLog(Integer pageNum) {
+	public ModelAndView getmemberUseLog(Integer pageNum, String m_id) {
 		mav = new ModelAndView();
 		String view = null;
 		List<UseLogBean> uList = null;
-		String m_id = (String)session.getAttribute("m_id");
 		int num = (pageNum == null) ? 1 : pageNum;
 		System.out.println(m_id);
+		
 		uList = uDao.getmemberuseLog(m_id);
-		System.out.println(uList.get(0).getU_m_id());
-		System.out.println(uList.get(0).getU_s_id());
-		System.out.println(uList.get(0).getU_finish());
-		System.out.println(uList.get(0).getU_start());
+
 		
 		mav.addObject("uList", uList);
-		mav.addObject("uselogPaging", getUseLogPaging(num));
+		mav.addObject("uselogPaging", getUseLogPaging(num, m_id));
+		
 		view = "MemberUseLog";
 		mav.setViewName(view);
 		
 		return mav;
 	}
 
-	private String getUseLogPaging(int num) {
-		String m_id = (String)session.getAttribute("m_id");
+	private String getUseLogPaging(int num, String m_id) {
 		//전체 회원
 		int maxNum = uDao.getUseLogCount(m_id);
 		//페이지 당 회원 수

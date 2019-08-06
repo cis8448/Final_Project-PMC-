@@ -17,7 +17,7 @@
 	</select>
 
 	<select id="getMemberInfo" parameterType="String" resultType="PcRoomBean">
-		SELECT * FROM PCROOM WHERE p_id=#{id}
+		SELECT * FROM PCROOM WHERE P_ID=#{id}
 	</select>
 
 	<select id="PCIdCheck" parameterType="String" resultType="Integer">
@@ -45,9 +45,40 @@
 	</select>
 	
 	<insert id="fileupdate" parameterType="HashMap">
-		INSERT INTO PCFILE VALUES (#{sysid},#{oriFileName},#{sysFileName})
+		INSERT INTO PCFILE VALUES (#{sysid},#{sysFileName})
 	</insert>
-	
+	<update id="changeName" parameterType="PcRoomBean">
+		UPDATE PCROOM SET P_NAME=#{p_name} WHERE P_ID=#{p_id}
+	</update>
+	<update id="changePhone" parameterType="PcRoomBean">
+		UPDATE PCROOM SET P_PHONE=#{p_phone} WHERE P_ID=#{p_id}
+	</update>
+	<update id="changepw2" parameterType="HashMap">
+		UPDATE PCROOM SET P_PASS=#{pw} WHERE P_ID=#{id}
+	</update>
+	<select id="selectAll" resultType="PcRoomBean" parameterType="int">
+		<![CDATA[
+		SELECT * FROM SBPCROOM
+	]]>
+	</select>
+	<select id="getSBPCCount" resultType="int">
+		SELECT COUNT(*) FROM
+		SBPCROOM
+	</select>
+	<delete id="approvalDelete" parameterType="String">
+		DELETE FROM SBPCROOM WHERE P_ID=#{id}
+	</delete>
+	<select id="approvalSelect" parameterType="String" resultType="PcRoomBean">
+		SELECT * FROM SBPCROOM WHERE P_ID=#{id}
+	</select>
+	<insert id="approvalInsert" parameterType="PcRoomBean">
+		INSERT INTO PCROOM
+		(P_ID,P_PASS,P_NAME,P_PHONE,P_EMAIL,P_ADDR,P_HOLIDAY,P_DONG,P_SIDO,P_GUGUN) VALUES
+		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
+	</insert>
+	<select id="getFileList" parameterType="String" resultType="pcfile">
+		SELECT * FROM PCFILE WHERE PC_ID=#{id}
+	</select>
 	
 	
 

@@ -3,16 +3,27 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pmc.final_project.dao.IPayDao">
-	<select id="getPayList" resultType="PayMentDetail">
-      SELECT * FROM PAYLIST
+
+ <select id="datesearch" resultType="PayMentDetail" parameterType="HashMap">
+      SELECT * FROM PAYLIST WHERE PC_P_ID=#{p_id} AND U_START LIKE #{plus}
+      
    </select>
+
+	<select id="getPayList" resultType="PayMentDetail" parameterType="String">
+      SELECT * FROM PAYLIST WHERE PC_P_ID=#{p_id}
+   </select>
+
    
 	<select id="getmemberPaylist" parameterType="String" resultType="PayMentDetail" >
-		SELECT * FROM PAYLIST WHERE U_M_ID=#{u_m_id}
+		SELECT * FROM PAYLIST WHERE U_M_ID=#{m_id}
 	</select>
 	
 	<select id="getmemberPayCount" resultType="int" parameterType="String">
-		SELECT COUNT(U_M_ID) FROM PAYLIST WHERE U_M_ID=#{u_m_id}
+		SELECT COUNT(U_M_ID) FROM PAYLIST WHERE U_M_ID=#{m_id}
+	</select>
+	
+	<select id="cateSearch" resultType="PayMentDetail" parameterType="String">
+		SELECT * FROM PAYLIST WHERE PC_NAME=#{pc_name}
 	</select>
 
 </mapper>

@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.PayMentDetail;
-import com.pmc.final_project.bean.ProductCate;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IProductDao;
 import com.pmc.final_project.util.Paging;
@@ -35,19 +34,42 @@ public class PayListManagement {
 		String view = null;
 		List<PayMentDetail> pList = null;
 		
+	    String p_id = (String)session.getAttribute("id");
+	  	
 		
 		int num = (ProductNum == null) ? 1 : ProductNum;
 		
-		pList = payDao.getPayList();
+		pList = payDao.getPayList(p_id);
 		
 		mav.addObject("pList" ,pList);
-		//mav.addObject("paypaging" , getPayPaging(num));
+//		mav.addObject("paypaging" , getPayPaging(num));
 		view = "MemberPayList";
 		mav.setViewName(view);
 		
 		return mav;
 		
 	}
+	
+	
+
+	 public ModelAndView getCateList(Integer CateNum) {
+	      mav = new ModelAndView();
+	      String view = null;
+	      List<PayMentDetail> cateList = null;
+	      
+	      String p_id = (String)session.getAttribute("id");
+	      
+	      int num = (CateNum == null) ? 1 : CateNum;
+	      
+	      cateList = payDao.getPayList(p_id);
+	      
+	      mav.addObject("cateList", cateList);
+	      view = "CatePayList";
+	      mav.setViewName(view);
+	      
+	      return mav;
+	   }
+
 	
 	
 	
@@ -82,36 +104,29 @@ public class PayListManagement {
 
 
 
-	public ModelAndView getmemberPayList(Integer pageNum) {
+	public ModelAndView getmemberPayList(Integer pageNum, String m_id) {
 		mav = new ModelAndView();
 		String view = null;
-		List<PayMentDetail> mpList = null;
-		
-		String u_m_id = (String)session.getAttribute("m_id");
-		
+		List<PayMentDetail> mpList = null;	
 		int num = (pageNum == null) ? 1 : pageNum;
 		
-		System.out.println(u_m_id+"첫번쨰");
-		
-		mpList = payDao.getmemberPaylist(u_m_id);
-		System.out.println(mpList.get(0).getU_m_id());
-		System.out.println(mpList.get(0).getU_start());
-		
-		mav.addObject("mpList", mpList);
+		System.out.println(m_id);
 
-		mav.addObject("memberpayPaging", getmemberPayPaging(num));
+		mpList = payDao.getmemberPaylist(m_id);
+
+		mav.addObject("mpList", mpList);
+		mav.addObject("memberpayPaging", getmemberPayPaging(num, m_id));
 		
 		view = "MemberPayCheck";
 		mav.setViewName(view);
-		session.removeAttribute("m_id");
 		return mav;
 	}
 
 
-	private String getmemberPayPaging(int num) {
-		String u_m_id = (String)session.getAttribute("m_id");
-		System.out.println(u_m_id+"두번쨰");
-		int maxNum = payDao.getmemberPayCount(u_m_id);
+	private String getmemberPayPaging(int num, String m_id) {
+
+		System.out.println(m_id+"두번쨰");
+		int maxNum = payDao.getmemberPayCount(m_id);
 		//페이지 당 회원 수
 		int listCnt = 10;
 		//그룹당 페이지 수
@@ -124,6 +139,36 @@ public class PayListManagement {
 						
 		return memberpayPaging.makeHtmlpaging();
 	}
+
+
+
+	public String casearch(String pc_name) {
+		
+		List<PayMentDetail> pmList = payDao.cateSearch(pc_name);
+		String json = new Gson().toJson(pmList);
+		
+		
+		return json;
+	}
+
+
+
+	public String datesearch(String plus) {
+		
+		String p_id = (String)session.getAttribute("id");
+		
+		System.out.println(p_id);
+		System.out.println(plus);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", p_id);
+		map.put("plus", plus);
+		List<PayMentDetail> payList = payDao.datesearch(map);
+		String json = new Gson().toJson(payList);
+		
+		return json;
+	}
+
 
 
 //	private String getPayPaging(int num) {
