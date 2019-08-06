@@ -53,9 +53,9 @@
     </header>
     <aside>
     <ul id="SubMenu">
-        <li class="SubMenu"><a href="#">전체</a></li>
+        <li class="SubMenu"><a href="./Product">전체</a></li>
         <c:forEach var="productcate" items="${catelist}">
-        <li class="SubMenu"><a>${productcate.pc_name}</a></li>
+        <li class="SubMenu"><a href="./cateinfo?pc_id=${productcate.pc_id}">${productcate.pc_name}</a><button>x</button><button>수정</button></li>
         </c:forEach>
         <li class="SubMenu"><button type="button" onclick="cateadd()">카테고리 추가</button></li>
     </ul>
@@ -75,13 +75,13 @@
             <td>비고</td>
        </tr>     
        
-       <c:forEach var="productall" items="${prList}">
+       <c:forEach var="ProductBean" items="${prList}">
        <tr align="center">
-          <td>${productall.pc_name}</td>
-          <td>${productall.pr_name}</td>
-          <td>${productall.pr_qty}</td>
-          <td>${productall.pr_price}</td>
-          <td align="center"><a href="./ProductDetail?pr_id=${productall.pr_id}">상세보기</a></td>
+          <td>${ProductBean.pc_name}</td>
+          <td>${ProductBean.pr_name}</td>
+          <td>${ProductBean.pr_qty}</td>
+          <td>${ProductBean.pr_price}</td>
+          <td align="center"><a href="./ProductDetail?pr_id=${ProductBean.pr_id}">상세보기</a></td>
        </tr>
        </c:forEach>
       

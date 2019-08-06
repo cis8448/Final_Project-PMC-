@@ -4244,3 +4244,1660 @@ org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementExc
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:46:24.683
 >>>>>>> b758991308a5227fd0765304d63868dca18e2800
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:48:03.900
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:48:03.918
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 10:49:45.676
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 10:49:45.681
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:49:52.014
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:49:52.037
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:49:59.883
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:49:59.909
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:50:49.166
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:50:49.178
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:50:58.945
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:50:58.958
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:54:41.957
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:54:41.974
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 10:54:51.605
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 10:54:51.605
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:56:34.929
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:56:34.945
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:56:46.463
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:56:46.479
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:59:05.256
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 10:59:05.256
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:01:34.940
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:01:34.945
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:04:15.024
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:04:15.040
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:04:27.588
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:04:27.604
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:05:03.368
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:05:03.383
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:09:14.991
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:09:14.991
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:09:47.820
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:09:47.835
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:14:47.804
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:14:47.804
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:19:08.790
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:19:08.806
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:19:37.007
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:19:37.023
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:24:08.274
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:24:08.274
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:25:58.867
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:25:58.882
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:30:58.320
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:30:58.320
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:39:24.681
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:39:24.681
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:43:12.430
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:43:12.446
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:43:30.916
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:43:30.916
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.539
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.554
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.554
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.554
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.570
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.570
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.570
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-08-06 11:44:01.586
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4699)
+	at org.eclipse.swt.SWT.error(SWT.java:4614)
+	at org.eclipse.swt.SWT.error(SWT.java:4585)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:451)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:350)
+	at org.eclipse.swt.widgets.Composite.getChildren(Composite.java:469)
+	at org.eclipse.epp.internal.mpc.ui.wizards.MarketplaceDropAdapter.lambda$0(MarketplaceDropAdapter.java:136)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:44:19.585
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:44:19.585
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:44:24.119
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:44:24.119
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:44:41.180
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:44:41.196
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:45:02.289
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:45:02.305
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:48:31.134
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:48:31.150
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:48:57.461
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:48:57.476
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:49:40.682
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:49:40.687
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:49:57.429
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:49:57.441
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:52:12.821
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:52:12.836
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 11:54:56.960
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 11:54:56.976
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:56:30.444
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:56:30.461
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:58:30.320
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 11:58:30.335
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:01:01.570
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:01:01.570
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 12:01:34.055
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 12:01:34.055
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:01:35.508
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:01:35.539
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:01:35.570
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 12:06:35.806
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 12:06:35.806
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:58:28.579
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:58:28.587
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:58:55.983
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 12:58:55.996
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:00:07.906
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:00:07.920
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.debug 2 0 2019-08-06 13:01:03.054
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-08-06 13:01:22.146
+!MESSAGE Several ports (8005, 80, 8009) required by Tomcat v8.5 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:03:28.564
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:03:28.573
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:05:41.346
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:05:41.367
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:08:46.086
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:08:46.099
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.jdt.debug 2 0 2019-08-06 13:08:59.925
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.eclipse.jface 2 0 2019-08-06 13:09:34.159
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-06 13:09:34.159
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5eb44845,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.boot.restart.commands.restart,Trigger Restart,
+		Restart Spring Boot Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@c23aa1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:10:41.325
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:10:41.329
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:14:31.263
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:14:31.263
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:15:19.411
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:15:19.426
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:19:30.799
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:19:30.805
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:20:25.696
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:20:25.710
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:23:52.897
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:23:52.909
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:25:25.208
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:25:25.213
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:26:19.905
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:26:19.920
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:31:15.554
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:31:15.566
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:31:19.405
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:31:19.413
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:35:41.978
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:35:41.991
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:39:17.632
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:39:17.647
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:39:34.485
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:39:34.516
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:44:34.530
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:44:34.530
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:54:12.631
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:54:12.647
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:54:27.045
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:54:27.060
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:55:52.394
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:55:52.426
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:58:41.074
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:58:41.089
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 13:59:12.642
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 13:59:12.658
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:27.733
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:27.748
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:33.351
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:33.366
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:35.457
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:35.472
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:58.489
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 13:59:58.505
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:00:58.321
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:00:58.337
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:01:15.427
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:01:15.442
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 14:04:27.195
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 14:04:27.210
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:08:43.044
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:08:43.059
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:08:56.541
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:08:56.556
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:09:32.126
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:09:32.142
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:10:18.234
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:10:18.254
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:10:55.458
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:10:55.473
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:11:48.749
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:11:48.765
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:13:03.052
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:13:03.083
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 14:13:43.009
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 14:13:43.024
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:21:52.373
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:21:52.389
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:24:30.343
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:24:30.358
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:25:19.103
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:25:19.118
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 14:26:52.354
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 14:26:52.359
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:27:16.841
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:27:16.856
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:27:29.255
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:27:29.270
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:04.889
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:04.905
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:24.381
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:24.413
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:33.601
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:29:33.616
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:30:17.780
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:30:17.796
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:31:36.942
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:31:36.958
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 14:32:16.847
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 14:32:16.847
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:50:39.518
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:50:39.549
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:52:45.106
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 14:52:45.138
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 14:55:39.431
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 14:55:39.431
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 15:02:57.345
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 15:02:57.376
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.core.resources 4 0 2019-08-06 15:07:57.319
+!MESSAGE Error occurred while reading master table file
+!STACK 0
+java.nio.charset.MalformedInputException: Input length = 1
+	at java.nio.charset.CoderResult.throwException(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.nio.file.Files.readAllLines(Unknown Source)
+	at org.eclipse.core.internal.resources.SaveManager.getBadSequenceNumberErrorMessage(SaveManager.java:1618)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1599)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2019-08-06 15:07:57.319
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot set lower sequence number for root (previous: 21, new: 12). Location: C:\Users\53\Documents\Final_Project-PMC-\Eclipseworkspace\.metadata\.plugins\org.eclipse.core.resources\.safetable\org.eclipse.core.resourcesTimestamps and tree sequence numbers from file:
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:66)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1600)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1271)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1240)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 16:00:35.761
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-06 16:00:35.777
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!

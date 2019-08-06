@@ -1,5 +1,6 @@
 package com.pmc.final_project.service;
 
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,9 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.ProductBean;
-import com.pmc.final_project.bean.ProductCate;
 import com.pmc.final_project.dao.IProductDao;
 import com.pmc.final_project.util.Paging;
+
 
 @Service
 public class ProductManagement {
@@ -34,11 +35,14 @@ public class ProductManagement {
 		mav = new ModelAndView();
 		String view = null;
 		List<ProductBean> prList = null;
-		List<ProductCate> cateList = null;
+		List<ProductBean> cateList = null;
 		//pageNum이 널이면(로그인 한 후) 첫페이지를 보이도록.
 		int num = (pageNum == null) ? 1 : pageNum;
-		
-		prList = prDao.getProductList(p_id);
+		String size = p_id.length()+"";
+		HashMap<String , String> map =  new HashMap<String, String>();
+		map.put("size", size);
+		map.put("p_id", p_id);
+		prList = prDao.getProductList(map);
 		cateList = prDao.getCateList(p_id);
 		
 		mav.addObject("prList", prList);
@@ -110,6 +114,42 @@ public class ProductManagement {
 		String json = new Gson().toJson(map);
 		
 		return json;
+	}
+
+	public ModelAndView CateSearch(String pc_id, Integer pageNum) {
+		String p_id = (String)session.getAttribute("id");
+		String maxcount = prDao.selectcountcate(p_id);
+		
+		
+		mav = new ModelAndView();
+		String view = null;
+		List<ProductBean> prList = null;
+		List<ProductBean> cateList = null;
+		//pageNum이 널이면(로그인 한 후) 첫페이지를 보이도록.
+		int num = (pageNum == null) ? 1 : pageNum;
+		
+		prList = prDao.getpcidList(pc_id);
+		cateList = prDao.getCateList(p_id);
+		
+		if(prList.size() > 0) {
+		for(int i = 0; i < cateList.size(); i++) {
+			if(cateList.get(i).getPc_id().equals(prList.get(0).getPc_id())) {
+				for(int j = 0; j < prList.size();j++) {
+					prList.get(j).setPc_name(cateList.get(i).getPc_name());
+					}
+				}
+			}
+		
+		
+		mav.addObject("prList", prList);
+		}
+		mav.addObject("catelist", cateList);
+		
+		mav.addObject("paging", getPaging(num));
+		view = "Product";
+		mav.setViewName(view);
+		
+		return mav;
 	}
 	
 

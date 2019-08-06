@@ -33,7 +33,7 @@
         input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         .my-box {margin-top:20px; border:1px solid; width : 1200px; height: 500px; padding:10px; }
-   		.margin{margin-left: 1020px;}
+   		.margin{margin-left: 900px;}
    		.btnfont{font-size: 18px; width: 100px; height: 50px;}
    		
         
@@ -51,17 +51,7 @@
             <li class="mainmenu"><a href="#">기타</a></li>
         </ul>    
     </header>
-    <aside>
-    <ul id="SubMenu">
-        <li class="SubMenu"><a href="#">전체</a></li>
-        <li class="SubMenu"><a href="#">라면</a></li>
-        <li class="SubMenu"><a href="#">식사</a></li>
-        <li class="SubMenu"><a href="#">음료</a></li>
-        <li class="SubMenu"><a href="#">커피</a></li>
-        <li class="SubMenu"><a href="#">토핑추가</a></li>
-        <li class="SubMenu"><a href="#">카테고리 추가</a></li>
-    </ul>
-    </aside>
+
     <section>
 	<div class="my-box">
 	<table  border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center"  class="center">
@@ -69,23 +59,24 @@
 	</tr>
 			<tr>
 				<td class="a1">카테고리</td>
-				<td>${productall.pc_name}</td>
+				<td>${ProductBean.pc_name}</td>
 			</tr>
 			<tr>
 				<td class="a1" >제품명</td>
-				<td>${productall.pr_name}</td>
+				<td>${ProductBean.pr_name}</td>
 			</tr>
 			<tr>
 				<td class="a1">수량</td>
-				<td>${productall.pr_qty}</td>
+				<td>${ProductBean.pr_qty}</td>
 			</tr>
 			<tr>
 				<td class="a1">가격</td>
-				<td>${productall.pr_price}</td>
+				<td>${ProductBean.pr_price}</td>
 			</tr>
 		</table>
 	</div><br>
 	<div class="margin">
+	<button class="btnfont"><a href="./Product">뒤로가기</a></button>
 	<button class="btnfont">삭제</button>
 	<button class="btnfont">수정</button>
 	</div>

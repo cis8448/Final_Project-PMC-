@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -60,6 +61,14 @@ public class ProductController {
 		
 		
 		return mav;   
+	}
+	
+	@RequestMapping(value = "/cateinfo")   //db 검색 하여 목록 생성
+	public ModelAndView ProductList(@RequestParam("pc_id") String pc_id) {
+
+		mav = prm.CateSearch(pc_id, null);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/productcateadd", method = RequestMethod.POST, produces = "application/text; charset=utf8")   
