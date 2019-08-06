@@ -53,8 +53,6 @@
     <aside>
     <ul id="SubMenu">
         <li class="SubMenu"><a href="./MemberList">전체회원</a></li>
-        <li class="SubMenu"><a href="./UsedMemberList">사용중인회원</a></li>
-        <li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
     </ul>
     </aside>
     <section>

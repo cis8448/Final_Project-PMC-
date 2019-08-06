@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>í”¼ëª¨ì”¨ ê´€ë¦¬ì</title>
-<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 </head>
 <style>
 html, body, ul {
@@ -115,69 +116,87 @@ table {
 	width: 80%;
 	text-align: center
 }
+
+.button {
+	border: 1px solid skyblue;
+	background-color: dodgerblue;
+	color: white;
+	padding: 5px;
+	margin-left: 30px;
+	
+}
+
 </style>
 <body>
 	<header>
-		<div> 
-		
+		<div>
 			<img src="./resources/image/dd.png">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./pppw ">ì¢Œì„</a></li>
-			<li class="mainmenu"><a href="#">ìƒí’ˆ</a></li>
-			<li class="mainmenu"><a href="#">íšŒì›</a></li>
-			<li class="mainmenu"><a href="#">ë§¤ì¶œ</a></li>
-			<li class="mainmenu"><a href="./MasterNotice">ê¸°íƒ€</a></li>
+			<li class="mainmenu"><a href="#">ÁÂ¼®</a></li>
+			<li class="mainmenu"><a href="#">»óÇ°</a></li>
+			<li class="mainmenu"><a href="#">È¸¿ø</a></li>
+			<li class="mainmenu"><a href="#">¸ÅÃâ</a></li>
+			<li class="mainmenu"><a href="./MasterNotice">±âÅ¸</a></li>
 		</ul>
 	</header>
+
+	
+	
+	<table>
 	<aside>
-		<ul id="SubMenu">
-			<li class="SubMenu"><a href="./MasterNotice">ê³µì§€ì‚¬í•­</a>
-				<ul>
-					<li class="SubsMenu"><a href="./MasterNotice">ì „ì²´ ê³µì§€ì‚¬í•­</a></li>
-					<li class="SubsMenu"><a href="./PcmasterNotice">PCë°© ê´€ë¦¬ì ê³µì§€ì‚¬í•­</a></li>
-				</ul></li>
-			<li class="SubMenu"><a href="#">ê³ ê°ì„¼í„°</a>
-				<ul>
-					<li class="SubsMenu"><a href="#">ì ì£¼ ê³ ê°ì„¼í„°</a></li>
-					<li class="SubsMenu"><a href="#">PCë°© ê³ ê°ì„¼í„°</a></li>
-				</ul></li>
-		</ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./MasterNotice">¿î¿µ°ü¸®ÀÚ¿ë °øÁö»çÇ×</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterNotice">PC¹æ°ü¸®ÀÚ¿ë °øÁö»çÇ×</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./CustomerSc">°í°´¿ë °í°´¼¾ÅÍ</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterSc">PC¹æ°ü¸®ÀÚ¿ë °í°´¼¾ÅÍ</a></li>
+    </ul>
 	</aside>
+</table>
 
 	<section>
 		<table border="1px solid black">
 			<tr class="Notice">
-				<td colspan="3">ê³µì§€ì‚¬í•­</td>
+				<td colspan="3">°øÁö»çÇ×</td>
 				<br>
 			</tr>
+
 			<tr class="NoticeNum">
-				<td>No.123</td>
-				<td>ì œëª©</td>
-				<td>ì‘ì„±ë‚ ì§œ</td>
+				<td>No</td>
+				<td>Á¦¸ñ</td>
+				<td>ÀÛ¼º³¯Â¥</td>
 			</tr>
-
-
+			
+	<% session.setAttribute("id", "test1"); %>
+			<c:forEach var="pcroomnoticebean" items="${nList}">
+				<tr>
+					<td align="center">${pcroomnoticebean.no_num}</td>
+					<td align="center">
+					<a href="./MaContents?no_num=${pcroomnoticebean.no_num}">
+					${pcroomnoticebean.no_title}</a></td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
+					<td align="center">${pcroomnoticebean.no_content}</td>
+					<td align="center">${pcroomnoticebean.no_cate}</td>
+				</tr>
+			</c:forEach>
 		</table>
-		<c:forEach var="pcroomnotice" items="${nList}">
-			<tr>
-				<td align="center">${pcroomnotice.no_num}</td>
-				<td align="center">${pcroomnotice.no_title}</td>			
-				<td align="center">${pcroomnotice.no_date}</td>				
-			</tr>
-		</c:forEach>
-		<h1 id="title">ë‹¤ìŒí˜ì´ì§€ë¡œ</h1>
-		<a href= "./PcNoticeWrite">ì‘ì„±</a>
-
+		
 	</section>
-
-	
-
-
-	<div align="center">${paging}</div>
-
+			
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
+
+	<br>
+	<br>
+	
+	<div align="center">${paging}</div>
 </body>
+
 </html>

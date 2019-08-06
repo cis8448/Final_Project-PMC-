@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,6 +116,15 @@ table {
 	width: 80%;
 	text-align: center
 }
+
+.button {
+	border: 1px solid skyblue;
+	background-color: dodgerblue;
+	color: white;
+	padding: 5px;
+	margin-left: 30px;
+	
+}
 </style>
 <body>
 	<header>
@@ -121,29 +132,29 @@ table {
 			<img src="./resources/image/dd.png">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
+			<li class="mainmenu"><a href="#">좌석</a></li>
 			<li class="mainmenu"><a href="#">상품</a></li>
 			<li class="mainmenu"><a href="#">회원</a></li>
 			<li class="mainmenu"><a href="#">매출</a></li>
 			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 		</ul>
 	</header>
+
+
 	<aside>
-		<ul id="SubMenu">
-			<li class="SubMenu"><a href="#">공지사항</a>
-				<ul>
-				<li class="SubsMenu"><a href="./MasterNotice">운영 관리자 ->
-							PC방관리자</a></li>
-					<li class="SubsMenu"><a href="./PcmasterNotice">PC방 관리자 ->
-							고객</a></li>
-					
-				</ul></li>
-			<li class="SubMenu"><a href="#">고객센터</a>
-				<ul>
-					<li class="SubsMenu"><a href="#">고객 -> PC방관리자</a></li>
-					<li class="SubsMenu"><a href="#">PC방 관리자 -> 운영관리자</a></li>
-				</ul></li>
-		</ul>
+	  
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterNotice">PC방관리자용 공지사항</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./CustomerSc">고객용 고객센터</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
+    </ul>
 	</aside>
 
 	<section>
@@ -151,27 +162,39 @@ table {
 			<tr class="Notice">
 				<td colspan="3">공지사항</td>
 				<br>
-
 			</tr>
 
 			<tr class="NoticeNum">
-				<td>No.</td>
+				<td>No</td>
 				<td>제목</td>
 				<td>작성날짜</td>
 			</tr>
+			
+	<% session.setAttribute("id", "test1"); %>
+			<c:forEach var="pcroomnoticebean" items="${nList}">
+				<tr>
+					<td align="center">${pcroomnoticebean.no_num}</td>
+					<td align="center">
+					<a href="./contents?no_num=${pcroomnoticebean.no_num}">
+					${pcroomnoticebean.no_title}</a></td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
+					<td align="center">${pcroomnoticebean.no_content}</td>
+					<td align="center">${pcroomnoticebean.no_cate}</td>
+				</tr>
+			</c:forEach>
 		</table>
-
+		
 	</section>
-
-		
-		<form action="./NoticeWrite">
-			<button>작성</button>
-		</form>
-		
-
+			
 	<footer>
+		<a href="./PcNoticeWrite" class="button">글쓰기</a>
 		<h1>ICIA Pc Project</h1>
 	</footer>
+
+	<br>
+	<br>
+	
+	<div align="center">${paging}</div>
 </body>
 
 </html>

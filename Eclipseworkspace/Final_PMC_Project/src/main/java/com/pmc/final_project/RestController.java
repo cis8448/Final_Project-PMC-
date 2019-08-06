@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.service.MemberManagement;
+import com.pmc.final_project.service.PayListManagement;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
 
@@ -48,6 +49,9 @@ public class RestController {
 	
 	@Autowired
 	private MemberManagement mm;
+	
+	@Autowired
+	private PayListManagement paym;
 	
 	@Autowired
 	HttpSession session;
@@ -168,5 +172,22 @@ public class RestController {
 		System.out.println(json);
 		return json;
 	}
+	
+	@RequestMapping(value="/casearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String casearch(@RequestBody String pc_name) {
+		logger.info("casearch execute ");
+		String json = paym.casearch(pc_name);
+		System.out.println(json);
+		return json;
+	}
+	
+	@RequestMapping(value="/datesearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String datesearch(@RequestBody String plus) {
+		logger.info("datesearch execute ");
+		String json = paym.datesearch(plus);
+		System.out.println(json);
+		return json;
+	}
+	
 
 }

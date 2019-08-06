@@ -190,8 +190,6 @@ h2 {
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberList">전체회원</a></li>
-			<li class="SubMenu"><a href="./UsedMemberList">사용중인회원</a></li>
-			<li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
 		</ul>
 	</aside>
 	<section>
@@ -231,8 +229,8 @@ h2 {
 
 		<br>
 		<div class="LastButton">
-			<a href="./MemberPayCheck" class="button2">매출확인</a> 
-			<a href="./MemberUseLog" class="button2">사용기록</a>
+			<a href="./MemberPayCheck?m_id=${member.m_id}" class="button2">매출확인</a> 
+			<a href="./MemberUseLog?m_id=${member.m_id}" class="button2">사용기록</a>
 			<a href="./MemberList" class="button2">뒤로가기</a>
 		</div>
 	</section>

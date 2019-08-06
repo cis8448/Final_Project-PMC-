@@ -44,7 +44,7 @@
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="./MemberList">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
+            <li class="mainmenu"><a href="./PcmasterNotice">기타</a></li>
 
         </ul>    
     </header>
