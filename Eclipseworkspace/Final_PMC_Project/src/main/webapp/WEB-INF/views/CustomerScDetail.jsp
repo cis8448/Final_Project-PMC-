@@ -49,7 +49,7 @@
 
         </ul>    
     </header>
-<aside>
+  <aside>
 	  
     <ul id="SubMenu">
     	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
@@ -64,8 +64,9 @@
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
 	</aside>
+    
     <section>
-        <a href="./PcmasterNotice" style="float:right">돌아가기</a>
+        <a href="./CustomerScDetail" style="float:right">돌아가기</a>
 	<center>
 		<div class="login">
 			<div class="login-screen">
@@ -76,40 +77,114 @@
 					글 번호
 					<div class="control-group">
 						<input type="text" class="login-field" 
-							value="${pcroomnoticebean.no_num}" readonly="readonly">
+							value="${pcroomscbean.se_num}" readonly="readonly">
 					</div>
 					글 제목
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_title}" readonly="readonly">
+							value="${pcroomscbean.se_title}" readonly="readonly">
 					</div>
 					글 내용
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_content}" readonly="readonly">
+							value="${pcroomscbean.se_content}" readonly="readonly">
 					</div>
 					작성 날짜
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_date}" readonly="readonly">
+							value="${pcroomscbean.se_date}" readonly="readonly">
 					</div>
 					글 내용
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_cate}" readonly="readonly">
+							value="${pcroomscbean.se_cate}" readonly="readonly">
 					</div>
+					<div class="login">
+			<div class="login-screen">
+				<div class="app-title">
+					<h6>댓글달기</h6>
+				</div>
+				<div class="login-form">
+					작성자
+					<div class="control-group">
+						<input type="text" class="login-field"
+							value="${id}" readonly="readonly">
+					</div>
+					내용
+					<form id="rFrm">
+						<div class="control-group">
+							<input type="text" class="login-field"
+								value="" name="r_content" id="comment">
+						</div>
+						<button type="button" 
+							onclick="replyInsert(${pcroomscbean.se_num})"
+							class="btn btn-primary btn-large btn-block">
+						저장
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- 여기부터 댓글 출력 -->
+		<table>
+			<tr align="center" height="30" bgcolor="#3498DB">
+				<th width="100">작성자</td>
+				<th width="200">내용</td>
+				<th width="200">작성일시</td>
+			</tr>
+		</table>
+		<table id="rTable">
+		<c:forEach var="r" items="${rList}">
+			<tr height="25" align="center">
+				<td width="100">${r.r_id}</td>
+				<td width="200">${r.r_contents}</td>
+				<td width="200">${r.r_date}</td>
+			</tr>
+		</c:forEach>
+		</table>
 					
-					<div class="login-form">
-						<a class="login-link" href="./NoticeDelete?no_num=${pcroomnoticebean.no_num}">
-							글 삭제</a>
-					</div>
-					<div class="login-form">
-						<a class="login-link" href="./NoticeUpdate?no_num=${pcroomnoticebean.no_num}">
-							글 수정</a>
-					</div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="resources/js/jquery.serializeObject.js"></script>
+<script>
+function replyInsert(se_num){
+	//form의 데이터를 javascript 객체화.
+	// == json 객체
+	var obj=$("#rFrm").serializeObject();
+	obj.r_se_num=se_num;
+	console.log(obj);
+	
+	$.ajax({
+		type: 'post',
+		url: 'replyInsert',
+		data: obj,
+		dataType: 'json',
+		success: function(data, status, xhr){
+			console.log(status);
+			console.log(xhr);
+			//XMLHttpRequest(객체의 폼형식 관련 API)
+			console.log(data);
+			
+			var rlist='';
+			for(var i = 0; i < data.rList.length; i++){
+				rlist += '<tr height="25" align="center">'
+					+'<td width="100">'+data.cList[i].r_id+'</td>'
+					+'<td width="200">'+data.cList[i].r_contents+'</td>'
+					+'<td width="200">'+data.cList[i].r_date +'</td></tr>';
+			}
+			$('#rTable').html(rlist);
+		},
+		error: function(xhr, status){
+			alert("댓글 저장 실패");
+			console.log(xhr);
+			console.log(status);
+		}
+	});
+}
+</script>
+
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,12 +47,24 @@
     </header>
     <aside>
     <ul id="SubMenu">
-        <li class="SubMenu"><a href="#">좌석정보</a></li>
-        <li class="SubMenu"><a href="#">좌석 상세보기 / 수정</a></li>
-        <li class="SubMenu"><a href="#">좌석 배치 변경</a></li>
+    	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
     </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterNotice">PC방관리자용 공지사항</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./CustomerSc">고객용 고객센터</a></li>
+    </ul>
+    <ul id="SubMenu">
+    	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
+    </ul>
+	</aside>
     </aside>
     <section>
+    
+    <form action="NoticeWrite" method="post">
+    <input type="hidden" name="no_p_id" id="no_p_id" value="${id}">
+    
     	<table border="1px solid black" class="noticewrite">
 			<tr >
 				<td colspan="3" class="notice">공지사항</td>
@@ -59,26 +72,25 @@
 			</tr>
 			<tr class="NoticeNum">
 				<td>제목</td>
-				<td><textarea type="text" 
-                           placeholder="글 제목" name="btitle" maxlength="100"
-                           style="width: 600px; height: 20px "  
-                           ></textarea></td>
-         </tr>
-         <tr>                  
+				<td><input type="text" 
+                           placeholder="글 제목" name="no_title" maxlength="100"
+                           style="width: 600px; height: 20px "  ></td>
+          </tr>
+              <tr>         
                 <td>내용</td>
-                <td><textarea placeholder="글 내용" name="bcontent" maxlength="1000"
-                style="width: 600px; height: 300px"></textarea></td></tr>
- 
-		</table>
-		
-		<table class="btn">
-		<tr>
-			<td><button>작성</button></td>
-			<td><form action="./MasterNotice"><button>취소</button></td></form>
-		</tr>
-		
+                <td><textarea placeholder="글 내용" name="no_content" maxlength="2048"
+                style="width: 600px; height: 300px"></textarea></td>                      
+             </tr>
+                
+              
+                
+			
 		
 		</table>
+		<input type="submit" class="btn btn-primary pull-right" value="작성하기">	
+		<a href="./PcmasterNotice">돌아가기</a>	
+		
+		</form>
 
 
     </section>
