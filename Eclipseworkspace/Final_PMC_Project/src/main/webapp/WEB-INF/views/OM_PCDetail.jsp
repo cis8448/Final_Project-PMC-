@@ -56,16 +56,12 @@
 							</c:if>
 							<c:if test="${!empty file }">
 								<c:forEach var="bf" items="${bfList }">
-									<a
-										href="./download?sysFileName=${bf.bf_sysName}">${bf.bf_sysName }</a>
+									<a href="./download?sysFileName=${bf.bf_sysName}">${bf.bf_sysName }</a>
 								</c:forEach>
 							</c:if>
 						</div>
 					</div>
-
-
 					<a class="login-link" href="#" onclick="cancel()"> 돌아가기 </a>
-
 				</div>
 			</div>
 		</div>

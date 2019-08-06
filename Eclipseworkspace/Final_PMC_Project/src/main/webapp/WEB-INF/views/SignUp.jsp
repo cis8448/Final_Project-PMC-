@@ -75,14 +75,10 @@
 						<div class="control-group">
 							<input type="file" name="files" value="*(필수)사업자 등록 (click)*"
 								onchange="fileChk(this)" multiple="multiple" id="files">
-							<input type="hidden" id="fileCheck" value="0" name="fileCheck">
-							<textarea rows="1" cols="32" class="Login-field"
-								placeholder="등록된 파일이 없습니다">
-							</textarea>
+							<input type="hidden" id="fileCheck" value="0" name="fileCheck">		
 							<input type="button" name="button2" value="등록확인" style="background-color:#5AD2FF;"
 								onclick="formData()">
 						</div>
-
 						<input type="submit" value="Sign Up!" onclick="sign_check()"
 							class="btn btn-primary btn-large btn-block" id="signup" disabled>
 						<a class="login-link" href="./"> 돌아가기 </a>

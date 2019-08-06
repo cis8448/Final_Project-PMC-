@@ -3,13 +3,32 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pmc.final_project.dao.IProductDao">
-	<select id="getProductList" resultType="ProductBean" >
-	SELECT PR_PC_ID AS PC_ID, PR_ID, PR_NAME,PR_PRICE,PR_IMG,PR_QTY FROM PRODUCT
+	<select id="getProductList" resultType="ProductBean" parameterType="HashMap">
+	SELECT * FROM PRODUCTALL WHERE SUBSTR(PC_ID,3,#{size}) = #{p_id}
 	</select>
-	
+
 	<select id="getProductCount" resultType="int">
       SELECT COUNT(*) FROM PRODUCT
    </select>
+   
+   <select id="ProductDetail" resultType="ProductBean" parameterType="String">
+      SELECT * FROM PRODUCTALL WHERE PR_ID=#{pr_id}
+   </select>
   
-	
+  <select id="selectcountcate" resultType="String" parameterType="String">
+  	  SELECT MAX(PC_ID) FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+  </select>
+  
+  <insert id="dbsend" parameterType="HashMap">
+  	  INSERT INTO PRODUCTCATE VALUES (#{pc_id},#{name},#{p_id})
+  </insert>
+  
+  <select id="getCateList" resultType="ProductBean" parameterType="String">
+	SELECT * FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+	</select>
+
+	<select id="getpcidList" resultType="ProductBean" parameterType="String">
+	select PR_PC_ID AS PC_ID, PR_PC_ID, PR_ID, PR_NAME, PR_PRICE, PR_IMG, PR_QTY FROM PRODUCT WHERE PR_PC_ID= #{p_id}
+	</select>
+  
 </mapper>
