@@ -104,36 +104,29 @@ public class PayListManagement {
 
 
 
-	public ModelAndView getmemberPayList(Integer pageNum) {
+	public ModelAndView getmemberPayList(Integer pageNum, String m_id) {
 		mav = new ModelAndView();
 		String view = null;
-		List<PayMentDetail> mpList = null;
-		
-		String u_m_id = (String)session.getAttribute("m_id");
-		
+		List<PayMentDetail> mpList = null;	
 		int num = (pageNum == null) ? 1 : pageNum;
 		
-		System.out.println(u_m_id+"첫번쨰");
-		
-		mpList = payDao.getmemberPaylist(u_m_id);
-		System.out.println(mpList.get(0).getU_m_id());
-		System.out.println(mpList.get(0).getU_start());
-		
-		mav.addObject("mpList", mpList);
+		System.out.println(m_id);
 
-		mav.addObject("memberpayPaging", getmemberPayPaging(num));
+		mpList = payDao.getmemberPaylist(m_id);
+
+		mav.addObject("mpList", mpList);
+		mav.addObject("memberpayPaging", getmemberPayPaging(num, m_id));
 		
 		view = "MemberPayCheck";
 		mav.setViewName(view);
-		session.removeAttribute("m_id");
 		return mav;
 	}
 
 
-	private String getmemberPayPaging(int num) {
-		String u_m_id = (String)session.getAttribute("m_id");
-		System.out.println(u_m_id+"두번쨰");
-		int maxNum = payDao.getmemberPayCount(u_m_id);
+	private String getmemberPayPaging(int num, String m_id) {
+
+		System.out.println(m_id+"두번쨰");
+		int maxNum = payDao.getmemberPayCount(m_id);
 		//페이지 당 회원 수
 		int listCnt = 10;
 		//그룹당 페이지 수

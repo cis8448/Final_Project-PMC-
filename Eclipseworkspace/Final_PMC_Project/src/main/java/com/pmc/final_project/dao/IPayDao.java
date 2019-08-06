@@ -9,9 +9,9 @@ public interface IPayDao {
 
 	public List<PayMentDetail> getPayList(String p_id);
 
-	public List<PayMentDetail> getmemberPaylist(String u_m_id);
+	public List<PayMentDetail> getmemberPaylist(String m_id);
 
-	public int getmemberPayCount(String u_m_id);
+	public int getmemberPayCount(String m_id);
 
 	public int accept(String userid);
 

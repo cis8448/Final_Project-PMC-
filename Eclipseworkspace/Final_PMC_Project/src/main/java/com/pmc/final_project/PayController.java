@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pmc.final_project.service.PayListManagement;
@@ -47,9 +49,9 @@ public class PayController {
 
 	
 	@RequestMapping(value = "/MemberPayCheck")
-	public ModelAndView MemberPayCheck(Integer pageNum) {
+	public @ResponseBody ModelAndView MemberPayCheck(Integer pageNum, @RequestParam("m_id") String m_id) {
 		
-		mav = pm.getmemberPayList(pageNum);
+		mav = pm.getmemberPayList(pageNum, m_id);
 		
 		return mav;
 	}

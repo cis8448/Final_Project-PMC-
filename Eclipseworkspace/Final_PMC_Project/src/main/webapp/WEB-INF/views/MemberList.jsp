@@ -45,19 +45,17 @@
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="./MemberList">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="#">기타</a></li>
+            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
         </ul>    
     </header>
     <aside>
     <ul id="SubMenu">
         <li class="SubMenu"><a href="./MemberList">전체회원</a></li>
-        <li class="SubMenu"><a href="./UsedMemberList">사용중인회원</a></li>
-        <li class="SubMenu"><a href="./ReseveMemberList">예약대기중인회원</a></li>
     </ul>
     </aside>
     <section>
     <div class="Search">
-    	<input type="text" placeholder="검색할 회원 아이디" id="SearchArea" value="">
+    	<input type="text" placeholder="회원 아이디 OR 회원 이름" id="SearchArea" value="">
     	<button type="button" onclick="MemberSearch()">검색</button>
     </div><br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
