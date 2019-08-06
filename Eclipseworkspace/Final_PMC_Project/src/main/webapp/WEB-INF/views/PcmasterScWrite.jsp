@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,36 +21,31 @@
         .SubMenu:first-child{margin-top: 200px;text-decoration: underline}
         header{position: fixed; z-index: 999;background-color: white;width: 100%}
         aside{position:  relative; top: 180px;float: left;width: 10%; left: 70px}
-        section{background-color: white;position: relative; top: 250px;float: right;width: 80%}
+        section{position: relative; top: 250px;float: right;width: 60% }
         footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;position: fixed;bottom: 0px;width: 100%}
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
-
-        img{width:300px;height:200px; padding:10px;}
-
-
+        img{width:150px;height:200px; padding:10px;}
+        .notice{text-align: center;}
+        .btn {margin-left: 47%; margin-top: 10px}
         
-        
+       
       
-        
     </style>
 <body>
-
-        <div>
-        <img src="./resources/img/dd.png">
-        </div> 
-        
-        <ul id="Menu">
-            <li class="mainmenu"><a href="./">좌석</a></li>
-            <li class="mainmenu"><a href="./Product">상품</a></li>
-            <li class="mainmenu"><a href="./MemberList">회원</a></li>
-            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
-
-        </ul>    
    
-  <aside>
-	  
+        <div>
+        <img src="./resources/image/dd.png">
+        </div> 
+        <ul id="Menu">
+            <li class="mainmenu"><a href="./Main">좌석</a></li>
+            <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="#">회원</a></li>
+            <li class="mainmenu"><a href="#">매출</a></li>
+            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
+        </ul>    
+  
+    <aside>
     <ul id="SubMenu">
     	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
     </ul>
@@ -64,46 +59,40 @@
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
 	</aside>
-    
+    </aside>
     <section>
-        <a href="./MasterNotice" style="float:right">돌아가기</a>
-	<center>
-		<div class="login">
-			<div class="login-screen">
-				<div class="app-title">
-					<h6>상세보기</h6>
-				</div>
-				<div class="login-form">
-					글 번호
-					<div class="control-group">
-						<input type="text" class="login-field" 
-							value="${pcroomnoticebean.no_num}" readonly="readonly">
-					</div>
-					글 제목
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_title}" readonly="readonly">
-					</div>
-					글 내용
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_content}" readonly="readonly">
-					</div>
-					작성 날짜
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_date}" readonly="readonly">
-					</div>
-					글 내용
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_cate}" readonly="readonly">
-					</div>
-					</div>
-					</div>
-					</div>
-					</center>
-					
+    
+    <form action="ScWrite" method="post">
+    <input type="hidden" name="se_p_id" id="se_p_id" value="${id}">
+    
+    	<table border="1px solid black" class="ScWrite">
+			<tr >
+				<td colspan="3" class="notice">공지사항</td>
+				<br>
+			</tr>
+			<tr class="SCNum">
+				<td>제목</td>
+				<td><input type="text" 
+                           placeholder="글 제목" name="se_title" maxlength="100"
+                           style="width: 600px; height: 20px "  ></td>
+          </tr>
+              <tr>         
+                <td>내용</td>
+                <td><textarea placeholder="글 내용" name="se_content" maxlength="2048"
+                style="width: 600px; height: 300px"></textarea></td>                      
+             </tr>
+                
+              
+                
+			
+		
+		</table>
+		<input type="submit" class="btn btn-primary pull-right" value="작성하기">	
+		<a href="./PcmasterSc">돌아가기</a>	
+		
+		</form>
+
+
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>

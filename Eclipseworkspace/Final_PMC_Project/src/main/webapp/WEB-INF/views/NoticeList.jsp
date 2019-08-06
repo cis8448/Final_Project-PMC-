@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <style>
@@ -33,7 +33,8 @@ ul {
 }
 
 #SubMenu {
-	height: 100px
+	margin-top:250px;
+	height: 100px;
 }
 
 a {
@@ -128,34 +129,25 @@ table {
 
 </style>
 <body>
-	<header>
+	
 		<div>
 			<img src="./resources/image/dd.png">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="#">谅籍</a></li>
-			<li class="mainmenu"><a href="#">惑前</a></li>
-			<li class="mainmenu"><a href="#">雀盔</a></li>
-			<li class="mainmenu"><a href="#">概免</a></li>
-			<li class="mainmenu"><a href="./MasterNotice">扁鸥</a></li>
+			<li class="mainmenu"><a href="./Main">膦岇劃</a></li>
+			<li class="mainmenu"><a href="./Product">靸來拡</a></li>
+			<li class="mainmenu"><a href="./MemberList">須岇洂</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">毵れ稖</a></li>
+			<li class="mainmenu"><a href="./NoticeList">旮绊儉</a></li>
 		</ul>
-	</header>
+	
 
 	
 	
 	<table>
 	<aside>
     <ul id="SubMenu">
-    	<li class="Submenu"><a href="./MasterNotice">款康包府磊侩 傍瘤荤亲</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterNotice">PC规包府磊侩 傍瘤荤亲</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./CustomerSc">绊按侩 绊按季磐</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterSc">PC规包府磊侩 绊按季磐</a></li>
+    	<li class="Submenu"><a href="./NoticeList">鞝勳泊 瓿奠靷暛</a></li>
     </ul>
 	</aside>
 </table>
@@ -163,26 +155,28 @@ table {
 	<section>
 		<table border="1px solid black">
 			<tr class="Notice">
-				<td colspan="3">傍瘤荤亲</td>
+				<td colspan="5">瓿奠靷暛</td>
 				<br>
 			</tr>
 
 			<tr class="NoticeNum">
 				<td>No</td>
-				<td>力格</td>
-				<td>累己朝楼</td>
+				<td>鞝滊</td>
+				<td>鞛戩劚雮犾</td>
+				<td>旮�雮挫毄</td>
+				<td>旃错厡瓿犽Μ</td>
 			</tr>
 			
-	<% session.setAttribute("id", "test1"); %>
+
 			<c:forEach var="pcroomnoticebean" items="${nList}">
 				<tr>
+					<td align="center">${pcroomnoticebean.no_p_id}</td>
 					<td align="center">${pcroomnoticebean.no_num}</td>
-					<td align="center">
-					<a href="./MaContents?no_num=${pcroomnoticebean.no_num}">
-					${pcroomnoticebean.no_title}</a></td>
-					<td align="center">${pcroomnoticebean.no_date}</td>
+					<td align="center">${pcroomnoticebean.no_title}</td>
 					<td align="center">${pcroomnoticebean.no_content}</td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
 					<td align="center">${pcroomnoticebean.no_cate}</td>
+					
 				</tr>
 			</c:forEach>
 		</table>

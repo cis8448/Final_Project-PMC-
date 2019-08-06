@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("pcroomnoticebean")
+@Alias("PcRoomNoticeBean")
 public class PcRoomNoticeBean {
 
 	private String no_p_id; // PC아이디

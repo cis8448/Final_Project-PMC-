@@ -35,7 +35,7 @@
         
     </style>
 <body>
-    <header>
+    
         <div>
         <img src="./resources/img/dd.png">
         </div> 
@@ -48,7 +48,7 @@
             <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 
         </ul>    
-    </header>
+   
 <aside>
 	  
     <ul id="SubMenu">
@@ -107,6 +107,11 @@
 						<a class="login-link" href="./NoticeUpdate?no_num=${pcroomnoticebean.no_num}">
 							글 수정</a>
 					</div>
+					</div>
+					</div>
+					</div>
+					</center>
+					
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>

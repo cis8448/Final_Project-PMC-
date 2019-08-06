@@ -10,24 +10,19 @@ import com.pmc.final_project.bean.Reply;
 
 public interface INotice {
 
+	List<PcRoomNoticeBean> getNoticeList(String p_id);
 
-	int getNoticeCount();
+	int getNoticeCount(String id);
 
-	List<PcRoomNoticeBean> getPcmasterNotice(int num);
 
-	boolean NoticeInsert(PcRoomNoticeBean pcroomnoticebean);
 
-	PcRoomNoticeBean getContents(Integer no_num);
 	
-	PcRoomNoticeBean getMaContents(Integer no_num);
+
 	
-	PcRoomSCBean getSCContents(Integer se_num);
 
-	boolean NoticeDelete(Integer no_num);
 
-	boolean replyInsert(Reply r);
 
-	List<Reply> getReplyList(int r_se_num);
+
 
 
 

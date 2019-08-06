@@ -35,7 +35,7 @@
         
     </style>
 <body>
-
+   
         <div>
         <img src="./resources/img/dd.png">
         </div> 
@@ -66,7 +66,7 @@
 	</aside>
     
     <section>
-        <a href="./MasterNotice" style="float:right">돌아가기</a>
+          <a href="./MasterNotice" style="float:right">돌아가기</a>
 	<center>
 		<div class="login">
 			<div class="login-screen">
@@ -77,32 +77,43 @@
 					글 번호
 					<div class="control-group">
 						<input type="text" class="login-field" 
-							value="${pcroomnoticebean.no_num}" readonly="readonly">
+							value="${pcroomscbean.se_num}" readonly="readonly">
 					</div>
 					글 제목
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_title}" readonly="readonly">
+							value="${pcroomscbean.se_title}" readonly="readonly">
 					</div>
 					글 내용
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_content}" readonly="readonly">
+							value="${pcroomscbean.se_content}" readonly="readonly">
 					</div>
 					작성 날짜
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_date}" readonly="readonly">
+							value="${pcroomscbean.se_date}" readonly="readonly">
 					</div>
 					글 내용
 					<div class="control-group">
 						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_cate}" readonly="readonly">
+							value="${pcroomscbean.se_cate}" readonly="readonly">
+							<div class="login-form">
+						<a class="login-link" 
+						href="./SCDelete?se_num=${pcroomscbean.se_num}">
+							글 삭제</a>
+					</div>
+					<div class="login-form">
+						<a class="login-link" 
+						href="./SCUpdate?se_num=${pcroomscbean.se_num}">
+							글 수정</a>
+					</div>
 					</div>
 					</div>
 					</div>
 					</div>
 					</center>
+					
 					
     </section>
     <footer>
