@@ -44,12 +44,7 @@ public class MainController {
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping(value = "/Main", method = RequestMethod.GET)
-	public String Main(Model model) {
-
-
-		return "Main";   
-	}
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -166,11 +161,53 @@ public class MainController {
 			return mav;
 		}
 		@RequestMapping(value = "/PCInfoUpdate")//uri 매핑
-		public String PCInfoUpdate(Model model) {
+		public ModelAndView PCInfoUpdate(PcRoomBean pr) {
+
 			logger.info("PCInfoUpdate execute ");
+			
+			mav = pm.PCInfoUpdate(pr);
 
-
-			return "PCInfoUpdate";//jsp파일 이름고 ㅏ동일해야함
+			return mav; //jsp파일 이름고 ㅏ동일해야함
 		}
+		
+		@RequestMapping(value = "/InfoUpdate")//uri 매핑
+		public ModelAndView InfoUpdate(PcRoomBean pr) {
+
+			logger.info("InfoUpdate execute ");
+			
+			mav = pm.InfoUpdate(pr);
+
+			return mav; //jsp파일 이름고 ㅏ동일해야함
+		}
+		
+		@RequestMapping(value = "/changepw")//uri 매핑
+		public ModelAndView changepw(PcRoomBean pr) {
+
+			logger.info("changepw execute ");
+			
+			mav = pm.changepw(pr);
+
+			return mav; //jsp파일 이름고 ㅏ동일해야함
+		}
+		@RequestMapping(value = "/changepw2")//uri 매핑
+		public ModelAndView changpw2(PcRoomBean pr) {
+
+			logger.info("changepw2 execute ");
+			
+			mav = pm.changepw2(pr);
+
+			return mav; //jsp파일 이름고 ㅏ동일해야함
+		}
+		
+		@RequestMapping(value = "/PCPictureUpdate")//uri 매핑
+		public ModelAndView PCPictureUpdate(PcRoomBean pr) {
+
+			logger.info("PCPictureUpdate execute ");
+			
+			mav = pm.PCPictureUpdate(pr);
+
+			return mav; //jsp파일 이름고 ㅏ동일해야함
+		}
+		
 	
 }

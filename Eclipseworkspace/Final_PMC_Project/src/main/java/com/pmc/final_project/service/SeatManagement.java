@@ -165,7 +165,7 @@ public class SeatManagement {
 		List<SeatBean> seatset = new ArrayList<SeatBean>();
 		for(int i =0;i < seats.size();i++) {
 			for(int j = 0; j < seats.size(); j++) {
-				if(seats.get(j).getS_id().equals(i+"")) {
+				if(seats.get(j).getS_id().equals("pc"+p_id+i)) {
 					seatset.add(seats.get(j));
 				}
 			}
@@ -184,11 +184,12 @@ public class SeatManagement {
 
 	public String seatcheck(String param) {
 		List<SeatBean> seats = sDao.selectAll(param);
+		System.out.println(param);
 		List<SeatBean> seatset = new ArrayList<SeatBean>();
 		
 		for(int i =0;i < seats.size();i++) {
 			for(int j = 0; j < seats.size(); j++) {
-				if(seats.get(j).getS_id().equals(i+"")) {
+				if(seats.get(j).getS_id().equals("pc"+param+i)) {
 					String check = seats.get(j).getM_id();
 					if(check == null) {
 						seats.get(j).setM_id(" ");
@@ -198,10 +199,6 @@ public class SeatManagement {
 				}
 			}
 		}
-		System.out.println(seatset.get(0).getS_id());
-		System.out.println(seatset.get(0).getS_state());
-		System.out.println(seatset.get(0).getM_id());
-		System.out.println(seatset.get(0).getM_time());
 		String json = new Gson().toJson(seatset);
 		return json;
 	}

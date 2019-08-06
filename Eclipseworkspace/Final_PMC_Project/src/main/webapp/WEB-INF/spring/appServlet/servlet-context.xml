@@ -84,7 +84,6 @@
 			ref="sqlSessionFactory" />
 		<beans:property name="mapperInterface"
 			value="com.pmc.final_project.dao.ISeatDao" />
-
 	</beans:bean>
 	
 	<beans:bean id="nDao"
@@ -119,12 +118,6 @@
 			value="com.pmc.final_project.dao.IUseLogDao" />
 	</beans:bean>
 	
-	
-
-	
-
-	
-
 
 	<!-- multipart 처리용 빈 -->
 	<beans:bean id="multipartResolver"

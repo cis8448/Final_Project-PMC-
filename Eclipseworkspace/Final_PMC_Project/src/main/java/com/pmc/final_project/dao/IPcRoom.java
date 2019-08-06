@@ -1,5 +1,6 @@
 package com.pmc.final_project.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -29,6 +30,42 @@ public interface IPcRoom {
 	public int accept(String userid);
 
 	public boolean fileupdate(Map<String, String> fMap);
+
+	public void changeName(PcRoomBean pr);
+
+	public void changePhone(PcRoomBean pr);
+
+	public void changepw2(Map<String, String> map);
+
+	public List<PcRoomBean> selectAll(int num);
+
+	public int getSBPCCount();
+
+	public void approvalDelete(String id);
+
+	public PcRoomBean approvalSelect(String id);
+
+	public boolean approvalInsert(PcRoomBean pr);
+
+	public List<PcRoomBean> getFileList(String id);
+
+	public List<PcRoomBean> selectAll2(int num);
+
+	public void approvalx(Map<Object, Object> map);
+
+	public PcRoomBean approvalSelect2(String id);
+
+	public String HoliSel(String p_id);
+
+	
+
+	
+
+	
+
+	
+
+	
 
 	
 

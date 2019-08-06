@@ -262,7 +262,7 @@ input {
             
         });
         
-        var number = 0;
+        var number = ${(not empty cnt)?  cnt: 0};
         function AddSeat(){
             var tb = document.getElementById('tb1');
             var Addtr = document.createElement('tr');
@@ -322,7 +322,7 @@ input {
                     if(data.success == "1"){
                     	location.href = "./SeatState";
                     }else{
-                    	alert("파일 업로드에 실패했습니다.!!")
+                    	alert("정보가 바뀌지 않았습니다.")
                     }
                     
                 },
@@ -375,8 +375,6 @@ function btn2(){
 	var name = "popup2222";
 	var option = "width=700 , height=600"; 
 	window.open(url,name,option);
-	
-	
 }
 
 </script>
