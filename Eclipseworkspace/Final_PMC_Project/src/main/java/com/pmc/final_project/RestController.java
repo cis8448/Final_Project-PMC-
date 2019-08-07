@@ -205,7 +205,7 @@ public class RestController {
 		System.out.println(json);
 		return json;
 	}
-=======
+
 	@RequestMapping(value = "/approvalx", method = RequestMethod.POST,produces = "application/text; charset=utf8")
 	public @ResponseBody String approvalx(@RequestParam("param") String id) {
 
@@ -224,7 +224,6 @@ public class RestController {
 		
 		return json;
 	}
-	
->>>>>>> ec1fa806fd7262bb7083274868ca7d569aefb7b0
+
 
 }

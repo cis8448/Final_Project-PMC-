@@ -244,10 +244,6 @@ public class NoticeManagement {
 		
 		return json;
 	}
-
-
-
-
 }
 
 
