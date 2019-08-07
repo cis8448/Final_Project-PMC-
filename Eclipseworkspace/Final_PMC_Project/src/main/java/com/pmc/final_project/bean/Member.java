@@ -16,8 +16,7 @@ public class Member {
 	private String m_profile;
 	private String m_point;
 	private String m_time;
-	
-	
+
 	public int getM_kakaoid() {
 		return m_kakaoid;
 	}

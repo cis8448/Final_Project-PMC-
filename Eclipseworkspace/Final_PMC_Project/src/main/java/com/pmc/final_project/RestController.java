@@ -189,5 +189,12 @@ public class RestController {
 		return json;
 	}
 	
+	@RequestMapping(value="/OMMemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String OMMemberSearch(@RequestBody String res) {
+		logger.info("OMMemberSearch execute ");
+		String json = mm.OMMemberSearch(res);
+		System.out.println(json);
+		return json;
+	}
 
 }

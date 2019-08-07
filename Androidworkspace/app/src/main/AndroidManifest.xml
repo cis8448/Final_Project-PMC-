@@ -13,6 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PassUpdate"></activity>
+        <activity android:name=".MyIdCheck" />
+        <activity android:name=".Certification" />
+        <activity android:name=".EasySignUp" />
+        <activity android:name=".QuickMenuSelect" />
+        <activity android:name=".Preferences" />
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
@@ -26,20 +33,23 @@
         </activity>
         <activity android:name=".Login">
             <intent-filter>
-                <action android:name="com.example.finalproject.Login"></action>
-                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="com.example.finalproject.Login" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SignUpSelect">
             <intent-filter>
-                <action android:name="com.example.finalproject.SignUpSelect"></action>
-                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="com.example.finalproject.SignUpSelect" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SignUp">
             <intent-filter>
-                <action android:name="com.example.finalproject.SignUp"></action>
-                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="com.example.finalproject.SignUp" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

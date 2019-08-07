@@ -34,6 +34,7 @@
             <th><input type="button" value="승인 관리" style="" onclick="btn1(1)"></th>
             <th><input type="button" value="공지사항 관리" style="" onclick="btn1(2)"></th>
             <th><input type="button" value="고객센터 관리" style="" onclick="btn1(3)"></th>
+            <th><input type="button" value="전체회원 관리" style="" onclick="btn1(4)"></th>
         </tr>
         
     </table>
@@ -44,10 +45,12 @@
 	function btn1(a){
 		if(a==1){
 			location.href="OM_Approval"
-		}else if(a==2){
+		}if(a==2){
 			
-		}else if(a==3){
+		}if(a==3){
 			
+		}if(a==4){
+			location.href="OM_MemberList"
 		}
 		
 	}
