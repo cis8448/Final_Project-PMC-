@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,6 +124,7 @@ table {
 	padding: 5px;
 	margin-left: 30px;
 }
+
 textarea {
 	resize: none;
 	width: 100%;
@@ -157,90 +156,52 @@ from {
 
 
 
-	<table>
-		<aside>
-			<ul id="SubMenu">
-				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
-				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
-			</ul>
-		</aside>
-	</table>
-
+	<aside>
+		<ul id="SubMenu">
+			<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
+			<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
+			<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
+			<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
+		</ul>
+	</aside>
 	<section>
-		<form action="./NoticeUpdate?no_num=${pcroomnoticebean.no_num}" method="post">
-			<a href="./NoticeList" style="float: right">돌아가기</a>
-				<table border="1px solid black">
+		<form action="writeinsert" method="post">
+			<table border="1px solid black">
 				
 				<tr>
-					<td colspan="2">공지사항 작성</td>
+					<td colspan="2">고객센터 작성</td>
+				</tr>
+				<tr>
+					<td>받는사람</td>
+					<td><input type="text" name="no_m_id"></td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="no_title" value="${pcroomnoticebean.no_title}"></td>
+					<td><input type="text" name="no_title"></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea name="no_content">${pcroomnoticebean.no_content}</textarea></td>
+					<td><textarea name="no_content"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="수정완료"></td>
+					
+					<input type="hidden" value="${cate }" name="no_cate">
+					<td colspan="2"><input type="submit" value="작성하기"></td>
 				</tr>
 			</table>
 		</form>
+
+
 	</section>
+
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
-	<br>
-	<br>
-	<div align="center">${paging}</div>
 
+	<br>
+	<br>
+
+	<div align="center">${paging}</div>
 </body>
 
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="resources/js/jquery.serializeObject.js"></script>
-<script>
-function write() {
-	location.href = "WriteFrm?cate=0";
-}
-
-function replyInsert(se_num){
-	//form의 데이터를 javascript 객체화.
-	// == json 객체
-	var obj=$("#rFrm").serializeObject();
-	obj.r_se_num=se_num;
-	console.log(obj);
-	
-	$.ajax({
-		type: 'post',
-		url: 'replyInsert',
-		data: obj,
-		dataType: 'json',
-		success: function(data, status, xhr){
-			console.log(status);
-			console.log(xhr);
-			//XMLHttpRequest(객체의 폼형식 관련 API)
-			console.log(data);
-			
-			var rlist='';
-			for(var i = 0; i < data.rList.length; i++){
-				rlist += '<tr height="25" align="center">'
-					+'<td width="100">'+data.rList[i].r_id+'</td>'
-					+'<td width="200">'+data.rList[i].r_contents+'</td>'
-					+'<td width="200">'+data.rList[i].r_date +'</td></tr>';
-			}
-			$('#rTable').html(rlist);
-		},
-		error: function(xhr, status){
-			alert("댓글 저장 실패");
-			console.log(xhr);
-			console.log(status);
-		}
-	});
-}
-</script>
 </html>

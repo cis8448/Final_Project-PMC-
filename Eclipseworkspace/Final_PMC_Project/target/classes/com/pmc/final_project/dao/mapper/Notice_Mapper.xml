@@ -5,8 +5,59 @@
 
 <mapper namespace="com.pmc.final_project.dao.INotice">
 	<select id="getNoticeList" resultType="PcRoomNoticeBean" parameterType="String">
-	 	SELECT * FROM NOTICE WHERE P_ID=#{p_id}
+	 	SELECT * FROM NOTICE WHERE NO_CATE=#{cate}
+	</select>
+	<select id="getNoticeCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM NOTICE WHERE NO_CATE=#{cate}
+	</select>
+	<select id="getServiceList" resultType="PcRoomNoticeBean" parameterType="String">
+	 	SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS NO_NUM,SE_TITLE AS NO_TITLE,SE_CONTENT AS NO_CONTENT,
+	 	SE_CATE AS NO_CATE FROM SERVICE WHERE SE_CATE=#{cate}
+	</select>
+	<select id="getServiceCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM SERVICE WHERE SE_CATE=#{cate}
 	</select>
 	
+	<insert id="writeinsert" parameterType="PcRoomNoticeBean" keyProperty="no_num">
+	<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+		INSERT INTO NOTICE VALUES (#{no_p_id},#{no_num},#{no_title},#{no_content},#{no_date},#{no_cate})
+	</insert>
+	
+	<select id="NoticeDetail" parameterType="HashMap" resultType="PcRoomNoticeBean">
+		SELECT * FROM NOTICE WHERE NO_P_ID=#{id} AND NO_NUM=#{no_num}
+		
+	
+	</select>
+	<select id="ServiceDetail" parameterType="HashMap" resultType="PcRoomNoticeBean">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS NO_NUM,SE_TITLE AS NO_TITLE,SE_CONTENT AS NO_CONTENT,
+	 	SE_CATE AS NO_CATE FROM SERVICE WHERE SE_NUM=#{no_num}
+	</select>
+	<delete id="NoticeDelete" parameterType="HashMap">
+		DELETE FROM NOTICE WHERE NO_P_ID=#{id} AND NO_NUM=#{no_num}
+	</delete>
+	
+	<update id="NoticeUpdate" parameterType="PcRoomNoticeBean">
+		UPDATE NOTICE SET NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+	</update>
+	
+	<insert id="swriteinsert" parameterType="PcRoomNoticeBean">
+		<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
+			SELECT SERVICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+		INSERT INTO SERVICE VALUES (#{no_m_id},#{no_p_id},${no_num},#{no_title},#{no_content},#{no_cate})
+	</insert>
+	<insert id="replyInsert" parameterType="reply">
+		INSERT INTO REPLY
+		VALUES (REPLY_SEQ.NEXTVAL, #{r_se_num}, #{r_contents}, #{r_id}, DEFAULT)
+	</insert>
+	<select id="getReplyList" parameterType="int"
+		resultType="reply">
+		SELECT * FROM REPLY WHERE R_SE_NUM=#{se_num}
+	</select>
+	<delete id="replyDelete" parameterType="Integer">
+		DELETE FROM REPLY WHERE R_SE_NUM=#{se_num}
+	</delete>
 	
 </mapper>

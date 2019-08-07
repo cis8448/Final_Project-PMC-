@@ -1,120 +1,254 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>피모씨 관리자</title>
-<!-- 합쳐지고 최소화된 최신 CSS -->
+<title>Insert title here</title>
 </head>
-    <style>
-        html,body,ul{margin: 0;padding: 0;}
-        div{display: inline-block;}
-        ul{list-style: none}
-        #Menu{list-style: none;display: inline-block;background-color: gainsboro;margin-bottom: 30px; width: 1200px; margin-left: 130px}
-        #SubMenu{height: 100px}
-        a{text-decoration: none; color: inherit;}
-        .mainmenu{float: left;; line-height: 100px; width: 19.8%; text-align: center;border: 1px solid black; font-size: 50px}
-        .mainmenu:first-child{background-color: azure}
-        .SubMenu{margin-bottom: 50px; margin-left: 20px}
-        .SubMenu:first-child{margin-top: 200px;text-decoration: underline}
-        header{position: fixed; z-index: 999;background-color: white;width: 100%}
-        aside{position:  relative; top: 180px;float: left;width: 10%; left: 70px}
-        section{background-color: white;position: relative; top: 250px;float: right;width: 80%}
-        footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;position: fixed;bottom: 0px;width: 100%}
-        .SubMenu:hover{text-decoration: underline}
-        .mainmenu:hover{background-color: azure}
+<style>
+html, body, ul {
+	margin: 0;
+	padding: 0;
+}
 
-        img{width:300px;height:200px; padding:10px;}
+div {
+	display: inline-block;
+}
 
+ul {
+	list-style: none
+}
 
-        
-        
-      
-        
-    </style>
+#Menu {
+	list-style: none;
+	display: inline-block;
+	background-color: gainsboro;
+	margin-bottom: 30px;
+	width: 1200px;
+	margin-left: 130px
+}
+
+#SubMenu {
+	margin-top: 250px;
+	height: 100px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.mainmenu {
+	float: left;;
+	line-height: 100px;
+	width: 19.8%;
+	text-align: center;
+	border: 1px solid black;
+	font-size: 50px
+}
+
+.mainmenu:last-child {
+	background-color: azure;
+}
+
+.SubMenu {
+	margin-bottom: 50px;
+	margin-left: 20px
+}
+
+.SubMenu:first-child {
+	margin-top: 200px;
+	text-decoration: underline
+}
+
+header {
+	position: fixed;
+	z-index: 999;
+	background-color: white;
+	width: 100%
+}
+
+aside {
+	position: relative;
+	top: 180px;
+	float: left;
+	width: 10%;
+	left: 70px
+}
+
+section {
+	background-color:;
+	position: relative;
+	float: right;
+	width: 80%
+}
+
+footer {
+	background-color: antiquewhite;
+	display: block;
+	content: '';
+	clear: both;
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	width: 100%
+}
+
+.SubMenu:hover {
+	text-decoration: underline
+}
+
+.mainmenu:hover {
+	background-color: azure
+}
+
+img {
+	width: 150px;
+	height: 200px;
+	padding: 10px;
+}
+
+table {
+	width: 80%;
+	text-align: center
+}
+
+.button {
+	border: 1px solid skyblue;
+	background-color: dodgerblue;
+	color: white;
+	padding: 5px;
+	margin-left: 30px;
+}
+textarea {
+	resize: none;
+	width: 100%;
+	height: 400px;
+	 
+}
+
+</style>
 <body>
-    
-        <div>
-        <img src="./resources/img/dd.png">
-        </div> 
-        
-        <ul id="Menu">
-            <li class="mainmenu"><a href="./">좌석</a></li>
-            <li class="mainmenu"><a href="./Product">상품</a></li>
-            <li class="mainmenu"><a href="./MemberList">회원</a></li>
-            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 
-        </ul>    
-   
-<aside>
-	  
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterNotice">PC방관리자용 공지사항</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./CustomerSc">고객용 고객센터</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
-    </ul>
-	</aside>
-    <section>
-        <a href="./PcmasterNotice" style="float:right">돌아가기</a>
-	<center>
-		<div class="login">
-			<div class="login-screen">
-				<div class="app-title">
-					<h6>상세보기</h6>
+	<div>
+		<img src="./resources/image/dd.png">
+	</div>
+	<ul id="Menu">
+		<li class="mainmenu"><a href="./Main">좌석</a></li>
+		<li class="mainmenu"><a href="./Product">상품</a></li>
+		<li class="mainmenu"><a href="./MemberList">회원</a></li>
+		<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+		<li class="mainmenu"><a href="./NoticeList">기타</a></li>
+	</ul>
+
+
+
+
+	<table>
+		<aside>
+			<ul id="SubMenu">
+				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
+				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
+			</ul>
+		</aside>
+	</table>
+
+	<section>
+		<a href="./NoticeList" style="float: right">돌아가기</a>
+			<table border="1px solid black">
+				
+				<tr>
+					<td colspan="2">상세보기</td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td>${pcroomnoticebean.no_title}</td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea name="no_content" readonly="readonly";>${pcroomnoticebean.no_content}</textarea></td>
+				</tr>
+				<tr>
+					
+					<td><a class="login-link" href="./NoticeDelete?no_num=${pcroomnoticebean.no_num}"> 글 삭제</a></td>
+					<td><a class="login-link" href="./NoticeUpdateOpen?no_num=${pcroomnoticebean.no_num}"> 글수정</a></td>
+				</tr>
+			</table>
+			
+						
+							
+			
+						
+					
+					
+						
+
+						
+							
+						
+					</div>
 				</div>
-				<div class="login-form">
-					글 번호
-					<div class="control-group">
-						<input type="text" class="login-field" 
-							value="${pcroomnoticebean.no_num}" readonly="readonly">
-					</div>
-					글 제목
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_title}" readonly="readonly">
-					</div>
-					글 내용
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_content}" readonly="readonly">
-					</div>
-					작성 날짜
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_date}" readonly="readonly">
-					</div>
-					글 내용
-					<div class="control-group">
-						<input type="text" class="login-field"
-							value="${pcroomnoticebean.no_cate}" readonly="readonly">
-					</div>
-					
-					<div class="login-form">
-						<a class="login-link" href="./NoticeDelete?no_num=${pcroomnoticebean.no_num}">
-							글 삭제</a>
-					</div>
-					<div class="login-form">
-						<a class="login-link" href="./NoticeUpdate?no_num=${pcroomnoticebean.no_num}">
-							글 수정</a>
-					</div>
-					</div>
-					</div>
-					</div>
-					</center>
-					
-    </section>
-    <footer>
-        <h1>ICIA Pc Project</h1>
-    </footer>
+			</div>
+		</section>
+	<footer>
+		<h1>ICIA Pc Project</h1>
+	</footer>
+	<br>
+	<br>
+	<div align="center">${paging}</div>
+
 </body>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="resources/js/jquery.serializeObject.js"></script>
+<script>
+function write() {
+	location.href = "WriteFrm?cate=0";
+}
+
+function replyInsert(se_num){
+	//form의 데이터를 javascript 객체화.
+	// == json 객체
+	var obj=$("#rFrm").serializeObject();
+	obj.r_se_num=se_num;
+	console.log(obj);
+	
+	$.ajax({
+		type: 'post',
+		url: 'replyInsert',
+		data: obj,
+		dataType: 'json',
+		success: function(data, status, xhr){
+			console.log(status);
+			console.log(xhr);
+			//XMLHttpRequest(객체의 폼형식 관련 API)
+			console.log(data);
+			
+			var rlist='';
+			for(var i = 0; i < data.rList.length; i++){
+				rlist += '<tr height="25" align="center">'
+					+'<td width="100">'+data.rList[i].r_id+'</td>'
+					+'<td width="200">'+data.rList[i].r_contents+'</td>'
+					+'<td width="200">'+data.rList[i].r_date +'</td></tr>';
+			}
+			$('#rTable').html(rlist);
+		},
+		error: function(xhr, status){
+			alert("댓글 저장 실패");
+			console.log(xhr);
+			console.log(status);
+		}
+	});
+}
+</script>
 </html>
