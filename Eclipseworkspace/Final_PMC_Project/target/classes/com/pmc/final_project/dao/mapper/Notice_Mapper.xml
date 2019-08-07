@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<<<<<<< HEAD
 
 <mapper namespace="com.pmc.final_project.dao.INotice">
 	<select id="getNoticeList" resultType="PcRoomNoticeBean" parameterType="String">
@@ -60,63 +59,5 @@
 	<delete id="replyDelete" parameterType="Integer">
 		DELETE FROM REPLY WHERE R_SE_NUM=#{se_num}
 	</delete>
-=======
-<mapper namespace="com.pmc.final_project.dao.INotice">
-   <select id="getPcmasterNotice" resultType="pcroomnoticebean" parameterType="int">
-      SELECT * FROM NOTICE
-   </select>      
-   
-   <select id="getNoticeCount" resultType="int">
-      SELECT COUNT(*) FROM NOTICE
-   </select>
-   
-   
-   <insert id="NoticeInsert" parameterType="pcroomnoticebean"
-   useGeneratedKeys="true" keyProperty="no_num">
-   <selectKey keyProperty="no_num" resultType="int"
-   order="BEFORE">   
-    SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
-   </selectKey>
-      INSERT INTO NOTICE (NO_P_ID,NO_NUM,NO_TITLE,NO_CONTENT,NO_CATE)
-      VALUES(#{no_p_id},${no_num},#{no_title},#{no_content},1)
-   </insert>
-   
-   <select id="getContents" resultType="pcroomnoticebean"
-   parameterType="int">
-   SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}   
-   </select>
-   
-   <select id="getMaContents" resultType="pcroomnoticebean"
-   parameterType="int">
-   SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}
-   </select>
-   
-   <select id="getSCContents" resultType="pcroomscbean"
-   parameterType="int">
-   SELECT * FROM SERVICE WHERE SE_NUM=#{se_num}
-   </select>
-   
-   <select id="getPCSCContents" resultType="pcroomscbean"
-   parameterType="int">
-   SELECT * FROM SERVICE WHERE SE_NUM=#{se_num}
-   </select>
-   
-   
-   
-   <insert id="replyInsert" parameterType="reply">
-   INSERT INTO R
-      VALUES(REPLY_SEQ.NEXTVAL, #{r_se_num}, #{r_contents}, #{r_id}, DEFAULT)
-   </insert>
-   
-   <select id="getReplyList" parameterType="int"
-      resultType="reply">
-      SELECT * FROM RLIST WHERE R_SE_NUM=#{se_num}
-   </select>
-   
-   
-   <delete id="NoticeDelete" parameterType="Integer">
-      DELETE FROM NOTICE WHERE NO_NUM=#{no_num}
-   </delete>
->>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 	
 </mapper>

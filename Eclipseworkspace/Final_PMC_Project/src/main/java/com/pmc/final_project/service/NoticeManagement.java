@@ -234,11 +234,6 @@ public class NoticeManagement {
 	
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 }
 
 

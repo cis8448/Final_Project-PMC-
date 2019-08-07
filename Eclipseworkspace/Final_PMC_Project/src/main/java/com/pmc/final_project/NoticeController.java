@@ -35,7 +35,6 @@ public class NoticeController {
 
 	@Autowired
 	HttpSession session;
-<<<<<<< HEAD
 
 	//전체 공지사항 출력
 	@RequestMapping(value = "/NoticeList") 
@@ -45,16 +44,6 @@ public class NoticeController {
 		mav.addObject("cate",cate);
 
 		return mav;
-=======
-	
-	
-	
-		
-	@RequestMapping(value = "/MasterNotice") //기타 공지사항 전체보기
-	public String MasterNotice() {
-		session.setAttribute("id", "test1");
-		return "MasterNotice";
->>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 	}
 	//공지사항 작성
 	@RequestMapping(value = "/NoticeWrite")
@@ -141,7 +130,6 @@ public class NoticeController {
 		Map<String, List<Reply>> rMap = nm.replyInsert(r);
 		return rMap;
 	}
-<<<<<<< HEAD
 
 
 
@@ -172,30 +160,5 @@ public class NoticeController {
 	//		mav = nm.NoticeUpdate(no_num);
 	//		return mav;
 	//	}
-=======
-	
-	
-	@RequestMapping(value = "/NoticeDelete")
-	public ModelAndView NoticeDelete(Integer no_num) throws RuntimeException{
-		mav = nm.NoticeDelete(no_num);
-		return mav;
-	}
-	
- 
-	
-
-	
-
-
-	
-	
-	
-	
-//	@RequestMapping(value = "/NoticeUpdate")
-//	public ModelAndView NoticeUpdate(Integer no_num) throws RuntimeException{
-//		mav = nm.NoticeUpdate(no_num);
-//		return mav;
-//	}
->>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 
 }
