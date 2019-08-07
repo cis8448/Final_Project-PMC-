@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
+import com.pmc.final_project.bean.PcRoomNoticeBean;
+import com.pmc.final_project.dao.INotice;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.util.FileProcess;
 import com.pmc.final_project.util.Paging;
@@ -25,6 +27,9 @@ public class ManagerManagement {
 
 	@Autowired
 	private HttpSession session;
+
+	@Autowired
+	private INotice nDao;
 
 	@Autowired
 	FileProcess fileProc;
@@ -187,6 +192,73 @@ public class ManagerManagement {
 		return json;
 	}
 
+	public ModelAndView OM_Notice(Integer pageNum, String cate) {
+		mav = new ModelAndView();
+		String view = null;
+
+		List<PcRoomNoticeBean> nList = null;
+		int num = (pageNum == null) ? 1 : pageNum;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("cate",cate);
+		map.put("num",num+"");
+
+		nList =nDao.OM_Notice(map);
+		mav.addObject("nList", nList);
+		mav.addObject("paging", getPaging(num));
+
+		view = "OM_Notice";
+
+		mav.setViewName(view);
+
+		return mav;
+	}
+
+	public ModelAndView OM_Service(Integer pageNum, String cate) {
+		mav = new ModelAndView();
+		String view = null;
+
+		List<PcRoomNoticeBean> nList = null;
+		int num = (pageNum == null) ? 1 : pageNum;
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("cate",cate);
+		map.put("num",num+"");
+
+		nList =nDao.OM_Service(map);
+		mav.addObject("nList", nList);
+		mav.addObject("paging", getPaging(num));
+
+		view = "OM_Service";
+
+		mav.setViewName(view);
+
+		return mav;
+	}
+
+	public ModelAndView OM_NoticeInfo(String no_num) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+
+		PcRoomNoticeBean pr = nDao.OM_NoticeInfo(no_num);
+		mav.addObject("OMnotice", pr);
+		view = "OM_NoticeInfo";
+		mav.setViewName(view);
+
+		return mav;
+	}
+
+	public ModelAndView OM_ServiceInfo(String no_num) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+
+		PcRoomNoticeBean pr = nDao.OM_ServiceInfo(no_num);
+		mav.addObject("OMservice", pr);
+		view = "OM_ServiceInfo";
+		mav.setViewName(view);
+
+		return mav;
+	}
 
 
 }

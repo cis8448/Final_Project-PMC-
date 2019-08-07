@@ -127,7 +127,7 @@ table {
 }
 </style>
 <body>
-	<header>
+
 		<div>
 			<img src="./resources/image/dd.png">
 		</div>
@@ -138,7 +138,7 @@ table {
 			<li class="mainmenu"><a href="#">매출</a></li>
 			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 		</ul>
-	</header>
+
 
 
 	<aside>

@@ -53,20 +53,18 @@ public interface IPcRoom {
 
 	public void approvalx(Map<Object, Object> map);
 
-	public PcRoomBean approvalSelect2(String id);
-
 	public String HoliSel(String p_id);
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
+
+
+
+
+
+
 
 }
