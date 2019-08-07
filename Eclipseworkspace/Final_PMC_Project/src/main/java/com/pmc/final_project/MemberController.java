@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +32,21 @@ public class MemberController {
 	@RequestMapping(value="/MemberInfo")
 	public ModelAndView MemberInfo(String m_id) {
 		mav = mm.getmemberInfo(m_id);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/OM_MemberList")
+	public ModelAndView OM_MemberList(Integer pageNum) {
+		System.out.println("여기옴");
+		mav = mm.getOMmemberAllList(pageNum);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/OM_MemberInfo")
+	public ModelAndView OM_MemberInfo(String m_id) {
+		mav = mm.getOMmemberInfo(m_id);
 		
 		return mav;
 	}

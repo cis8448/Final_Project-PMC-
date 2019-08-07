@@ -193,6 +193,15 @@ public class RestController {
 		return json;
 	}
 	
+<<<<<<< HEAD
+	@RequestMapping(value="/OMMemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String OMMemberSearch(@RequestBody String res) {
+		logger.info("OMMemberSearch execute ");
+		String json = mm.OMMemberSearch(res);
+		System.out.println(json);
+		return json;
+	}
+=======
 	@RequestMapping(value = "/approvalx", method = RequestMethod.POST,produces = "application/text; charset=utf8")
 	public @ResponseBody String approvalx(@RequestParam("param") String id) {
 
@@ -203,5 +212,6 @@ public class RestController {
 		return json;
 	}
 	
+>>>>>>> ec1fa806fd7262bb7083274868ca7d569aefb7b0
 
 }

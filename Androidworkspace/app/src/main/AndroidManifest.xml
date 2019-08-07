@@ -13,10 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_whenPcroom"></activity>
-        <activity android:name=".activity_PayList" />
-        <activity android:name=".activity_MyInfoUpdate" />
-        <activity android:name=".activity_MyInfo" />
+        <activity android:name=".PassUpdate"></activity>
+        <activity android:name=".MyIdCheck" />
+        <activity android:name=".Certification" />
+        <activity android:name=".EasySignUp" />
+        <activity android:name=".QuickMenuSelect" />
+        <activity android:name=".Preferences" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
