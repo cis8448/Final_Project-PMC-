@@ -199,5 +199,15 @@ public class MainController {
 			return mav; //jsp파일 이름고 ㅏ동일해야함
 		}
 		
+		@RequestMapping(value = "/PCPictureUpdate")//uri 매핑
+		public ModelAndView PCPictureUpdate(PcRoomBean pr) {
+
+			logger.info("PCPictureUpdate execute ");
+			
+			mav = pm.PCPictureUpdate(pr);
+
+			return mav; //jsp파일 이름고 ㅏ동일해야함
+		}
+		
 	
 }

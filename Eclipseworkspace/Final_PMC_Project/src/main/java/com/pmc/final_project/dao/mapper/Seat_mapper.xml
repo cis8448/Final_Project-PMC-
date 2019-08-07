@@ -10,7 +10,7 @@
 			INSERT INTO SEAT(S_P_ID , S_ID , S_STATE , S_NORESERVE) VALUES(#{p_id},#{s_id},#{s_state},#{s_noreserve})
 		</insert>
 		<select id="selectAll" resultType="SeatBean" parameterType="String">
-			SELECT * FROM PCUSING WHERE S_P_ID = #{ID}
+			SELECT * FROM PCUSING WHERE P_ID = #{ID}
 		</select>
 		<delete id="deleteSeat" parameterType="SeatBean">
 			DELETE FROM SEAT WHERE S_ID = #{s_id}

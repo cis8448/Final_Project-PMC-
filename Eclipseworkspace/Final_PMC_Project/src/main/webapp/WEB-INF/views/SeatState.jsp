@@ -175,8 +175,8 @@ input {
 		</div>
 		<ul id="Menu">
 			<li class="mainmenu"><a href="#">좌석</a></li>
+			<li class="mainmenu"><a href="./Product">상품</a></li>
 			<li class="mainmenu"><a href="./MemberList">회원</a></li>
-			<li class="mainmenu"><a href="./product">상품</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
 			<li class="mainmenu"><a href="./pcmasternotice">기타</a></li>
 		</ul>
@@ -276,8 +276,8 @@ input {
 </script>
 <script type="text/javascript">
 	function btn3() {
-		var url = "PC";
-		var name = "popup2222";
+		var url = "PCPictureUpdate";
+		var name = "popup21";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);
 	}

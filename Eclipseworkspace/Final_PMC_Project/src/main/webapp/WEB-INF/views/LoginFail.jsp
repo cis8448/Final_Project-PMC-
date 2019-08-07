@@ -9,7 +9,19 @@
 </head>
 <body>	
 	<center>
-	아이디 or 비밀번호가 틀립니다
+	<p id="mungu"></p>
 	</center>
 </body>
+<script>
+window.onload = function() {
+	var chk = '${param.check}';
+	
+	if (chk == 1) {
+		document.getElementById("mungu").innerHTML="블락된 계정입니다!";
+	}if(chk == 2){
+		document.getElementById("mungu").innerHTML="아이디 or 비밀번호가 틀립니다!";
+	}
+
+}
+</script>
 </html>

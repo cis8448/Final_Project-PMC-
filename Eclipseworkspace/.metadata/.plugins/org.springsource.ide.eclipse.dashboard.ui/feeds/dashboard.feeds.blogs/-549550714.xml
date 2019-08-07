@@ -6,6 +6,15 @@
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7b92b0ca0d2265cbc67cf63242a8fa29d52cf0d7
+>>>>>>> 364c68c641c50de55e7bd1f66bf767243ff390cd
+>>>>>>> db02d10cfdb8249552ac35b4f3a08d15a7de3f5d
   <updated>2019-08-05T23:54:25Z</updated>
   <entry>
     <title>Spring Security 5.1.6 and 5.0.13 Released</title>
@@ -24,9 +33,18 @@
 &lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
   <updated>2019-08-05T18:32:57Z</updated>
 >>>>>>> 2465686301aaa19685d6b8070f0b44e172236471
+>>>>>>> 7b92b0ca0d2265cbc67cf63242a8fa29d52cf0d7
+>>>>>>> 364c68c641c50de55e7bd1f66bf767243ff390cd
+>>>>>>> db02d10cfdb8249552ac35b4f3a08d15a7de3f5d
   <entry>
     <title>Spring Security 5.2.0.M4 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/08/05/spring-security-5-2-0-m4-released" />
@@ -647,6 +665,12 @@ Of course, if you have not done so already, you should first read the &lt;a href
   </entry>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
   <entry>
     <title>Spring Cloud Hoxton.M1 is available.</title>
     <link rel="alternate" href="https://spring.io/blog/2019/07/03/spring-cloud-hoxton-m1-is-available" />
@@ -837,4 +861,7 @@ dependencies {&#xD;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 >>>>>>> 2465686301aaa19685d6b8070f0b44e172236471
+>>>>>>> 7b92b0ca0d2265cbc67cf63242a8fa29d52cf0d7
+>>>>>>> 364c68c641c50de55e7bd1f66bf767243ff390cd
+>>>>>>> db02d10cfdb8249552ac35b4f3a08d15a7de3f5d
 </feed>

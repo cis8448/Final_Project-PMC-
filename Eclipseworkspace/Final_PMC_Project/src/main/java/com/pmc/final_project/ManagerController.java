@@ -104,5 +104,17 @@ public class ManagerController {
 		params.put("resp",resp);
 		om.downLoad(params);
 	}
+	
+	@RequestMapping(value="/OM_Approvalx", method = RequestMethod.GET)
+	public ModelAndView OM_Approvalx(Integer pageNum) {
+
+		logger.info("OM_Approvalx execute ");
+
+		mav = om.OM_Approvalx(pageNum);
+
+
+		return mav;
+
+	}
 
 }

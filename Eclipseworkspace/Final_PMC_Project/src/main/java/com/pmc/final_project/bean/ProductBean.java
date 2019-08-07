@@ -11,9 +11,23 @@ public class ProductBean {
 	private String pr_price;
 	private String pr_img;
 	private int pr_qty;
+	private String pc_name;
+	private String p_id;
 	
 	
 	
+	public String getPc_name() {
+		return pc_name;
+	}
+	public void setPc_name(String pc_name) {
+		this.pc_name = pc_name;
+	}
+	public String getP_id() {
+		return p_id;
+	}
+	public void setP_id(String p_id) {
+		this.p_id = p_id;
+	}
 	public String getPc_id() {
 		return pc_id;
 	}
