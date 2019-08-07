@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_MyInfo"
+    android:orientation="vertical">
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/myinfo"
+            android:padding="5dp"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
+                    android:text="이름"
+                    android:textColor="#ffff"
+                    android:textSize="15sp" />
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="40dp"
+                    android:text="회원탈퇴"
+                    android:layout_marginTop="10dp"/>
+            </TableRow>
+            <TableRow>
+
+            </TableRow>
+            <TableRow android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="생년월일(예약 여부 표시)"
+                    android:background="#FFFF"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"/>
+
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:text="별명"
+            android:background="@drawable/round"
+            android:textColor="#FFFF"
+            android:layout_marginTop="10dp"/>
+
+
+       <EditText
+        android:layout_marginLeft="10dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/roundtext"
+        android:layout_marginTop="10dp"
+        android:hint="내용을 입력해주세요."
+        android:textSize="14sp"
+        android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:background="@drawable/round"
+            android:text="이메일"
+            android:textColor="#FFFF"
+            android:layout_marginTop="15dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/roundtext"
+            android:layout_marginTop="15dp"
+            android:hint="내용을 입력해주세요."
+            android:textSize="14sp"
+            android:gravity="center"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="핸드폰 번호 수정"
+            android:textColor="#FFFF" />
+
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/roundtext"
+            android:layout_marginTop="15dp"
+            android:hint="내용을 입력해주세요."
+            android:textSize="14sp"
+            android:gravity="center"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:text="확인"
+            android:background="@drawable/round"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#FFFF"/>
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:text="내 정보 변경"
+        android:background="@drawable/round"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#FFFF"/>
+
+    <Button
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:text="비밀번호 변경"
+        android:background="@drawable/round"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15sp"
+        android:textColor="#FFFF"/>
+
+
+</LinearLayout>
