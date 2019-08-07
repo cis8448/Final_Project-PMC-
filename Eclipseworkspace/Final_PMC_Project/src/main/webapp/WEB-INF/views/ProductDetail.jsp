@@ -29,6 +29,7 @@
         input:-ms-input-placeholder {color:#a8a8a8;}
         input::-webkit-input-placeholer {color:a8a8a8;}
         input::-moz-placeholder {color:a8a8a8;}
+        img {	width: 300px;	height: 200px;	padding: 10px;}
         .Search{height: 40px; width: 400px; border: 1px solid #1b5ac2; background: #ffffff; margin-left: 830px;}
         input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
@@ -55,30 +56,31 @@
     <section>
 	<div class="my-box">
 	<table  border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center"  class="center">
-	<tr>
-	</tr>
 			<tr>
-				<td class="a1">카테고리</td>
-				<td>${ProductBean.pc_name}</td>
+				<td>카테고리</td>
+				<td>${product.pc_name}</td>
 			</tr>
 			<tr>
-				<td class="a1" >제품명</td>
-				<td>${ProductBean.pr_name}</td>
+				<td>제품명</td>
+				<td>${product.pr_name}</td>
 			</tr>
 			<tr>
-				<td class="a1">수량</td>
-				<td>${ProductBean.pr_qty}</td>
+				<td>수량</td>
+				<td>${product.pr_qty}</td>
 			</tr>
 			<tr>
-				<td class="a1">가격</td>
-				<td>${ProductBean.pr_price}</td>
+				<td>가격</td>
+				<td>${product.pr_price}</td>
+			</tr>
+			<tr align="left">
+				<img alt="상품 이미지" src="./resources/file/${product.pr_img}" id ="img">
 			</tr>
 		</table>
 	</div><br>
 	<div class="margin">
 	<button class="btnfont"><a href="./Product">뒤로가기</a></button>
-	<button class="btnfont">삭제</button>
-	<button class="btnfont">수정</button>
+	<button class="btnfont"><a href="./productDelete?pr_id=${param.pr_id}">삭제</a></button>
+	<button class="btnfont"><a href="./ProductUpdate?pr_id=${param.pr_id}">수정</button>
 	</div>
     </section>
     <footer>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,13 +160,14 @@ button {
 }
 
 .margin {
-	margin-top : 20px;
+	margin-top: 20px;
 	margin-left: 462px;
 }
 
 .btnfont {
 	font-size: 20px;
-	width: 100px; height: 40px;
+	width: 100px;
+	height: 40px;
 }
 
 .img {
@@ -188,20 +190,23 @@ button {
 	height: 40px;
 	font-size: 20px;
 	text-align: center;
-	
 }
-.ii{
-	margin-left: 10% ;
+
+.ii {
+	margin-left: 10%;
 }
-.a1{
+
+.a1 {
 	width: 400px;
 	height: 20px;
-	font-size: 20px;	
+	font-size: 20px;
 }
-.a2{
+
+.a2 {
 	margin-left: 300px
 }
-.center{
+
+.center {
 	text-align: center;
 }
 </style>
@@ -232,115 +237,146 @@ button {
 	</aside>
 	<section>
 		<h1 class="add">상품 추가</h1>
-		<table border="1px solid black" class ="ii">
-		<tr>
-		<td>
-		<table class="a2">
-		<tr>
-		<td>
-		<input type='file' id='upload' name='upload'/>
-		</td>
-		</tr>
-		<tr>
-		<td><div id='preview'> </div></td>
-			<!-- 사진들어가는곳  -->
-		
-		</td>
-		<td>
-		</tr>
-		</table>
-		<table border="1" class="center">
-			<tr>
-				<td class="a1">카테고리</td>
-				<td><select class="select">
-						<option class = "btnfont" value="전체" selected>전체</option>
-						<option class = "btnfont" value="라면" selected>라면</option>
-						<option class = "btnfont" value="식사" selected>식사</option>
-						<option class = "btnfont" value="음료" selected>음료</option>
-						<option class = "btnfont" value="커피" selected>커피</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td class="a1" >제품명</td>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<td class="a1">가격</td>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
-				<td class="a1">수량</td>
-				<td><input type="text"></td>
-			</tr>
+		<table border="1px solid black" class="ii">
+			<tr align="center">
+				<td>
+					<table class="a2">
+						<tr>
+							<td>
+								<div id="imgbix">
+									<img align="left"
+										src="./resources/${(not empty Sfile) ?    Sfile.c_content: 'img/No_image.png'}"
+										alt="pc방 배치도" id="img"> <input type="file" name="files"
+										id="files" value="이미지를 등록해주세요" multiple>
+								</div>
 
-		</table>
-		</td>
-		</tr>
+							</td>
+							<td>
+						</tr>
+					</table>
+
+
+					<table border="1" class="center">
+						<tr>
+							<td class="a1">카테고리</td>
+							<td><select class="select" id="name0">
+									<c:forEach var="pr" items="${bpList}">
+										<c:set var="Cate" value="${pr.pc_id}" />
+										<option id="pc_name" value="${pr.pc_id}">${pr.pc_name}</option>
+
+									</c:forEach>
+							</select></td>
+						</tr>
+						<tr>
+							<td class="a1">제품명</td>
+							<td><input type="text" id="name1"></td>
+						</tr>
+						<tr>
+							<td class="a1">가격</td>
+							<td><input type="text" id="name2"></td>
+						</tr>
+						<tr>
+							<td class="a1">수량</td>
+							<td><input type="text" id="name3"></td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
 		</table>
 		<div class="margin">
-		<table>
-			<tr>
-				<td>
-				<button type="button" class="btnfont" value="추가" onclick="add()" id = "puls">추가</button>
-				</td>
-				<td>
-				<form action="./Product"><button class="btnfont">취소</button></form>
-				</td>
-			</tr>
-		</table>
-			
-			
+			<table>
+				<tr>
+					<td>
+						<button type="button" class="btnfont" value="추가" onclick="add()">추가</button>
+					</td>
+					<td>
+						<form action="./Product">
+							<button class="btnfont">취소</button>
+						</form>
+				</tr>
+			</table>
+
+
 		</div>
-		
+
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	var upload = document.querySelector('#upload');
-	var preview = document.querySelector('#preview');
-
+	var upload = document.getElementById('files');
+	var img = document.getElementById('img');
+	var imgsrc = img.src;
+	var num = 0;
+	console.log(img.src)
 	upload.addEventListener('change', function(e) {
-
-		var image = document.querySelector('#preview>img');
-		if (image == null) {
-			image = document.createElement('img');
-		}
-		var get_file = e.target.files;
-
-		/* FileReader 객체 생성 */
-		var reader = new FileReader();
-		/* reader 시작시 함수 구현 */
-		reader.onload = (function(aImg) {
-			console.log(1);
-
-			return function(e) {
-				console.log(3);
-				/* base64 인코딩 된 스트링 데이터 */
-				aImg.src = e.target.result
+		var name = upload.value.substring(upload.value.indexOf('.'));
+		if (name == '.jpg' || name == '.png' || name == '.gif'
+				|| name == '.JPG' || name == '.PNG' || name == '.GIF') {
+			var get_file = e.target.files;
+			var reader = new FileReader();
+			reader.onload = (function(aImg) {
+				console.log(1);
+				return function(e) {
+					console.log(3);
+					aImg.src = e.target.result
+				}
+			})(img)
+			if (get_file) {
+				reader.readAsDataURL(get_file[0]);
+				console.log(2);
 			}
-		})(image)
-
-		if (get_file) {
-			/* 
-			    get_file[0] 을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
-			    onload 에 설정했던 return 으로 넘어간다.
-			    이와 함게 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다.
-			 */
-			reader.readAsDataURL(get_file[0]);
-			console.log(2);
+			num = 1;
+		} else {
+			
+			upload.value = '';
+			alert("'jpg, png, gif 파일만 가능합니다'");
 		}
-		preview.appendChild(image);
-
 	});
-	
-	function updateSeat(){
-        var $obj = $('#puls');
-        
-        var pulsvalue = $().length;
 
-        
-        };
+	function add() {
+		var $obj = $('#files');
+		var fData = new FormData();
+		fData.append("p_id", '${sessionScope.id}')
+		fData.append("num", num)
+		fData.append("pr_name", $("#name1").val());
+		fData.append("pr_price", $("#name2").val());
+		fData.append("pr_qty", $("#name3").val());
+		fData.append("pr_pc_id", $("#name0 option:selected").val());
+		
+		fData.append("src", imgsrc)
+		console.log(fData);
+		var files = $obj[0].files;
+		for (var i = 0; i < files.length; i++) {	
+			fData.append("files" + i, files[i])
+			console.log("files" + i + "///" + files[i]);
+		}
+		;
+
+		$.ajax({
+			type : 'post',
+			url : 'productInsert',
+			data : fData,
+			processData : false,
+			contentType : false,
+			dataType : "json",
+			success : function(data) {
+				if (data.success == "1") {
+					location.href = "./Product";
+				} else {
+					alert("정보가 바뀌지 않았습니다.")
+				}
+
+			},
+			error : function(error) {
+				alert("파일 업로드에 실패했습니다.");
+			}
+
+		})
+	}
 </script>
 </html>

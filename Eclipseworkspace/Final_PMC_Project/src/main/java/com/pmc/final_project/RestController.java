@@ -31,6 +31,7 @@ import com.pmc.final_project.service.MemberManagement;
 import com.pmc.final_project.service.NoticeManagement;
 import com.pmc.final_project.service.PayListManagement;
 import com.pmc.final_project.service.PcroomManagement;
+import com.pmc.final_project.service.ProductManagement;
 import com.pmc.final_project.service.SeatManagement;
 
 @Controller
@@ -45,6 +46,9 @@ public class RestController {
 
 	@Autowired
 	private PcroomManagement pm;
+	
+	@Autowired
+	private ProductManagement prm;
 	
 	@Autowired
 	private SeatManagement sm;
@@ -177,6 +181,15 @@ public class RestController {
 	public @ResponseBody String MemberSearch(@RequestBody String res) {
 		logger.info("MemberSearch execute ");
 		String json = mm.MemberSearch(res);
+		System.out.println(json);
+		return json;
+	}
+	
+	@RequestMapping(value="/ProductSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String ProductSearch(@RequestBody String res) {
+		logger.info("ProductSearch execute ");
+		String json = prm.ProductSearch(res);
+		
 		System.out.println(json);
 		return json;
 	}
