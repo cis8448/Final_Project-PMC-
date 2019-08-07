@@ -183,11 +183,17 @@ table {
 			<c:forEach var="pcroomnoticebean" items="${nList}">
 				<tr>
 					<td align="center">${pcroomnoticebean.no_num}</td>
+<<<<<<< HEAD
 					<td align="center">${pcroomnoticebean.no_title}</td>
 					<td align="center">${pcroomnoticebean.no_date}</td>
 					<td align="center">${pcroomnoticebean.no_content}</td>
 					<td align="center">${pcroomnoticebean.no_cate}</td>
 					<td><a href="./NoticeDetail" class="button">상세보기</a></td>
+=======
+					<td align="center">
+					<a href="./contents?no_num=${pcroomnoticebean.no_num}">${pcroomnoticebean.no_title}</a></td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
+>>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 				</tr>
 			</c:forEach>
 		</table>

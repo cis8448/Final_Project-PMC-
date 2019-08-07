@@ -59,7 +59,7 @@
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
 	</aside>
-    </aside>
+   
     <section>
     
     <form action="NoticeWrite" method="post">

@@ -26,4 +26,20 @@
 	<select id="memberSearch" parameterType="HashMap" resultType="Member">
 		SELECT * FROM PCMEMBER WHERE P_ID=#{p_id} AND M_NAME LIKE #{res} OR M_ID LIKE #{res}
 	</select>
+	
+	<select id="getOMmemberAllList" resultType="Member" parameterType="String">
+		SELECT * FROM PCMEMBER
+	</select>
+	
+	<select id="getOMmemberCount" resultType="int">
+		SELECT COUNT(*) FROM PCMEMBER
+	</select>
+	
+	<select id="getOMmemberInfo" resultType="Member" parameterType="String">
+		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id}
+	</select>
+	
+	<select id="OMMemberSearch" parameterType="String" resultType="Member">
+		SELECT * FROM PCMEMBER WHERE M_NAME LIKE #{res2} OR M_ID LIKE #{res2}
+	</select>
 </mapper>
