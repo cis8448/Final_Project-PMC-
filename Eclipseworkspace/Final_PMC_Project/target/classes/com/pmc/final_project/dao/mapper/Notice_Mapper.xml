@@ -86,6 +86,7 @@
 	<delete id="replyDelete" parameterType="Integer">
 		DELETE FROM REPLY WHERE R_SE_NUM=#{se_num}
 	</delete>
+	
 <mapper namespace="com.pmc.final_project.dao.INotice">
    <select id="getPcmasterNotice" resultType="pcroomnoticebean" parameterType="int">
       SELECT * FROM NOTICE
