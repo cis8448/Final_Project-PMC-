@@ -58,11 +58,9 @@
 			
 		</ul>
 	</aside>
+	
+	
 	<section>
-	
-
-
-	
 	<form method="post" action="./CatePayList.jsp"></form>
 	<table>
 		<tr>
@@ -78,31 +76,24 @@
 			<td><button type="button" onclick="cateSearch()" id="catesearch" >선택</button></td>
 		</tr>
 	</table>		
-    	<table id="bb">
+    	<table id="bb" border="1">
 		<tr>
 			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
-			<td class="Paymenu">가격</td>
-		
-				
+			<td class="Paymenu">가격</td>	
 		</tr>
 		
-		<tr>
-			<td></td>
-		<tr>
-			<td><div id="list" style="border:1px blue solid"></div></td>
-		</tr>
 		<tbody id="cateResult" align="center">
 		<c:forEach var="cate" items="${cateList}">
-			<tr>
-				<td>${cateResult.u_start}</td>
-				<td>${cateResult.m_id}</td>
-				<td>${cateResult.p_name}</td>
-				<td>${cateResult.pl_qty}</td>
-				<td>${cateResult.pl_price}</td>
-			</tr>
+			
+				${cateResult.u_start}
+				${cateResult.m_id}
+				${cateResult.p_name}
+				${cateResult.pl_qty}
+				${cateResult.pl_price}
+			
 		</c:forEach>
 		</tbody>
 	</table>

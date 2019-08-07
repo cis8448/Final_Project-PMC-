@@ -15,28 +15,105 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="left">
-            <Button
-                android:layout_width="wrap_content"
+            android:orientation="vertical">
+            <!-- 메인 상단 메뉴 3개 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn1"
-                android:text="메뉴"/>
-            <ImageButton
-                android:layout_marginLeft="100dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/bell"
-                android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
-            <ImageButton
-                android:layout_marginLeft="20dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/profile"
-                android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:orientation="horizontal"
+                android:gravity="left">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn1"
+                    android:text="메뉴"/>
+                <ImageButton
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bell"
+                    android:scaleType="fitCenter"
+                    android:background="#FFFFFF"/>
+                <ImageButton
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/profile"
+                    android:scaleType="fitCenter"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5px">
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pc"/>
+                </ViewFlipper>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- 이전 다음 버튼 -->
+                        <TableRow>
+                            <Button
+                                android:layout_marginLeft="70dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="이전"/>
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="다음"/>
+                        </TableRow>
+                </TableLayout> <!-- 이전 다음 버튼 -->
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- 피시방 스피너 -->
+                    <TableRow>
+                        <Spinner
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content">
+                        </Spinner>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="상세보기"/>
+                    </TableRow>
+                    <!-- 마일리지 -->
+                    <TableRow>
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="1,000,000P"
+                            android:gravity="center">
+                        </TextView>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="적립하기"/>
+                    </TableRow>
+                </TableLayout> <!-- 피시방 스피너, 마일리지 -->
+                <ImageButton
+                    android:layout_marginTop="30dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/plus"
+                    android:scaleType="fitCenter"
+                    android:background="#FFFFFF"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
         </LinearLayout>
+
+
+
 
         <!--메뉴 -->
         <LinearLayout
@@ -342,5 +419,7 @@
         </LinearLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
+
 
 </LinearLayout>

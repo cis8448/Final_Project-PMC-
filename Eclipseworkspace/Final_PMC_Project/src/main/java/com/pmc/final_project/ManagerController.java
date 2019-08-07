@@ -56,6 +56,10 @@ public class ManagerController {
 
 		return "OM_Main";   
 	}
+	
+	
+
+
 	@RequestMapping(value="/OM_Approval", method = RequestMethod.GET)
 	public ModelAndView JSPSignUp(Integer pageNum) {
 

@@ -5,29 +5,46 @@ import java.util.Map;
 
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.bean.PcRoomNoticeBean;
-import com.pmc.final_project.bean.PcRoomSCBean;
+
 import com.pmc.final_project.bean.Reply;
 
 public interface INotice {
 
+	List<PcRoomNoticeBean> getNoticeList(String cate);
 
-	int getNoticeCount();
+	int getNoticeCount(String cate);
 
-	List<PcRoomNoticeBean> getPcmasterNotice(int num);
+	List<PcRoomNoticeBean> getServiceList(String cate);
 
-	boolean NoticeInsert(PcRoomNoticeBean pcroomnoticebean);
+	int getServiceCount(String cate);
 
-	PcRoomNoticeBean getContents(Integer no_num);
+	boolean writeinsert(PcRoomNoticeBean pcRoomNoticeBean);
+
+	PcRoomNoticeBean NoticeDetail(Map<String, String> map);
+
+	boolean NoticeDelete(Map<String, String> map);
 	
-	PcRoomNoticeBean getMaContents(Integer no_num);
-	
-	PcRoomSCBean getSCContents(Integer se_num);
+	boolean NoticeUpdate(PcRoomNoticeBean nbean);
 
-	boolean NoticeDelete(Integer no_num);
+	boolean swriteinsert(PcRoomNoticeBean pcRoomNoticeBean);
+
+	PcRoomNoticeBean ServiceDetail(Map<String, String> map);
 
 	boolean replyInsert(Reply r);
 
-	List<Reply> getReplyList(int r_se_num);
+	List<Reply> getReplyList(int r_num);
+
+	
+
+
+
+	
+
+	
+
+
+
+
 
 	List<PcRoomNoticeBean> OM_Notice(Map<String, String> map);
 

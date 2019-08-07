@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("pcroomnoticebean")
+@Alias("PcRoomNoticeBean")
 public class PcRoomNoticeBean {
 
 	private String no_p_id; // PC아이디
@@ -13,8 +13,7 @@ public class PcRoomNoticeBean {
 	private String no_content; //공지사항 게시글내용
 	private String no_date; //공지사항 작성시간
 	private int no_cate; //공지사항 카테고리
-	private String no_m_id;
-	
+	private String no_m_id;// 작성자  
 	
 	public String getNo_m_id() {
 		return no_m_id;

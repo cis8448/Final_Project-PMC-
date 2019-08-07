@@ -131,6 +131,12 @@
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="35dp"
+                android:hint="별명"
+                android:textSize="12sp"
+                android:id="@+id/edtNickName"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
                 android:hint="생년월일"
                 android:textSize="12sp"
                 android:id="@+id/edtBirth"/>
