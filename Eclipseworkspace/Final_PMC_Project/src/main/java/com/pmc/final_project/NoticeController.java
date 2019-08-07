@@ -96,6 +96,11 @@ public class NoticeController {
 		mav = nm.NoticeDelete(no_num);
 		return mav;
 	}
+	@RequestMapping(value = "/OM_Nwrite")
+	public String OM_Nwrite() {
+		
+		return "OM_Nwrite";
+	}
 	
 //	@RequestMapping(value = "/NoticeUpdate")
 //	public ModelAndView NoticeUpdate(Integer no_num) throws RuntimeException{

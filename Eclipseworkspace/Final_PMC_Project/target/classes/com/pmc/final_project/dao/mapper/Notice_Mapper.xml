@@ -2,13 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.pmc.final_project.dao_INotice">
+<mapper namespace="com.pmc.final_project.dao.INotice">
+	<select id="OM_Notice" resultType="pcroomnoticebean"
+		parameterType="HashMap">
 
-<insert id="NoticeInsert" parameterType="PcRoomNoticeBean"
-useGeneratedKeys="true" keyProperty="no_num">
-<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
-	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
-</selectKey>
-	INSERT INTO NOTICE VALUES
-</insert>	
+		SELECT * FROM NOTICE WHERE NO_CATE = #{cate}
+
+	</select>
+	<select id="OM_Service" resultType="pcroomnoticebean"
+		parameterType="HashMap">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
+		NO_NUM,SE_TITLE AS
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE FROM SERVICE WHERE SE_CATE = #{cate}
+	</select>
+	<select id="OM_NoticeInfo" parameterType="String"
+		resultType="pcroomnoticebean">
+		SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}
+	</select>
+
+	<select id="OM_ServiceInfo" parameterType="String"
+		resultType="pcroomnoticebean">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
+		NO_NUM,SE_TITLE AS
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE FROM SERVICE WHERE SE_NUM=#{no_num}
+	</select>
+	<select id="OMNoticeSearch" parameterType="String" resultType="pcroomnoticebean">
+		SELECT * FROM NOTICE WHERE NO_P_ID LIKE #{res2} OR NO_TITLE LIKE #{res2}
+	</select>
 </mapper>

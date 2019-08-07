@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.bean.PcRoomNoticeBean;
 import com.pmc.final_project.bean.PcRoomSCBean;
@@ -175,6 +175,19 @@ public class NoticeManagement {
 		}
 		return jMap;
 	}
+
+
+	public String OMNoticeSearch(String res) {
+		// TODO Auto-generated method stub
+		String res2 = ("%"+res+"%");
+		
+		List<PcRoomNoticeBean> omsList = nDao.OMNoticeSearch(res2);
+		String json = new Gson().toJson(omsList);
+		
+		return json;
+	}
+
+
 
 
 

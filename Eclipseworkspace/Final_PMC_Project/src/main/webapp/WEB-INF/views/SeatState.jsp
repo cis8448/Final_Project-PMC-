@@ -15,7 +15,7 @@
 </head>
 <style>
 html, body, ul {
-	margin: 0;
+	margin: 0;-
 	padding: 0;
 }
 
@@ -188,10 +188,7 @@ input {
 			<p />
 			<button onclick="btn2()">정보 수정</button>
 			<button onclick="btn3()">PC방 사진등록</button>
-			<form action="#">
-				<input type="button" onclick="btn1()" id="button1" value=""
-					style="width: 70px; height: 30px;">
-			</form>
+			
 		</div>
 
 		<ul id="SubMenu">

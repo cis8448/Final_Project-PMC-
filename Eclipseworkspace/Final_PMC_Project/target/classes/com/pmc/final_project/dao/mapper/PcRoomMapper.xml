@@ -109,10 +109,6 @@
 		UPDATE PCROOM SET
 		P_HOLIDAY=#{holiday} WHERE P_ID =#{id}
 	</update>
-	<select id="approvalSelect2" parameterType="String"
-		resultType="PcRoomBean">
-		SELECT * FROM PCROOM WHERE P_ID=#{id}
-	</select>
 	<select id="HoliSel" parameterType="String" resultType="String">
 		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
 	</select>
