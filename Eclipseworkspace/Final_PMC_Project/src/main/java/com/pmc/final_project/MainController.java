@@ -37,14 +37,14 @@ public class MainController {
 
 	ModelAndView mav;
 
-	
+
 	@Autowired
 	PcroomManagement pm;
 
 	@Autowired
 	HttpSession session;
 
-	
+
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -150,54 +150,64 @@ public class MainController {
 
 		return "mail";//jsp파일 이름고 ㅏ동일해야함
 	}
-	
+
 	//Ajax로 처리하는 Write 메소드
-		@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
-		public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
-			
-			mav= pm.fileupload(multi);
-			
-			
-			return mav;
-		}
-		@RequestMapping(value = "/PCInfoUpdate")//uri 매핑
-		public ModelAndView PCInfoUpdate(PcRoomBean pr) {
+	@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
+	public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
 
-			logger.info("PCInfoUpdate execute ");
-			
-			mav = pm.PCInfoUpdate(pr);
+		mav= pm.fileupload(multi);
 
-			return mav; //jsp파일 이름고 ㅏ동일해야함
-		}
-		
-		@RequestMapping(value = "/InfoUpdate")//uri 매핑
-		public ModelAndView InfoUpdate(PcRoomBean pr) {
 
-			logger.info("InfoUpdate execute ");
-			
-			mav = pm.InfoUpdate(pr);
+		return mav;
+	}
+	@RequestMapping(value = "/PCInfoUpdate")//uri 매핑
+	public ModelAndView PCInfoUpdate(PcRoomBean pr) {
 
-			return mav; //jsp파일 이름고 ㅏ동일해야함
-		}
-		
-		@RequestMapping(value = "/changepw")//uri 매핑
-		public ModelAndView changepw(PcRoomBean pr) {
+		logger.info("PCInfoUpdate execute ");
 
-			logger.info("changepw execute ");
-			
-			mav = pm.changepw(pr);
+		mav = pm.PCInfoUpdate(pr);
 
-			return mav; //jsp파일 이름고 ㅏ동일해야함
-		}
-		@RequestMapping(value = "/changepw2")//uri 매핑
-		public ModelAndView changpw2(PcRoomBean pr) {
+		return mav; //jsp파일 이름고 ㅏ동일해야함
+	}
 
-			logger.info("changepw2 execute ");
-			
-			mav = pm.changepw2(pr);
+	@RequestMapping(value = "/InfoUpdate")//uri 매핑
+	public ModelAndView InfoUpdate(PcRoomBean pr) {
 
-			return mav; //jsp파일 이름고 ㅏ동일해야함
-		}
-		
-	
+		logger.info("InfoUpdate execute ");
+
+		mav = pm.InfoUpdate(pr);
+
+		return mav; //jsp파일 이름고 ㅏ동일해야함
+	}
+
+	@RequestMapping(value = "/changepw")//uri 매핑
+	public ModelAndView changepw(PcRoomBean pr) {
+
+		logger.info("changepw execute ");
+
+		mav = pm.changepw(pr);
+
+		return mav; //jsp파일 이름고 ㅏ동일해야함
+	}
+	@RequestMapping(value = "/changepw2")//uri 매핑
+	public ModelAndView changpw2(PcRoomBean pr) {
+
+		logger.info("changepw2 execute ");
+
+		mav = pm.changepw2(pr);
+
+		return mav; //jsp파일 이름고 ㅏ동일해야함
+	}
+
+	@RequestMapping(value = "/PCPictureUpdate")//uri 매핑
+	public ModelAndView PCPictureUpdate(PcRoomBean pr) {
+
+		logger.info("PCPictureUpdate execute ");
+
+		mav = pm.PCPictureUpdate(pr);
+
+		return mav; //jsp파일 이름고 ㅏ동일해야함
+	}
+
+
 }

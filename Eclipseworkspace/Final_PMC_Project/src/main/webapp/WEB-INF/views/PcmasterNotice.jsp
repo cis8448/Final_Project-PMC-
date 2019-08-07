@@ -33,6 +33,7 @@ ul {
 }
 
 #SubMenu {
+	margin-top:250px;
 	height: 100px
 }
 
@@ -121,13 +122,25 @@ table {
 	border: 1px solid skyblue;
 	background-color: dodgerblue;
 	color: white;
-	padding: 5px;
+	padding: 3px;
 	margin-left: 30px;
-	
+	margin-bottom: 200px;
 }
+.table{
+	margin-bottom: 200px;
+}
+.lastbutton{
+    border: 1px solid skyblue;
+	background-color: dodgerblue;
+	color: white;
+	padding: 3px;
+    margin-right: 320px;
+    float: right;
+    }
 </style>
 <body>
-	<header>
+<header>
+	
 		<div>
 			<img src="./resources/image/dd.png">
 		</div>
@@ -138,56 +151,57 @@ table {
 			<li class="mainmenu"><a href="#">매출</a></li>
 			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 		</ul>
-	</header>
 
 
+    </header>
 	<aside>
 	  
     <ul id="SubMenu">
     	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
-    </ul>
-    <ul id="SubMenu">
     	<li class="Submenu"><a href="./PcmasterNotice">PC방관리자용 공지사항</a></li>
-    </ul>
-    <ul id="SubMenu">
     	<li class="Submenu"><a href="./CustomerSc">고객용 고객센터</a></li>
-    </ul>
-    <ul id="SubMenu">
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
+
 	</aside>
 
 	<section>
-		<table border="1px solid black">
+		<table border="1px solid black" class="table">
 			<tr class="Notice">
-				<td colspan="3">공지사항</td>
-				<br>
+				<td colspan="6">공지사항</td>
 			</tr>
 
 			<tr class="NoticeNum">
 				<td>No</td>
 				<td>제목</td>
 				<td>작성날짜</td>
+				<td>글내용</td>
+				<td>카테고리</td>
+                <td>비고</td>
 			</tr>
 			
-	<% session.setAttribute("id", "test1"); %>
 			<c:forEach var="pcroomnoticebean" items="${nList}">
 				<tr>
 					<td align="center">${pcroomnoticebean.no_num}</td>
-					<td align="center">
-					<a href="./contents?no_num=${pcroomnoticebean.no_num}">
-					${pcroomnoticebean.no_title}</a></td>
+<<<<<<< HEAD
+					<td align="center">${pcroomnoticebean.no_title}</td>
 					<td align="center">${pcroomnoticebean.no_date}</td>
 					<td align="center">${pcroomnoticebean.no_content}</td>
 					<td align="center">${pcroomnoticebean.no_cate}</td>
+					<td><a href="./NoticeDetail" class="button">상세보기</a></td>
+=======
+					<td align="center">
+					<a href="./contents?no_num=${pcroomnoticebean.no_num}">${pcroomnoticebean.no_title}</a></td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
+>>>>>>> 153bc5334a2388642aeda43aafb131dda8d94840
 				</tr>
 			</c:forEach>
 		</table>
-		
+		<a href="./PcNoticeWrite" class="button">글쓰기</a>
 	</section>
 			
 	<footer>
-		<a href="./PcNoticeWrite" class="button">글쓰기</a>
+		
 		<h1>ICIA Pc Project</h1>
 	</footer>
 

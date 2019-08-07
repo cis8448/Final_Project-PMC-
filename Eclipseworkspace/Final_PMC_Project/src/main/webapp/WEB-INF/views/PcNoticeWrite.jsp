@@ -33,7 +33,7 @@
       
     </style>
 <body>
-    <header>
+    
         <div>
         <img src="./resources/image/dd.png">
         </div> 
@@ -44,7 +44,7 @@
             <li class="mainmenu"><a href="#">매출</a></li>
             <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
         </ul>    
-    </header>
+   
     <aside>
     <ul id="SubMenu">
     	<li class="Submenu"><a href="./MasterNotice">운영관리자용 공지사항</a></li>
@@ -59,7 +59,7 @@
     	<li class="Submenu"><a href="./PcmasterSc">PC방관리자용 고객센터</a></li>
     </ul>
 	</aside>
-    </aside>
+   
     <section>
     
     <form action="NoticeWrite" method="post">

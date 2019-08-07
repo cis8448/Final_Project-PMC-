@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <style>
@@ -33,7 +33,8 @@ ul {
 }
 
 #SubMenu {
-	height: 100px
+	margin-top:250px;
+	height: 100px;
 }
 
 a {
@@ -128,34 +129,28 @@ table {
 
 </style>
 <body>
-	<header>
+	
 		<div>
 			<img src="./resources/image/dd.png">
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="#">ÁÂ¼®</a></li>
-			<li class="mainmenu"><a href="#">»óÇ°</a></li>
-			<li class="mainmenu"><a href="#">È¸¿ø</a></li>
-			<li class="mainmenu"><a href="#">¸ÅÃâ</a></li>
-			<li class="mainmenu"><a href="./MasterNotice">±âÅ¸</a></li>
+			<li class="mainmenu"><a href="./Main">ì¢Œì„</a></li>
+			<li class="mainmenu"><a href="./Product">ìƒí’ˆ</a></li>
+			<li class="mainmenu"><a href="./MemberList">íšŒì›</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">ë§¤ì¶œ</a></li>
+			<li class="mainmenu"><a href="./NoticeList">ê¸°íƒ€</a></li>
 		</ul>
-	</header>
+	
 
 	
 	
 	<table>
 	<aside>
     <ul id="SubMenu">
-    	<li class="Submenu"><a href="./MasterNotice">¿î¿µ°ü¸®ÀÚ¿ë °øÁö»çÇ×</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterNotice">PC¹æ°ü¸®ÀÚ¿ë °øÁö»çÇ×</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./CustomerSc">°í°´¿ë °í°´¼¾ÅÍ</a></li>
-    </ul>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./PcmasterSc">PC¹æ°ü¸®ÀÚ¿ë °í°´¼¾ÅÍ</a></li>
+    	<li class="Submenu"><a href="./NoticeList?cate=0">ì¼ë°˜ê³µì§€ì‚¬í•­</a></li>
+    	<li class="Submenu"><a href="./NoticeList?cate=1">PCë°©ê³µì§€ì‚¬í•­</a></li>
+    	<li class="Submenu"><a href="./ServiceList?cate=0">ì¼ë°˜ê³ ê°ì„¼í„°</a></li>
+    	<li class="Submenu"><a href="./ServiceList?cate=1">PCë°©ê³ ê°ì„¼í„°</a></li>
     </ul>
 	</aside>
 </table>
@@ -163,29 +158,34 @@ table {
 	<section>
 		<table border="1px solid black">
 			<tr class="Notice">
-				<td colspan="3">°øÁö»çÇ×</td>
+				<td colspan="5">ê³µì§€ì‚¬í•­</td>
 				<br>
 			</tr>
 
 			<tr class="NoticeNum">
+			
 				<td>No</td>
-				<td>Á¦¸ñ</td>
-				<td>ÀÛ¼º³¯Â¥</td>
+				<td>ì œëª©</td>
+				<td>ì‘ì„±ë‚ ì§œ</td>
+				<td>ê¸€ë‚´ìš©</td>
+				<td>ì¹´í…Œê³ ë¦¬</td>
 			</tr>
 			
-	<% session.setAttribute("id", "test1"); %>
+		<form action="NoticeWrite" method="post">
 			<c:forEach var="pcroomnoticebean" items="${nList}">
 				<tr>
+					<td align="center">${pcroomnoticebean.no_p_id}</td>
 					<td align="center">${pcroomnoticebean.no_num}</td>
-					<td align="center">
-					<a href="./MaContents?no_num=${pcroomnoticebean.no_num}">
-					${pcroomnoticebean.no_title}</a></td>
-					<td align="center">${pcroomnoticebean.no_date}</td>
+					<td align="center">${pcroomnoticebean.no_title}</td>
 					<td align="center">${pcroomnoticebean.no_content}</td>
+					<td align="center">${pcroomnoticebean.no_date}</td>
 					<td align="center">${pcroomnoticebean.no_cate}</td>
+					
 				</tr>
 			</c:forEach>
+			</form>
 		</table>
+		
 		
 	</section>
 			

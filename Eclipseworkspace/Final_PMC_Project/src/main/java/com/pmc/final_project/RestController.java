@@ -26,7 +26,9 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.google.gson.Gson;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IPcRoom;
+import com.pmc.final_project.service.ManagerManagement;
 import com.pmc.final_project.service.MemberManagement;
+import com.pmc.final_project.service.NoticeManagement;
 import com.pmc.final_project.service.PayListManagement;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.ProductManagement;
@@ -56,6 +58,12 @@ public class RestController {
 	
 	@Autowired
 	private PayListManagement paym;
+	
+	@Autowired
+	private ManagerManagement om;
+	
+	@Autowired
+	private NoticeManagement nm;
 	
 	@Autowired
 	HttpSession session;
@@ -202,5 +210,33 @@ public class RestController {
 		return json;
 	}
 	
+<<<<<<< HEAD
+	@RequestMapping(value="/OMMemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
+	public @ResponseBody String OMMemberSearch(@RequestBody String res) {
+		logger.info("OMMemberSearch execute ");
+		String json = mm.OMMemberSearch(res);
+		System.out.println(json);
+		return json;
+	}
+
+	@RequestMapping(value = "/approvalx", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody String approvalx(@RequestParam("param") String id) {
+
+		logger.info("approvalx execute ");
+		System.out.println("첫번째 아이디:"+id);
+		String json = om.approvalx(id);
+		
+		return json;
+	}
+	@RequestMapping(value = "/OMNoticeSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody String OMNoticeSearch(@RequestBody String res) {
+
+		logger.info("OMNoticeSearch execute ");
+	
+		String json = nm.OMNoticeSearch(res);
+		
+		return json;
+	}
+
 
 }

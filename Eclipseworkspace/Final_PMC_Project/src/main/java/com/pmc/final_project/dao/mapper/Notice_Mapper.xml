@@ -2,13 +2,144 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.pmc.final_project.dao_INotice">
+<mapper namespace="com.pmc.final_project.dao.INotice">
+	<select id="OM_Notice" resultType="pcroomnoticebean"
+		parameterType="HashMap">
 
-<insert id="NoticeInsert" parameterType="PcRoomNoticeBean"
-useGeneratedKeys="true" keyProperty="no_num">
-<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
-	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
-</selectKey>
-	INSERT INTO NOTICE VALUES
-</insert>	
+		SELECT * FROM NOTICE WHERE NO_CATE = #{cate}
+
+	</select>
+	<select id="OM_Service" resultType="pcroomnoticebean"
+		parameterType="HashMap">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
+		NO_NUM,SE_TITLE AS
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE FROM SERVICE WHERE SE_CATE = #{cate}
+	</select>
+	<select id="OM_NoticeInfo" parameterType="String"
+		resultType="pcroomnoticebean">
+		SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}
+	</select>
+
+	<select id="OM_ServiceInfo" parameterType="String"
+		resultType="pcroomnoticebean">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
+		NO_NUM,SE_TITLE AS
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE FROM SERVICE WHERE SE_NUM=#{no_num}
+	</select>
+	<select id="OMNoticeSearch" parameterType="String" resultType="pcroomnoticebean">
+		SELECT * FROM NOTICE WHERE NO_P_ID LIKE #{res2} OR NO_TITLE LIKE #{res2}
+	</select>
+
+<mapper namespace="com.pmc.final_project.dao.INotice">
+	<select id="getNoticeList" resultType="PcRoomNoticeBean" parameterType="String">
+	 	SELECT * FROM NOTICE WHERE NO_CATE=#{cate}
+	</select>
+	<select id="getNoticeCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM NOTICE WHERE NO_CATE=#{cate}
+	</select>
+	<select id="getServiceList" resultType="PcRoomNoticeBean" parameterType="String">
+	 	SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS NO_NUM,SE_TITLE AS NO_TITLE,SE_CONTENT AS NO_CONTENT,
+	 	SE_CATE AS NO_CATE FROM SERVICE WHERE SE_CATE=#{cate}
+	</select>
+	<select id="getServiceCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM SERVICE WHERE SE_CATE=#{cate}
+	</select>
+	
+	<insert id="writeinsert" parameterType="PcRoomNoticeBean" keyProperty="no_num">
+	<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+		INSERT INTO NOTICE VALUES (#{no_p_id},#{no_num},#{no_title},#{no_content},#{no_date},#{no_cate})
+	</insert>
+	
+	<select id="NoticeDetail" parameterType="HashMap" resultType="PcRoomNoticeBean">
+		SELECT * FROM NOTICE WHERE NO_P_ID=#{id} AND NO_NUM=#{no_num}
+		
+	
+	</select>
+	<select id="ServiceDetail" parameterType="HashMap" resultType="PcRoomNoticeBean">
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS NO_NUM,SE_TITLE AS NO_TITLE,SE_CONTENT AS NO_CONTENT,
+	 	SE_CATE AS NO_CATE FROM SERVICE WHERE SE_NUM=#{no_num}
+	</select>
+	<delete id="NoticeDelete" parameterType="HashMap">
+		DELETE FROM NOTICE WHERE NO_P_ID=#{id} AND NO_NUM=#{no_num}
+	</delete>
+	
+	<update id="NoticeUpdate" parameterType="PcRoomNoticeBean">
+		UPDATE NOTICE SET NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+	</update>
+	
+	<insert id="swriteinsert" parameterType="PcRoomNoticeBean">
+		<selectKey keyProperty="no_num" resultType="int" order="BEFORE">
+			SELECT SERVICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+		INSERT INTO SERVICE VALUES (#{no_m_id},#{no_p_id},${no_num},#{no_title},#{no_content},#{no_cate})
+	</insert>
+	<insert id="replyInsert" parameterType="reply">
+		INSERT INTO REPLY
+		VALUES (REPLY_SEQ.NEXTVAL, #{r_se_num}, #{r_contents}, #{r_id}, DEFAULT)
+	</insert>
+	<select id="getReplyList" parameterType="int"
+		resultType="reply">
+		SELECT * FROM REPLY WHERE R_SE_NUM=#{se_num}
+	</select>
+	<delete id="replyDelete" parameterType="Integer">
+		DELETE FROM REPLY WHERE R_SE_NUM=#{se_num}
+	</delete>
+<mapper namespace="com.pmc.final_project.dao.INotice">
+   <select id="getPcmasterNotice" resultType="pcroomnoticebean" parameterType="int">
+      SELECT * FROM NOTICE
+   </select>      
+   
+   <select id="getNoticeCount" resultType="int">
+      SELECT COUNT(*) FROM NOTICE
+   </select>
+   
+   
+   <insert id="NoticeInsert" parameterType="pcroomnoticebean"
+   useGeneratedKeys="true" keyProperty="no_num">
+   <selectKey keyProperty="no_num" resultType="int"
+   order="BEFORE">   
+    SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+   </selectKey>
+      INSERT INTO NOTICE (NO_P_ID,NO_NUM,NO_TITLE,NO_CONTENT,NO_CATE)
+      VALUES(#{no_p_id},${no_num},#{no_title},#{no_content},1)
+   </insert>
+   
+   <select id="getContents" resultType="pcroomnoticebean"
+   parameterType="int">
+   SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}   
+   </select>
+   
+   <select id="getMaContents" resultType="pcroomnoticebean"
+   parameterType="int">
+   SELECT * FROM NOTICE WHERE NO_NUM=#{no_num}
+   </select>
+   
+   <select id="getSCContents" resultType="pcroomscbean"
+   parameterType="int">
+   SELECT * FROM SERVICE WHERE SE_NUM=#{se_num}
+   </select>
+   
+   <select id="getPCSCContents" resultType="pcroomscbean"
+   parameterType="int">
+   SELECT * FROM SERVICE WHERE SE_NUM=#{se_num}
+   </select>
+   
+   
+   
+   <insert id="replyInsert" parameterType="reply">
+   INSERT INTO R
+      VALUES(REPLY_SEQ.NEXTVAL, #{r_se_num}, #{r_contents}, #{r_id}, DEFAULT)
+   </insert>
+   
+   <select id="getReplyList" parameterType="int"
+      resultType="reply">
+      SELECT * FROM RLIST WHERE R_SE_NUM=#{se_num}
+   </select>
+   
+   
+   <delete id="NoticeDelete" parameterType="Integer">
+      DELETE FROM NOTICE WHERE NO_NUM=#{no_num}
+   </delete>
 </mapper>

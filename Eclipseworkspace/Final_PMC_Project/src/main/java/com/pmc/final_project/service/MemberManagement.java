@@ -101,7 +101,9 @@ public class MemberManagement {
 	
 	public String MemberSearch(String res) {
 
+
 		String id=(String)session.getAttribute("id");
+	
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("p_id", id);
@@ -114,6 +116,61 @@ public class MemberManagement {
 		String json = new Gson().toJson(smember);
 		return json;
 		
+	}
+	public ModelAndView getOMmemberAllList(Integer pageNum) {
+		mav = new ModelAndView();
+		String view = "OM_MemberList";
+		List<Member> omList = null;
+
+		System.out.println("여기는?");
+		int num = (pageNum == null) ? 1 : pageNum;
+		System.out.println("여기는?2");
+		omList = mDao.getOMmemberAllList();
+		
+		mav.addObject("omList", omList);
+		mav.addObject("OMmemberPaging", getOMmemberPaging(num));
+	
+		mav.setViewName(view);
+		return mav;
+	}
+	private Object getOMmemberPaging(int num) {
+		//전체 회원
+		int maxNum = mDao.getOMmemberCount();
+		//페이지 당 회원 수
+		int listCnt = 10;
+		//그룹당 페이지 수
+		int pageCnt = 3;
+		//게시판이 여러 종류가 있다면 
+		String memberName = "OM_MemberList";
+		Paging mempaging = 
+			new Paging(maxNum, num, listCnt, 
+						pageCnt, memberName);
+				
+		return mempaging.makeHtmlpaging();
+	}
+	public ModelAndView getOMmemberInfo(String m_id) {
+		mav = new ModelAndView();
+		String view = null;
+		
+		Member OMmember = mDao.getOMmemberInfo(m_id);
+		
+		mav.addObject("OMmember", OMmember);
+		
+		view = "OM_MemberInfo";
+		mav.setViewName(view);
+		
+		return mav;
+	}
+	public String OMMemberSearch(String res) {
+
+		String res2 = ("%"+res+"%");
+		System.out.println(res);
+		System.out.println(res2);
+
+		List<Member> omsList = mDao.OMMemberSearch(res2);
+		String json = new Gson().toJson(omsList);
+		
+		return json;
 	}
 
 

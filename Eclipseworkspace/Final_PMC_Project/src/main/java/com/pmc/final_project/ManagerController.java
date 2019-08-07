@@ -25,6 +25,7 @@ import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.service.ManagerManagement;
 import com.pmc.final_project.service.NoticeManagement;
 import com.pmc.final_project.service.PcroomManagement;
+import com.pmc.final_project.service.SeatManagement;
 
 @Controller
 public class ManagerController {
@@ -44,6 +45,9 @@ public class ManagerController {
 	ManagerManagement om;
 
 	@Autowired
+	SeatManagement sm;
+
+	@Autowired
 	HttpSession session;
 
 	@RequestMapping(value = "/OM_Main", method = RequestMethod.GET)
@@ -52,6 +56,10 @@ public class ManagerController {
 
 		return "OM_Main";   
 	}
+	
+	
+
+
 	@RequestMapping(value="/OM_Approval", method = RequestMethod.GET)
 	public ModelAndView JSPSignUp(Integer pageNum) {
 
@@ -63,36 +71,36 @@ public class ManagerController {
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/approval", method = RequestMethod.POST,produces = "application/text; charset=utf8")
 	public @ResponseBody String approval(@RequestBody String id) {
 
 		logger.info("approval execute ");
 		System.out.println("첫번째 아이디:"+id);
 		String json = om.approval(id);
-		
+
 		return json;
 	}
-	
+
 	@RequestMapping(value = "/negative", method = RequestMethod.POST,produces = "application/text; charset=utf8")
 	public @ResponseBody String negative(@RequestBody String id) {
 
 		logger.info("negative execute ");
-		
+
 		String json = om.negative(id);
-		
+
 		return json;
 	}
-	
+
 	@RequestMapping(value = "/OM_PCDetail", method = RequestMethod.GET,produces = "application/text; charset=utf8")
 	public ModelAndView OM_PCDetail(@RequestParam("param") String id) {
 
 		mav = new ModelAndView();
 		logger.info("OM_PCDetail execute ");
-		
+
 		mav = om.OM_PCDetail(id);
-		
-		
+
+
 		return mav;
 	}
 
@@ -104,5 +112,59 @@ public class ManagerController {
 		params.put("resp",resp);
 		om.downLoad(params);
 	}
+
+	@RequestMapping(value="/OM_Approvalx", method = RequestMethod.GET)
+	public ModelAndView OM_Approvalx(Integer pageNum) {
+
+		logger.info("OM_Approvalx execute ");
+
+		mav = om.OM_Approvalx(pageNum);
+
+
+		return mav;
+
+	}
+	@RequestMapping(value = "/OM_SeatState", method = RequestMethod.GET)
+	public ModelAndView SeatState(@RequestParam("p_id") String p_id) {
+
+		mav = sm.SelectSeat(p_id);
+		mav.setViewName("OM_SeatState");
+		return mav;   
+
+	}
+
+	@RequestMapping(value = "/OM_Notice", method = RequestMethod.GET)
+	public ModelAndView OM_Notice(Integer pageNum,@RequestParam String cate) {
+
+		mav = om.OM_Notice(pageNum,cate);
+
+
+		return mav;
+	}
+	@RequestMapping(value = "/OM_Service", method = RequestMethod.GET)
+	public ModelAndView OM_Service(Integer pageNum,@RequestParam String cate) {
+
+		mav = om.OM_Service(pageNum,cate);
+
+
+		return mav;
+	}
+	@RequestMapping(value = "/OM_NoticeInfo")
+	public ModelAndView OM_NoticeInfo(String no_num) {
+
+		mav = om.OM_NoticeInfo(no_num);
+
+
+		return mav;
+	}
+	@RequestMapping(value = "/OM_ServiceInfo")
+	public ModelAndView OM_ServiceInfo(String no_num) {
+
+		mav = om.OM_ServiceInfo(no_num);
+
+
+		return mav;
+	}
+
 
 }

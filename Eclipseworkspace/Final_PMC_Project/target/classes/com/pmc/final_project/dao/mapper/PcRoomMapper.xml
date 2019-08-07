@@ -5,7 +5,8 @@
 <mapper namespace="com.pmc.final_project.dao.IPcRoom">
 	<insert id="JSPSignUp" parameterType="PcRoomBean"><!-- 회원가입 처리 -->
 		INSERT INTO SBPCROOM
-		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun) VALUES
+		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun)
+		VALUES
 		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
 
@@ -16,47 +17,64 @@
 		SELECT p_pass FROM PCROOM WHERE p_id=#{id}
 	</select>
 
-	<select id="getMemberInfo" parameterType="String" resultType="PcRoomBean">
+	<select id="getMemberInfo" parameterType="String"
+		resultType="PcRoomBean">
 		SELECT * FROM PCROOM WHERE P_ID=#{id}
 	</select>
 
-	<select id="PCIdCheck" parameterType="String" resultType="Integer">
+	<select id="PCIdCheck" parameterType="String"
+		resultType="Integer">
 		SELECT COUNT(*) FROM PCROOM WHERE p_id=#{userid}
 	</select>
-	<select id="idsearch" parameterType="PcRoomBean" resultType="String">
-		SELECT P_ID FROM PCROOM WHERE (P_NAME=#{p_name} AND P_PHONE=#{p_phone})
+	<select id="idsearch" parameterType="PcRoomBean"
+		resultType="String">
+		SELECT P_ID FROM PCROOM WHERE (P_NAME=#{p_name} AND
+		P_PHONE=#{p_phone})
 	</select>
-	
+
 	<update id="pwsearch" parameterType="hashmap">
-		UPDATE PCROOM SET P_PASS=#{KeyCode} WHERE P_ID=#{cid}
+		UPDATE PCROOM SET
+		P_PASS=#{KeyCode} WHERE P_ID=#{cid}
 	</update>
-	
-	<select id="emailsearch" parameterType="PcRoomBean" resultType="String">
-		SELECT P_EMAIL FROM PCROOM WHERE (P_ID=#{p_id} AND P_PHONE=#{p_phone})
+
+	<select id="emailsearch" parameterType="PcRoomBean"
+		resultType="String">
+		SELECT P_EMAIL FROM PCROOM WHERE (P_ID=#{p_id} AND
+		P_PHONE=#{p_phone})
 	</select>
-	<select id="idselinfo" parameterType="PcRoomBean" resultType="Integer">
-		SELECT COUNT(*) FROM PCROOM WHERE p_name=#{p_name} AND p_phone=#{p_phone}
+	<select id="idselinfo" parameterType="PcRoomBean"
+		resultType="Integer">
+		SELECT COUNT(*) FROM PCROOM WHERE p_name=#{p_name} AND
+		p_phone=#{p_phone}
 	</select>
-	<select id="pwselinfo" parameterType="PcRoomBean" resultType="Integer">
-		SELECT COUNT(*) FROM PCROOM WHERE p_id=#{p_id} AND p_phone=#{p_phone}
+	<select id="pwselinfo" parameterType="PcRoomBean"
+		resultType="Integer">
+		SELECT COUNT(*) FROM PCROOM WHERE p_id=#{p_id} AND
+		p_phone=#{p_phone}
 	</select>
 	<select id="accept" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) FROM SBPCROOM WHERE p_id=#{p_id}
+		SELECT
+		COUNT(*) FROM SBPCROOM WHERE p_id=#{p_id}
 	</select>
-	
+
 	<insert id="fileupdate" parameterType="HashMap">
-		INSERT INTO PCFILE VALUES (#{sysid},#{sysFileName})
+		INSERT INTO PCFILE VALUES
+		(#{sysid},#{sysFileName})
 	</insert>
 	<update id="changeName" parameterType="PcRoomBean">
-		UPDATE PCROOM SET P_NAME=#{p_name} WHERE P_ID=#{p_id}
+		UPDATE PCROOM SET
+		P_NAME=#{p_name} WHERE P_ID=#{p_id}
 	</update>
 	<update id="changePhone" parameterType="PcRoomBean">
-		UPDATE PCROOM SET P_PHONE=#{p_phone} WHERE P_ID=#{p_id}
+		UPDATE PCROOM SET
+		P_PHONE=#{p_phone} WHERE P_ID=#{p_id}
 	</update>
 	<update id="changepw2" parameterType="HashMap">
-		UPDATE PCROOM SET P_PASS=#{pw} WHERE P_ID=#{id}
+		UPDATE PCROOM SET
+		P_PASS=#{pw} WHERE P_ID=#{id}
 	</update>
-	<select id="selectAll" resultType="PcRoomBean" parameterType="int">
+	<select id="selectAll" resultType="PcRoomBean"
+		parameterType="int">
 		<![CDATA[
 		SELECT * FROM SBPCROOM
 	]]>
@@ -66,21 +84,36 @@
 		SBPCROOM
 	</select>
 	<delete id="approvalDelete" parameterType="String">
-		DELETE FROM SBPCROOM WHERE P_ID=#{id}
+		DELETE FROM SBPCROOM
+		WHERE P_ID=#{id}
 	</delete>
-	<select id="approvalSelect" parameterType="String" resultType="PcRoomBean">
+	<select id="approvalSelect" parameterType="String"
+		resultType="PcRoomBean">
 		SELECT * FROM SBPCROOM WHERE P_ID=#{id}
 	</select>
 	<insert id="approvalInsert" parameterType="PcRoomBean">
 		INSERT INTO PCROOM
-		(P_ID,P_PASS,P_NAME,P_PHONE,P_EMAIL,P_ADDR,P_HOLIDAY,P_DONG,P_SIDO,P_GUGUN) VALUES
+		(P_ID,P_PASS,P_NAME,P_PHONE,P_EMAIL,P_ADDR,P_HOLIDAY,P_DONG,P_SIDO,P_GUGUN)
+		VALUES
 		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
-	<select id="getFileList" parameterType="String" resultType="pcfile">
+	<select id="getFileList" parameterType="String"
+		resultType="pcfile">
 		SELECT * FROM PCFILE WHERE PC_ID=#{id}
 	</select>
-	
-	
+	<select id="selectAll2" resultType="PcRoomBean"
+		parameterType="int">
+		SELECT * FROM PCROOM
+	</select>
+	<update id="approvalx" parameterType="HashMap">
+		UPDATE PCROOM SET
+		P_HOLIDAY=#{holiday} WHERE P_ID =#{id}
+	</update>
+	<select id="HoliSel" parameterType="String" resultType="String">
+		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
+	</select>
+
+
 
 
 </mapper>

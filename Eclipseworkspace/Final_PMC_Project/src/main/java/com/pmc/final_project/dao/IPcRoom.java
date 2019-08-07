@@ -49,12 +49,22 @@ public interface IPcRoom {
 
 	public List<PcRoomBean> getFileList(String id);
 
-	
+	public List<PcRoomBean> selectAll2(int num);
 
-	
+	public void approvalx(Map<Object, Object> map);
 
-	
+	public String HoliSel(String p_id);
 
-	
+
+
+
+
+
+
+
+
+
+
+
 
 }

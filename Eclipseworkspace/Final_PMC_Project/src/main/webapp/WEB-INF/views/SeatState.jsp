@@ -15,7 +15,7 @@
 </head>
 <style>
 html, body, ul {
-	margin: 0;
+	margin: 0;-
 	padding: 0;
 }
 
@@ -178,7 +178,7 @@ input {
 			<li class="mainmenu"><a href="./Product">상품</a></li>
 			<li class="mainmenu"><a href="./MemberList">회원</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./pcmasternotice">기타</a></li>
+			<li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
 		</ul>
 	</header>
 	<aside>
@@ -188,10 +188,7 @@ input {
 			<p />
 			<button onclick="btn2()">정보 수정</button>
 			<button onclick="btn3()">PC방 사진등록</button>
-			<form action="#">
-				<input type="button" onclick="btn1()" id="button1" value=""
-					style="width: 70px; height: 30px;">
-			</form>
+			
 		</div>
 
 		<ul id="SubMenu">
@@ -276,8 +273,8 @@ input {
 </script>
 <script type="text/javascript">
 	function btn3() {
-		var url = "PC";
-		var name = "popup2222";
+		var url = "PCPictureUpdate";
+		var name = "popup21";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);
 	}
