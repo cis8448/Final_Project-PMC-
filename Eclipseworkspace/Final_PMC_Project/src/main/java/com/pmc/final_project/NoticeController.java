@@ -73,7 +73,7 @@ public class NoticeController {
 			mav = new ModelAndView();
 			mav.addObject("cate",cate);
 
-			mav.setViewName("WriteService");
+			mav.setViewName("WriteFrm");
 			return mav;
 		}
 
