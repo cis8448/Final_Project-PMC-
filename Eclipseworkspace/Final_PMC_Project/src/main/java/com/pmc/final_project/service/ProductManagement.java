@@ -115,14 +115,21 @@ public class ProductManagement {
 		String PC_ID = null;
 		List<ProductBean> proList = prDao.selectcountcate(p_id);
 		
-		if(proList != null) {
-			for(int i = 0; i < proList.size();i++) {
-				String pc_id = proList.get(i).getPc_id();
-				String spc_id = pc_id.substring((2+p_id.length()),proList.get(i).getPc_id().length());
-				if(spc_id.equals(""+(proList.size()-1))) {
-					PC_ID = "PC"+p_id +(Integer.parseInt(spc_id)+1);
-				}
-			}
+		if(proList.size() !=0 ) {
+		         int sizecheck = -1;
+		         for(int i = 0; i < proList.size();i++) {
+		             int num=Integer.parseInt(proList.get(i).getPc_id().substring(2+p_id.length(),
+		            		 						proList.get(i).getPc_id().length()));
+		            if(i == 0) {
+		               sizecheck = num;
+		               }else {
+		               if(sizecheck < num){
+		                  sizecheck = num;
+		               }
+		            }
+		            
+		         }
+		         PC_ID = "PC"+p_id+(sizecheck+1);
 		}else {
 			PC_ID = "PC"+p_id +0;
 		}
@@ -184,13 +191,18 @@ public class ProductManagement {
 		HashMap<String, String> fMap = new HashMap<String, String>();
 		List<ProductBean> prolist = prDao.getpcidList(multi.getParameter("pr_pc_id"));
 		if(prolist.size() !=0) {
-			for(int i = 0; i < prolist.size();i++) {
-				String pr_id = prolist.get(i).getPr_id();
-				String spr_id = pr_id.substring(2+pc_id.length(),pr_id.length());
-				if(spr_id.equals(""+(prolist.size()-1))) {
-					mpr_id = "PR"+multi.getParameter("pr_pc_id") + (Integer.parseInt(spr_id)+1);
-				}
-			}
+			 int sizecheck = -1;
+	         for(int i = 0; i < prolist.size();i++) {
+	             int num1=Integer.parseInt(prolist.get(i).getPr_id().substring(2+pc_id.length(), prolist.get(i).getPr_id().length()));
+	            if(i == 0) {
+	               sizecheck = num1;
+	               }else {
+	               if(sizecheck < num1){
+	                  sizecheck = num1;
+	               }
+	            }
+	         }
+	         mpr_id = "PR"+pc_id + (sizecheck+1);
 		}else {
 			mpr_id = "PR"+multi.getParameter("pr_pc_id") + 0;
 		}
@@ -210,7 +222,7 @@ public class ProductManagement {
 		fMap.put("pr_price", multi.getParameter("pr_price"));
 		fMap.put("pr_qty", multi.getParameter("pr_qty"));
 		prDao.fileupdate(fMap);
-		
+		fMap.put("success", "1");
 		String json = new Gson().toJson(fMap);
 		return json;
 	}
@@ -311,7 +323,7 @@ public class ProductManagement {
 		if(f) {
 			map.put("success", "0");
 		}else {
-			map.put("success", "0");
+			map.put("success", "1");
 		}
 		json = new Gson().toJson(map);
 		return json;

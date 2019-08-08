@@ -41,15 +41,15 @@
 
 	<header>
 		<div>
-			<img src="./resources/img/dd.png" width="200" height="140">
-		</div>
-		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
-		</ul>
+        <img src="./resources/img/dd.png">
+        </div> 
+        <ul id="Menu">
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="./Product">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+        </ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
@@ -122,11 +122,14 @@ function cateSearch(){
             var tbl = document.getElementById('cateResult');
 	         var result = "";
 	         for(var i=0;i<data.length;i++){
+	        	 result += '<tr align="center">'
                 result += '<td>'+data[i].u_start+'</td>'
 	            result += '<td>'+data[i].u_m_id+'</td>'
 	            result += '<td>'+data[i].pr_name+'</td>'
 	            result += '<td>'+data[i].pl_qty+'</td>'
 	            result += '<td>'+data[i].pl_price+'</td>'
+	            result += '</tr">'
+	            
 		}
                  
              

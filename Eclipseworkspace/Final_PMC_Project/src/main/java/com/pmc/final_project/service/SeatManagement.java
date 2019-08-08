@@ -80,7 +80,6 @@ public class SeatManagement {
 						 SeatBean sb = new SeatBean();
 						 sb.setP_id(p_id);
 						 sb.setS_id("pc"+p_id+j);
-						 System.out.println("pc"+p_id+j);
 						 sb.setS_state("대기");
 						 sb.setS_noreserve("불가");
 						 f=sDao.insertSeat(sb);
@@ -92,12 +91,12 @@ public class SeatManagement {
 		 }else if(seatv.size() < datacnt) {
 			List<SeatBean> beans = sDao.selectAll(p_id);
 			int size = datacnt - seatv.size()-1;
-			for(int i = beans.size()-1; i > 0; i--) {
+			for(int i = beans.size()-1; i >= 0; i--) {
 				if(seatv.size()-1 == seatv.size()+size) {
 					break;
 				}
-				if(beans.get(i).getS_id().equals((seatv.size()+size)+"")){
-					beans.get(i).setS_id("pc"+p_id+beans.get(i).getS_id());
+				if(beans.get(i).getS_id().equals("pc"+p_id+(seatv.size()+size)+"")){
+					beans.get(i).setS_id(beans.get(i).getS_id());
 					sDao.deleteSeat(beans.get(i));
 					size--;
 					i = beans.size();
@@ -106,10 +105,10 @@ public class SeatManagement {
 		 }
 		 //파일업로드 
 		 if(num.equals("1")) {
-			 String root = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+			 String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 			 
 				String path = root + "resources\\"+p_id;
-				System.out.println(src);
+				
 				
 				
 				File dir = new File(path);
@@ -154,6 +153,8 @@ public class SeatManagement {
 						e.printStackTrace();
 					}
 				}
+		 }else {
+			 f=true;
 		 }
 		 return f;
 	}
@@ -184,7 +185,7 @@ public class SeatManagement {
 
 	public String seatcheck(String param) {
 		List<SeatBean> seats = sDao.selectAll(param);
-		System.out.println(param);
+		
 		List<SeatBean> seatset = new ArrayList<SeatBean>();
 		
 		for(int i =0;i < seats.size();i++) {
@@ -211,7 +212,8 @@ public class SeatManagement {
 		
 		for(int i =0;i < seats.size();i++) {
 			for(int j = 0; j < seats.size(); j++) {
-				if(seats.get(j).getS_id().equals(i+"")) {
+				if(seats.get(j).getS_id().equals("pc"+p_id+i)) {
+					seats.get(j).setS_id(i+"");
 					String check = seats.get(j).getM_id();
 					if(check == null) {
 						seats.get(j).setM_id(" ");
@@ -220,7 +222,8 @@ public class SeatManagement {
 					}
 					check = seats.get(j).getS_spec();
 					if(check == null) {
-						jsonset = "스펙정보를 입력해주세요/스펙정보를 입력해주세요/스펙정보를 입력해주세요"; 
+						jsonset = "스펙정보를 입력해주세요/스펙정보를 입력해주세요/스펙정보를 입력해주세요";
+						seats.get(j).setS_spec(jsonset);
 					}else {
 						JsonParser parser = new JsonParser();
 						JsonObject jsons = (JsonObject)parser.parse(seats.get(j).getS_spec());
@@ -230,17 +233,14 @@ public class SeatManagement {
 						try {
 						 a = jsons.get("a").getAsString();
 						}catch (Exception e) {
-							System.out.println("a");
 						}
 						try {
 							 b = jsons.get("b").getAsString();
 							}catch (Exception e) {
-								System.out.println("b");
 							}
 						try {
 							 c = jsons.get("c").getAsString();
 							}catch (Exception e) {
-								System.out.println("c");
 							}
 						if(a!=null) {
 							jsonset = a;
@@ -264,7 +264,6 @@ public class SeatManagement {
 				}
 			}
 		}
-		System.out.println(seatset.get(snum).getS_spec());
 		mav.addObject("SeatList", seatset);
 		mav.addObject("SeatSet", seatset.get(snum));
 		mav.setViewName("SeatDetail");
@@ -277,7 +276,8 @@ public class SeatManagement {
 		
 		for(int i =0;i < seats.size();i++) {
 			for(int j = 0; j < seats.size(); j++) {
-				if(seats.get(j).getS_id().equals(i+"")) {
+				if(seats.get(j).getS_id().equals("pc"+p_id+i)) {
+					seats.get(j).setS_id(i+"");
 					String check = seats.get(j).getM_id();
 					if(check == null) {
 						seats.get(j).setM_id(" ");
@@ -302,17 +302,14 @@ public class SeatManagement {
 						try {
 						 a = jsons.get("a").getAsString();
 						}catch (Exception e) {
-							System.out.println("a");
 						}
 						try {
 							 b = jsons.get("b").getAsString();
 							}catch (Exception e) {
-								System.out.println("b");
 							}
 						try {
 							 c = jsons.get("c").getAsString();
 							}catch (Exception e) {
-								System.out.println("c");
 							}
 						if(a != null ) {
 							map.put("a",a);
@@ -340,7 +337,6 @@ public class SeatManagement {
 					}	
 				}
 			}
-		System.out.println(seatset.get(4).getS_spec());
 		String json = new Gson().toJson(seatset.get(snum));
 		
 		return json;
@@ -361,17 +357,14 @@ public class SeatManagement {
 			try {
 			 a = jsons.get("a").getAsString();
 			}catch (Exception e) {
-				System.out.println("a");
 			}
 			try {
 				 b = jsons.get("b").getAsString();
 				}catch (Exception e) {
-					System.out.println("b");
 				}
 			try {
 				 c = jsons.get("c").getAsString();
 				}catch (Exception e) {
-					System.out.println("c");
 				}
 			if(a != null && !num.equals("a")) {
 				map.put("a",a);

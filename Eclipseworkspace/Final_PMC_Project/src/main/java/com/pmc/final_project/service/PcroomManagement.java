@@ -105,6 +105,7 @@ public class PcroomManagement {
 		if(endPwd != null) {
 			if(pwdEncoder.matches(pr.getP_pass(), endPwd)) {
 				//내부적으로 db에 암호화된 비밀번호와 비교하여 일치하면T 아니면 f로 리턴
+				System.out.println("들어오니?");
 				String holiday= pDao.HoliSel(pr.getP_id());
 				if(holiday.equals("3")) {
 					view = "redirect:/LoginFail";
@@ -254,7 +255,7 @@ public class PcroomManagement {
 		boolean f = false;
 
 		if(check.equals("1")) {
-			System.out.println("들어옴");
+			
 			f= fileProc.upFile(multi,_id);
 		}
 		if(f) {

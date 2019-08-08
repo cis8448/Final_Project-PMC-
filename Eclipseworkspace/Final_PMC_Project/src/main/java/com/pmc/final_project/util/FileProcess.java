@@ -33,7 +33,7 @@ public class FileProcess {
 
 	public boolean upFile(MultipartHttpServletRequest multi, String _id) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\53\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		String path = root + "resources\\file\\";
 
 		File dir = new File(path);
@@ -53,12 +53,8 @@ public class FileProcess {
 			//원래 파일 이름
 			
 			String oriName = mf.getOriginalFilename();
-			System.out.println(multi.getParameter("pr_pc_id"));
-			fMap.put("pr_pc_id", multi.getParameter("pr_pc_id"));
-			fMap.put("pr_id", "시발");
-			fMap.put("pr_name", multi.getParameter("pr_name"));
-			fMap.put("pr_price", multi.getParameter("pr_price"));
-			fMap.put("pr_qty", multi.getParameter("pr_qty"));
+		
+			
 			
 			fMap.put("sysid",_id);
 			fMap.put("oriFileName", oriName);
@@ -73,7 +69,7 @@ public class FileProcess {
 			try {
 				mf.transferTo(new File(path + sysName));
 				//파일 데이터 저장
-				f = prDao.fileupdate(fMap);
+				f = pDao.fileupdate(fMap);
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
@@ -111,7 +107,7 @@ public class FileProcess {
 
 	public HashMap<String, String> ProductFile(MultipartHttpServletRequest multi, String _id) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\53\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		System.out.println(root);
 		String path = root + "resources/file/";
 
@@ -132,7 +128,7 @@ public class FileProcess {
 			//원래 파일 이름
 			
 			String oriName = mf.getOriginalFilename();
-			System.out.println(multi.getParameter("pr_pc_id"));
+			
 			
 			
 			fMap.put("sysid",_id);
@@ -157,8 +153,8 @@ public class FileProcess {
 	}
 	public HashMap<String, String> Productup(MultipartHttpServletRequest multi, String _id) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\53\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
-		System.out.println(root);
+		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		
 		String path = root + "resources/file/";
 		HashMap<String, String> fMap = new HashMap<String, String>();
 		File dir = new File(path);
@@ -185,7 +181,7 @@ public class FileProcess {
 			//원래 파일 이름
 			
 			String oriName = mf.getOriginalFilename();
-			System.out.println(multi.getParameter("pr_pc_id"));
+			
 			
 			
 			fMap.put("sysid",_id);

@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:textSize="20sp"
+                android:inputType="textPassword"
                 android:layout_marginLeft="10dp"/>
         </TableRow>
     </TableLayout>
