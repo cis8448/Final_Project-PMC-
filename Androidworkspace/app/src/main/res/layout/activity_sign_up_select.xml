@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpSelect"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <ImageView
         android:layout_marginTop="70dp"
@@ -15,19 +16,19 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_marginLeft="60dp"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="피모씨 PC로 가입하기"
         android:textSize="20sp"
         android:onClick="SignUp"/>
     <com.kakao.usermgmt.LoginButton
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/com_kakao_login"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginBottom="30dp"
-        android:layout_marginLeft="60dp"
         android:layout_marginRight="20dp"/>
 
 </LinearLayout>

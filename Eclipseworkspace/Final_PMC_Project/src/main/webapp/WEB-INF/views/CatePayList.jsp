@@ -88,11 +88,7 @@
 		<tbody id="cateResult" align="center">
 		<c:forEach var="cate" items="${cateList}">
 			
-				${cateResult.u_start}
-				${cateResult.m_id}
-				${cateResult.p_name}
-				${cateResult.pl_qty}
-				${cateResult.pl_price}
+	
 			
 		</c:forEach>
 		</tbody>
@@ -115,10 +111,11 @@ function cateSearch(){
 	$.ajax({
         type : 'post',
         url : 'casearch',
-		data : pc_name,
+		data : selcate,
 		dataType : 'json',
 		contentType : "application/json; charset=UTF-8",
 		success : function(data){
+			console.log(data)
             var tbl = document.getElementById('cateResult');
 	         var result = "";
 	         for(var i=0;i<data.length;i++){

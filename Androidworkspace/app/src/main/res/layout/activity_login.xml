@@ -14,37 +14,51 @@
         android:src="@drawable/pmc1"
         android:layout_gravity="center"/>
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10px">
-        <TableRow>
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
             <ImageView
-                android:layout_width="30dp"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/man_user"
-                android:layout_marginLeft="80dp"/>
+                android:src="@drawable/man_user"/>
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:hint="UserId"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
-        </TableRow>
-        <TableRow>
+                android:layout_marginLeft="10dp"
+                android:onClick="idcheck"
+                android:singleLine="true"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
             <ImageView
-                android:layout_width="30dp"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/key"
-                android:layout_marginLeft="80dp"/>
+                />
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
-        </TableRow>
-    </TableLayout>
+                android:layout_marginLeft="10dp"
+                android:onClick="passcheck"
+                android:singleLine="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,24 +68,31 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="ID/Password"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:background="@drawable/roundgreen"/>
         <Button
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="회원가입"
             android:textSize="15sp"
-            android:onClick="SignUpSelect"/>
+            android:onClick="SignUpSelect"
+            android:background="@drawable/roundgreen"/>
     </LinearLayout>
         <Button
             android:layout_marginLeft="30dp"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:text="피모씨 PC로 로그인"
-            android:textSize="15sp"/>
-        <Button
-            android:layout_marginLeft="30dp"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:text="간편 로그인"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:background="@drawable/roundgreen"/>
+
+    <com.kakao.usermgmt.LoginButton
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/com_kakao_login"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"/>
 </LinearLayout>

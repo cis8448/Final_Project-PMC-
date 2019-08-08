@@ -114,7 +114,7 @@
 		<tbody id="prlist">	
 		<c:forEach var="paymentdetail" items="${pList}">
 		<c:set var="Date" value="${paymentdetail.u_start}"/>
-    
+    	
     	</c:forEach>
 		</tbody>
 	</table>
