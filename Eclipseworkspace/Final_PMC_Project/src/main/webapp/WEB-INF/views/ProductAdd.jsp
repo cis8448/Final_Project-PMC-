@@ -217,24 +217,13 @@ button {
 
 		</div>
 		<ul id="Menu">
-			<li class="mainmenu"><a href="./">좌석</a></li>
-			<li class="mainmenu"><a href="./Product">상품</a></li>
-			<li class="mainmenu"><a href="#">회원</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
 		</ul>
 	</header>
-	<aside>
-		<ul id="SubMenu">
-			<li class="SubMenu"><a href="#">전체</a></li>
-			<li class="SubMenu"><a href="#">라면</a></li>
-			<li class="SubMenu"><a href="#">식사</a></li>
-			<li class="SubMenu"><a href="#">음료</a></li>
-			<li class="SubMenu"><a href="#">커피</a></li>
-			<li class="SubMenu"><a href="#">토핑추가</a></li>
-			<li class="SubMenu"><a href="#">카테고리 추가</a></li>
-		</ul>
-	</aside>
 	<section>
 		<h1 class="add">상품 추가</h1>
 		<table border="1px solid black" class="ii">
