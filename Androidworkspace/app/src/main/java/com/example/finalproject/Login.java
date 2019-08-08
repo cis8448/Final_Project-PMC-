@@ -17,4 +17,13 @@ public class Login extends AppCompatActivity {
     public void SignUpSelect(View view) {
         andcon.sub(this,"SignUpSelectOpen");
     }
+
+
+    public void idcheck(View view){
+        andcon.sub(this, "idcheck");
+    }
+
+    public void passcheck(View view){
+        andcon.sub(this, "passcheck");
+    }
 }

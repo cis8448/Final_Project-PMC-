@@ -20,4 +20,22 @@ public interface INotice {
 
 	List<PcRoomNoticeBean> OMNoticeSearch(String res2);
 
+	List<PcRoomNoticeBean> getNoticeList(String cate);
+
+	PcRoomNoticeBean getNoticeDetail(String b_num);
+
+	boolean UpdateNotice(PcRoomNoticeBean noBean);
+
+	boolean DeleteNotice(String b_num);
+
+	List<PcRoomNoticeBean> getServiceList(String cate);
+
+	PcRoomNoticeBean getServiceDetail(String b_num);
+
+	boolean UpdateService(PcRoomNoticeBean noBean);
+
+	boolean DeleteService(String b_num);
+
+	Object SelectP_id(String b_num);
+
 }

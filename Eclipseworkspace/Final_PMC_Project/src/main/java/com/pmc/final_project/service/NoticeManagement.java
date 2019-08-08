@@ -38,6 +38,86 @@ public class NoticeManagement {
 	@Autowired
 	private HttpSession session;
 
+	public ModelAndView getNoticeList(String cate) {
+		mav = new ModelAndView();
+		List<PcRoomNoticeBean> nl = null;
+		nl = nDao.getNoticeList(cate);
+		mav.addObject("nList",nl);
+		mav.setViewName("NotoceList");
+		return mav;
+	}
+	public ModelAndView getServiceList(String cate) {
+		mav = new ModelAndView();
+		List<PcRoomNoticeBean> nl = null;
+		nl = nDao.getServiceList(cate);
+		mav.addObject("nList",nl);
+		mav.setViewName("NotoceList");
+		return mav;
+	}
+	public ModelAndView getNoticeDetile(String b_num) {
+		mav = new ModelAndView();
+		PcRoomNoticeBean nobean = nDao.getNoticeDetail(b_num);
+		mav.addObject("nList",nobean);
+		mav.setViewName("NoticeDetail");
+		return mav;
+	}
+	public ModelAndView getServiceDetile(String b_num) {
+		mav = new ModelAndView();
+		PcRoomNoticeBean nobean = nDao.getServiceDetail(b_num);
+		mav.addObject("nList",nobean);
+		mav.setViewName("NoticeDetail");
+		return mav;
+	}
+	
+	public ModelAndView getNoticeUpdate(PcRoomNoticeBean noBean) {
+		mav = new ModelAndView();
+		noBean.setNo_p_id((String)session.getAttribute("id"));
+		
+		if(nDao.UpdateNotice(noBean)) {
+			mav.addObject("check", 1);
+		}else {
+			mav.addObject("check", 0);
+		}
+		mav.setViewName("redirect:NoticeList?cate=1");
+		return mav;
+	}
+	public ModelAndView getServiceUpdate(PcRoomNoticeBean noBean) {
+		mav = new ModelAndView();
+		noBean.setNo_p_id((String)session.getAttribute("id"));
+		if(noBean.getNo_p_id().equals((nDao.SelectP_id(noBean.getNo_num()+"")))) {
+		if(nDao.UpdateService(noBean)) {
+			mav.addObject("check", 1);
+		}else {
+			mav.addObject("check", 0);
+		}
+		}
+		mav.setViewName("redirect:ServiceList?cate=1");
+		return mav;
+	}
+	public ModelAndView DeleteNotice(String b_num) {
+		mav = new ModelAndView();
+		if(nDao.DeleteNotice(b_num)) {
+			mav.addObject("check","2");
+		}else {
+			mav.addObject("check","3");
+		}
+		mav.setViewName("redirect:NoticeList?cate=1");
+		return mav;
+	}
+	public ModelAndView DeleteService(String b_num) {
+		mav = new ModelAndView();
+		String p_id = (String)session.getAttribute("id");
+		if(p_id.equals(nDao.SelectP_id(b_num))) {
+			if(nDao.DeleteService(b_num)) {
+				mav.addObject("check","2");
+			}else {
+				mav.addObject("check","3");
+			}
+		}
+		mav.setViewName("redirect:ServiceList?cate=1");
+		return mav;
+	}
+	
 	
 	public String OMNoticeSearch(String res) {
 		// TODO Auto-generated method stub
@@ -48,28 +128,19 @@ public class NoticeManagement {
 		
 		return json;
 	}
+	
+	
+	
+	
+	
 
 
-	public ModelAndView getNoticeList(Integer pageNum, String cate) {
-		
-		mav = new ModelAndView();
-		
-		if(cate == null) {
-			cate = "0";
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		return mav;
-	}
+
+
+
+
+
+	
 }
 
 
