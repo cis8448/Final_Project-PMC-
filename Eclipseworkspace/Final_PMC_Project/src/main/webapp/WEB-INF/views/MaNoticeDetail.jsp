@@ -35,7 +35,7 @@
         
     </style>
 <body>
-    <header>
+
         <div>
         <img src="./resources/img/dd.png">
         </div> 
@@ -48,7 +48,7 @@
             <li class="mainmenu"><a href="./MasterNotice">기타</a></li>
 
         </ul>    
-    </header>
+   
   <aside>
 	  
     <ul id="SubMenu">
@@ -99,6 +99,10 @@
 						<input type="text" class="login-field"
 							value="${pcroomnoticebean.no_cate}" readonly="readonly">
 					</div>
+					</div>
+					</div>
+					</div>
+					</center>
 					
     </section>
     <footer>

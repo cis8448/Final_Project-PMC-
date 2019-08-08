@@ -1,17 +1,17 @@
 package com.pmc.final_project.bean;
 
 import java.sql.Timestamp;
-
 import org.apache.ibatis.type.Alias;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 
 @Alias("reply")
 public class Reply {
+
 	private int r_num;//댓글번호
 	private int r_se_num;//글번호
 	private String r_contents;//댓글내용
-	@JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
 	private Timestamp r_date;
 	private String r_id;
 	

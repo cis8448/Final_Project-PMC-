@@ -34,7 +34,8 @@ table {
 					<td align="center" name="pc_id"><a href="#"
 						onclick="btn1('${PcRoomBean.p_id}');">${PcRoomBean.p_id}</a></td>
 					<td><button style="text-align: center;"
-							onclick="approval(this);" value="${PcRoomBean.p_id}">승인</button>
+							onclick="approval(this);"
+							value="${PcRoomBean.p_id}">승인</button>
 						<button style="text-align: center;" onclick="negative(this);"
 							value="${PcRoomBean.p_id}">거절</button> <input type="hidden"
 						value="${PcRoomBean.p_id}"></td>
@@ -52,9 +53,9 @@ table {
 		var id = $(obj).val();
 		console.log(id)
 
-		$.ajax(   {
+		$.ajax({
 			type : 'post',
-			url : 'approvalx',
+			url : 'approval',
 			data : id,
 			dataType : 'json',
 			success : function(data) {
@@ -85,9 +86,9 @@ table {
 		});
 	}
 	function btn1(obj) {
-		
+
 		console.log(obj);
-		var url = "OM_PCDetail?param="+obj+"/1";
+		var url = "OM_PCDetail?param=" + obj + "/1";
 		var name = "popup11";
 		var option = "width=700 , height=600";
 		window.open(url, name, option);
