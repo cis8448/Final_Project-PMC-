@@ -61,17 +61,6 @@ public class MainController {
 
 		return "LoginFail";   
 	}
-	//	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
-	//	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
-	//
-	//		logger.info("JSPIdOverLap execute ");
-	//
-	//		String  str = "";
-	//
-	//
-	//		return str;
-	//
-	//	}
 
 
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑

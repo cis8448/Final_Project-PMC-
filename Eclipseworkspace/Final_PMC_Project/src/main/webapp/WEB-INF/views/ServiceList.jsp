@@ -152,11 +152,11 @@ table {
 		<img src="./resources/image/dd.png">
 	</div>
 	<ul id="Menu">
-		<li class="mainmenu"><a href="./Main">좌석</a></li>
+		<li class="mainmenu"><a href="./SeatState">좌석</a></li>
 		<li class="mainmenu"><a href="./Product">상품</a></li>
 		<li class="mainmenu"><a href="./MemberList">회원</a></li>
 		<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-		<li class="mainmenu"><a href="./NoticeList">기타</a></li>
+		<li class="mainmenu"><a href="#">기타</a></li>
 	</ul>
 
 

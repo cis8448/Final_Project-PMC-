@@ -76,8 +76,8 @@
 		//form 데이터 가져오기
 		var fData = new FormData();
 		fData.append("fileCheck", $("#fileCheck").val());
-		fData.append("_id", $("#userid").val());
-		console.log($("#userid").val());
+		fData.append("_id", <%=(String)request.getAttribute("id")%>);
+		console.log(<%=(String)request.getAttribute("id")%>);
 		var files = $obj[0].files;
 		for (var i = 0; i < files.length; i++) {
 			fData.append("files" + i, files[i]);

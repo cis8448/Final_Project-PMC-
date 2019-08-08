@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/Style_login.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/Style.css" type="text/css">
 </head>
 <body>
-	<
 </body>
 </html>
