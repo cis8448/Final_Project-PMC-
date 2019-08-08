@@ -37,103 +37,54 @@ public class NoticeController {
 	HttpSession session;
 	
 
-	//전체 공지사항 출력
-	@RequestMapping(value = "/NoticeList") 
-	public @ResponseBody ModelAndView NoticeList(Integer pageNum, @RequestParam String cate) {
-
-		mav = nm.getNoticeList(pageNum, cate);
-		mav.addObject("cate",cate);
-
-		return mav;
-	}
-		//공지사항 작성
-		@RequestMapping(value = "/NoticeWrite")
-		public @ResponseBody ModelAndView NoticeWrite(@RequestParam String cate) {
-
-			mav = new ModelAndView();
-			mav.addObject("cate","0");
-			mav.setViewName("NoticeWrite");
-
+		@RequestMapping(value = "/NoticeList")
+		public ModelAndView boardList(String Cate) {
+			mav = nm.getNoticeList(Cate);
 			return mav;
 		}
-		//글작성폼
-		@RequestMapping(value ="/WriteFrm")
-		public ModelAndView WriteFrm(@RequestParam String cate) {
-
-			mav = new ModelAndView();
-			mav.addObject("cate",cate);
-
-			mav.setViewName("WriteFrm");
+	
+		@RequestMapping(value = "./NoticeDetail")
+		public ModelAndView boardDetail(@RequestParam("b_num")String b_num) {
+			mav = nm.getNoticeDetile(b_num);
 			return mav;
 		}
-		//고객센터 글작성
-		@RequestMapping(value ="/WriteService")
-		public ModelAndView WriteService(@RequestParam String cate) {
-
-			mav = new ModelAndView();
-			mav.addObject("cate",cate);
-
-			mav.setViewName("WriteFrm");
+		@RequestMapping(value = "./NoticeUpdateOpen")
+		public String NoticeUpdateOpen(PcRoomNoticeBean noBean) {
+			return "NoticeUpdate";
+		}
+		@RequestMapping(value = "NoticeUpdate")
+		public ModelAndView NoticeUpdate(PcRoomNoticeBean noBean) {
+			mav = nm.getNoticeUpdate(noBean);
 			return mav;
 		}
-
-		@RequestMapping(value = "/writeinsert")
-		public ModelAndView writeinsert(PcRoomNoticeBean pcRoomNoticeBean) {
-
-			mav = nm.writeinsert(pcRoomNoticeBean);
-
+		@RequestMapping(value = "NoticeDelete")
+		public ModelAndView NotoceDelete(String b_num) {
+			mav = nm.DeleteNotice(b_num);
+			
 			return mav;
 		}
-		//공지사항 글삭제
-		@RequestMapping(value = "/NoticeDelete")
-		public ModelAndView NoticeDelete(String no_num) {
-
-			mav = nm.NoticeDelete(no_num);
-
+		@RequestMapping(value = "/ServiceList")
+		public ModelAndView ServiceList(String Cate) {
+			mav = nm.getServiceList(Cate);
 			return mav;
 		}
-		//업데이트
-		@RequestMapping(value = "/NoticeUpdate")
-		public ModelAndView NoticeUpdate(PcRoomNoticeBean Nbean){
-			mav = nm.NoticeUpdate(Nbean);
+		
+		@RequestMapping(value = "./ServiceDetail")
+		public ModelAndView ServiceDetail(@RequestParam("b_num")String b_num) {
+			mav = nm.getServiceDetile(b_num);
 			return mav;
 		}
-		@RequestMapping(value = "/NoticeUpdateOpen")
-		public ModelAndView NoticeUpdateOpen(String no_num){
-			PcRoomNoticeBean pr = new PcRoomNoticeBean();
-			pr.setNo_num(Integer.parseInt(no_num));
-			mav = nm.NoticeDetail(pr);
-			mav.setViewName("NoticeUpdate");
+		@RequestMapping(value = "ServiceUpdate")
+		public ModelAndView ServiceUpdate(PcRoomNoticeBean noBean) {
+			mav = nm.getServiceUpdate(noBean);
 			return mav;
 		}
-
-
-		//공지사항 상세보기
-		@RequestMapping(value = "/NoticeDetail")
-		public ModelAndView NoticeDetail(PcRoomNoticeBean pr) {
-
-			mav = nm.NoticeDetail(pr);
-
+		@RequestMapping(value = "ServiceDelete")
+		public ModelAndView ServiceDelete(String b_num) {
+			mav = nm.DeleteService(b_num);
+			
 			return mav;
 		}
-
-		@RequestMapping(value = "/ServiceList") 
-		public @ResponseBody ModelAndView ServiceList(Integer pageNum, @RequestParam String cate) {
-
-			mav = nm.getServiceList(pageNum, cate);
-			mav.addObject("cate",cate);
-
-			return mav;
-		}
-
-		@RequestMapping(value = "/replyInsert", produces = "application/json; charset=UTF-8")
-		public @ResponseBody Map<String, List<Reply>> replyInsert(Reply r){
-			Map<String, List<Reply>> rMap = nm.replyInsert(r);
-			return rMap;
-		}
-
-
-
 		@RequestMapping(value = "/OM_Nwrite")
 		public String OM_Nwrite() {
 

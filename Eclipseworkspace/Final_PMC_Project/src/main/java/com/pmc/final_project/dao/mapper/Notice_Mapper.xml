@@ -3,6 +3,34 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pmc.final_project.dao.INotice">
+	<select id="getNoticeList" parameterType="String" resultType="PcRoomNoticeBeam">
+		SELECT * FROM NOTICE WHERE NO_CATE = #{cate}
+	</select>
+	<select id="getNoticeDetail" parameterType="String" resultType="PcRoomNoticeBeam">
+		SELECT * FROM NOTICE WHERE NO_NUM = #{b_num}
+	</select>
+	<update id="UpdateNotice" parameterType="PcRoomNoticeBeam">
+		UPDATE NOTICE SET NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+	</update>
+	<delete id="DeleteNotice" parameterType="String">
+		DELETE FROM NOTICE WHERE NO_NUM = #{b_num}
+	</delete>
+	<select id="getServiceList" parameterType="String" resultType="PcRoomNoticeBeam">
+		SELECT * FROM SERVICE WHERE NO_CATE = #{cate}
+	</select>
+	<select id="getServiceDetail" parameterType="String" resultType="PcRoomNoticeBeam">
+		SELECT * FROM SERVICE WHERE NO_NUM = #{b_num}
+	</select>
+	<update id="UpdateService" parameterType="PcRoomNoticeBeam">
+		UPDATE SERVICE SET NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+	</update>
+	<delete id="DeleteService" parameterType="String">
+		DELETE FROM SERVICE WHERE NO_NUM = #{b_num}
+	</delete>
+	<select id="SelectP_id" parameterType="String" resultType="String">
+		SELECT NO_P_ID FROM SERVICE WHERE NO_NUM = #{b_num}
+	</select>
+
 	<select id="OM_Notice" resultType="PcRoomNoticeBean"
 		parameterType="HashMap">
 
