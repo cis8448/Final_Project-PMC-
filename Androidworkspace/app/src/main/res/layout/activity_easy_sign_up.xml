@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:orientation="vertical">
+
+    <!-- 회원 관리정책 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="피모씨 회원 관리 정책"
+            android:textSize="25sp" />
+        <!--  선긋기 -->
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#000000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 점주회원은 휴업이나 내부공사 또는 폐업 시 휴업신청을 언제든지 신청할 수 있다"
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. 언제든지 피모씨 서비스 이용계약을 해지할 수 있다."
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. 해당관리자는 회원과 점주회원이 가입시 개인정보를 절대 다른곳에서 사용하지 않는다."
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. 회원은 최대 1개의 PC방의좌석만 예약이 가능하다."
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. 좌석예약 취소의 빈도가 잦을 시 해당 PC방점주의 권한으로 회원이 블락 처리 할 수 있다. (블락 처리된 회원은 예약,주문 등 주요 기능 제한)"
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. 블락처리 된 회원은 모바일 애플리케이션에 있는 고객센터에 있는 블락해제신청을 통해 블락을 풀 수 있다. (타당한 사유 시 블락처리해제)"
+            android:textSize="10sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. 피모씨의 서비스, 문의, 개선할점, 궁금사항이 있을 시 고객센터 게시판을 통해 문의시 2~3일내 답변을 받을 수 있다."
+            android:textSize="10sp"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:background="#000000"/>
+    </LinearLayout>
+    <!-- 동의여부 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동의여부"
+            android:textSize="20sp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="동의"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="거부"/>
+        </RadioGroup>
+    </LinearLayout>
+    <!-- 회원가입-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- 회원가입 정보 입력-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:hint="ID"
+                android:textSize="12sp"
+                android:id="@+id/edtId"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:hint="PassWord"
+                android:textSize="12sp"
+                android:id="@+id/edtPass"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:hint="PassWord 확인"
+                android:textSize="12sp"
+                android:id="@+id/edtPass2"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:hint="이름"
+                android:textSize="12sp"
+                android:id="@+id/edtName"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:hint="별명"
+                android:textSize="12sp"
+                android:id="@+id/edtNickName"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="중복 확인"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_marginLeft="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제출하기"
+        android:onClick="SignUpNext"/>
+
+
+
+
+
+
+
+
+</LinearLayout>

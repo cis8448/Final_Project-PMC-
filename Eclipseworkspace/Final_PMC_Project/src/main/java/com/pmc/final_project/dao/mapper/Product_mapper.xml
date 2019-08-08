@@ -2,14 +2,67 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="com.pmc.final_project.dao.IProductDao">
-	<select id="getProductList" resultType="ProductBean" >
-	SELECT PR_PC_ID AS PC_ID, PR_ID, PR_NAME,PR_PRICE,PR_IMG,PR_QTY FROM PRODUCT
+	<select id="getProductList" resultType="ProductBean" parameterType="HashMap">
+	SELECT * FROM PRODUCTALL WHERE SUBSTR(PC_ID,3,#{size}) = #{p_id}
 	</select>
-	
+
 	<select id="getProductCount" resultType="int">
       SELECT COUNT(*) FROM PRODUCT
    </select>
+   
+   <select id="ProductDetail" resultType="ProductBean" parameterType="String">
+      SELECT * FROM PRODUCTALL WHERE PR_ID=#{pr_id}
+   </select>
   
+  <select id="selectcountcate" resultType="ProductBean" parameterType="String">
+  	  SELECT * FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+  </select>
+  
+  <insert id="dbsend" parameterType="HashMap">
+  	  INSERT INTO PRODUCTCATE VALUES (#{pc_id},#{name},#{p_id})
+  </insert>
+  
+  <select id="getCateList" resultType="ProductBean" parameterType="String">
+	SELECT * FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+	</select>
+
+	<select id="getpcidList" resultType="ProductBean" parameterType="String">
+	SELECT PR_PC_ID AS PC_ID, PR_PC_ID, PR_ID, PR_NAME, PR_PRICE, PR_IMG, PR_QTY FROM PRODUCT WHERE PR_PC_ID= #{p_id}
+	</select>
+  
+  <insert id="fileupdate" parameterType="HashMap">
+    INSERT INTO PRODUCT VALUES (#{pr_pc_id}, #{pr_id}, #{pr_name}, #{pr_price}, #{sysFileName}, #{pr_qty})
+  </insert>
+  
+  <select id="getPrList" resultType="ProductBean" parameterType="String">
+	SELECT * FROM PRODUCTCATE WHERE PC_P_ID = #{p_id}
+	</select>
+	<update id="ProductUpdate" parameterType="HashMap">
+		UPDATE PRODUCT SET PR_PC_ID = #{pr_pc_id}, PR_NAME = #{pr_name}, PR_PRICE = #{pr_price}, PR_IMG = #{pr_img}, PR_QTY = #{pr_qty} WHERE PR_ID = #{pr_id}
+	</update>
+	<select id="selectimg" parameterType="String" resultType="ProductBean">
+		SELECT * FROM PRODUCT WHERE PR_ID = #{ID}
+	</select>
+	<delete id="ProductDelete" parameterType="String">
+		DELETE FROM PRODUCT WHERE PR_ID = #{ID}
+	</delete>
+	<update id="CateUpdate" parameterType="HashMap">
+		UPDATE PRODUCTCATE SET PC_NAME = #{pc_name} WHERE PC_ID = #{pc_id}	
+	</update>
+	<select id="selectcatechildcount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM PRODUCT WHERE PR_PC_ID = #{ID}
+	</select>
+	<delete id="CateDelete" parameterType="String">
+		DELETE FROM PRODUCTCATE WHERE PC_ID = #{ID}
+	</delete>
+	<delete id="ProductDeletes">
+		DELETE FROM PRODUCT WHERE PR_PC_ID = #{ID}
+	</delete>
+	
+	<select id="productSearch" parameterType="HashMap" resultType="ProductBean">
+		SELECT * FROM PRODUCTALL WHERE PC_P_ID=#{p_id} AND PR_NAME LIKE #{res}
+	</select>
 	
 </mapper>

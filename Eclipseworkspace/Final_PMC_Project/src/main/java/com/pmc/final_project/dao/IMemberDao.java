@@ -20,6 +20,14 @@ public interface IMemberDao {
 
 	public List<Member> memberSearch(Map<String, String> map);
 
+	public List<Member> getOMmemberAllList();
+
+	public int getOMmemberCount();
+
+	public Member getOMmemberInfo(String m_id);
+
+	public List<Member> OMMemberSearch(String res);
+
 
 
 

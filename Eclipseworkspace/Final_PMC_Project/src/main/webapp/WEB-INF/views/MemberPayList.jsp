@@ -43,16 +43,17 @@
 
 	<header>
 		<div>
-			<img src="./resources/img/dd.png" width="200" height="140">
-		</div>
-		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="./Product">상품</a></li>
-			<li class="mainmenu"><a href="MemberList">회원</a></li>
-			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./MasterNotice">기타</a></li>
-		</ul>
+        <img src="./resources/img/dd.png">
+        </div> 
+        <ul id="Menu">
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="./Product">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+        </ul>
 	</header>
+	
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./MemberPayList">월별 매출</a></li>
@@ -114,7 +115,7 @@
 		<tbody id="prlist">	
 		<c:forEach var="paymentdetail" items="${pList}">
 		<c:set var="Date" value="${paymentdetail.u_start}"/>
-    
+    		
     	</c:forEach>
 		</tbody>
 	</table>
@@ -147,6 +148,7 @@ function search(){
 			var tbl = document.getElementById('prlist');
 			var result = "";
 			for(var i=0; i<data.length; i++){
+				result += '<tr align="center">'
                 result += '<td>'+data[i].u_start.substring(8,10)+'</td>'
                 result += '<td>'+data[i].u_start.substring(11,19)+'</td>'
 	            result += '<td>'+data[i].pc_name+'</td>'
@@ -154,6 +156,7 @@ function search(){
 	            result += '<td>'+data[i].pr_name+'</td>'
 	            result += '<td>'+data[i].pl_qty+'</td>'
 	            result += '<td>'+data[i].pl_price+'</td>'
+	            result += '</tr>'
 		}
 			tbl.innerHTML = result;
               

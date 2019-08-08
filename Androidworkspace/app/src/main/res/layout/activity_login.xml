@@ -8,11 +8,71 @@
     tools:context=".Login"
     android:orientation="vertical">
 
-    <Button
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@drawable/pmc1"
+        android:layout_gravity="center"/>
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:textSize="20sp"
-        android:onClick="SignUpSelect"/>
-
+        android:padding="10px">
+        <TableRow>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:src="@drawable/man_user"
+                android:layout_marginLeft="80dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="UserId"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+        </TableRow>
+        <TableRow>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:src="@drawable/key"
+                android:layout_marginLeft="80dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textSize="20sp"
+                android:inputType="textPassword"
+                android:layout_marginLeft="10dp"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="ID/Password"
+            android:textSize="15sp"/>
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textSize="15sp"
+            android:onClick="SignUpSelect"/>
+    </LinearLayout>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="피모씨 PC로 로그인"
+            android:textSize="15sp"/>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="간편 로그인"
+            android:textSize="15sp"/>
 </LinearLayout>

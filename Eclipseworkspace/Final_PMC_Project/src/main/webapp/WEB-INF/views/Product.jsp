@@ -44,28 +44,30 @@
         <img src="./resources/img/dd.png">
         </div> 
         <ul id="Menu">
-            <li class="mainmenu"><a href="./Main">좌석</a></li>
-            <li class="mainmenu"><a href="./Product">상품</a></li>
-            <li class="mainmenu"><a href="#">회원</a></li>
-            <li class="mainmenu"><a href="#">매출</a></li>
-            <li class="mainmenu"><a href="#">기타</a></li>
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
         </ul>    
     </header>
     <aside>
     <ul id="SubMenu">
-        <li class="SubMenu"><a href="#">전체</a></li>
-        <li class="SubMenu"><a href="#">라면</a></li>
-        <li class="SubMenu"><a href="#">식사</a></li>
-        <li class="SubMenu"><a href="#">음료</a></li>
-        <li class="SubMenu"><a href="#">커피</a></li>
-        <li class="SubMenu"><a href="#">토핑추가</a></li>
-        <li class="SubMenu"><a href="#">카테고리 추가</a></li>
+        <li class="SubMenu"><a href="./Product">전체</a></li>
+        <c:forEach var="productcate" items="${catelist}">
+        <li class="SubMenu">
+        <a href="./cateinfo?pc_id=${productcate.pc_id}" id="${productcate.pc_id}">${productcate.pc_name}</a>
+        <button type="button" onclick="catedel('${productcate.pc_id}')">X</button>
+        <button type="button" onclick="cateupdate('${productcate.pc_id}')" >수정</button>
+        </li>
+        </c:forEach>
+        
     </ul>
     </aside>
     <section>
         <div class="Search">
-       <input type="text" placeholder="검색">
-       <button>검색</button>
+       <input type="text" placeholder="상품 이름 검색" id="SearchArea" value="">
+    <button type="button" onclick="ProductSearch()">검색</button>
     </div><br>
 	<div class="my-box">
 	<table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
@@ -75,24 +77,120 @@
             <td>수량</td>
             <td>가격</td>
             <td>비고</td>
-       </tr> 
-       <c:forEach var="product" items="${prList}">
-       <tr align="center">
-          <td>${product.pc_id}</td>
-          <td>${product.pr_name}</td>
-          <td>${product.pr_qty}</td>
-          <td>${product.pr_price}</td>
-          <td align="center"><a href="./ProductDetail">상세보기</a></td>
+       </tr>     
+       <tbody id="resultSearch">
+       	<c:forEach var="ProductBean" items="${prList}">
+       	<tr align="center">
+          <td id="Search">${ProductBean.pc_name}</td>
+          <td>${ProductBean.pr_name}</td>
+          <td>${ProductBean.pr_qty}</td>
+          <td>${ProductBean.pr_price}</td>
+          <td align="center"><a href="./ProductDetail?pr_id=${ProductBean.pr_id}">상세보기</a></td>
        </tr>
        </c:forEach>
+      </tbody>
     </table>
 	</div><br>
 	<div class="margin">
 	<button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
+	<button class="btnfont" type="button" onclick="cateadd()">카테고리 추가</button>
 	</div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
     </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    function cateadd(){
+	var inputString = prompt('추가할 카테고리를 입력해주세요', '');
+        $.ajax({
+        type : 'post',
+        url  : 'productcateadd',
+        data : inputString,
+        contentType : "application/json; charset=UTF-8" ,
+        dataType : "json",
+        success : function(data){
+        if(data.ttt == "성공"){
+            $("#SubMenu").append('<li class="SubMenu"><a href="./cateinfo?pc_id='+data.pc_id+'" id="${productcate.pc_id}">'+data.name+'</a><button type="button" onclick="catedel('+data.pc_id+')">X</button><button type="button" onclick="cateupdate('+data.pc_id+')" >수정</button></li>');
+            
+        }
+        
+    }         
+	});
+}
+        
+    function catedel(elem){
+    	$.ajax({
+            type : 'post',
+            url  : 'productcateDelete',
+            data : elem,
+            contentType : "application/json; charset=UTF-8" ,
+            dataType : "json",
+            success : function(data){
+            	if(data.success == "0"){
+                    document.getElementById(elem).parentNode .remove();
+            }else{
+            	alert("실패")
+            }
+            
+        }         
+    })
+    }
+    	 function cateupdate(elem){
+    	    	var inputString = prompt('변경하실 카테고리를 입력하세요','');
+    	    	var param = 'pc_id='+elem+'&pc_name='+inputString
+    	    	console.log(param)
+    	    	$.ajax({
+    	            type : 'post',
+    	            url  : 'productcateupdate',
+    	            data : param,
+    	            //contentType : "application/json; charset=UTF-8" ,
+    	            dataType : "json",
+    	            success : function(data){
+    	            	if(data.success == "0"){
+    	                    document.getElementById(elem).innerHTML = data.pc_name
+    	            }else{
+    	            	alert("실패")
+    	            }
+    	            
+    	        }         
+    	    });    	
+    	
+};
+	function ProductSearch() {
+	
+	var res = $('#SearchArea').val();//입력한 값 받아오기
+	
+	console.log(res);
+	
+	$.ajax({
+		type:'post',
+		url:'ProductSearch',
+		data:res,
+		dataType:'json',
+		contentType : "application/json; charset=UTF-8",
+		success: function(data){
+			console.log(data)
+			var tbl = document.getElementById('resultSearch');
+			var result = "";
+			for(var i=0;i<data.length;i++){
+				result += '<tr align="center">'
+				result += '<td id="Search">'+data[i].pc_name+'</td>'
+				result += '<td>'+data[i].pr_name+'</td>'
+				result += '<td>'+data[i].pr_qty+'</td>'
+				result += '<td>'+data[i].pr_price+'</td>'
+				result += '<td><a href="./ProductDetail?pr_id='+data[i].pr_id+'">상세보기</a></td>'
+				result += '</tr>'
+						
+		}		
+				
+				tbl.innerHTML = result;
+		
+		}
+	});
+	
+};
+</script>
 </html>

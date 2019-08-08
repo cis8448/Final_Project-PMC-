@@ -4,15 +4,23 @@ import java.sql.Date;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("pcroomnoticebean")
+@Alias("PcRoomNoticeBean")
 public class PcRoomNoticeBean {
 
 	private String no_p_id; // PC아이디
 	private int no_num; //공지사항 게시글번호
 	private String no_title; //공지사항 게시글제목
 	private String no_content; //공지사항 게시글내용
-	private Date no_date; //공지사항 작성시간
+	private String no_date; //공지사항 작성시간
 	private int no_cate; //공지사항 카테고리
+	private String no_m_id;// 작성자  
+	
+	public String getNo_m_id() {
+		return no_m_id;
+	}
+	public void setNo_m_id(String no_m_id) {
+		this.no_m_id = no_m_id;
+	}
 	public String getNo_p_id() {
 		return no_p_id;
 	}
@@ -37,10 +45,10 @@ public class PcRoomNoticeBean {
 	public void setNo_content(String no_content) {
 		this.no_content = no_content;
 	}
-	public Date getNo_date() {
+	public String getNo_date() {
 		return no_date;
 	}
-	public void setNo_date(Date no_date) {
+	public void setNo_date(String no_date) {
 		this.no_date = no_date;
 	}
 	public int getNo_cate() {
