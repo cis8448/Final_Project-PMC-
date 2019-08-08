@@ -48,6 +48,28 @@ public class NoticeManagement {
 		
 		return json;
 	}
+
+
+	public ModelAndView getNoticeList(Integer pageNum, String cate) {
+		
+		mav = new ModelAndView();
+		
+		if(cate == null) {
+			cate = "0";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return mav;
+	}
 }
 
 
