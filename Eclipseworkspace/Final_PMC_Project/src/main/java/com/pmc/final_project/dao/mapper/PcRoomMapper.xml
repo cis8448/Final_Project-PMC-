@@ -112,7 +112,9 @@
 	<select id="HoliSel" parameterType="String" resultType="String">
 		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
 	</select>
-
+	<select id="GetPicture" resultType="String">
+		SELECT P_PICTURE1 FROM PCROOM
+	</select>
 
 
 

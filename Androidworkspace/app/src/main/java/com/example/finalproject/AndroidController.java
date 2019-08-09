@@ -12,7 +12,7 @@ public class AndroidController {
 
     Activity MainAct;
     Activity SubAct;
-
+    GetServer Server = new GetServer();
 
     static AndroidController androidcontroller;
 
@@ -36,33 +36,12 @@ public class AndroidController {
         androidcontroller = null;
     }
     public void sub(Activity activity, String state){
-
-
-        // 메인 -> 로그인오픈
-        if (state.equals("LoginOpen")){
-            Intent LoginOpen = new Intent("com.example.finalproject.Login");
-            activity.startActivity(LoginOpen);
+      //사진 가져오기
+        if(state.equals("GetPicture")){
+            ((MainActivity)activity).pictures = Server.GetServerPicture(activity);
         }
-        // 로그인 -> 회원가입 버튼 클릭 -> 회원가입 선택창
-        if (state.equals("SignUpSelectOpen")){
-            Intent SignUpSelectOpen = new Intent("com.example.finalproject.SignUpSelect");
-            activity.startActivity(SignUpSelectOpen);
-        }
-        // 회원가입 선택창 -> 피모씨 회원가입 오픈
-        if (state.equals("SignUpOpen")){
-            Intent SignUpOpen = new Intent("com.example.finalproject.SignUp");
-            activity.startActivity(SignUpOpen);
-
-        }
-        if (state.equals("LogOut")){
-            ((MainActivity)activity).mainlow2.setVisibility(View.GONE);
-            ((MainActivity)activity).scroll.setVisibility(View.GONE);
-            ((MainActivity)activity).logoutbtn.setVisibility(View.GONE);
-            ((MainActivity)activity).alarm.setVisibility(View.GONE);
-            ((MainActivity)activity).info.setVisibility(View.GONE);
-            ((MainActivity)activity).loginbtn.setVisibility(View.VISIBLE);
-            ((MainActivity)activity).mainlow1.setVisibility(View.VISIBLE);
-
+        if(state.equals("SettingPictuer")){
+            ((MainActivity)activity).pictures = Server.pictures;
         }
 
     }
