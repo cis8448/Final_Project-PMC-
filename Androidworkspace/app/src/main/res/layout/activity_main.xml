@@ -348,24 +348,10 @@
                                 android:layout_height="30dp"
                                 android:text="- 전체 공지사항"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="Notice"/>
                         </TableRow>
-                        <TableRow>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:text="- 게임대회"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
-                        </TableRow>
-                        <TableRow>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:text="- 모바일 공지사항"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
-                        </TableRow>
+
 
                     </TableLayout>
 
@@ -458,7 +444,8 @@
                                 android:layout_height="30dp"
                                 android:text="- 좌석현황"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="PcSeat"/>
                         </TableRow>
                         <TableRow>
                             <TextView
@@ -466,7 +453,8 @@
                                 android:layout_height="30dp"
                                 android:text="- 상품주문"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="ProductOrder"/>
                         </TableRow>
                         <TableRow>
                             <TextView
@@ -474,7 +462,8 @@
                                 android:layout_height="30dp"
                                 android:text="- PC방 찾기"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="PcSearch"/>
                         </TableRow>
 
                     </TableLayout>
@@ -508,7 +497,8 @@
                                 android:layout_height="30dp"
                                 android:text="- 1:1문의"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="Inquiry"/>
                         </TableRow>
 
                     </TableLayout>
