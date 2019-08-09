@@ -33,6 +33,14 @@
 		SELECT * FROM NOTICE WHERE NO_P_ID LIKE #{res2} OR NO_TITLE
 		LIKE #{res2}
 	</select>
+	
+	<insert id="OM_NInsert" parameterType="PcRoomNoticeBean" keyProperty="no_num">
+	<selectKey keyProperty="no_num" resultType="int"
+			order="BEFORE">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO NOTICE VALUES (#{no_p_id},${no_num},#{no_title},#{no_content},#{no_date},#{no_cate})
+	</insert>
 
 	
 

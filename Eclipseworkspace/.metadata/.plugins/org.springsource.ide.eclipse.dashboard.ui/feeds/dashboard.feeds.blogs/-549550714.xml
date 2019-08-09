@@ -5,7 +5,114 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-08-06T20:03:49Z</updated>
+  <updated>2019-08-08T08:52:00Z</updated>
+  <entry>
+    <title>Spring Statemachine Goes Reactive with 3.0.0.M1</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/08/08/spring-statemachine-goes-reactive-with-3-0-0-m1" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Janne Valkealahti</name>
+    </author>
+    <id>tag:spring.io,2019-08-08:3766</id>
+    <updated>2019-08-08T08:52:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;I&amp;#8217;m pleased to announce a first milestone release of a &lt;a href="https://projects.spring.io/spring-statemachine"&gt;Spring Statemachine&lt;/a&gt; 3.0.0.M1 and with
+these words I can say that Statemachine is going reactive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Statemachine itself would not need to be reactive for its own execution but as soon as
+machine steps outside of its controlled environment to execute user defined logic like
+Actions and Guards there is no guarantees that those features would not block.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Those using persisting features with a databases will benefit with reactive changes when
+that side of a world becomes more reactive. Essentially every time we need to take a step
+outside from a machine world we may hit blocking IO operations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;2.x line will be there for foreseeable future where 3.x will benefit from new changes. It
+really depends on a users how much new features are added to 2.x line.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In a 2.x machine execution is fully based on Spring &lt;code&gt;TaskExecutor&lt;/code&gt; API. These executions
+takes machines from one state to the other. Along this execution various user level Actions
+are executed when states are entered or exited. Guards can be used to guard various transition
+paths and we don&amp;#8217;t have no control what these do. &lt;code&gt;TaskScheduler&lt;/code&gt; API is mostly used with
+triggering timers and executing Actions while being on a state.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As everything were based on &lt;code&gt;TaskExecutor&lt;/code&gt; and &lt;code&gt;TaskScheduler&lt;/code&gt; user were able to just switch these
+to something else to provide more parallel execution and scheduling which are usually needed when
+dealing with statemachine regions which needs to do execution in a parallel manner. All this made
+an internal threading model relatively complex and hours has been spent to track various
+race condition over the years.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now that everyting is literally based on a Reactor and what it can do, this internal threading
+model has become much more reliable. We really don&amp;#8217;t need to use locking anymore as Reactor
+will give us guarantees that its own flow execution simply works.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We have a new methods to interact reactively by using &lt;code&gt;Mono&lt;/code&gt; and &lt;code&gt;Flux&lt;/code&gt; of messages. Returned
+&lt;code&gt;Flux&lt;/code&gt; then have more richer results what happened with a particular event. For example
+from a returned &lt;code&gt;StateMachineEventResult&lt;/code&gt; it&amp;#8217;s possible to check if event was accepted or
+deferred and which region handled it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Flux&amp;lt;StateMachineEventResult&amp;lt;S, E&amp;gt;&amp;gt; sendEvent(Mono&amp;lt;Message&amp;lt;E&amp;gt;&amp;gt; event);
+Flux&amp;lt;StateMachineEventResult&amp;lt;S, E&amp;gt;&amp;gt; sendEvents(Flux&amp;lt;Message&amp;lt;E&amp;gt;&amp;gt; events);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While in the old deprecated api you used something like:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;boolean accepted = machine.sendEvent("EVENT");&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now nothing happens until you subscribe into returned Flux of
+&lt;code&gt;StateMachineEventResult&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Message&amp;lt;String&amp;gt; event = MessageBuilder.withPayload("EVENT").build();
+
+machine.sendEvent(Mono.just(event))
+  .doOnComplete(() -&amp;gt; {
+    System.out.println("Event handling complete");
+  })
+  .subscribe();&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Same story continues with actions which is just a &lt;code&gt;Function&lt;/code&gt; taking
+&lt;code&gt;StateContext&lt;/code&gt; and returning a &lt;code&gt;Mono&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;public interface ReactiveAction&amp;lt;S, E&amp;gt;
+  extends Function&amp;lt;StateContext&amp;lt;S, E&amp;gt;, Mono&amp;lt;Void&amp;gt;&amp;gt; {}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Same with guard expect you need to return a &lt;code&gt;Boolean&lt;/code&gt; with a &lt;code&gt;Mono&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;public interface ReactiveGuard&amp;lt;S, E&amp;gt;
+  extends Function&amp;lt;StateContext&amp;lt;S, E&amp;gt;, Mono&amp;lt;Boolean&amp;gt;&amp;gt; {}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Now is a good time to try it out and provide feedback for next milestones. I&amp;#8217;d like to thank
+all the community contributions as some of the refactorings were relatively labour
+intensive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Session Corn-M3 and Bean-SR7 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/08/06/spring-session-corn-m3-and-bean-sr7-released" />
@@ -657,36 +764,6 @@ Of course, if you have not done so already, you should first read the &lt;a href
   &lt;li&gt;I love the new Microsoft Azure API development guidelines which encourage the use of Project Reactor &lt;a href="https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html"&gt;to build elegant, asynchronous, reactive APIs&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Here&amp;rsquo;s a nice post by JHipster lead and Azure Developer Advocate Julien Dubois on going &lt;a href="https://dev.to/azure/going-full-reactive-with-spring-webflux-and-the-new-cosmosdb-api-v3-1n2a"&gt;fully reactive with Spring Webflux and the new CosmosDB API v3&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tools 4.3.1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/07/12/spring-tools-4-3-1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Martin Lippert</name>
-    </author>
-    <id>tag:spring.io,2019-07-12:3745</id>
-    <updated>2019-07-12T13:21:58Z</updated>
-    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
-&lt;p&gt;I am happy to announce the 4.3.1 release of the Spring Tools 4 for Eclipse, Visual Studio Code, and Theia.&lt;/p&gt;
-&lt;p&gt;Highlights from this release include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;(all language servers)&lt;/em&gt; performance: further improvements to the language server startup time&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; fixed: wrong error markers in properties files (&lt;a href="https://github.com/spring-projects/sts4/issues/314"&gt;#314&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(VS Code)&lt;/em&gt; fixed: vscode goto definition error with lsp (&lt;a href="https://github.com/spring-projects/sts4/issues/309"&gt;#309&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: STS4 can now be installed again into an existing Eclipse install when running on JDK8&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: deadlock when starting up the Spring Boot language server for workspaces with many projects&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: cannot launch apps in boot dashboard anymore when using early builds of Eclipse 2019-09 (4.13)&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; improved, but not completely fixed yet: freeze when opening pom.xml file - if you still experience slowness here, please apply the workaround as documented in the issues comment (&lt;a href="https://github.com/spring-projects/sts4/issues/318#issuecomment-510851757"&gt;comment on #314&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;To download the distribution for Eclipse and find links to the marketplace entries for Visual Studio Code and Theia, please go visit:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Tools 4: &lt;a href="https://spring.io/tools/"&gt;https://spring.io/tools/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Detailed changes can be found here: &lt;a href="https://github.com/spring-projects/sts4/wiki/Changelog#2019-07-12-431-release"&gt;https://github.com/spring-projects/sts4/wiki/Changelog#2019-07-12-431-release&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Spring Tools 4.3.2 is scheduled to be released in late August 2019.&lt;/p&gt;
-&lt;p&gt;Enjoy!&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

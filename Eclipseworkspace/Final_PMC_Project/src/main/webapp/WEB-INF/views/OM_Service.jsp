@@ -167,13 +167,13 @@ button {
 			<li class="mainmenu"><a href="./OM_Approval">PC방업주관리</a></li>
 			<li class="mainmenu"><a href="./OM_MemberList">PC방전체회원</a></li>
 			<li class="mainmenu"><a href="./OM_Notice?cate=0">PC방 공지사항</a></li>
-			<li class="mainmenu"><a href="./OM_Service?cate=0">PC방 고객센터</a></li>
+			<li class="mainmenu"><a href="./OM_Service?cate=1">PC방 고객센터</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
-			<li class="SubMenu"><a href="./OM_Service?cate=0">PC방 고객센터</a></li>
-			<li class="SubMenu"><a href="./OM_Service?cate=1">앱 고객센터</a></li>
+			<li class="SubMenu"><a href="./OM_Service?cate=1">PC방 고객센터</a></li>
+			<li class="SubMenu"><a href="./OM_Service?cate=2">앱 고객센터</a></li>
 		</ul>
 	</aside>
 	<section>

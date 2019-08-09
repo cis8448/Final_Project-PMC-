@@ -10,7 +10,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,10 +32,13 @@ public class FileProcess {
 	
 	@Autowired
 	private IPcRoom pDao;
+	
+	@Autowired
+	HttpSession session;
 
-	public boolean upFile(MultipartHttpServletRequest multi, String _id) {
+	public boolean upFile(MultipartHttpServletRequest multi) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\13\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		String path = root + "resources\\file\\";
 
 		File dir = new File(path);
@@ -55,6 +60,7 @@ public class FileProcess {
 			String oriName = mf.getOriginalFilename();
 		
 			
+			String _id = (String)session.getAttribute("id");
 			
 			fMap.put("sysid",_id);
 			fMap.put("oriFileName", oriName);
@@ -65,11 +71,23 @@ public class FileProcess {
 					(oriName.lastIndexOf("."));
 			//1123234354.txt
 			fMap.put("sysFileName", sysName);
+			
 
 			try {
 				mf.transferTo(new File(path + sysName));
 				//파일 데이터 저장
-				f = pDao.fileupdate(fMap);
+				String sel = (String)multi.getParameter("sel");
+				fMap.put("sel",sel);
+				
+				if(sel.equals("0")) {
+					f = pDao.fileupdate(fMap);					
+				}if(sel.equals("1")) {
+					f = pDao.fileupdate1(fMap);
+				}if(sel.equals("2")) {
+					f = pDao.fileupdate2(fMap);
+				}if(sel.equals("3")) {
+					f = pDao.fileupdate3(fMap);
+				}
 			}catch(IOException e) {
 				e.printStackTrace();
 			}

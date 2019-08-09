@@ -25,22 +25,25 @@
 						<input type="file" name="files" value="*(필수)사업자 등록 (click)*"
 							onchange="fileChk(this)" multiple="multiple" id="files">
 						<input type="hidden" id="fileCheck" value="0" name="fileCheck">
+						<input type="hidden"  value="1" name="sel">
 						<input type="button" name="button2" value="등록확인"
-							style="background-color: #5AD2FF;" onclick="formData()">
+							style="background-color: #5AD2FF;" onclick="formData(1)">
 					</div>
 					<div class="control-group">
 						<input type="file" name="files" value="*(필수)사업자 등록 (click)*"
 							onchange="fileChk(this)" multiple="multiple" id="files">
 						<input type="hidden" id="fileCheck" value="0" name="fileCheck">
+						<input type="hidden"  value="2" name="sel">
 						<input type="button" name="button2" value="등록확인"
-							style="background-color: #5AD2FF;" onclick="formData()">
+							style="background-color: #5AD2FF;" onclick="formData(2)">
 					</div>
 					<div class="control-group">
 						<input type="file" name="files" value="*(필수)사업자 등록 (click)*"
 							onchange="fileChk(this)" multiple="multiple" id="files">
 						<input type="hidden" id="fileCheck" value="0" name="fileCheck">
+						<input type="hidden"  value="3" name="sel">
 						<input type="button" name="button2" value="등록확인"
-							style="background-color: #5AD2FF;" onclick="formData()">
+							style="background-color: #5AD2FF;" onclick="formData(3)">
 					</div>
 				</div>
 			</div>
@@ -65,18 +68,21 @@
 		}
 	}
 
-	function formData() {
+	function formData(sel) {
 		var button_joinus = document.getElementById('signup');
 		var $obj = $("#files");//배열형태로 넘어옴.
+		
 		console.log($obj[0]);
 		console.log($obj[0].files);
 		console.log($obj[0].files.length);
 		console.log($obj[0].files[0]);
+		console.log("sel="+sel);
 
 		//form 데이터 가져오기
 		var fData = new FormData();
 		fData.append("fileCheck", $("#fileCheck").val());
 		fData.append("_id", <%=(String)request.getAttribute("id")%>);
+		fData.append("sel", sel);		
 		console.log(<%=(String)request.getAttribute("id")%>);
 		var files = $obj[0].files;
 		for (var i = 0; i < files.length; i++) {

@@ -7,7 +7,7 @@
 		INSERT INTO SBPCROOM
 		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun)
 		VALUES
-		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
+		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},0,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
 
 
@@ -112,8 +112,19 @@
 	<select id="HoliSel" parameterType="String" resultType="String">
 		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
 	</select>
-
-
+	<update id="fileupdate1" parameterType="HashMap">
+		UPDATE PCROOM SET P_PICTURE1=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+	<update id="fileupdate2" parameterType="HashMap">
+		UPDATE PCROOM SET P_PICTURE2=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+	<update id="fileupdate3" parameterType="HashMap">
+		UPDATE PCROOM SET P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+	<update id="negative" parameterType="String">
+		
+	</update>
+;l;l;lkol
 
 
 </mapper>

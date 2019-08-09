@@ -20,4 +20,6 @@ public interface INotice {
 
 	List<PcRoomNoticeBean> OMNoticeSearch(String res2);
 
+	void OM_NInsert(PcRoomNoticeBean pb);
+
 }

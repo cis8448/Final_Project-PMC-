@@ -143,7 +143,7 @@ public class MainController {
 	//Ajax로 처리하는 Write 메소드
 	@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
 	public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
-
+	//sel = 0 , 회원가입할때 서류 등록 // sel = 1, 사진 3장 올릴때 . 
 		mav= pm.fileupload(multi);
 
 

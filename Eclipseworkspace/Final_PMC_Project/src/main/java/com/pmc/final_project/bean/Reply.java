@@ -1,11 +1,7 @@
 package com.pmc.final_project.bean;
 
-import java.sql.Timestamp;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 9de751c0a3fb987e1427e4be4ad71addfe170afe
 import org.apache.ibatis.type.Alias;
 
 
@@ -17,7 +13,7 @@ public class Reply {
 	private int r_num;//댓글번호
 	private int r_se_num;//글번호
 	private String r_contents;//댓글내용
-	private Timestamp r_date;
+
 	private String r_id;
 	
 	
@@ -39,12 +35,7 @@ public class Reply {
 	public void setR_contents(String r_contents) {
 		this.r_contents = r_contents;
 	}
-	public Timestamp getR_date() {
-		return r_date;
-	}
-	public void setR_date(Timestamp r_date) {
-		this.r_date = r_date;
-	}
+
 	public String getR_id() {
 		return r_id;
 	}
