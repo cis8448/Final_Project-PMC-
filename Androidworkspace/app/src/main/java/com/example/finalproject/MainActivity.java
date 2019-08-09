@@ -23,11 +23,11 @@ import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    public Bitmap[] pictures;
-=======
 
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
+    public Bitmap[] pictures;
+
+
+
 
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;

@@ -19,7 +19,7 @@ public class WhenPcroom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_when_pcroom);
 
-        
+
 
         mypclist = findViewById(R.id.mypclist);
        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.mypcroombtn);

@@ -66,16 +66,16 @@
             android:textSize="15sp"
             android:onClick="SignUpSelect"/>
     </LinearLayout>
-        <Button
-            android:layout_marginLeft="30dp"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:text="피모씨 PC로 로그인"
-            android:textSize="15sp"/>
-        <Button
-            android:layout_marginLeft="30dp"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:text="간편 로그인"
-            android:textSize="15sp"/>
+    <Button
+        android:layout_marginLeft="30dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="피모씨 PC로 로그인"
+        android:textSize="15sp"/>
+    <Button
+        android:layout_marginLeft="30dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="간편 로그인"
+        android:textSize="15sp"/>
 </LinearLayout>
