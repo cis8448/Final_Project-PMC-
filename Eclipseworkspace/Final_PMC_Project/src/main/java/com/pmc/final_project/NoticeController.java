@@ -35,6 +35,13 @@ public class NoticeController {
 
 	@Autowired
 	HttpSession session;
+<<<<<<< HEAD
+=======
+	
+
+	//전체 공지사항 출력
+	
+>>>>>>> 12d00cdc745b11ca7f31ac20dbb22f523a678686
 
 
 

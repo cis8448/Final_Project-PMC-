@@ -94,19 +94,44 @@
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:layout_marginTop="80dp"
-            android:background="@drawable/left"/>
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="170dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/aa"/>
+            android:background="@drawable/left"
+            android:onClick="mypcpicture"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="130dp"
+                android:background="@drawable/aa"
+                android:layout_marginTop="45dp"
+                android:id="@+id/pcroomimg"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="130dp"
+                android:background="@drawable/star"
+                android:layout_marginTop="45dp"
+                android:id="@+id/pcroomimg1"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="130dp"
+                android:background="@drawable/bell"
+                android:layout_marginTop="45dp"
+                android:id="@+id/pcroomimg2"
+                android:visibility="gone"/>
+
+
+        </FrameLayout>
     <ImageButton
         android:layout_width="30dp"
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/right"/>
+        android:background="@drawable/right"
+        android:onClick="mypcpicture"/>
 
     </LinearLayout>
 

@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class PcRoomInquire extends AppCompatActivity {
 
+    AndroidController andcon = AndroidController.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
