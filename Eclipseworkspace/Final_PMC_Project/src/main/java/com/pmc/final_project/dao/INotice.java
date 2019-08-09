@@ -20,9 +20,9 @@ public interface INotice {
 
 	List<PcRoomNoticeBean> OMNoticeSearch(String res2);
 
-<<<<<<< HEAD
+
 	void OM_NInsert(PcRoomNoticeBean pb);
-=======
+
 	List<PcRoomNoticeBean> getNoticeList(String cate);
 
 	PcRoomNoticeBean getNoticeDetail(String b_num);
@@ -40,6 +40,6 @@ public interface INotice {
 	boolean DeleteService(String b_num);
 
 	Object SelectP_id(String b_num);
->>>>>>> 81242b4411a6563a14e7aaabae6bd2c5812edfe5
+
 
 }
