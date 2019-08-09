@@ -64,6 +64,9 @@ public class AndroidController {
             ((MainActivity)activity).mainlow1.setVisibility(View.VISIBLE);
 
         }
+        if(state.equals("GetPicture")){
+
+        }
 
     }
 }

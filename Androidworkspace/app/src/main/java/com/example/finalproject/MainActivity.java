@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
 
-        getHashKey();
+        int picture[] = new int[3];
         //메뉴버튼 클릭시 메뉴창 출력
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,25 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
-
+        andcon.sub(this,"GetPicture");
 
 
     }
-    private void getHashKey(){
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md;
-                md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String something = new String(Base64.encode(md.digest(), 0));
-                Log.e("Hash key", something);
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            Log.e("name not found", e.toString());
-        }
-    }
+
     //비로그인시 메뉴 클릭 -> 로그인하러가기 클릭시 로그인액티비티 출력
     public void LoginGo(View view) {
 
