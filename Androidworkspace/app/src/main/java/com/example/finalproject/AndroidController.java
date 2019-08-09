@@ -3,6 +3,7 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,18 @@ public class AndroidController {
         if (state.equals("SignUpOpen")){
             Intent SignUpOpen = new Intent("com.example.finalproject.SignUp");
             activity.startActivity(SignUpOpen);
+
         }
+        if (state.equals("LogOut")){
+            ((MainActivity)activity).mainlow2.setVisibility(View.GONE);
+            ((MainActivity)activity).scroll.setVisibility(View.GONE);
+            ((MainActivity)activity).logoutbtn.setVisibility(View.GONE);
+            ((MainActivity)activity).alarm.setVisibility(View.GONE);
+            ((MainActivity)activity).info.setVisibility(View.GONE);
+            ((MainActivity)activity).loginbtn.setVisibility(View.VISIBLE);
+            ((MainActivity)activity).mainlow1.setVisibility(View.VISIBLE);
+
+        }
+
     }
 }

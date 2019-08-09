@@ -38,203 +38,87 @@ public class NoticeManagement {
 	@Autowired
 	private HttpSession session;
 
-	public ModelAndView getNoticeList(Integer pageNum, String cate) {
+	public ModelAndView getNoticeList(String cate) {
 		mav = new ModelAndView();
-		String view = null;
-		List<PcRoomNoticeBean> nList = null;
-		String p_id = (String)session.getAttribute("id");
-
-		int num = (pageNum == null) ? 1 : pageNum;
-
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("id", p_id);
-		map.put("cate", cate);
-
-		nList = nDao.getNoticeList(cate);
-
-		mav.addObject("nList", nList);
-		mav.addObject("NoticePaging", getNoticePaging(num, cate));
-		view = "NoticeList";
-		mav.setViewName(view);
-
+		List<PcRoomNoticeBean> nl = null;
+		nl = nDao.getNoticeList(cate);
+		mav.addObject("nList",nl);
+		mav.setViewName("NotoceList");
 		return mav;
 	}
-
-	private String getNoticePaging(int num, String cate) {
-
-		String id = (String)session.getAttribute("id");
-		//전체 회원
-		int maxNum = nDao.getNoticeCount(cate);
-		//페이지 당 회원 수
-		int listCnt = 10;
-		//그룹당 페이지 수
-		int pageCnt = 3;
-		//게시판이 여러 종류가 있다면 
-		String NoticeName = "NoticeList";
-		Paging mempaging = 
-				new Paging(maxNum, num, listCnt, 
-						pageCnt, NoticeName);
-
-		return mempaging.makeHtmlpaging();
-	}
-
-	public ModelAndView getServiceList(Integer pageNum, String cate) {
-
-		String id = (String)session.getAttribute("id");
+	public ModelAndView getServiceList(String cate) {
 		mav = new ModelAndView();
-		String view = null;
-		List<PcRoomNoticeBean> nList = null;
-		if(cate.equals("3")) {
-			cate = "0";
-		}else {
-			cate = "1";
-		}
-		int num = (pageNum == null) ? 1 : pageNum;
-
-		nList = nDao.getServiceList(cate);
-
-		mav.addObject("nList", nList);
-		mav.addObject("NoticePaging", getServicePaging(num, cate));
-		view = "ServiceList";
-		mav.setViewName(view);
-
+		List<PcRoomNoticeBean> nl = null;
+		nl = nDao.getServiceList(cate);
+		mav.addObject("nList",nl);
+		mav.setViewName("NotoceList");
 		return mav;
 	}
-	private String getServicePaging(int num, String cate) {
-
-		String id = (String)session.getAttribute("id");
-		//전체 회원
-		int maxNum = nDao.getServiceCount(cate);
-		//페이지 당 회원 수
-		int listCnt = 10;
-		//그룹당 페이지 수
-		int pageCnt = 3;
-		//게시판이 여러 종류가 있다면 
-		String ServiceName = "NoticeList";
-		Paging mempaging = 
-				new Paging(maxNum, num, listCnt, 
-						pageCnt, ServiceName);
-
-		return mempaging.makeHtmlpaging();
-	}
-
-	public ModelAndView writeinsert(PcRoomNoticeBean pcRoomNoticeBean) {
+	public ModelAndView getNoticeDetile(String b_num) {
 		mav = new ModelAndView();
-
-		pcRoomNoticeBean.setNo_p_id((String)session.getAttribute("id"));
-		
-		
-		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
-		Calendar c1 = Calendar.getInstance();
-		String strToday = date.format(c1.getTime());
-
-		pcRoomNoticeBean.setNo_date(strToday);
-
-		String view = null;
-		if(pcRoomNoticeBean.getNo_cate()==4) {
-			pcRoomNoticeBean.setNo_cate(4);
-			if(nDao.swriteinsert(pcRoomNoticeBean)) {
-				view= "redirect:/ServiceList?cate="+pcRoomNoticeBean.getNo_cate();
-			}
-		}else {
-			pcRoomNoticeBean.setNo_cate(0);
-			if(nDao.writeinsert(pcRoomNoticeBean)) {
-				mav.addObject("check","1"); 
-				view = "redirect:/NoticeList?cate="+pcRoomNoticeBean.getNo_cate();
-			}
-		}
-
-		mav.setViewName(view);
-
-
-		return mav;
-
-
-	}
-
-	public ModelAndView NoticeDetail(PcRoomNoticeBean pr) {
-		mav = new ModelAndView();
-
-		String view = null;
-
-		String id = (String)session.getAttribute("id");
-
-		Map<String,String> map = new HashMap<String, String>();
-
-		map.put("id", id);
-		map.put("no_num", pr.getNo_num()+"");
-		PcRoomNoticeBean pcroomnoticebean = new PcRoomNoticeBean();
-
-		
-		if(pr.getNo_cate()<3) {
-		pcroomnoticebean = nDao.NoticeDetail(map);
-		
-		}else {
-			pcroomnoticebean = nDao.ServiceDetail(map);
-			
-		}
-		mav.addObject("pcroomnoticebean", pcroomnoticebean);
-
-
-		view = "NoticeDetail";
-		mav.setViewName(view);
-
+		PcRoomNoticeBean nobean = nDao.getNoticeDetail(b_num);
+		mav.addObject("nList",nobean);
+		mav.setViewName("NoticeDetail");
 		return mav;
 	}
-
-	public ModelAndView NoticeDelete(String no_num) {
+	public ModelAndView getServiceDetile(String b_num) {
 		mav = new ModelAndView();
-		String view = null;		
-
-		String id = (String)session.getAttribute("id");
-
-		Map<String, String> map = new HashMap<String, String>();
-
-		map.put("id", id);
-		map.put("no_num", no_num);
-
-		if(nDao.NoticeDelete(map)) {
-
-			view = "redirect:/NoticeList?cate=0";
-		}
-
-
-		mav.setViewName(view);
-
+		PcRoomNoticeBean nobean = nDao.getServiceDetail(b_num);
+		mav.addObject("nList",nobean);
+		mav.setViewName("NoticeDetail");
 		return mav;
 	}
 	
-	public ModelAndView NoticeUpdate(PcRoomNoticeBean nbean) {
+	public ModelAndView getNoticeUpdate(PcRoomNoticeBean noBean) {
 		mav = new ModelAndView();
-		String view = null;		
-
-		String id = (String)session.getAttribute("id");
-
-		if(nDao.NoticeUpdate(nbean)) {
-			view = "redirect:/NoticeDetail?no_num="+nbean.getNo_num();
+		noBean.setNo_p_id((String)session.getAttribute("id"));
+		
+		if(nDao.UpdateNotice(noBean)) {
+			mav.addObject("check", 1);
+		}else {
+			mav.addObject("check", 0);
 		}
-		mav.setViewName(view);
-
+		mav.setViewName("redirect:NoticeList?cate=1");
 		return mav;
 	}
-
-
-	public Map<String, List<Reply>> replyInsert(Reply r) {
-		
-		Map<String, List<Reply>> jMap = null;
-		r.setR_id(session.getAttribute("id").toString());
-		if(nDao.replyInsert(r)) {
-			List<Reply> rList = nDao.getReplyList(r.getR_num());
-			jMap = new HashMap<String, List<Reply>>();
-			jMap.put("BList", rList);
+	public ModelAndView getServiceUpdate(PcRoomNoticeBean noBean) {
+		mav = new ModelAndView();
+		noBean.setNo_p_id((String)session.getAttribute("id"));
+		if(noBean.getNo_p_id().equals((nDao.SelectP_id(noBean.getNo_num()+"")))) {
+		if(nDao.UpdateService(noBean)) {
+			mav.addObject("check", 1);
+		}else {
+			mav.addObject("check", 0);
 		}
-		else {
-			jMap = null;
 		}
-		return jMap;
+		mav.setViewName("redirect:ServiceList?cate=1");
+		return mav;
 	}
-
-
+	public ModelAndView DeleteNotice(String b_num) {
+		mav = new ModelAndView();
+		if(nDao.DeleteNotice(b_num)) {
+			mav.addObject("check","2");
+		}else {
+			mav.addObject("check","3");
+		}
+		mav.setViewName("redirect:NoticeList?cate=1");
+		return mav;
+	}
+	public ModelAndView DeleteService(String b_num) {
+		mav = new ModelAndView();
+		String p_id = (String)session.getAttribute("id");
+		if(p_id.equals(nDao.SelectP_id(b_num))) {
+			if(nDao.DeleteService(b_num)) {
+				mav.addObject("check","2");
+			}else {
+				mav.addObject("check","3");
+			}
+		}
+		mav.setViewName("redirect:ServiceList?cate=1");
+		return mav;
+	}
+	
+	
 	public String OMNoticeSearch(String res) {
 		// TODO Auto-generated method stub
 		String res2 = ("%"+res+"%");
@@ -244,6 +128,19 @@ public class NoticeManagement {
 		
 		return json;
 	}
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+	
 }
 
 
