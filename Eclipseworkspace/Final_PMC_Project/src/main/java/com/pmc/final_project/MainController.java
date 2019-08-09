@@ -62,17 +62,6 @@ public class MainController {
 
 		return "LoginFail";   
 	}
-	//	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
-	//	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
-	//
-	//		logger.info("JSPIdOverLap execute ");
-	//
-	//		String  str = "";
-	//
-	//
-	//		return str;
-	//
-	//	}
 
 
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑
@@ -155,7 +144,7 @@ public class MainController {
 	//Ajax로 처리하는 Write 메소드
 	@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
 	public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
-
+		//sel = 0 , 회원가입할때 서류 등록 // sel = 1, 사진 3장 올릴때 . 
 		mav= pm.fileupload(multi);
 
 

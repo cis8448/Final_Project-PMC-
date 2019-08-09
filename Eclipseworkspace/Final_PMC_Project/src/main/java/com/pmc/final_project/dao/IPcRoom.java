@@ -55,9 +55,19 @@ public interface IPcRoom {
 
 	public String HoliSel(String p_id);
 
+
+	public boolean fileupdate1(Map<String, String> fMap);
+
+	public boolean fileupdate2(Map<String, String> fMap);
+
+	public boolean fileupdate3(Map<String, String> fMap);
+
+	public void negative(String id);
+
 	public List<String> GetPicture();
 
 	public String Memberidoverlap(String id);
+
 
 
 

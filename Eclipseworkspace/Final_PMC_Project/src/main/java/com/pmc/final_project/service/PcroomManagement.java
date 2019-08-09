@@ -249,14 +249,14 @@ public class PcroomManagement {
 		String view = null;
 
 		String check = multi.getParameter("fileCheck");
-		String _id = multi.getParameter("_id");
-		System.out.println(_id);
-
+		
+	
+		System.out.println("sel="+multi.getParameter("sel"));
 		boolean f = false;
 
 		if(check.equals("1")) {
 			
-			f= fileProc.upFile(multi,_id);
+			f= fileProc.upFile(multi);
 		}
 		if(f) {
 			view = "SignUp";

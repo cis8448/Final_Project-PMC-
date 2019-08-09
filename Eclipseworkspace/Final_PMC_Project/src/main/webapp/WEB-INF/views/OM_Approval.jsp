@@ -74,7 +74,7 @@ table {
 
 		$.ajax({
 			type : 'post',
-			url : 'negative',
+			url : 'negative?param='+id,
 			data : id,
 			dataType : 'json',
 			success : function(data) {
