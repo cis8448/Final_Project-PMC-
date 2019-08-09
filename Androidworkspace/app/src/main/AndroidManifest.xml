@@ -89,9 +89,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PcRoomInfo">
+        <activity android:name=".WhenPcroom">
             <intent-filter>
-                <action android:name="com.example.finalproject.PcRoomInfo" />
+                <action android:name="com.example.finalproject.WhenPcroom" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

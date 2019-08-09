@@ -102,7 +102,7 @@ public class AndroidController {
 
         //가입한 피시방
         if (state.equals("btnMyPc")){
-            Intent btnMyPc = new Intent("com.example.finalproject.PcRoomInfo");
+            Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
             activity.startActivity(btnMyPc);
         }
 
