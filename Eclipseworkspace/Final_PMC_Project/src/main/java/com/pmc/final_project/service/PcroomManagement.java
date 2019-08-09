@@ -383,6 +383,12 @@ public class PcroomManagement {
 	}
 
 
+	public String Memberidoverlap(String id) {
+		String json = pDao.Memberidoverlap(id);
+		return json;
+	}
+
+
 
 
 }

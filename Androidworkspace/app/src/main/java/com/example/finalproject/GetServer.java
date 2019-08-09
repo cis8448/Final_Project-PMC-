@@ -24,6 +24,8 @@ public class GetServer {
     public Bitmap pictures[];
     PictureBean pictureBean;
     JSPServer Sever;
+    String state;
+    boolean overLap;
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -49,6 +51,37 @@ public class GetServer {
 
         return pictures;
     }
+
+    public boolean MemberIdOverLap(String State, final Activity activity){
+
+        localURL = State;
+        final String id = ((SignUp)activity).edtId.getText().toString();
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.Memberidoverlap(localURL,id).execute().body();
+                    if(state.equals("0")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+
     public Bitmap[] GetPictures(PictureBean bean){
         Bitmap[] bt = new Bitmap[3];
         try {
