@@ -133,8 +133,14 @@
 	<select id="GetPicture" resultType="String">
 		SELECT P_PICTURE1 FROM PCROOM
 	</select>
+<<<<<<< HEAD
+	<select id="Memberidoverlap" resultType="String" parameterType="String">
+		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
+	</select>
+=======
 	
 	
+>>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
 
 
 

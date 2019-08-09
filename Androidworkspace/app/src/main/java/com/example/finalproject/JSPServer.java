@@ -12,5 +12,10 @@ public interface JSPServer {
         Call<PictureBean> getPictures(@Path("URL") String URL);
 
     @POST("final_project/{URL}")
+<<<<<<< HEAD
+        Call<String> Memberidoverlap(@Path("URL") String URL, @Query("id") String id);
+
+=======
     Call<PictureBean> getPictures2(@Path("URL") String URL ,@Query("id") String id);
+>>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
 }

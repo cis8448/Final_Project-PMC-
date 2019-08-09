@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Path;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,10 @@ public class AndroidController {
     Activity MainAct;
     Activity SubAct;
     GetServer Server = new GetServer();
+    int number;
+
     GetServer2 server2 = new GetServer2();
+
 
     static AndroidController androidcontroller;
 
@@ -52,6 +56,42 @@ public class AndroidController {
         if(state.equals("LoginOpen")){
             Intent Open = new Intent("com.example.finalproject.Login");
             activity.startActivity(Open);
+        }
+        //회원가입 선택 페이지로 이동
+        if(state.equals("signUpSelectOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUpSelect");
+            activity.startActivity(Open);
+        }
+        //카카오로 회원가입버튼을 눌렀을 경우 페이지 이동
+        if(state.equals("EasySignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.EasySignUp");
+            activity.startActivity(Open);
+        }
+        if(state.equals("SignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUp");
+            activity.startActivity(Open);
+        }
+        if(state.equals("Memberidoverlap")){
+
+            if(Server.MemberIdOverLap("Memberidoverlap",activity)){
+                Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                if(number == 0) {
+                    number++;
+                    ((SignUp)activity).count++;
+                    if(((SignUp)activity).count ==2){
+                        ((SignUp)activity).SignUpNext.setEnabled(true);
+                    }
+                }
+            }else{
+                Toast.makeText(activity, "아이디를 사용하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(number == 1) {
+                    number--;
+                    ((SignUp)activity).count--;
+                    if(((SignUp)activity).count ==1){
+                        ((SignUp)activity).SignUpNext.setEnabled(false);
+                    }
+                }
+            }
         }
 
 

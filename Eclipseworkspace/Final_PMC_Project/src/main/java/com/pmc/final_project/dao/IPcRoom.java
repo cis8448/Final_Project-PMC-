@@ -66,6 +66,8 @@ public interface IPcRoom {
 
 	public List<String> GetPicture();
 
+	public String Memberidoverlap(String id);
+
 
 
 

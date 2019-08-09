@@ -13,7 +13,10 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PcRoomGPS extends AppCompatActivity {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
 
     public ListView ListView1, ListView2;
     TextView sido;
