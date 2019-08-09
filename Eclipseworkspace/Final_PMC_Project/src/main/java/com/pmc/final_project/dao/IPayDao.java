@@ -17,7 +17,7 @@ public interface IPayDao {
 
 	public boolean PayDate(Map<String, String> map);
 
-	public List<PayMentDetail> cateSearch(String pc_name);
+	public List<PayMentDetail> cateSearch(String selcate);
 
 	public List<PayMentDetail> datesearch(Map<String, String> map);
 

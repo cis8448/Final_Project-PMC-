@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="cateSearch" resultType="PayMentDetail" parameterType="String">
-		SELECT * FROM PAYLIST WHERE PC_NAME=#{pc_name}
+		SELECT * FROM PAYLIST WHERE PC_NAME=#{selcate}
 	</select>
 
 </mapper>
