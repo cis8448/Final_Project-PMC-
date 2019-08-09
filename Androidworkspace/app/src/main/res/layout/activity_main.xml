@@ -466,7 +466,8 @@
                                 android:layout_height="30dp"
                                 android:text="- 상품주문"
                                 android:layout_marginLeft="25dp"
-                                android:textSize="8sp"/>
+                                android:textSize="8sp"
+                                android:onClick="ProductList"/>
                         </TableRow>
                         <TableRow>
                             <TextView

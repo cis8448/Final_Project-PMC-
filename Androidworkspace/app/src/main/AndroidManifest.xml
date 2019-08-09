@@ -13,10 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PcRoomInquire"></activity>
+        <activity android:name=".PcRoomInquire"/>
         <activity android:name=".PcRoomNotice" />
-        <activity android:name=".ProductBasket" />
-        <activity android:name=".ProductList" />
         <activity android:name=".Reservation" />
         <activity android:name=".PassUpdate" />
         <activity android:name=".MyIdCheck" />
@@ -53,6 +51,20 @@
         <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUp" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductList">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductList" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductBasket">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductBasket" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

@@ -80,18 +80,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //비로그인시 메뉴 클릭 -> 로그인하러가기 클릭시 로그인액티비티 출력
     public void LoginGo(View view) {
-
         andcon.sub(this,"LoginOpen");
-
-
     }
 
     public void LogOut(View view){
-
-
         andcon.sub(this,"LogOut");
-
-
     }
 
 
@@ -147,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
     public void btnMyPc(View view){
         startActivity(new Intent(this, WhenPcroom.class));
     }
+
+    //상품주문 -> 상품리스트
+    public void ProductList(View view){
+        andcon.sub(this,"ProductList");
+}
 
 
 

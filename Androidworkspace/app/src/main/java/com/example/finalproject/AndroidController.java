@@ -1,9 +1,10 @@
 package com.example.finalproject;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.view.View;
+
+import com.example.finalproject.Bean.ProductBean;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class AndroidController {
     Activity MainAct;
     Activity SubAct;
 
+    public ArrayList<ProductBean> ProductListAll;
 
     static AndroidController androidcontroller;
 
@@ -65,5 +67,15 @@ public class AndroidController {
 
         }
 
+        if (state.equals("ProductList")){
+            Intent ProductListOpen = new Intent("com.example.finalproject.ProductList");
+//            ProductListAll=((ProductList)activity).prob;
+            activity.startActivity(ProductListOpen);
+        }
+
+        if (state.equals("ProductBasket")){
+            Intent ProductBasketOpen = new Intent("com.example.finalproject.ProductBasket");
+            activity.startActivity(ProductBasketOpen);
+        }
     }
 }
