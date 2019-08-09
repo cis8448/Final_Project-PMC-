@@ -126,21 +126,17 @@
 		UPDATE PCROOM SET
 		P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
 	</update>
-	<update id="negative" parameterType="String">
-
-	</update>
 
 	<select id="GetPicture" resultType="String">
 		SELECT P_PICTURE1 FROM PCROOM
 	</select>
-<<<<<<< HEAD
 	<select id="Memberidoverlap" resultType="String" parameterType="String">
 		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
 	</select>
-=======
+
 	
 	
->>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
+
 
 
 

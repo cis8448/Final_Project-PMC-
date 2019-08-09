@@ -8958,3 +8958,21 @@ Caused by: org.xml.sax.SAXParseException; Premature end of file.
 =======
 >>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
 >>>>>>> 5b89a78485ef641aa0dadff9f57a3b1adbe4de6b
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:07:05.213
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:07:05.423
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:19:59.973
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:20:00.091
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:21:25.757
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-09 21:21:25.787
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
