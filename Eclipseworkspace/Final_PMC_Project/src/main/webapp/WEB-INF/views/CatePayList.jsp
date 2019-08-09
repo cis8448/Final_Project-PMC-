@@ -125,7 +125,7 @@ function cateSearch(){
 	$.ajax({
         type : 'post',
         url : 'casearch',
-		data : pc_name,
+		data : selcate,
 		dataType : 'json',
 		contentType : "application/json; charset=UTF-8",
 		success : function(data){

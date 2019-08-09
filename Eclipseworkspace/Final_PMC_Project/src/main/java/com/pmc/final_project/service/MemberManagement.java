@@ -69,8 +69,17 @@ public class MemberManagement {
 		String view = null;
 		
 		Member member = mDao.getmemberInfo(m_id);
-		
+		int cnt = mDao.getBlockSearch(m_id);
+		int ct = mDao.SelBlock(m_id);
+		System.out.println("몇이노"+ct);
+		if(ct==1) {
+			mav.addObject("ct",1);
+			
+		}else {
+			mav.addObject("ct",0);
+		}
 		mav.addObject("member", member);
+		mav.addObject("cnt" , cnt);
 		
 		view = "MemberInfo";
 		mav.setViewName(view);
@@ -170,6 +179,51 @@ public class MemberManagement {
 		List<Member> omsList = mDao.OMMemberSearch(res2);
 		String json = new Gson().toJson(omsList);
 		
+		return json;
+	}
+	public String block(String m_id) {
+		
+		String p_id=(String)session.getAttribute("id");
+		String content = "0";
+		
+		mav = new ModelAndView();
+		String json = null;
+		
+		String array[] = m_id.split("=");
+		m_id=array[0];
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", p_id);
+		map.put("m_id", m_id);
+		map.put("content", content);
+		
+		Map<String, String> map2 = new HashMap<String, String>();
+		map2.put("p_id", p_id);
+		map2.put("m_id", m_id);
+		
+		int cnt = mDao.getBlockSearch(m_id);
+		System.out.println(cnt+"여기는요");
+		HashMap<String, String> maps = new HashMap<String, String>();
+		if(cnt == 0) {
+			
+			 if(mDao.BlockInsert(map)) {
+				 System.out.println("insert 실행");
+				 maps.put("success", "0");
+				
+
+			json = new Gson().toJson(maps);
+			 }
+			
+		}
+		else {
+			 if(mDao.BlockDelete(map2)) {
+				 System.out.println("delete 실행");
+				 maps.put("success", "1");
+				
+			json = new Gson().toJson(maps);
+			 }
+		}
+
 		return json;
 	}
 
