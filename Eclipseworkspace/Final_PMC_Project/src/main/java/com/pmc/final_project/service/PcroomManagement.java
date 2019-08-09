@@ -368,6 +368,21 @@ public class PcroomManagement {
 	}
 
 
+	public String GetPicture() {
+		Random ran = new Random();
+		List<String> pList = pDao.GetPicture();
+		for(int i =0; pList.size()>3; i++) {
+			pList.remove(ran.nextInt(pList.size()-1));
+		}
+		Map<String,String> pMap = new HashMap<String, String>();
+		pMap.put("Picture1", pList.get(0));
+		pMap.put("Picture2", pList.get(1));
+		pMap.put("Picture3", pList.get(2));
+		String json = new Gson().toJson(pMap);
+		return json;
+	}
+
+
 
 
 }

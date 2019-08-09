@@ -208,6 +208,14 @@ public class MainController {
 
 		return mav; //jsp파일 이름고 ㅏ동일해야함
 	}
+	@RequestMapping(value = "/GetPicture")
+	public @ResponseBody String GetPicture() {
+		System.out.println("들어왓니?");
+		String json = pm.GetPicture();
+		System.out.println("끝");
+		return json;
+	}
+
 
 
 }

@@ -55,6 +55,8 @@ public interface IPcRoom {
 
 	public String HoliSel(String p_id);
 
+	public List<String> GetPicture();
+
 
 
 

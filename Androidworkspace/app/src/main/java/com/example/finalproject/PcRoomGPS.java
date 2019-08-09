@@ -13,11 +13,15 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PcRoomGPS extends AppCompatActivity {
+<<<<<<< HEAD
 
     public ListView ListView1, ListView2;
     TextView sido;
     private ArrayList<PcRoomBean> data = null;
 
+=======
+    AndroidController andcon = AndroidController.getInstance();
+>>>>>>> bbf272296c26f09a68619ca6b339bf7000d89b5c
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
