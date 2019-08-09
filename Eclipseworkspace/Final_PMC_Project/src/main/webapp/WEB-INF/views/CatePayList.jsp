@@ -58,9 +58,11 @@
 			
 		</ul>
 	</aside>
-	
-	
 	<section>
+	
+
+
+	
 	<form method="post" action="./CatePayList.jsp"></form>
 	<table>
 		<tr>
@@ -69,31 +71,39 @@
 			<c:set var="Cate" value="${pay.pc_name}"/>
 					<option id="pc_name">${pay.pc_name}</option>
 				
-			</c:forEach>
+			</c:forEach> 
+			8
 					
 			</select></td>
 			
 			<td><button type="button" onclick="cateSearch()" id="catesearch" >선택</button></td>
 		</tr>
 	</table>		
-    	<table id="bb" border="1">
+    	<table id="bb">
 		<tr>
 			<td class="Paymenu">날짜</td>
 			<td class="Paymenu">ID</td>
 			<td class="Paymenu">상품명</td>
 			<td class="Paymenu">수량</td>
-			<td class="Paymenu">가격</td>	
+			<td class="Paymenu">가격</td>
+		
+				
 		</tr>
 		
+		<tr>
+			<td></td>
+		<tr>
+			<td><div id="list" style="border:1px blue solid"></div></td>
+		</tr>
 		<tbody id="cateResult" align="center">
 		<c:forEach var="cate" items="${cateList}">
-			
-				${cateResult.u_start}
-				${cateResult.m_id}
-				${cateResult.p_name}
-				${cateResult.pl_qty}
-				${cateResult.pl_price}
-			
+			<tr>
+				<td>${cateResult.u_start}</td>
+				<td>${cateResult.m_id}</td>
+				<td>${cateResult.p_name}</td>
+				<td>${cateResult.pl_qty}</td>
+				<td>${cateResult.pl_price}</td>
+			</tr>
 		</c:forEach>
 		</tbody>
 	</table>
@@ -115,7 +125,7 @@ function cateSearch(){
 	$.ajax({
         type : 'post',
         url : 'casearch',
-		data : pc_name,
+		data : selcate,
 		dataType : 'json',
 		contentType : "application/json; charset=UTF-8",
 		success : function(data){

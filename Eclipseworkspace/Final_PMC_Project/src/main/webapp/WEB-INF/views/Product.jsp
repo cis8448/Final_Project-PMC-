@@ -45,10 +45,10 @@
         </div> 
         <ul id="Menu">
             <li class="mainmenu"><a href="./SeatState">좌석</a></li>
-            <li class="mainmenu"><a href="./Product">상품</a></li>
-            <li class="mainmenu"><a href="#">회원</a></li>
-            <li class="mainmenu"><a href="#">매출</a></li>
-            <li class="mainmenu"><a href="#">기타</a></li>
+            <li class="mainmenu"><a href="#">상품</a></li>
+            <li class="mainmenu"><a href="./MemberList">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
         </ul>    
     </header>
     <aside>
@@ -176,11 +176,14 @@
 			var tbl = document.getElementById('resultSearch');
 			var result = "";
 			for(var i=0;i<data.length;i++){
+				result += '<tr align="center">'
 				result += '<td id="Search">'+data[i].pc_name+'</td>'
 				result += '<td>'+data[i].pr_name+'</td>'
 				result += '<td>'+data[i].pr_qty+'</td>'
 				result += '<td>'+data[i].pr_price+'</td>'
 				result += '<td><a href="./ProductDetail?pr_id='+data[i].pr_id+'">상세보기</a></td>'
+				result += '</tr>'
+						
 		}		
 				
 				tbl.innerHTML = result;

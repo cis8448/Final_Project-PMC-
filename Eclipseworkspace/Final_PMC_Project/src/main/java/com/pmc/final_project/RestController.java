@@ -195,9 +195,9 @@ public class RestController {
 	}
 	
 	@RequestMapping(value="/casearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
-	public @ResponseBody String casearch(@RequestBody String pc_name) {
+	public @ResponseBody String casearch(@RequestBody String selcate) {
 		logger.info("casearch execute ");
-		String json = paym.casearch(pc_name);
+		String json = paym.casearch(selcate);
 		System.out.println(json);
 		return json;
 	}
@@ -210,7 +210,7 @@ public class RestController {
 		return json;
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping(value="/OMMemberSearch", method = RequestMethod.POST,produces = "application/text; charset=utf8")  
 	public @ResponseBody String OMMemberSearch(@RequestBody String res) {
 		logger.info("OMMemberSearch execute ");
@@ -234,6 +234,15 @@ public class RestController {
 		logger.info("OMNoticeSearch execute ");
 	
 		String json = nm.OMNoticeSearch(res);
+		
+		return json;
+	}
+	
+	@RequestMapping(value = "/block", method = RequestMethod.POST,produces = "application/text; charset=utf8")
+	public @ResponseBody String block(@RequestBody String m_id) {
+
+		logger.info("block execute ");
+		String json = mm.block(m_id);
 		
 		return json;
 	}

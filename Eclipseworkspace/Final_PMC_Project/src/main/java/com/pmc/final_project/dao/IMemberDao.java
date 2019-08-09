@@ -28,6 +28,17 @@ public interface IMemberDao {
 
 	public List<Member> OMMemberSearch(String res);
 
+	public int getBlockSearch(String m_id);
+
+	public boolean BlockInsert(Map<String, String> map);
+
+	public boolean BlockDelete(Map<String, String> map);
+
+	public int SelBlock(String m_id);
+
+	
+
+	
 
 
 

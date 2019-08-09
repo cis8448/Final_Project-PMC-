@@ -142,9 +142,9 @@ public class PayListManagement {
 
 
 
-	public String casearch(String pc_name) {
+	public String casearch(String selcate) {
 		
-		List<PayMentDetail> pmList = payDao.cateSearch(pc_name);
+		List<PayMentDetail> pmList = payDao.cateSearch(selcate);
 		String json = new Gson().toJson(pmList);
 		
 		

@@ -10,42 +10,6 @@ import com.pmc.final_project.bean.Reply;
 
 public interface INotice {
 
-	List<PcRoomNoticeBean> getNoticeList(String cate);
-
-	int getNoticeCount(String cate);
-
-	List<PcRoomNoticeBean> getServiceList(String cate);
-
-	int getServiceCount(String cate);
-
-	boolean writeinsert(PcRoomNoticeBean pcRoomNoticeBean);
-
-	PcRoomNoticeBean NoticeDetail(Map<String, String> map);
-
-	boolean NoticeDelete(Map<String, String> map);
-	
-	boolean NoticeUpdate(PcRoomNoticeBean nbean);
-
-	boolean swriteinsert(PcRoomNoticeBean pcRoomNoticeBean);
-
-	PcRoomNoticeBean ServiceDetail(Map<String, String> map);
-
-	boolean replyInsert(Reply r);
-
-	List<Reply> getReplyList(int r_num);
-
-	
-
-
-
-	
-
-	
-
-
-
-
-
 	List<PcRoomNoticeBean> OM_Notice(Map<String, String> map);
 
 	List<PcRoomNoticeBean> OM_Service(Map<String, String> map);
@@ -56,18 +20,22 @@ public interface INotice {
 
 	List<PcRoomNoticeBean> OMNoticeSearch(String res2);
 
+	List<PcRoomNoticeBean> getNoticeList(String cate);
 
+	PcRoomNoticeBean getNoticeDetail(String b_num);
 
+	boolean UpdateNotice(PcRoomNoticeBean noBean);
 
+	boolean DeleteNotice(String b_num);
 
+	List<PcRoomNoticeBean> getServiceList(String cate);
 
+	PcRoomNoticeBean getServiceDetail(String b_num);
 
+	boolean UpdateService(PcRoomNoticeBean noBean);
 
+	boolean DeleteService(String b_num);
 
-
-
-	
-
-
+	Object SelectP_id(String b_num);
 
 }

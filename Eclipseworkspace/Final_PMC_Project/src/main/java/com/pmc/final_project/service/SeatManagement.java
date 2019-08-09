@@ -104,6 +104,7 @@ public class SeatManagement {
 				}
 			}
 		 }
+		 
 		 //파일업로드 
 		 if(num.equals("1")) {
 			 String root = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
@@ -127,6 +128,7 @@ public class SeatManagement {
 					}
 				}
 				}
+			
 				Iterator<String> files = multi.getFileNames();
 
 				Map<String, String> fMap = new HashMap<String, String>();

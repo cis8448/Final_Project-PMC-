@@ -7,6 +7,18 @@
 <meta charset="UTF-8">
 <title>피모씨 관리자</title>
 <!-- 합쳐지고 최소화된 최신 CSS -->
+<script>
+window.onload = function(){
+	var chk = '${param.ct}';
+	
+	if(chk==1){
+		document.getElementById("bl").innerHTML = "블락해제";
+
+	}else{
+		document.getElementById("bl").innerHTML = "블락설정";
+	}
+}
+</script>
 </head>
 <style>
 html, body, ul {
@@ -137,7 +149,7 @@ button {
 }
 
 .LastButton {
-	margin-left: 45.5%;
+	margin-left: 38%;
 	margin-top: 10px;
 }
 
@@ -177,15 +189,15 @@ h2 {
 <body>
 	<header>
 		<div>
-			<img src="./resources/img/pmc1.jpg">
-		</div>
-		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="#">상품</a></li>
-			<li class="mainmenu"><a href="./MemberList">회원</a></li>
-			<li class="mainmenu"><a href="#">매출</a></li>
-			<li class="mainmenu"><a href="#">기타</a></li>
-		</ul>
+        <img src="./resources/img/dd.png">
+        </div> 
+        <ul id="Menu">
+            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
+            <li class="mainmenu"><a href="./Product">상품</a></li>
+            <li class="mainmenu"><a href="#">회원</a></li>
+            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+        </ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
@@ -229,6 +241,8 @@ h2 {
 
 		<br>
 		<div class="LastButton">
+		    <a href="#" class="button2" onclick="block(this)" id="bl">
+		    ${ 1 eq param.ct ? '블락해제' : '블락설정'}</a>
 			<a href="./MemberPayCheck?m_id=${member.m_id}" class="button2">매출확인</a> 
 			<a href="./MemberUseLog?m_id=${member.m_id}" class="button2">사용기록</a>
 			<a href="./MemberList" class="button2">뒤로가기</a>
@@ -267,6 +281,31 @@ h2 {
 			}
 		});
 	};
+	
+	function block(obj) {
+		var m_id = document.getElementById('m_id').innerHTML;
+		
+		console.log(m_id);
+		
+		$.ajax({
+			type : 'post',
+			url : 'block',
+			data : m_id,
+			dataType : 'json',
+			success : function(data){
+				if(data.success){
+					
+				}else{
+					
+				}
+				location.href ="./MemberInfo?m_id="+m_id
+			},
+			error : function(error){
+				
+			}
+			
+		});
+	}
 </script>
 
 
