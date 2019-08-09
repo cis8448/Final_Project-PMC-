@@ -3,7 +3,6 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -17,6 +16,8 @@ import android.widget.Button;
 import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;

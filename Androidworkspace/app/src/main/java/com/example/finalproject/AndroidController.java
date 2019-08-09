@@ -3,6 +3,8 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,17 @@ public class AndroidController {
         if (state.equals("SignUpOpen")){
             Intent SignUpOpen = new Intent("com.example.finalproject.SignUp");
             activity.startActivity(SignUpOpen);
+        }
+        // 로그인 -> 아이디 비밀번호 찾기 버튼 클릭 -> 찾기창 오픈
+        if (state.equals("FindIdPassOpen")){
+                Intent FindIdPassOpen = new Intent("com.example.finalproject.Certification");
+                activity.startActivity(FindIdPassOpen);
+
+        }
+        if (state.equals("send")){
+            ((Certification) activity).visi2.setVisibility(View.VISIBLE);
+            KakaoMessege km = new KakaoMessege();
+            km.KakaosendMessege(activity);
         }
     }
 }

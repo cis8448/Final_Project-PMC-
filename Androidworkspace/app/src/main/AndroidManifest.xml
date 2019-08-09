@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PassUpdate"></activity>
         <activity android:name=".MyIdCheck" />
-        <activity android:name=".Certification" />
         <activity android:name=".EasySignUp" />
         <activity android:name=".QuickMenuSelect" />
         <activity android:name=".Preferences" />
@@ -27,31 +26,45 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="com.example.finalproject.Login" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SignUpSelect">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUpSelect" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Certification">
+            <intent-filter>
+                <action android:name="com.example.finalproject.Certification" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUp" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
