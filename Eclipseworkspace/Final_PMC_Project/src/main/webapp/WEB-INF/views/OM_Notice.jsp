@@ -167,13 +167,13 @@ button {
 			<li class="mainmenu"><a href="./OM_Approval">PC방업주관리</a></li>
 			<li class="mainmenu"><a href="./OM_MemberList">PC방전체회원</a></li>
 			<li class="mainmenu"><a href="./OM_Notice?cate=0">PC방 공지사항</a></li>
-			<li class="mainmenu"><a href="./OM_Service?cate=0">PC방 고객센터</a></li>
+			<li class="mainmenu"><a href="./OM_Service?cate=1">PC방 고객센터</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./OM_Notice?cate=0">PC방 공지</a></li>
-			<li class="SubMenu"><a href="./OM_Notice?cate=1">앱 공지</a></li>
+			<li class="SubMenu"><a href="./OM_Notice?cate=2">앱 공지</a></li>
 		</ul>
 	</aside>
 	<section>
@@ -208,7 +208,7 @@ button {
 				</c:forEach>
 			</tbody>
 		</table>
-		<button onclick="write()">공지사항 작성</button>
+		<a href="OM_Nwrite">작성</a>
 		<div align="center">${paging}</div>
 	</section>
 	<footer>
@@ -254,8 +254,8 @@ button {
 	};
 </script>
 <script type="text/javascript">
-	function write(){
-		location.href="OM_Nwrite";		
+	function write() {
+		location.href = "OM_Nwrite";
 	}
 </script>
 </html>

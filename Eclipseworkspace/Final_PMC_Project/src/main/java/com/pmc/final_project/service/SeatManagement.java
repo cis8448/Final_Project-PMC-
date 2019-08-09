@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.mail.Folder;
 
@@ -427,6 +428,17 @@ public class SeatManagement {
 		}
 		String json = new Gson().toJson(map);
 		
+		return json;
+	}
+
+	public String GetPicture(String id) {
+		
+		String pic = sDao.GetPicture2(id);
+		
+		Map<String,String> pMap = new HashMap<String, String>();
+		pMap.put("Picture1", pic);
+		
+		String json = new Gson().toJson(pMap);
 		return json;
 	}
 

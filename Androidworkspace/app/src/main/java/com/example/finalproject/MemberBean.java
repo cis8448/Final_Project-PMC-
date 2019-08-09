@@ -2,10 +2,94 @@ package com.example.finalproject;
 
 public class MemberBean {
 
-    private String Id;
-    private String Pass;
-    private String Name;
-    private String Birth;
-    private String Email;
-    private String Phone;
+    private String m_kakaoid;
+    private String m_id;
+    private String m_pass;
+    private String m_name;
+    private String m_nickname;
+    private String m_email;
+    private String m_phone;
+    private String m_birthday;
+    private String m_profile;
+    private String m_point;
+
+    public String getM_kakaoid() {
+        return m_kakaoid;
+    }
+
+    public void setM_kakaoid(String m_kakaoid) {
+        this.m_kakaoid = m_kakaoid;
+    }
+
+    public String getM_id() {
+        return m_id;
+    }
+
+    public void setM_id(String m_id) {
+        this.m_id = m_id;
+    }
+
+    public String getM_pass() {
+        return m_pass;
+    }
+
+    public void setM_pass(String m_pass) {
+        this.m_pass = m_pass;
+    }
+
+    public String getM_name() {
+        return m_name;
+    }
+
+    public void setM_name(String m_name) {
+        this.m_name = m_name;
+    }
+
+    public String getM_nickname() {
+        return m_nickname;
+    }
+
+    public void setM_nickname(String m_nickname) {
+        this.m_nickname = m_nickname;
+    }
+
+    public String getM_email() {
+        return m_email;
+    }
+
+    public void setM_email(String m_email) {
+        this.m_email = m_email;
+    }
+
+    public String getM_phone() {
+        return m_phone;
+    }
+
+    public void setM_phone(String m_phone) {
+        this.m_phone = m_phone;
+    }
+
+    public String getM_birthday() {
+        return m_birthday;
+    }
+
+    public void setM_birthday(String m_birthday) {
+        this.m_birthday = m_birthday;
+    }
+
+    public String getM_profile() {
+        return m_profile;
+    }
+
+    public void setM_profile(String m_profile) {
+        this.m_profile = m_profile;
+    }
+
+    public String getM_point() {
+        return m_point;
+    }
+
+    public void setM_point(String m_point) {
+        this.m_point = m_point;
+    }
 }

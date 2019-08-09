@@ -3,7 +3,9 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Path;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -12,6 +14,10 @@ public class AndroidController {
 
     Activity MainAct;
     Activity SubAct;
+    GetServer Server = new GetServer();
+    int number;
+
+    GetServer2 server2 = new GetServer2();
 
 
     static AndroidController androidcontroller;
@@ -35,34 +41,122 @@ public class AndroidController {
     public static void cutComtroll(){
         androidcontroller = null;
     }
+    public void sub2(Activity activity,String state,String id){
+        if(state.equals("GetPicture2")){
+            ((SeatStatus)activity).pictures =server2.GetServerPicture(activity,id);
+        }
+    }
+
     public void sub(Activity activity, String state){
-
-
-        // 메인 -> 로그인오픈
-        if (state.equals("LoginOpen")){
-            Intent LoginOpen = new Intent("com.example.finalproject.Login");
-            activity.startActivity(LoginOpen);
+        //사진 가져오기
+        if(state.equals("GetPicture")){
+            ((MainActivity)activity).pictures = Server.GetServerPicture(activity);
         }
-        // 로그인 -> 회원가입 버튼 클릭 -> 회원가입 선택창
-        if (state.equals("SignUpSelectOpen")){
-            Intent SignUpSelectOpen = new Intent("com.example.finalproject.SignUpSelect");
-            activity.startActivity(SignUpSelectOpen);
+        //로그인페이지 이동
+        if(state.equals("LoginOpen")){
+            Intent Open = new Intent("com.example.finalproject.Login");
+            activity.startActivity(Open);
         }
-        // 회원가입 선택창 -> 피모씨 회원가입 오픈
-        if (state.equals("SignUpOpen")){
-            Intent SignUpOpen = new Intent("com.example.finalproject.SignUp");
-            activity.startActivity(SignUpOpen);
-
+        //회원가입 선택 페이지로 이동
+        if(state.equals("signUpSelectOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUpSelect");
+            activity.startActivity(Open);
         }
-        if (state.equals("LogOut")){
-            ((MainActivity)activity).mainlow2.setVisibility(View.GONE);
-            ((MainActivity)activity).scroll.setVisibility(View.GONE);
-            ((MainActivity)activity).logoutbtn.setVisibility(View.GONE);
-            ((MainActivity)activity).alarm.setVisibility(View.GONE);
-            ((MainActivity)activity).info.setVisibility(View.GONE);
-            ((MainActivity)activity).loginbtn.setVisibility(View.VISIBLE);
-            ((MainActivity)activity).mainlow1.setVisibility(View.VISIBLE);
+        //카카오로 회원가입버튼을 눌렀을 경우 페이지 이동
+        if(state.equals("EasySignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.EasySignUp");
+            activity.startActivity(Open);
+        }
+        if(state.equals("SignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUp");
+            activity.startActivity(Open);
+        }
+        if(state.equals("Memberidoverlap")){
 
+            if(Server.MemberIdOverLap("Memberidoverlap",activity)){
+                Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                if(number == 0) {
+                    number++;
+                    ((SignUp)activity).count++;
+                    if(((SignUp)activity).count ==2){
+                        ((SignUp)activity).SignUpNext.setEnabled(true);
+                    }
+                }
+            }else{
+                Toast.makeText(activity, "아이디를 사용하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(number == 1) {
+                    number--;
+                    ((SignUp)activity).count--;
+                    if(((SignUp)activity).count ==1){
+                        ((SignUp)activity).SignUpNext.setEnabled(false);
+                    }
+                }
+            }
+        }
+
+
+        //메뉴 버튼 처리
+        //세팅
+        if (state.equals("btnSetting")){
+            Intent btnSetting = new Intent("com.example.finalproject.Preferences");
+            activity.startActivity(btnSetting);
+        }
+
+        //홈으로 가기
+        if (state.equals("btnHome")){
+            Intent btnHome = new Intent("com.example.finalproject.MainActivity");
+            activity.startActivity(btnHome);
+        }
+
+
+        //전체 공지사항
+        if (state.equals("Notice")){
+            Intent Notice = new Intent("com.example.finalproject.PcRoomNotice");
+            activity.startActivity(Notice);
+        }
+
+
+        //내 정보 버튼 처리
+        if (state.equals("btnMyInfo")){
+            Intent btnMyInfo = new Intent("com.example.finalproject.MyInfo");
+            activity.startActivity(btnMyInfo);
+        }
+
+        //퀵 메뉴 설정
+        if (state.equals("btnQuick")){
+            Intent btnQuick = new Intent("com.example.finalproject.QuickMenuSelect");
+            activity.startActivity(btnQuick);
+        }
+
+
+        //가입한 피시방
+        if (state.equals("btnMyPc")){
+            Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
+            activity.startActivity(btnMyPc);
+        }
+
+        //좌석 현황
+        if (state.equals("SeatState")){
+            Intent SeatState = new Intent("com.example.finalproject.SeatStatus");
+            activity.startActivity(SeatState);
+        }
+
+        //상품 주문
+        if (state.equals("ProductOrder")){
+            Intent ProductOrder = new Intent("com.example.finalproject.ProductList");
+            activity.startActivity(ProductOrder);
+        }
+
+        //pc방 찾기
+        if (state.equals("PcSearch")){
+            Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
+            activity.startActivity(PcSearch);
+        }
+
+        //1:1 문의
+        if (state.equals("Inquiry")){
+            Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
+            activity.startActivity(Inquiry);
         }
         if(state.equals("GetPicture")){
 

@@ -42,4 +42,20 @@
 	<select id="OMMemberSearch" parameterType="String" resultType="Member">
 		SELECT * FROM PCMEMBER WHERE M_NAME LIKE #{res2} OR M_ID LIKE #{res2}
 	</select>
+	
+	<select id="getBlockSearch" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID=#{m_id}
+	</select>
+	
+	<insert id="BlockInsert" parameterType="HashMap">
+		INSERT INTO BLOCK (B_M_ID, B_P_ID, B_CONTENT)
+		VALUES (#{m_id}, #{p_id}, #{content})
+	</insert>
+	
+	<delete id="BlockDelete" parameterType="HashMap">
+		DELETE FROM BLOCK WHERE B_M_ID=#{m_id} AND B_P_ID=#{p_id}
+	</delete>
+	<select id="SelBlock" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID =#{m_id}
+	</select>
 </mapper>

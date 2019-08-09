@@ -13,17 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PcRoomInquire"></activity>
-        <activity android:name=".PcRoomNotice" />
-        <activity android:name=".ProductBasket" />
-        <activity android:name=".ProductList" />
-        <activity android:name=".Reservation" />
-        <activity android:name=".PassUpdate" />
-        <activity android:name=".MyIdCheck" />
-        <activity android:name=".Certification" />
-        <activity android:name=".EasySignUp" />
-        <activity android:name=".QuickMenuSelect" />
-        <activity android:name=".Preferences" />
+
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
@@ -32,31 +22,122 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+
+
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="com.example.finalproject.Login" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SignUpSelect">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUpSelect" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Certification">
+            <intent-filter>
+                <action android:name="com.example.finalproject.Certification" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUp" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Preferences">
+            <intent-filter>
+                <action android:name="com.example.finalproject.Preferences" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PcRoomNotice">
+            <intent-filter>
+                <action android:name="com.example.finalproject.PcRoomNotice" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MyInfo">
+            <intent-filter>
+                <action android:name="com.example.finalproject.MyInfo" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".QuickMenuSelect">
+            <intent-filter>
+                <action android:name="com.example.finalproject.QuickMenuSelect" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WhenPcroom">
+            <intent-filter>
+                <action android:name="com.example.finalproject.WhenPcroom" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ProductList">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductList" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductBasket">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductBasket" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PcRoomGPS">
+            <intent-filter>
+                <action android:name="com.example.finalproject.PcRoomGPS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PcRoomInquire">
+            <intent-filter>
+                <action android:name="com.example.finalproject.PcRoomInquire" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".EasySignUp">
+            <intent-filter>
+                <action android:name="com.example.finalproject.EasySignUp" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SeatStatus">
+            <intent-filter>
+                <action android:name="com.example.finalproject.SeatStatus" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

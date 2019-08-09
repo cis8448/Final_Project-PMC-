@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -61,17 +62,6 @@ public class MainController {
 
 		return "LoginFail";   
 	}
-	//	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
-	//	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
-	//
-	//		logger.info("JSPIdOverLap execute ");
-	//
-	//		String  str = "";
-	//
-	//
-	//		return str;
-	//
-	//	}
 
 
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑
@@ -154,7 +144,7 @@ public class MainController {
 	//Ajax로 처리하는 Write 메소드
 	@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
 	public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
-
+		//sel = 0 , 회원가입할때 서류 등록 // sel = 1, 사진 3장 올릴때 . 
 		mav= pm.fileupload(multi);
 
 
@@ -208,6 +198,19 @@ public class MainController {
 
 		return mav; //jsp파일 이름고 ㅏ동일해야함
 	}
+	@RequestMapping(value = "/GetPicture")
+	public @ResponseBody String GetPicture() {
+		System.out.println("들어왓니?");
+		String json = pm.GetPicture();
+		System.out.println("끝");
+		return json;
+	}
+	@RequestMapping(value = "/Memberidoverlap")
+	public @ResponseBody String Memberidoverlap(@RequestParam("id") String id) {
+		String json = pm.Memberidoverlap(id);
+		return json;
+	}
+
 
 
 }

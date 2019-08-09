@@ -8,64 +8,112 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="회원의 휴대폰 번호"
-        android:textSize="20sp"
-        android:gravity="center"/>
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:text="본인인증"
-        android:textSize="30sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"/>
-
-    <TableLayout
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10sp"
-        android:layout_marginTop="30sp">
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="인증번호"
-                android:textSize="20sp"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="인증번호 입력"
-                android:textSize="20sp"/>
-            <Button
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="재발급"
-                android:textSize="15sp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="인증시간"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="03:00"
-                android:gravity="right"
-                android:textSize="20sp"/>
-            <Button
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="확인"
-                android:textSize="15sp"/>
-        </TableRow>
-    </TableLayout>
+        android:layout_height="wrap_content"
+        android:text="휴대폰 인증 번호"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:id="@+id/visi1">
+
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:hint="회원의 휴대폰 번호"
+            android:textSize="20sp"
+            android:maxLength="11"
+            android:background="@drawable/roundtext"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="발송"
+            android:textSize="15sp"
+            android:textColor="#ffff"
+            android:background="@drawable/roundblue"
+            android:layout_marginLeft="15dp"
+            android:onClick="send"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:visibility="gone"
+        android:id="@+id/visi2">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30sp">
+            <TableRow
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="인증번호"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="인증번호 입력"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="15dp"
+                    android:maxLength="6"/>
+
+                <Button
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="재발급"
+                    android:textSize="15sp"
+                    android:background="@drawable/roundblue"
+                    android:textColor="#ffff"/>
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="인증시간"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01:00"
+                    android:gravity="right"
+                    android:textSize="20sp"
+                    android:id="@+id/downcount"/>
+
+                <Button
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="확인"
+                    android:textSize="15sp"
+                    android:background="@drawable/roundblue"
+                    android:textColor="#ffff"/>
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

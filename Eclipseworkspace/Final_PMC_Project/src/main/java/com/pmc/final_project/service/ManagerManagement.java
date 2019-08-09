@@ -1,5 +1,6 @@
 package com.pmc.final_project.service;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -76,7 +77,7 @@ public class ManagerManagement {
 		int count = 0;
 		Map<Object,Object> map = new HashMap<Object, Object>();
 		id=id.replace("=","");
-		System.out.println("마지막 아이디"+id+"이것뭐냐");
+		
 
 
 		PcRoomBean pr =pDao.approvalSelect(id);
@@ -113,11 +114,13 @@ public class ManagerManagement {
 		String json = null;
 		int count = 0;
 		Map<Object,Object> map = new HashMap<Object, Object>();
+	
 		id=id.replace("=","");
-
-		pDao.approvalDelete(id);
+		
+		pDao.negative(id);
 
 		map.put("cnt",count);
+		
 		json = new Gson().toJson(map);
 		return json;
 	}
@@ -259,6 +262,29 @@ public class ManagerManagement {
 
 		return mav;
 	}
+
+	public ModelAndView OM_NInsert(PcRoomNoticeBean pb) {
+		// TODO Auto-generated method stub
+		mav = new ModelAndView();
+		String view = null;
+		
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+					
+		Date time = new Date();
+				
+		String time1 = format1.format(time);
+		pb.setNo_date(time1);
+		pb.setNo_p_id((String)session.getAttribute("id"));
+		nDao.OM_NInsert(pb);	
+		
+		mav.addObject("insert",1);
+		
+		view = "redirect:/OM_Notice?cate=0";
+		mav.setViewName(view);
+		
+		return mav;
+	}
+
 
 
 }

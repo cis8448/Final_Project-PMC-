@@ -35,61 +35,87 @@ public class NoticeController {
 
 	@Autowired
 	HttpSession session;
-	
-
-		@RequestMapping(value = "/NoticeList")
-		public ModelAndView boardList(String Cate) {
-			mav = nm.getNoticeList(Cate);
-			return mav;
-		}
-	
-		@RequestMapping(value = "./NoticeDetail")
-		public ModelAndView boardDetail(@RequestParam("b_num")String b_num) {
-			mav = nm.getNoticeDetile(b_num);
-			return mav;
-		}
-		@RequestMapping(value = "./NoticeUpdateOpen")
-		public String NoticeUpdateOpen(PcRoomNoticeBean noBean) {
-			return "NoticeUpdate";
-		}
-		@RequestMapping(value = "NoticeUpdate")
-		public ModelAndView NoticeUpdate(PcRoomNoticeBean noBean) {
-			mav = nm.getNoticeUpdate(noBean);
-			return mav;
-		}
-		@RequestMapping(value = "NoticeDelete")
-		public ModelAndView NotoceDelete(String b_num) {
-			mav = nm.DeleteNotice(b_num);
-			
-			return mav;
-		}
-		@RequestMapping(value = "/ServiceList")
-		public ModelAndView ServiceList(String Cate) {
-			mav = nm.getServiceList(Cate);
-			return mav;
-		}
-		
-		@RequestMapping(value = "./ServiceDetail")
-		public ModelAndView ServiceDetail(@RequestParam("b_num")String b_num) {
-			mav = nm.getServiceDetile(b_num);
-			return mav;
-		}
-		@RequestMapping(value = "ServiceUpdate")
-		public ModelAndView ServiceUpdate(PcRoomNoticeBean noBean) {
-			mav = nm.getServiceUpdate(noBean);
-			return mav;
-		}
-		@RequestMapping(value = "ServiceDelete")
-		public ModelAndView ServiceDelete(String b_num) {
-			mav = nm.DeleteService(b_num);
-			
-			return mav;
-		}
-		@RequestMapping(value = "/OM_Nwrite")
-		public String OM_Nwrite() {
-
-			return "OM_Nwrite";
-		}
 
 
+
+
+
+	//공지사항 작성
+	@RequestMapping(value = "/NoticeWrite")
+	public @ResponseBody ModelAndView NoticeWrite(@RequestParam String cate) {
+
+		mav = new ModelAndView();
+		mav.addObject("cate","0");
+		mav.setViewName("NoticeWrite");
+
+		return mav;
 	}
+	//글작성폼
+	@RequestMapping(value ="/WriteFrm")
+	public ModelAndView WriteFrm(@RequestParam String cate) {
+
+		mav = new ModelAndView();
+		mav.addObject("cate",cate);
+
+		mav.setViewName("WriteFrm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/NoticeList")
+	public ModelAndView boardList(String Cate) {
+		mav = nm.getNoticeList(Cate);
+		return mav;
+	}
+
+	@RequestMapping(value = "./NoticeDetail")
+	public ModelAndView boardDetail(@RequestParam("b_num")String b_num) {
+		mav = nm.getNoticeDetile(b_num);
+		return mav;
+	}
+	@RequestMapping(value = "./NoticeUpdateOpen")
+	public String NoticeUpdateOpen(PcRoomNoticeBean noBean) {
+		return "NoticeUpdate";
+	}
+	@RequestMapping(value = "NoticeUpdate")
+	public ModelAndView NoticeUpdate(PcRoomNoticeBean noBean) {
+		mav = nm.getNoticeUpdate(noBean);
+		return mav;
+	}
+	@RequestMapping(value = "NoticeDelete")
+	public ModelAndView NotoceDelete(String b_num) {
+		mav = nm.DeleteNotice(b_num);
+
+		return mav;
+	}
+	@RequestMapping(value = "/ServiceList")
+	public ModelAndView ServiceList(String Cate) {
+		mav = nm.getServiceList(Cate);
+		return mav;
+	}
+
+	@RequestMapping(value = "./ServiceDetail")
+	public ModelAndView ServiceDetail(@RequestParam("b_num")String b_num) {
+		mav = nm.getServiceDetile(b_num);
+		return mav;
+	}
+	@RequestMapping(value = "ServiceUpdate")
+	public ModelAndView ServiceUpdate(PcRoomNoticeBean noBean) {
+		mav = nm.getServiceUpdate(noBean);
+		return mav;
+	}
+	@RequestMapping(value = "ServiceDelete")
+	public ModelAndView ServiceDelete(String b_num) {
+		mav = nm.DeleteService(b_num);
+
+		return mav;
+	}
+	//	@RequestMapping(value = "/OM_Nwrite")
+	//	public String OM_Nwrite() {
+	//
+	//		mav.setViewName("WriteFrm");
+	//
+	//		return mav;
+	//	}
+
+
+}
