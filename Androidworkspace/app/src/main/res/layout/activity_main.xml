@@ -248,7 +248,25 @@
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
+<<<<<<< HEAD
                         android:orientation="vertical">
+=======
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:id="@+id/NoticeSub">
+                        <TableRow>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="- 전체 공지사항"
+                                android:layout_marginLeft="25dp"
+                                android:textSize="8sp"
+                                android:onClick="Notice"/>
+                        </TableRow>
+
+
+                    </TableLayout>
+>>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -335,6 +353,7 @@
                         <TableLayout
                             android:id="@+id/NoticeSub"
                             android:layout_width="match_parent"
+<<<<<<< HEAD
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:visibility="visible">
@@ -392,6 +411,37 @@
                                 android:text="내정보"
                                 android:textSize="15sp" />
 
+=======
+                            android:layout_height="30dp"
+                            android:text="PC방"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="15sp"/>
+                    </TableRow>
+                    <!-- PC방 서브메뉴-->
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:id="@+id/PCInfoSub">
+                        <TableRow>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="- 좌석현황"
+                                android:layout_marginLeft="25dp"
+                                android:textSize="8sp"
+                                android:onClick="PcSeat"/>
+                        </TableRow>
+                        <TableRow>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="- 상품주문"
+                                android:layout_marginLeft="25dp"
+                                android:textSize="8sp"
+                                android:onClick="ProductOrder"/>
+>>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
                         </TableRow>
 
                         <!-- 내정보 서브메뉴 -->
@@ -451,9 +501,16 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
+<<<<<<< HEAD
                                 android:layout_marginLeft="10dp"
                                 android:text="PC방"
                                 android:textSize="15sp" />
+=======
+                                android:text="- PC방 찾기"
+                                android:layout_marginLeft="25dp"
+                                android:textSize="8sp"
+                                android:onClick="PcSearch"/>
+>>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
                         </TableRow>
                         <!-- PC방 서브메뉴-->
                         <TableLayout
@@ -509,9 +566,16 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
+<<<<<<< HEAD
                                 android:layout_marginLeft="10dp"
                                 android:text="기타"
                                 android:textSize="15sp" />
+=======
+                                android:text="- 1:1문의"
+                                android:layout_marginLeft="25dp"
+                                android:textSize="8sp"
+                                android:onClick="Inquiry"/>
+>>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
                         </TableRow>
                         <!-- 기타 서브메뉴 -->
                         <TableLayout

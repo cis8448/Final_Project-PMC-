@@ -3,7 +3,6 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -24,7 +23,11 @@ import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     public Bitmap[] pictures;
+=======
+
+>>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
 
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
@@ -106,29 +109,53 @@ public class MainActivity extends AppCompatActivity {
     }
     //세팅 버튼
     public void btnSetting(View view){
-        startActivity(new Intent(this, Preferences.class));
-    }
-    //홈으로 가기 버튼 처리
-    public void btnHome(View view){
-        startActivity(new Intent(this, MainActivity.class));
+        andcon.sub(this,"btnSetting");
     }
 
+
+    //홈으로 가기 버튼 처리
+    public void btnHome(View view){
+        andcon.sub(this,"btnHome");
+    }
+
+    //전체 공지사항 버튼
+    public void Notice(View view){
+        andcon.sub(this,"Notice");
+    }
 
 
     //내 정보 버튼 처리
     public void btnMyInfo(View view){
-        startActivity(new Intent(this, MyInfo.class));
+        andcon.sub(this,"btnMyInfo");
     }
 
     //퀵 메뉴 설정
     public void btnQuick(View view){
-        startActivity(new Intent(this, QuickMenuSelect.class));
+        andcon.sub(this,"btnQuick");
     }
 
     //가입한 피시방
     public void btnMyPc(View view){
-        startActivity(new Intent(this, WhenPcroom.class));
+        andcon.sub(this,"btnMyPc");
     }
+
+    //좌석현황
+
+    //상품주문
+    public void ProductOrder(View view){
+        andcon.sub(this,"ProductOrder");
+    }
+
+    //pc방 찾기
+    public void PcSearch(View view){
+        andcon.sub(this,"PcSearch");
+    }
+
+    //1:1문의
+    public void Inquiry(View view){
+        andcon.sub(this,"Inquiry");
+    }
+
 
 
 
