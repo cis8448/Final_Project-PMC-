@@ -13,6 +13,10 @@ public class MemberBean {
     private String m_profile;
     private String m_point;
 
+    MemberBean(){
+        m_point = "0";
+    }
+
     public String getM_kakaoid() {
         return m_kakaoid;
     }

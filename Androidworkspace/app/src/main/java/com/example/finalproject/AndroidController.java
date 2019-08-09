@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class AndroidController {
     ArrayList<MemberBean> allmem;
+    public MemberBean member;
 
     Activity MainAct;
     Activity SubAct;
@@ -67,10 +68,19 @@ public class AndroidController {
             Intent Open = new Intent("com.example.finalproject.EasySignUp");
             activity.startActivity(Open);
         }
+        //회원 가입 화면 열기
         if(state.equals("SignUpOpen")){
             Intent Open = new Intent("com.example.finalproject.SignUp");
+            setActivity2(activity);
             activity.startActivity(Open);
         }
+        //간편 회원가입 화면 열기
+        if(state.equals("EasySignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.EasySignUp");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //아이디 중복 확인
         if(state.equals("Memberidoverlap")){
 
             if(Server.MemberIdOverLap("Memberidoverlap",activity)){
@@ -93,8 +103,48 @@ public class AndroidController {
                 }
             }
         }
+        //회원가입 처리
+        if(state.equals("InsertMember")){
+            if(Server.GetMemberSignUp("InsertMember",activity)) {
+                Toast.makeText(activity, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                member = null;
+                MainAct = null;
+                activity.finish();
+                SubAct.finish();
+            }else{
+                Toast.makeText(activity, "회원가입에 실패했습니다 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
+        //로그인 처리
+         if(state.equals("MemberLogin")){
+            if(Server.MemberLogin(state,activity)){
+                Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
+                activity.finish();
+                sub(MainAct,"MainActLoginSetting");
+            }else{
+                Toast.makeText(activity, "카카오로 계정으로 가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+         }
+         //간편 로그인 처리
+        if(state.equals("EazyLosin")){
+            if(Server.EazyLogin(member.getM_kakaoid(),state,activity)){
+                Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
+                activity.finish();
+                sub(MainAct,"MainActLoginSetting");
+            }else{
+                Toast.makeText(activity, "카카오로 계정으로 가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        //휴대폰 인증 화면 오픈
+        if(state.equals("certificationOpen")){
+            Intent Open = new Intent("com.example.finalproject.Certification");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //메인화면 로그인 처리
+        if(state.equals("MainActLoginSetting")){
 
-
+        }
         //메뉴 버튼 처리
         //세팅
         if (state.equals("btnSetting")){

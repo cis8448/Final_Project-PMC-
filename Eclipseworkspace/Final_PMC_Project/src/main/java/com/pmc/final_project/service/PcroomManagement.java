@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.google.gson.Gson;
+import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.bean.PcRoomBean;
 
 import com.pmc.final_project.dao.IPcRoom;
@@ -382,6 +383,42 @@ public class PcroomManagement {
 
 	public String Memberidoverlap(String id) {
 		String json = pDao.Memberidoverlap(id);
+		return json;
+	}
+
+
+	public String InsertMember(Member member) {
+		String json = null;
+		if(member.getM_kakaoid() == 0) {
+			if(pDao.InsertMember(member)) {
+				json = "1";
+			}else{
+				json = "0";
+			}
+		}else {
+			if(pDao.InsertKakaoMember(member)) {
+				json = "1";
+			}else{
+				json = "0";
+			}
+		}
+		return null;
+	}
+
+
+	public String EazyLogin(String kakaoId) {
+		Member mlist = pDao.EazyLogin(kakaoId);
+		String json = new Gson().toJson(mlist);
+		return json;
+	}
+
+
+	public String MemberLogin(String id, String pass) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pass", pass);
+		Member mlist = pDao.MemberLogin(map);
+		String json = new Gson().toJson(mlist);
 		return json;
 	}
 

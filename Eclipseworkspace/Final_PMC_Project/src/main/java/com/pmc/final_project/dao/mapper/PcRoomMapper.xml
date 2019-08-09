@@ -133,7 +133,20 @@
 	<select id="Memberidoverlap" resultType="String" parameterType="String">
 		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
 	</select>
-
+	<insert id="InsertMember" parameterType="Member">
+		INSERT INTO MEMBER(M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_PROFILE,M_POINT) 
+					VALUES(#{m_id},#{#m_pass},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_profile},#{m_point})
+	</insert>
+	<insert id="InsertKakaoMember" parameterType="Member">
+	INSERT INTO MEMBER(M_KAKAOID,M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_PROFILE,M_POINT) 
+					VALUES(#{m_kakaoid},#{m_id},#{#m_pass},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_profile},#{m_point})
+	</insert>
+	<select id="EazyLogin" parameterType="String" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_KAKAOID = #{id}
+	</select>
+	<select id="MemberLogin" parameterType="HashMap" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_ID = #{id} AND M_PASS = #{pass}
+	</select>
 	
 	
 

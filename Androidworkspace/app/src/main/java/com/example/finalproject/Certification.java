@@ -13,6 +13,7 @@ import java.util.Locale;
 
 public class Certification extends AppCompatActivity {
 
+    public String Cernumber;
 
     AndroidController andcon = AndroidController.getInstance();
     LinearLayout visi1, visi2;
@@ -51,6 +52,7 @@ public class Certification extends AppCompatActivity {
             @Override
             public void onFinish() {
                 downcount.setText("인증시간 만료");
+                Cernumber = null;
             }
         }.start();
     }

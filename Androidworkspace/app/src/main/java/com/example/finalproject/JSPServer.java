@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -18,4 +19,10 @@ public interface JSPServer {
     @POST("final_project/{URL}")
     Call<PictureBean> getPictures2(@Path("URL") String URL ,@Query("id") String id);
 
+    @POST("final_project/{URL}")
+    Call<String> InsertMember(@Path("URL")String URL, @Body MemberBean bean);
+    @POST("final_project/{URL}")
+    Call<MemberBean> EazyLogin(@Path("URL") String URL ,@Query("id") String id);
+    @POST("final_project/{URL}")
+    Call<MemberBean> MemberLogin(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
 }
