@@ -423,6 +423,26 @@ public class PcroomManagement {
 	}
 
 
+	public String MemberGetId(String hp) {
+		String json = pDao.MemberGetId(hp);
+		return json;
+	}
+
+
+	public String UpdatePass(String id, String pass) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		String json = null;
+		map.put("id", id);
+		map.put("pass", pass);
+		if(pDao.MemberGetId(map)) {
+			json = "1";
+		}else {
+			json = "0";
+		}
+		return json;
+	}
+
+
 
 
 }

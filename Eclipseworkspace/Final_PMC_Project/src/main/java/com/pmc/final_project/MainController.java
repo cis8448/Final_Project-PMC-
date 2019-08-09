@@ -221,9 +221,19 @@ public class MainController {
 		String json = pm.EazyLogin(kakaoId);
 		return json;
 	}
-	@RequestMapping(value = "MemberLogin")
+	@RequestMapping(value = "/MemberLogin")
 	public @ResponseBody String MemberLogin(@RequestParam("id") String id,@RequestParam("pass") String pass){
 		String json = pm.MemberLogin(id,pass);
+		return json;
+	}
+	@RequestMapping(value = "/MemberGetId")
+	public @ResponseBody String MemberGetId(@RequestParam("hp") String hp) {
+		String json = pm.MemberGetId(hp); 
+		return json;
+	}
+	@RequestMapping(value = "/UpdatePass")
+	public @ResponseBody String UpdatePass(@RequestParam("id") String id,@RequestParam("pass") String pass) {
+		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
 

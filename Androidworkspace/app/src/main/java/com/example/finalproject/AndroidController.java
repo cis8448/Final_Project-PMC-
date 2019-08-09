@@ -141,6 +141,35 @@ public class AndroidController {
             setActivity2(activity);
             activity.startActivity(Open);
         }
+        //랜덤값을 카카오 메세지로 보내기
+        if(state.equals("send")){
+            //카카오메세지보내기
+        }
+        //인증 완료 아이디 불러오기
+        if(state.equals("getIdOpen")){
+            Intent Open = new Intent("com.example.finalproject.MyIdCheck");
+            if(Server.MemberGetId(state,activity,member.getM_phone())) {
+                activity.startActivity(Open);
+                activity.finish();
+            }else{
+                Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
+        // 비밀번호 변경 페이지 오픈
+        if(state.equals("PassUpdateOpen")){
+            Intent Open = new Intent("com.example.finalproject.PassUpdate");
+            activity.startActivity(Open);
+            activity.finish();
+        }
+        //비밀번호 변경
+        if(state.equals("UpdatePass")){
+            if(Server.UpdatePass(state,activity,member.getM_id(),member.getM_pass())){
+                Toast.makeText(activity, "비밀번호가 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show();
+                activity.finish();
+            }else{
+                Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
         //메인화면 로그인 처리
         if(state.equals("MainActLoginSetting")){
 

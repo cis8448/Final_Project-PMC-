@@ -167,7 +167,64 @@ public class GetServer {
         }
         return overLap;
     }
+    public boolean MemberGetId(String State, Activity act,String hp){
+        localURL = state;
+        final String Hp = hp;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    andcon.member.setM_id(Sever.MemberGetId(localURL,Hp).execute().body());
+                    if(andcon.member.getM_id() != null){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean UpdatePass(String State, Activity act,String id,String pw){
+        localURL = state;
 
+        final String ids = id;
+        final String pass = pw;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.UpdatePass(localURL,ids,pass).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
     public Bitmap[] GetPictures(PictureBean bean){
         Bitmap[] bt = new Bitmap[3];
         try {

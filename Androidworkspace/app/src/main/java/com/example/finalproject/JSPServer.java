@@ -25,4 +25,9 @@ public interface JSPServer {
     Call<MemberBean> EazyLogin(@Path("URL") String URL ,@Query("id") String id);
     @POST("final_project/{URL}")
     Call<MemberBean> MemberLogin(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
+    @POST("final_project/{URL}")
+    Call<String> MemberGetId(@Path("URL") String URL ,@Query("hp") String hp);
+    @POST("final_project/{URL}")
+    Call<String> UpdatePass(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
+
 }

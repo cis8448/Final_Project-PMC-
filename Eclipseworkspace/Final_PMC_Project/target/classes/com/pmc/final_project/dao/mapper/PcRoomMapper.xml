@@ -147,10 +147,11 @@
 	<select id="MemberLogin" parameterType="HashMap" resultType="Member">
 		SELECT * FROM MEMBER WHERE M_ID = #{id} AND M_PASS = #{pass}
 	</select>
+	<select id="MemberGetId" parameterType="String" resultType="String">
+		SELECT M_ID FROM MEMBER WHERE M_PHONE = #{hp}
+	</select>
+	<update id="MemberGetId" parameterType="HashMap">
+		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
+	</update>
 	
-	
-
-
-
-
 </mapper>

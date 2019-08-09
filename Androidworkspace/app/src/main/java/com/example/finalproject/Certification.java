@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class Certification extends AppCompatActivity {
 
@@ -17,6 +20,7 @@ public class Certification extends AppCompatActivity {
 
     AndroidController andcon = AndroidController.getInstance();
     LinearLayout visi1, visi2;
+    EditText ceredt;
     private TextView downcount;
 
     private static final long TIMER_DURATION = 10000L;
@@ -33,11 +37,12 @@ public class Certification extends AppCompatActivity {
         downcount = findViewById(R.id.downcount);
         visi1 = findViewById(R.id.visi1);
         visi2 = findViewById(R.id.visi2);
-
+        ceredt = findViewById(R.id.ceredt);
     }
 
     public void send(View view) {
-
+        Random random = new Random();
+        Cernumber = random.nextInt(99999)+"";
         andcon.sub(this,"send");
 
         view.setEnabled(false);
@@ -82,5 +87,18 @@ public class Certification extends AppCompatActivity {
         super.onPause();
         mCountDownTimer.cancel();
         mCountDownTimer = null;
+    }
+    public void cerin(View v){
+        String count = downcount.getText().toString();
+        String edt = ceredt.getText().toString();
+        if(!count.equals("인증시간 만료")){
+            if(Cernumber.equals(edt)) {
+                andcon.sub(this, "getIdOpen");
+            }else{
+                Toast.makeText(this, "인증번호가 틀렷습니다 다시 입력해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(this, "인증시간이 만료되었습니다. 재발송을 해주세요", Toast.LENGTH_SHORT).show();
+        }
     }
 }

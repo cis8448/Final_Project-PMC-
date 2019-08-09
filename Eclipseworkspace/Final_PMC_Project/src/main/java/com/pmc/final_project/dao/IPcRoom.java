@@ -78,6 +78,10 @@ public interface IPcRoom {
 
 	public Member MemberLogin(HashMap<String, String> map);
 
+	public String MemberGetId(String hp);
+
+	public boolean MemberGetId(HashMap<String, String> map);
+
 
 
 
