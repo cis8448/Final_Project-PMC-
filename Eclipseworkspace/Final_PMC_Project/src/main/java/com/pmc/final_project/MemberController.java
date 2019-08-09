@@ -34,11 +34,10 @@ public class MemberController {
 		mav = mm.getmemberInfo(m_id);
 		
 		return mav;
-	}
+	}   
 	
 	@RequestMapping(value="/OM_MemberList")
 	public ModelAndView OM_MemberList(Integer pageNum) {
-		System.out.println("여기옴");
 		mav = mm.getOMmemberAllList(pageNum);
 		
 		return mav;
