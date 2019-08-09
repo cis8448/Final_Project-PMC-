@@ -3,6 +3,7 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Path;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -36,12 +37,14 @@ public class AndroidController {
         androidcontroller = null;
     }
     public void sub(Activity activity, String state){
-      //사진 가져오기
+        //사진 가져오기
         if(state.equals("GetPicture")){
             ((MainActivity)activity).pictures = Server.GetServerPicture(activity);
         }
-        if(state.equals("SettingPictuer")){
-            ((MainActivity)activity).pictures = Server.pictures;
+        //로그인페이지 이동
+        if(state.equals("LoginOpen")){
+            Intent Open = new Intent("com.example.finalproject.Login");
+            activity.startActivity(Open);
         }
 
 
