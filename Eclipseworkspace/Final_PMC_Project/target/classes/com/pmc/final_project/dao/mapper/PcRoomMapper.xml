@@ -110,26 +110,31 @@
 		P_HOLIDAY=#{holiday} WHERE P_ID =#{id}
 	</update>
 	<select id="HoliSel" parameterType="String" resultType="String">
-		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
+		SELECT
+		P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
 	</select>
-<<<<<<< HEAD
+	
 	<update id="fileupdate1" parameterType="HashMap">
-		UPDATE PCROOM SET P_PICTURE1=#{sysFileName} WHERE P_ID=#{sysid}
+		UPDATE PCROOM SET
+		P_PICTURE1=#{sysFileName} WHERE P_ID=#{sysid}
 	</update>
 	<update id="fileupdate2" parameterType="HashMap">
-		UPDATE PCROOM SET P_PICTURE2=#{sysFileName} WHERE P_ID=#{sysid}
+		UPDATE PCROOM SET
+		P_PICTURE2=#{sysFileName} WHERE P_ID=#{sysid}
 	</update>
 	<update id="fileupdate3" parameterType="HashMap">
-		UPDATE PCROOM SET P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
+		UPDATE PCROOM SET
+		P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
 	</update>
 	<update id="negative" parameterType="String">
-		
+
 	</update>
-=======
+
 	<select id="GetPicture" resultType="String">
 		SELECT P_PICTURE1 FROM PCROOM
 	</select>
->>>>>>> 12d00cdc745b11ca7f31ac20dbb22f523a678686
+	
+	
 
 
 

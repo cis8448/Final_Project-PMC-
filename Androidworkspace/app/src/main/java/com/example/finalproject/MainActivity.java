@@ -3,14 +3,9 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -19,16 +14,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.security.MessageDigest;
+
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
+
     public Bitmap[] pictures;
-=======
-
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
-
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
     ImageButton btn1;
@@ -62,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
-        if(pictures == null) {
-            andcon.sub(this, "GetPicture");
-            pcroomimg1.setImageBitmap(pictures[0]);
-        }
+//        if(pictures == null) {
+//            andcon.sub(this, "GetPicture");
+//            pcroomimg1.setImageBitmap(pictures[0]);
+//        }
 
 
     }
@@ -141,7 +132,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //좌석현황
-
+    public void SeatState(View view){
+        andcon.sub(this,"SeatState");
+    }
     //상품주문
     public void ProductOrder(View view){
         andcon.sub(this,"ProductOrder");

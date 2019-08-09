@@ -55,7 +55,7 @@ public interface IPcRoom {
 
 	public String HoliSel(String p_id);
 
-<<<<<<< HEAD
+
 	public boolean fileupdate1(Map<String, String> fMap);
 
 	public boolean fileupdate2(Map<String, String> fMap);
@@ -63,9 +63,9 @@ public interface IPcRoom {
 	public boolean fileupdate3(Map<String, String> fMap);
 
 	public void negative(String id);
-=======
+
 	public List<String> GetPicture();
->>>>>>> 12d00cdc745b11ca7f31ac20dbb22f523a678686
+
 
 
 

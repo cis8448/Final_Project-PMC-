@@ -13,28 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".SeatStatus"></activity>
-        <activity android:name=".PcRoomInquire" />
-        <activity android:name=".PcRoomNotice" />
-        <activity android:name=".ProductBasket" />
-        <activity android:name=".ProductList" />
-        <activity android:name=".Reservation" />
-        <activity android:name=".PassUpdate" />
-        <activity android:name=".MyIdCheck" />
-        <activity android:name=".Certification" />
-        <activity android:name=".EasySignUp" />
-        <activity android:name=".QuickMenuSelect" />
-        <activity android:name=".Preferences" />
-=======
 
->>>>>>> 12d00cdc745b11ca7f31ac20dbb22f523a678686
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".PcRoomGPS">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -118,6 +103,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProductBasket">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductBasket" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".PcRoomGPS">
             <intent-filter>
@@ -132,7 +123,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".SeatStatus">
+            <intent-filter>
+                <action android:name="com.example.finalproject.SeatStatus" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
 
     </application>

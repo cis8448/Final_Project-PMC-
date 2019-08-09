@@ -13,6 +13,7 @@ public class AndroidController {
     Activity MainAct;
     Activity SubAct;
     GetServer Server = new GetServer();
+    GetServer2 server2 = new GetServer2();
 
     static AndroidController androidcontroller;
 
@@ -35,6 +36,12 @@ public class AndroidController {
     public static void cutComtroll(){
         androidcontroller = null;
     }
+    public void sub2(Activity activity,String state,String id){
+        if(state.equals("GetPicture2")){
+            ((SeatStatus)activity).pictures =server2.GetServerPicture(activity,id);
+        }
+    }
+
     public void sub(Activity activity, String state){
       //사진 가져오기
         if(state.equals("GetPicture")){
@@ -86,7 +93,10 @@ public class AndroidController {
         }
 
         //좌석 현황
-
+        if (state.equals("SeatState")){
+            Intent SeatState = new Intent("com.example.finalproject.SeatStatus");
+            activity.startActivity(SeatState);
+        }
 
         //상품 주문
         if (state.equals("ProductOrder")){

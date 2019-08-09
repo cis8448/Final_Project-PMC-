@@ -11,4 +11,6 @@ public interface JSPServer {
     @POST("final_project/{URL}")
         Call<PictureBean> getPictures(@Path("URL") String URL);
 
+    @POST("final_project/{URL}")
+    Call<PictureBean> getPictures2(@Path("URL") String URL ,@Query("id") String id);
 }
