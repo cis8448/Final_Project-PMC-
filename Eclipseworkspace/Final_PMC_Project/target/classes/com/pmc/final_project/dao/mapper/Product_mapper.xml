@@ -28,7 +28,7 @@
 	SELECT * FROM PRODUCTCATE WHERE PC_P_ID = #{id}
 	</select>
 
-	<select id="getpcidList" resultType="ProductBean" parameterType="String">
+	<select id=" " resultType="ProductBean" parameterType="String">
 	SELECT PR_PC_ID AS PC_ID, PR_PC_ID, PR_ID, PR_NAME, PR_PRICE, PR_IMG, PR_QTY FROM PRODUCT WHERE PR_PC_ID= #{p_id}
 	</select>
   

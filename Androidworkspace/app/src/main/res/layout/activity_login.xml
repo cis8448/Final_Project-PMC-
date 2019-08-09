@@ -50,12 +50,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:layout_marginLeft="30dp"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="ID/Password"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:onClick="FindIdPassOpen"/>
+
         <Button
             android:layout_width="130dp"
             android:layout_height="wrap_content"
