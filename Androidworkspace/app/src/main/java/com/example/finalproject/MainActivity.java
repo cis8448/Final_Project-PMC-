@@ -16,15 +16,13 @@ import android.widget.TextView;
 
 
 
-<<<<<<< HEAD
+
 public class MainActivity extends AppCompatActivity {
-=======
-
-    public Bitmap[] pictures;
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
 
 
     public Bitmap[] pictures;
+
+
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
     ImageButton btn1;
@@ -58,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
-//        if(pictures == null) {
-//            andcon.sub(this, "GetPicture");
-//            pcroomimg1.setImageBitmap(pictures[0]);
-//        }
+        if(pictures == null) {
+            andcon.sub(this, "GetPicture");
+            pcroomimg1.setImageBitmap(pictures[0]);
+        }
 
 
     }
@@ -154,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
     public void Inquiry(View view){
         andcon.sub(this,"Inquiry");
     }
-
-
 
 
 

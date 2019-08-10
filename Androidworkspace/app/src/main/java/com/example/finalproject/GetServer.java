@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class GetServer {
+    AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
     String Local = "http://192.168.0.172/";
     String localURL ;
@@ -26,6 +27,7 @@ public class GetServer {
     JSPServer Sever;
     String state;
     boolean overLap;
+    MemberBean memberBean;
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -52,7 +54,7 @@ public class GetServer {
         return pictures;
     }
 
-    public boolean MemberIdOverLap(String State, final Activity activity){
+    public boolean MemberIdOverLap(String State, Activity activity){
 
         localURL = State;
         final String id = ((SignUp)activity).edtId.getText().toString();
@@ -81,7 +83,148 @@ public class GetServer {
         }
         return overLap;
     }
+    public boolean GetMemberSignUp(final String State, Activity activity){
+        localURL = State;
+        memberBean = andcon.member;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.InsertMember(localURL,memberBean).execute().body();
+                    if(state.equals("0")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean EazyLogin(final String kakaoID, String State, Activity act){
+        localURL = State;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    andcon.member = Sever.EazyLogin(localURL,kakaoID).execute().body();
+                    if(andcon.member.getM_id() != null){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean MemberLogin(String State, Activity act){
+        localURL = state;
+        final String id = andcon.member.getM_id();
+        final String pw = andcon.member.getM_pass();
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    andcon.member = Sever.MemberLogin(localURL,id,pw).execute().body();
+                    if(andcon.member.getM_id() != null){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean MemberGetId(String State, Activity act,String hp){
+        localURL = state;
+        final String Hp = hp;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    andcon.member.setM_id(Sever.MemberGetId(localURL,Hp).execute().body());
+                    if(andcon.member.getM_id() != null){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean UpdatePass(String State, Activity act,String id,String pw){
+        localURL = state;
 
+        final String ids = id;
+        final String pass = pw;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.UpdatePass(localURL,ids,pass).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
     public Bitmap[] GetPictures(PictureBean bean){
         Bitmap[] bt = new Bitmap[3];
         try {

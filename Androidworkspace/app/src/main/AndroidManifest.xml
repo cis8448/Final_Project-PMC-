@@ -123,14 +123,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".EasySignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.EasySignUp" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-=======
         <activity android:name=".SeatStatus">
             <intent-filter>
                 <action android:name="com.example.finalproject.SeatStatus" />
@@ -138,7 +137,6 @@
             </intent-filter>
         </activity>
 
->>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
 
     </application>
 

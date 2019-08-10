@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
@@ -208,6 +209,31 @@ public class MainController {
 	@RequestMapping(value = "/Memberidoverlap")
 	public @ResponseBody String Memberidoverlap(@RequestParam("id") String id) {
 		String json = pm.Memberidoverlap(id);
+		return json;
+	}
+	@RequestMapping(value = "/InsertMember")
+	public @ResponseBody String InsertMember(Member member) {
+		String json = pm.InsertMember(member);
+		return json;
+	}
+	@RequestMapping(value = "/EazyLogin")
+	public @ResponseBody String EazyLogin(@RequestParam("id") String kakaoId) {
+		String json = pm.EazyLogin(kakaoId);
+		return json;
+	}
+	@RequestMapping(value = "/MemberLogin")
+	public @ResponseBody String MemberLogin(@RequestParam("id") String id,@RequestParam("pass") String pass){
+		String json = pm.MemberLogin(id,pass);
+		return json;
+	}
+	@RequestMapping(value = "/MemberGetId")
+	public @ResponseBody String MemberGetId(@RequestParam("hp") String hp) {
+		String json = pm.MemberGetId(hp); 
+		return json;
+	}
+	@RequestMapping(value = "/UpdatePass")
+	public @ResponseBody String UpdatePass(@RequestParam("id") String id,@RequestParam("pass") String pass) {
+		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
 

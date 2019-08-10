@@ -50,6 +50,7 @@ public class SignUpSelect extends AppCompatActivity {
                 memberBean.setM_profile(result.getProfileImagePath());
                 memberBean.setM_birthday(result.getKakaoAccount().getBirthyear());
                 memberBean.setM_email(result.getKakaoAccount().getEmail());
+                andcon.member = memberBean;
                 andcon.sub(SignUpSelect.this, "EasySignUpOpen");
             }
         });

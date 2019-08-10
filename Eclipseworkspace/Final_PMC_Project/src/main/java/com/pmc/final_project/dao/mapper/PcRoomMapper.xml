@@ -126,22 +126,32 @@
 		UPDATE PCROOM SET
 		P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
 	</update>
-	<update id="negative" parameterType="String">
-
-	</update>
 
 	<select id="GetPicture" resultType="String">
 		SELECT P_PICTURE1 FROM PCROOM
 	</select>
-<<<<<<< HEAD
 	<select id="Memberidoverlap" resultType="String" parameterType="String">
 		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
 	</select>
-=======
+	<insert id="InsertMember" parameterType="Member">
+		INSERT INTO MEMBER(M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_PROFILE,M_POINT) 
+					VALUES(#{m_id},#{#m_pass},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_profile},#{m_point})
+	</insert>
+	<insert id="InsertKakaoMember" parameterType="Member">
+	INSERT INTO MEMBER(M_KAKAOID,M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_PROFILE,M_POINT) 
+					VALUES(#{m_kakaoid},#{m_id},#{#m_pass},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_profile},#{m_point})
+	</insert>
+	<select id="EazyLogin" parameterType="String" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_KAKAOID = #{id}
+	</select>
+	<select id="MemberLogin" parameterType="HashMap" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_ID = #{id} AND M_PASS = #{pass}
+	</select>
+	<select id="MemberGetId" parameterType="String" resultType="String">
+		SELECT M_ID FROM MEMBER WHERE M_PHONE = #{hp}
+	</select>
+	<update id="MemberGetId" parameterType="HashMap">
+		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
+	</update>
 	
-	
->>>>>>> 36cf6f71d6d1b274c07bdc1262cf96b8b61b07d3
-
-
-
 </mapper>
