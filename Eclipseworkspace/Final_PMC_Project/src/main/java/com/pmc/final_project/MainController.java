@@ -237,9 +237,16 @@ public class MainController {
 		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
+<<<<<<< HEAD
 	@RequestMapping(value = "/send")
 	public @ResponseBody String send(@RequestParam("hp") String hp) {
 		String json = pm.send(hp);
+=======
+	
+	@RequestMapping(value = "/btnMyPc")
+	public @ResponseBody String MyPcGetName(@RequestParam("id") String name) {
+		String json = pm.MyPcGetName(name); 
+>>>>>>> 3b7e28a6865137b37981d5d99fec8f0d58bd4030
 		return json;
 	}
 

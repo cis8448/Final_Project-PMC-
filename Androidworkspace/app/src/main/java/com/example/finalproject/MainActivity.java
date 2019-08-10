@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public Bitmap[] pictures;
+    public Object address;
+
+
+
 
 
     AndroidController andcon = AndroidController.getInstance();
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
         if(pictures == null) {
             andcon.sub(this, "GetPicture");
-            pcroomimg1.setImageBitmap(pictures[0]);
+//            pcroomimg1.setImageBitmap(pictures[0]);
         }
 
 

@@ -8,6 +8,8 @@ import java.io.InputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -15,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.172/";
+    String Local = "http://192.168.0.171/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -23,6 +25,7 @@ public class GetServer {
     String state;
     boolean overLap;
     MemberBean memberBean;
+    MyPcBean mypcBean;
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -306,4 +309,36 @@ public class GetServer {
         }
         return bt;
     }
+
+    public boolean MyPcGetName(String State, Activity act,String name){
+        localURL = State;
+        final String Name = name;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    ArrayList<MyPcBean> Mypcs = Sever.MyPcGet(localURL,Name).execute().body();
+                    andcon.Mypcs = Mypcs;
+                    if(andcon.mypc.getSP_m_id() != null){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+
+
 }

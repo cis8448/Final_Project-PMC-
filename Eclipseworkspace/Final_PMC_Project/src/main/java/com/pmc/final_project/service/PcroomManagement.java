@@ -23,8 +23,9 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.Member;
+import com.pmc.final_project.bean.MyPcBean;
 import com.pmc.final_project.bean.PcRoomBean;
-
+import com.pmc.final_project.dao.IMemberDao;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.util.FileProcess;
 import com.pmc.final_project.util.FindUtil;
@@ -38,6 +39,9 @@ public class PcroomManagement {
 
 	@Autowired
 	private IPcRoom pDao;
+	
+	@Autowired
+	private IMemberDao mDao;
 
 	@Autowired
 	private HttpSession session;
@@ -443,6 +447,7 @@ public class PcroomManagement {
 	}
 
 
+<<<<<<< HEAD
 	public String send(String hp) {
 		String json = null;
 		String email = pDao.SaerchEmail(hp);
@@ -451,6 +456,12 @@ public class PcroomManagement {
 		}else{
 			json ="0";
 		}
+=======
+	public String MyPcGetName(String name) {
+		List<MyPcBean> pList = pDao.SelectMyPc(name);
+		String json = new Gson().toJson(pList);
+		
+>>>>>>> 3b7e28a6865137b37981d5d99fec8f0d58bd4030
 		return json;
 	}
 

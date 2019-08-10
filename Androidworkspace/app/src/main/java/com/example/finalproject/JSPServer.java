@@ -1,5 +1,7 @@
 package com.example.finalproject;
 
+import java.util.ArrayList;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -14,6 +16,7 @@ public interface JSPServer {
 
     @POST("final_project/{URL}")
         Call<String> Memberidoverlap(@Path("URL") String URL, @Query("id") String id);
+
 
     @POST("final_project/{URL}")
     Call<PictureBean> getPictures2(@Path("URL") String URL ,@Query("id") String id);
@@ -30,5 +33,8 @@ public interface JSPServer {
     Call<String> UpdatePass(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
     @POST("final_project/{URL}")
     Call<String> GetMyInfo(@Path("URL") String URL ,@Query("hp") String hp);
+
+    @POST("final_project/{URL}")
+    Call<ArrayList<MyPcBean>> MyPcGet(@Path("URL") String URL, @Query("id") String name);
 
 }
