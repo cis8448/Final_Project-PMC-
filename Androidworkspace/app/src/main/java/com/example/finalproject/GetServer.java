@@ -165,7 +165,7 @@ public class GetServer {
         return overLap;
     }
     public boolean MemberLogin(String State, Activity act){
-        localURL = state;
+        localURL = State;
         final String id = andcon.member.getM_id();
         final String pw = andcon.member.getM_pass();
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -194,7 +194,7 @@ public class GetServer {
         return overLap;
     }
     public boolean MemberGetId(String State, Activity act,String hp){
-        localURL = state;
+        localURL = State;
         final String Hp = hp;
         retrofit = new Retrofit.Builder().baseUrl(Local)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -215,14 +215,14 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
         return overLap;
     }
     public boolean UpdatePass(String State, Activity act,String id,String pw){
-        localURL = state;
+        localURL = State;
 
         final String ids = id;
         final String pass = pw;
@@ -234,6 +234,36 @@ public class GetServer {
             public void run() {
                 try {
                     state = Sever.UpdatePass(localURL,ids,pass).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean GetMyInfo(String State,Activity act,String hp){
+        localURL = State;
+
+        final String Hp = hp;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.GetMyInfo(localURL,Hp).execute().body();
                     if(state.equals("1")){
                         overLap = true;
                     }else{

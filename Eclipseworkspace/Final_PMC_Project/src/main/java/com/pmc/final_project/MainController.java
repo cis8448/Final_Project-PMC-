@@ -221,19 +221,25 @@ public class MainController {
 		String json = pm.EazyLogin(kakaoId);
 		return json;
 	}
-	@RequestMapping(value = "/MemberLogin")
+	@RequestMapping(value = "/MemberLogin",produces = "application/text; charset=utf8")
 	public @ResponseBody String MemberLogin(@RequestParam("id") String id,@RequestParam("pass") String pass){
 		String json = pm.MemberLogin(id,pass);
 		return json;
 	}
-	@RequestMapping(value = "/MemberGetId")
+	@RequestMapping(value = "/getIdOpen")
 	public @ResponseBody String MemberGetId(@RequestParam("hp") String hp) {
 		String json = pm.MemberGetId(hp); 
+		json = new Gson().toJson(json);
 		return json;
 	}
 	@RequestMapping(value = "/UpdatePass")
 	public @ResponseBody String UpdatePass(@RequestParam("id") String id,@RequestParam("pass") String pass) {
 		String json = pm.UpdatePass(id,pass); 
+		return json;
+	}
+	@RequestMapping(value = "/send")
+	public @ResponseBody String send(@RequestParam("hp") String hp) {
+		String json = pm.send(hp);
 		return json;
 	}
 

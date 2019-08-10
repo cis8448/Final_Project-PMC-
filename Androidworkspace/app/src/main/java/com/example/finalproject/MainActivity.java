@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout DL;
     ImageButton btn1;
     ImageView pcroomimg1;
-    LinearLayout scroll,mainlow2;
-    TextView mainlow1;
+    public LinearLayout scroll,mainlow2;
+    public TextView mainlow1,pointtxt,nametxt,minipoint;
     ImageButton alarm,info;
-    Button loginbtn,logoutbtn;
+    public Button loginbtn,logoutbtn;
     int count = 0;
 
     @Override
@@ -47,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
         logoutbtn = findViewById(R.id.logoutbtn);
         alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
+        pointtxt= findViewById(R.id.pointtxt);
+        nametxt= findViewById(R.id.nametxt);
         pcroomimg1 = findViewById(R.id.pcroomimg2);
-
+        minipoint =findViewById(R.id.minipoint);
         andcon.setActivity(this);
 
         //메뉴버튼 클릭시 메뉴창 출력

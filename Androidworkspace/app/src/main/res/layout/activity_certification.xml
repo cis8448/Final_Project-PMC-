@@ -33,7 +33,8 @@
             android:textSize="20sp"
             android:maxLength="11"
             android:background="@drawable/roundtext"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/roundtext"/>
 
         <Button
             android:layout_width="80dp"

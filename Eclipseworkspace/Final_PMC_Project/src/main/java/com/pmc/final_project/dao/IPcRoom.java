@@ -82,6 +82,8 @@ public interface IPcRoom {
 
 	public boolean UpdatePass(HashMap<String, String> map);
 
+	public String SaerchEmail(String hp);
+
 
 
 

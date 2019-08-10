@@ -154,5 +154,8 @@
 	<update id="UpdatePass" parameterType="HashMap">
 		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
 	</update>
+	<select id="SaerchEmail" parameterType="String" resultType="String">
+		SELECT M_EMAIL FROM MEMBER WHERE M_PHONE = #{hp}
+	</select>
 	
 </mapper>

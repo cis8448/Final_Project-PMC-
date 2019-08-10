@@ -148,7 +148,8 @@
                                 android:text="1,000,000P"
                                 android:gravity="center"
                                 android:background="@drawable/roundgreen"
-                                android:textColor="#FFFF">
+                                android:textColor="#FFFF"
+                                android:id="@+id/pointtxt">
                             </TextView>
                             <Button
                                 android:layout_width="wrap_content"
@@ -177,12 +178,12 @@
 
         <!--드로우 레이아웃 메뉴 -->
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:weightSum="100"
-            android:layout_gravity="start"
-            android:background="#FFFFFF">
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:layout_gravity="start"
+        android:background="#FFFFFF">
 
             <!-- 비로그인 메뉴 (출력, 미출력) -->
             <LinearLayout
@@ -265,14 +266,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="이한주님"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp"
+                            android:id="@+id/nametxt"/>
                         <!-- TextView에 글자 빈공간으로 바꾸기-->
                         <TextView
                             android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="소유한마일리지 : 1000p"
-                            android:textSize="10sp"/>
+                            android:textSize="10sp"
+                            android:id="@+id/minipoint"/>
                     </LinearLayout>
                     <ImageView
                         android:layout_width="match_parent"
