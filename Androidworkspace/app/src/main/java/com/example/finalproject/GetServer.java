@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.logging.Handler;
 
 import retrofit2.Call;
@@ -22,6 +23,7 @@ public class GetServer {
     String Local = "http://192.168.0.172/";
     String localURL ;
     public Bitmap pictures[];
+    public List<String> mypc;
     PictureBean pictureBean;
     JSPServer Sever;
     public Bitmap[] GetServerPicture(final Activity act){

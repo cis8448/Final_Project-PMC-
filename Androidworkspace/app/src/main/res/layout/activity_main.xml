@@ -115,25 +115,16 @@
                     android:layout_height="wrap_content"
                     android:text="로그인 해주세요."
                     android:textSize="25dp"
-<<<<<<< HEAD
                     android:layout_gravity="center"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/mainlow1"/>
-=======
-                    android:visibility="visible" />
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-<<<<<<< HEAD
                     android:id="@+id/mainlow2"
-                    android:visibility="gone">
-=======
-                    android:visibility="gone">
-
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
+                    android:visibility="visible">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -142,8 +133,7 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <Spinner
                                 android:layout_marginLeft="10dp"
@@ -217,12 +207,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-<<<<<<< HEAD
                     android:visibility="visible"
                     android:id="@+id/nLoginMenu">
-=======
-                    >
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
                     <!--로그인 버튼(로그인 후 로그아웃으로 변경) -->
                     <Button
                         android:layout_width="120dp"
@@ -234,16 +220,8 @@
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-<<<<<<< HEAD
                         android:id="@+id/loginbtn"
                         android:visibility="gone"/>
-=======
-                        android:background="@drawable/roundlogin"
-                        android:onClick="LoginGo"
-                        android:text="Login"
-                        android:textSize="20sp"
-                        android:visibility="visible" />
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
 
                     <Button
                         android:layout_width="120dp"
@@ -255,15 +233,7 @@
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-<<<<<<< HEAD
                         android:id="@+id/logoutbtn"
-=======
-                        android:background="@drawable/roundlogin"
-                        android:onClick="LogOut"
-                        android:text="LogOut"
-                        android:textSize="20sp"
-                        android:visibility="gone"
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
                         />
 
 
@@ -276,11 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-<<<<<<< HEAD
-                android:id="@+id/scroll"
-=======
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
-                android:visibility="gone">
+                android:id="@+id/scroll">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -295,10 +261,6 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-<<<<<<< HEAD
-=======
-
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
                         <TextView
                             android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
@@ -465,15 +427,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-<<<<<<< HEAD
                                 android:text="PC방"
                                 android:layout_marginLeft="10dp"
                                 android:textSize="15sp"/>
-=======
-                                android:layout_marginLeft="10dp"
-                                android:text="PC방"
-                                android:textSize="15sp" />
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
                         </TableRow>
                         <!-- PC방 서브메뉴-->
                         <TableLayout
@@ -489,7 +445,7 @@
                                     android:text="- 좌석현황"
                                     android:layout_marginLeft="25dp"
                                     android:textSize="8sp"
-                                    />
+                                    android:onClick="PcSeat"/>
                             </TableRow>
                             <TableRow>
                                 <TextView
@@ -524,15 +480,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-<<<<<<< HEAD
                                 android:text="기타"
                                 android:layout_marginLeft="10dp"
                                 android:textSize="15sp"/>
-=======
-                                android:layout_marginLeft="10dp"
-                                android:text="기타"
-                                android:textSize="15sp" />
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
                         </TableRow>
                         <!-- 기타 서브메뉴 -->
                         <TableLayout

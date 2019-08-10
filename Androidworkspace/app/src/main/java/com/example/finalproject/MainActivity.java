@@ -26,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     public Bitmap[] pictures;
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 2d72641b5acf77e98a9c9cdd8ba25c09c02205c0
+
 
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
