@@ -9,6 +9,8 @@ import retrofit2.http.Query;
 
 public interface JSPServer {
     @POST("final_project/{URL}")
-        Call<PictureBean> getPictures(@Path("URL") String URL);
-
+    Call<PictureBean> getPictures(@Path("URL") String URL);
+    Call<PcRoomBean> getAddress(@Path("URL") String URL);
 }
+
+

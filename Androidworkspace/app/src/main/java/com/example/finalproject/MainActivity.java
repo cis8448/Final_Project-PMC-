@@ -23,11 +23,9 @@ import java.security.MessageDigest;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
     public Bitmap[] pictures;
-=======
+    public String address;
 
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
 
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
@@ -149,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
     //pc방 찾기
     public void PcSearch(View view){
-        andcon.sub(this,"PcSearch");
+         andcon.sub(this,"PcSearch"); 
+        
     }
 
     //1:1문의

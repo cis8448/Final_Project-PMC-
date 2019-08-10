@@ -174,53 +174,54 @@
 
         <!--드로우 레이아웃 메뉴 -->
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="250dp"
             android:layout_height="match_parent"
+            android:weightSum="100"
             android:layout_gravity="start"
-            android:background="#FFFFFF"
-            android:orientation="vertical"
-            android:weightSum="100">
+            android:background="#FFFFFF">
 
             <!-- 비로그인 메뉴 (출력, 미출력) -->
             <LinearLayout
-                android:id="@+id/nlog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="visible"
+                android:id="@+id/nlog"
+                android:orientation="vertical">
 
                 <!-- 비로그인 메뉴 -->
                 <FrameLayout
-                    android:id="@+id/nLoginMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:id="@+id/nLoginMenu">
                     <!--로그인 버튼(로그인 후 로그아웃으로 변경) -->
                     <Button
-                        android:id="@+id/loginbtn"
                         android:layout_width="120dp"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="70dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/roundlogin"
-                        android:onClick="LoginGo"
                         android:text="Login"
                         android:textSize="20sp"
-                        android:visibility="gone" />
-
-                    <Button
-                        android:id="@+id/logoutbtn"
-                        android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:onClick="LoginGo"
+                        android:background="@drawable/roundlogin"
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@drawable/roundlogin"
-                        android:onClick="LogOut"
+                        android:id="@+id/loginbtn"
+                        android:visibility="gone"/>
+
+                    <Button
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
                         android:text="LogOut"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:onClick="LogOut"
+                        android:background="@drawable/roundlogin"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/logoutbtn"
+                        />
 
 
                 </FrameLayout>
@@ -229,166 +230,119 @@
             <!-- 로그인 메뉴(출력, 미출력) -->
 
             <LinearLayout
-                android:id="@+id/scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/scroll">
 
                 <LinearLayout
-                    android:id="@+id/inlog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                    android:orientation="horizontal"
+                    android:id="@+id/inlog">
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/profile" />
-
+                        android:src="@drawable/profile"/>
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-<<<<<<< HEAD
                         android:orientation="vertical">
-=======
-                        android:orientation="vertical"
-                        android:visibility="visible"
-                        android:id="@+id/NoticeSub">
-                        <TableRow>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:text="- 전체 공지사항"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"
-                                android:onClick="Notice"/>
-                        </TableRow>
-
-
-                    </TableLayout>
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
-
                         <TextView
+                            android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
                             android:text="이한주님"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"/>
                         <!-- TextView에 글자 빈공간으로 바꾸기-->
                         <TextView
+                            android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
                             android:text="소유한마일리지 : 1000p"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"/>
                     </LinearLayout>
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:onClick="btnSetting"
-                        android:src="@drawable/settings" />
-
+                        android:src="@drawable/settings"
+                        android:onClick="btnSetting"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"></LinearLayout>
+                        android:layout_height="match_parent">
+                    </LinearLayout>
                 </LinearLayout>
                 <!-- 선 긋기-->
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
                     android:layout_centerInParent="true"
-                    android:background="#000000" />
+                    android:background="#000000"/>
                 <!-- 로그인 후 메뉴 출력 -->
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                     <TableLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
                         <TableRow
                             android:id="@+id/TrHome"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp">
-
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp">
                             <ImageView
+                                android:layout_marginLeft="10dp"
                                 android:layout_width="20dp"
                                 android:layout_height="30dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/home" />
-
+                                android:src="@drawable/home"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:layout_marginLeft="10dp"
-                                android:onClick="btnHome"
                                 android:text="홈으로가기"
-                                android:textSize="15sp" />
+                                android:layout_marginLeft="10dp"
+                                android:textSize="15sp"
+                                android:onClick="btnHome"/>
                         </TableRow>
                         <!-- 공지사항 -->
                         <TableRow
                             android:id="@+id/TrNotice"
                             android:paddingBottom="10dp"
                             android:visibility="visible">
-
                             <ImageView
+                                android:layout_marginLeft="10dp"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/mega" />
-
+                                android:src="@drawable/mega"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:layout_marginLeft="10dp"
                                 android:text="공지사항"
+                                android:layout_marginLeft="10dp"
                                 android:textSize="15sp" />
 
                         </TableRow>
 
                         <!-- 공지사항 서브메뉴 -->
                         <TableLayout
-                            android:id="@+id/NoticeSub"
                             android:layout_width="match_parent"
-<<<<<<< HEAD
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="visible">
-
+                            android:visibility="visible"
+                            android:id="@+id/NoticeSub">
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
                                     android:text="- 전체 공지사항"
-                                    android:textSize="8sp" />
-                            </TableRow>
-
-                            <TableRow>
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
                                     android:layout_marginLeft="25dp"
-                                    android:text="- 게임대회"
-                                    android:textSize="8sp" />
+                                    android:textSize="8sp"
+                                    android:onClick="Notice"/>
                             </TableRow>
 
-                            <TableRow>
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
-                                    android:text="- 모바일 공지사항"
-                                    android:textSize="8sp" />
-                            </TableRow>
 
                         </TableLayout>
+
+
 
 
                         <!-- 내정보 -->
@@ -396,93 +350,54 @@
                             android:id="@+id/TrMyInfo"
                             android:paddingBottom="10dp"
                             android:visibility="visible">
-
                             <ImageView
+                                android:layout_marginLeft="10dp"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/profile" />
-
+                                android:src="@drawable/profile"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:layout_marginLeft="10dp"
-                                android:onClick="btnMyInfo"
                                 android:text="내정보"
-                                android:textSize="15sp" />
+                                android:layout_marginLeft="10dp"
+                                android:textSize="15sp"
+                                android:onClick="btnMyInfo"/>
 
-=======
-                            android:layout_height="30dp"
-                            android:text="PC방"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="15sp"/>
-                    </TableRow>
-                    <!-- PC방 서브메뉴-->
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="visible"
-                        android:id="@+id/PCInfoSub">
-                        <TableRow>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:text="- 좌석현황"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"
-                                android:onClick="PcSeat"/>
-                        </TableRow>
-                        <TableRow>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:text="- 상품주문"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"
-                                android:onClick="ProductOrder"/>
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
                         </TableRow>
 
                         <!-- 내정보 서브메뉴 -->
                         <TableLayout
-                            android:id="@+id/MyInfoSub"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="visible">
-
+                            android:visibility="visible"
+                            android:id="@+id/MyInfoSub">
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
-                                    android:onClick="btnMyInfo"
                                     android:text="- 내정보보기"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="btnMyInfo"/>
                             </TableRow>
-
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
-                                    android:onClick="btnQuick"
                                     android:text="- 퀵메뉴설정"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="btnQuick"/>
                             </TableRow>
-
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
-                                    android:onClick="btnMyPc"
                                     android:text="- 가입한 PC방"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="btnMyPc"/>
                             </TableRow>
 
                         </TableLayout>
@@ -491,63 +406,50 @@
                         <TableRow
                             android:id="@+id/PcInfo"
                             android:paddingBottom="10dp">
-
                             <ImageView
+                                android:layout_marginLeft="10dp"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/pc" />
-
+                                android:src="@drawable/pc"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-<<<<<<< HEAD
-                                android:layout_marginLeft="10dp"
                                 android:text="PC방"
-                                android:textSize="15sp" />
-=======
-                                android:text="- PC방 찾기"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"
-                                android:onClick="PcSearch"/>
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
+                                android:layout_marginLeft="10dp"
+                                android:textSize="15sp"/>
                         </TableRow>
                         <!-- PC방 서브메뉴-->
                         <TableLayout
-                            android:id="@+id/PCInfoSub"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="visible">
-
+                            android:visibility="visible"
+                            android:id="@+id/PCInfoSub">
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
                                     android:text="- 좌석현황"
+                                    android:layout_marginLeft="25dp"
                                     android:textSize="8sp" />
                             </TableRow>
-
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
                                     android:text="- 상품주문"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="ProductOrder"/>
                             </TableRow>
-
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
                                     android:text="- PC방 찾기"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="PcSearch"/>
                             </TableRow>
 
                         </TableLayout>
@@ -556,46 +458,37 @@
                         <TableRow
                             android:id="@+id/Etc"
                             android:paddingBottom="10dp">
-
                             <ImageView
+                                android:layout_marginLeft="10dp"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/etc" />
-
+                                android:src="@drawable/etc"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-<<<<<<< HEAD
-                                android:layout_marginLeft="10dp"
                                 android:text="기타"
-                                android:textSize="15sp" />
-=======
-                                android:text="- 1:1문의"
-                                android:layout_marginLeft="25dp"
-                                android:textSize="8sp"
-                                android:onClick="Inquiry"/>
->>>>>>> 057a20af4698ab173345daae2254e7a85166ce12
+                                android:layout_marginLeft="10dp"
+                                android:textSize="15sp"/>
                         </TableRow>
                         <!-- 기타 서브메뉴 -->
                         <TableLayout
-                            android:id="@+id/EctSub"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="visible">
-
+                            android:visibility="visible"
+                            android:id="@+id/EctSub">
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:layout_marginLeft="25dp"
                                     android:text="- 1:1문의"
-                                    android:textSize="8sp" />
+                                    android:layout_marginLeft="25dp"
+                                    android:textSize="8sp"
+                                    android:onClick="Inquiry"/>
                             </TableRow>
 
                         </TableLayout>
+
 
 
                     </TableLayout>
