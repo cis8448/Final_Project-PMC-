@@ -154,5 +154,8 @@
 	<update id="UpdatePass" parameterType="HashMap">
 		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
 	</update>
+	<select id="SelectMyPc" parameterType="String" resultType="MyPcBean">
+		SELECT * FROM MYPCLIST WHERE SP_M_ID = #{name}
+	</select>
 	
 </mapper>

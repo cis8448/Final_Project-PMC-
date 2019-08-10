@@ -14,15 +14,8 @@
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/star"
-        android:id="@+id/offstarbtn"
-        android:visibility="gone"/>
+        android:id="@+id/starbtn" />
 
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:background="@drawable/clickstar"
-            android:id="@+id/onstarbtn"
-            android:visibility="visible"/>
 
     </FrameLayout>
 

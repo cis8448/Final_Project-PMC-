@@ -1,5 +1,8 @@
-package com.example.finalproject;
+package com.pmc.final_project.bean;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("MyPcBean")
 public class MyPcBean {
     String P_id;
     String P_name;
@@ -184,3 +187,4 @@ public class MyPcBean {
     }
 
 }
+

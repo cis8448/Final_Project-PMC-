@@ -236,6 +236,12 @@ public class MainController {
 		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
+	
+	@RequestMapping(value = "/btnMyPc")
+	public @ResponseBody String MyPcGetName(@RequestParam("id") String name) {
+		String json = pm.MyPcGetName(name); 
+		return json;
+	}
 
 
 

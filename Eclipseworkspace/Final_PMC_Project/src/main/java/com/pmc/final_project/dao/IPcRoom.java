@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.pmc.final_project.bean.Member;
+import com.pmc.final_project.bean.MyPcBean;
 import com.pmc.final_project.bean.PcRoomBean;
 
 public interface IPcRoom {
@@ -81,6 +82,8 @@ public interface IPcRoom {
 	public String MemberGetId(String hp);
 
 	public boolean UpdatePass(HashMap<String, String> map);
+
+	public List<MyPcBean> SelectMyPc(String name);
 
 
 

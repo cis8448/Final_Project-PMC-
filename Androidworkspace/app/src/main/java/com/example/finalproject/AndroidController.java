@@ -11,10 +11,14 @@ import java.util.ArrayList;
 
 public class AndroidController {
     ArrayList<MemberBean> allmem;
+    public ArrayList<MyPcBean> Mypcs;
     public MemberBean member = new MemberBean();
+    public MyPcBean mypc = new MyPcBean();
+
 
     Activity MainAct;
     Activity SubAct;
+
 
     int number;
     int easynumber;
@@ -218,6 +222,8 @@ public class AndroidController {
                 Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
+
+
         //메인화면 로그인 처리
         if(state.equals("MainActLoginSetting")){
 
@@ -258,8 +264,18 @@ public class AndroidController {
 
         //가입한 피시방
         if (state.equals("btnMyPc")){
+            GetServer Server = new GetServer();
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
-            activity.startActivity(btnMyPc);
+            if(Server.MyPcGetName(state,activity,mypc.getSP_m_id())) {
+                activity.startActivity(btnMyPc);
+                activity.finish();
+            }else{
+
+            }
+
+
+
+
         }
 
         //좌석 현황
@@ -287,6 +303,10 @@ public class AndroidController {
         }
         if(state.equals("GetPicture")){
 
+        }
+        if(state.equals("getMypcAdapter")){
+            MyPcRoomAdapterSetting mypc = new MyPcRoomAdapterSetting(Mypcs);
+            ((WhenPcroom)activity).adapter = mypc.mypcSearch();
         }
 
     }

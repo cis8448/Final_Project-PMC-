@@ -1,13 +1,9 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=7db53da1170e3a1f1645180584aaae9e5bd4fb58
+>>>>>>>=4e3da8634cb85842fe41a0f244a6f9837bc123be
 PROBLEMS_FILTERS_MIGRATE=true
 SWITCH_PERSPECTIVE_ON_PROJECT_CREATION=always
 eclipse.preferences.version=1
-<<<<<<< HEAD
-platformState=1559091507613
-=======
-platformState=1564407433676
->>>>>>> 4e3da8634cb85842fe41a0f244a6f9837bc123be
+platformState=1559090595881
 quickStart=false
 tipsAndTricks=true
