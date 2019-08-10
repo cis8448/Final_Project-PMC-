@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ ul {
 }
 
 #SubMenu {
-	margin-top:250px;
+	margin-top: 250px;
 	height: 100px;
 }
 
@@ -124,36 +124,34 @@ table {
 	color: white;
 	padding: 5px;
 	margin-left: 30px;
-	
 }
-
 </style>
 <body>
-	
-		<div>
-			<img src="./resources/image/dd.png">
-		</div>
-		<ul id="Menu">
-			<li class="mainmenu"><a href="./Main">좌석</a></li>
-			<li class="mainmenu"><a href="./Product">상품</a></li>
-			<li class="mainmenu"><a href="./MemberList">회원</a></li>
-			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./NoticeList">기타</a></li>
-		</ul>
-	
 
-	
-	
+	<div>
+		<img src="./resources/image/dd.png">
+	</div>
+	<ul id="Menu">
+		<li class="mainmenu"><a href="./SeatState">좌석</a></li>
+		<li class="mainmenu"><a href="./Product">상품</a></li>
+		<li class="mainmenu"><a href="./MemberList">회원</a></li>
+		<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+		<li class="mainmenu"><a href="#">기타</a></li>
+	</ul>
+
+
+
+
 	<table>
-	<aside>
-    <ul id="SubMenu">
-    	<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
-    	<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
-    	<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
-    	<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
-    </ul>
-	</aside>
-</table>
+		<aside>
+			<ul id="SubMenu">
+				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
+				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
+			</ul>
+		</aside>
+	</table>
 
 	<section>
 		<table border="1px solid black">
@@ -163,39 +161,39 @@ table {
 			</tr>
 
 			<tr class="NoticeNum">
-			
+
 				<td>No</td>
 				<td>제목</td>
 				<td>작성날짜</td>
 				<td>글내용</td>
 				<td>카테고리</td>
 			</tr>
-			
-		<form action="NoticeWrite" method="post">
-			<c:forEach var="pcroomnoticebean" items="${nList}">
-				<tr>
-					<td align="center">${pcroomnoticebean.no_p_id}</td>
-					<td align="center">${pcroomnoticebean.no_num}</td>
-					<td align="center">${pcroomnoticebean.no_title}</td>
-					<td align="center">${pcroomnoticebean.no_content}</td>
-					<td align="center">${pcroomnoticebean.no_date}</td>
-					<td align="center">${pcroomnoticebean.no_cate}</td>
-					
-				</tr>
-			</c:forEach>
+
+			<form action="NoticeWrite" method="post">
+				<c:forEach var="pcroomnoticebean" items="${nList}">
+					<tr>
+						<td align="center">${pcroomnoticebean.no_p_id}</td>
+						<td align="center">${pcroomnoticebean.no_num}</td>
+						<td align="center">${pcroomnoticebean.no_title}</td>
+						<td align="center">${pcroomnoticebean.no_content}</td>
+						<td align="center">${pcroomnoticebean.no_date}</td>
+						<td align="center">${pcroomnoticebean.no_cate}</td>
+
+					</tr>
+				</c:forEach>
 			</form>
 		</table>
-		
-		
+
+
 	</section>
-			
+
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
 
 	<br>
 	<br>
-	
+
 	<div align="center">${paging}</div>
 </body>
 

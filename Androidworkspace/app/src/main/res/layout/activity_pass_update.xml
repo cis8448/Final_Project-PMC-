@@ -27,13 +27,15 @@
             android:layout_height="40dp"
             android:text="새로운 비밀번호 :"
             android:textSize="15sp"
-            android:background="#2196F3"/>
+            android:background="#2196F3"
+            />
         <EditText
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="새로운 비밀번호 입력"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:id="@+id/edtpw1"/>
     </LinearLayout> <!-- 새로운 비밀번호 -->
     <LinearLayout
         android:layout_marginTop="5dp"
@@ -53,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="비밀번호 한번 더 입력"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:id="@+id/edtpw2"/>
     </LinearLayout> <!-- 새로운 비밀번호 -->
 
     <LinearLayout
@@ -66,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호 재설정"
-            android:background="#2196F3"/>
+            android:background="#2196F3"
+            android:onClick="UpdatePass"/>
     </LinearLayout>
 
 

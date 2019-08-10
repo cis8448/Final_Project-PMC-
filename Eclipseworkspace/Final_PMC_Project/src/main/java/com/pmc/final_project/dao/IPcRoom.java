@@ -1,10 +1,12 @@
 package com.pmc.final_project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.bean.PcRoomBean;
 
 public interface IPcRoom {
@@ -55,7 +57,31 @@ public interface IPcRoom {
 
 	public String HoliSel(String p_id);
 
+
+	public boolean fileupdate1(Map<String, String> fMap);
+
+	public boolean fileupdate2(Map<String, String> fMap);
+
+	public boolean fileupdate3(Map<String, String> fMap);
+
+	public void negative(String id);
+
 	public List<String> GetPicture();
+
+	public String Memberidoverlap(String id);
+
+	public boolean InsertMember(Member member);
+
+	public boolean InsertKakaoMember(Member member);
+
+	public Member EazyLogin(String kakaoId);
+
+	public Member MemberLogin(HashMap<String, String> map);
+
+	public String MemberGetId(String hp);
+
+	public boolean MemberGetId(HashMap<String, String> map);
+
 
 
 

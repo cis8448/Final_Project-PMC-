@@ -1,6 +1,7 @@
 package com.pmc.final_project;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.PcRoomBean;
+import com.pmc.final_project.bean.PcRoomNoticeBean;
 import com.pmc.final_project.service.ManagerManagement;
 import com.pmc.final_project.service.NoticeManagement;
 import com.pmc.final_project.service.PcroomManagement;
@@ -60,7 +62,7 @@ public class ManagerController {
 	
 
 
-	@RequestMapping(value="/OM_Approval", method = RequestMethod.GET)
+	@RequestMapping(value="/OM_Approval", method = RequestMethod.GET,produces = "application/text; charset=utf8")
 	public ModelAndView JSPSignUp(Integer pageNum) {
 
 		logger.info("OM_Approval execute ");
@@ -83,10 +85,10 @@ public class ManagerController {
 	}
 
 	@RequestMapping(value = "/negative", method = RequestMethod.POST,produces = "application/text; charset=utf8")
-	public @ResponseBody String negative(@RequestBody String id) {
+	public @ResponseBody String negative(@RequestParam("param") String id) {
 
 		logger.info("negative execute ");
-
+		
 		String json = om.negative(id);
 
 		return json;
@@ -163,6 +165,21 @@ public class ManagerController {
 		mav = om.OM_ServiceInfo(no_num);
 
 
+		return mav;
+	}
+	
+	@RequestMapping(value = "/OM_Nwrite" ,  method =  RequestMethod.GET)
+	public String OM_Nwrite(Model model) {
+
+
+		return "OM_Nwrite";   
+	}
+
+	@RequestMapping(value = "/OM_NInsert", method =  RequestMethod.POST)
+	public ModelAndView OM_NInsert(PcRoomNoticeBean pb) {
+		System.out.println("들어옴?11");
+		mav = om.OM_NInsert(pb);
+		
 		return mav;
 	}
 

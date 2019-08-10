@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.deser.impl.CreatorCandidate.Param;
 import com.google.gson.Gson;
 import com.pmc.final_project.service.SeatManagement;
 
@@ -57,6 +59,14 @@ public class SeatController {
 		mav = sm.SelectCate(p_id , 0);
 
 		return mav;
+	}
+	
+	@RequestMapping(value = "/GetPicture2")
+	public @ResponseBody String GetPicture2(@RequestParam("id") String str) {
+	
+		String json = sm.GetPicture(str);
+		
+		return json;
 	}
 
 }

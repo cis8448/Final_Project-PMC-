@@ -3,16 +3,23 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Path;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class AndroidController {
     ArrayList<MemberBean> allmem;
+    public MemberBean member;
 
     Activity MainAct;
     Activity SubAct;
     GetServer Server = new GetServer();
+    int number;
+
+    GetServer2 server2 = new GetServer2();
+
 
     static AndroidController androidcontroller;
 
@@ -35,16 +42,138 @@ public class AndroidController {
     public static void cutComtroll(){
         androidcontroller = null;
     }
+    public void sub2(Activity activity,String state,String id){
+        if(state.equals("GetPicture2")){
+            ((SeatStatus)activity).pictures =server2.GetServerPicture(activity,id);
+        }
+    }
+
     public void sub(Activity activity, String state){
-      //사진 가져오기
+        //사진 가져오기
         if(state.equals("GetPicture")){
             ((MainActivity)activity).pictures = Server.GetServerPicture(activity);
         }
-        if(state.equals("SettingPictuer")){
-            ((MainActivity)activity).pictures = Server.pictures;
+        //로그인페이지 이동
+        if(state.equals("LoginOpen")){
+            Intent Open = new Intent("com.example.finalproject.Login");
+            activity.startActivity(Open);
         }
+        //회원가입 선택 페이지로 이동
+        if(state.equals("signUpSelectOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUpSelect");
+            activity.startActivity(Open);
+        }
+        //카카오로 회원가입버튼을 눌렀을 경우 페이지 이동
+        if(state.equals("EasySignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.EasySignUp");
+            activity.startActivity(Open);
+        }
+        //회원 가입 화면 열기
+        if(state.equals("SignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.SignUp");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //간편 회원가입 화면 열기
+        if(state.equals("EasySignUpOpen")){
+            Intent Open = new Intent("com.example.finalproject.EasySignUp");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //아이디 중복 확인
+        if(state.equals("Memberidoverlap")){
 
+            if(Server.MemberIdOverLap("Memberidoverlap",activity)){
+                Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                if(number == 0) {
+                    number++;
+                    ((SignUp)activity).count++;
+                    if(((SignUp)activity).count ==2){
+                        ((SignUp)activity).SignUpNext.setEnabled(true);
+                    }
+                }
+            }else{
+                Toast.makeText(activity, "아이디를 사용하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(number == 1) {
+                    number--;
+                    ((SignUp)activity).count--;
+                    if(((SignUp)activity).count ==1){
+                        ((SignUp)activity).SignUpNext.setEnabled(false);
+                    }
+                }
+            }
+        }
+        //회원가입 처리
+        if(state.equals("InsertMember")){
+            if(Server.GetMemberSignUp("InsertMember",activity)) {
+                Toast.makeText(activity, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
+                member = null;
+                MainAct = null;
+                activity.finish();
+                SubAct.finish();
+            }else{
+                Toast.makeText(activity, "회원가입에 실패했습니다 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
+        //로그인 처리
+         if(state.equals("MemberLogin")){
+            if(Server.MemberLogin(state,activity)){
+                Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
+                activity.finish();
+                sub(MainAct,"MainActLoginSetting");
+            }else{
+                Toast.makeText(activity, "카카오로 계정으로 가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+         }
+         //간편 로그인 처리
+        if(state.equals("EazyLosin")){
+            if(Server.EazyLogin(member.getM_kakaoid(),state,activity)){
+                Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
+                activity.finish();
+                sub(MainAct,"MainActLoginSetting");
+            }else{
+                Toast.makeText(activity, "카카오로 계정으로 가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        //휴대폰 인증 화면 오픈
+        if(state.equals("certificationOpen")){
+            Intent Open = new Intent("com.example.finalproject.Certification");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //랜덤값을 카카오 메세지로 보내기
+        if(state.equals("send")){
+            //카카오메세지보내기
+        }
+        //인증 완료 아이디 불러오기
+        if(state.equals("getIdOpen")){
+            Intent Open = new Intent("com.example.finalproject.MyIdCheck");
+            if(Server.MemberGetId(state,activity,member.getM_phone())) {
+                activity.startActivity(Open);
+                activity.finish();
+            }else{
+                Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
+        // 비밀번호 변경 페이지 오픈
+        if(state.equals("PassUpdateOpen")){
+            Intent Open = new Intent("com.example.finalproject.PassUpdate");
+            activity.startActivity(Open);
+            activity.finish();
+        }
+        //비밀번호 변경
+        if(state.equals("UpdatePass")){
+            if(Server.UpdatePass(state,activity,member.getM_id(),member.getM_pass())){
+                Toast.makeText(activity, "비밀번호가 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show();
+                activity.finish();
+            }else{
+                Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
+            }
+        }
+        //메인화면 로그인 처리
+        if(state.equals("MainActLoginSetting")){
 
+        }
         //메뉴 버튼 처리
         //세팅
         if (state.equals("btnSetting")){
@@ -86,7 +215,10 @@ public class AndroidController {
         }
 
         //좌석 현황
-
+        if (state.equals("SeatState")){
+            Intent SeatState = new Intent("com.example.finalproject.SeatStatus");
+            activity.startActivity(SeatState);
+        }
 
         //상품 주문
         if (state.equals("ProductOrder")){
@@ -105,6 +237,9 @@ public class AndroidController {
         if (state.equals("Inquiry")){
             Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
             activity.startActivity(Inquiry);
+        }
+        if(state.equals("GetPicture")){
+
         }
 
     }

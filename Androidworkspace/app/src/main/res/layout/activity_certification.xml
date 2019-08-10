@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:visibility="gone"
+        android:visibility=""
         android:id="@+id/visi2">
 
         <TableLayout
@@ -73,7 +73,8 @@
                     android:hint="인증번호 입력"
                     android:textSize="18sp"
                     android:layout_marginLeft="15dp"
-                    android:maxLength="6"/>
+                    android:maxLength="6"
+                    android:id="@+id/ceredt"/>
 
                 <Button
                     android:layout_marginLeft="15dp"
@@ -107,7 +108,8 @@
                     android:text="확인"
                     android:textSize="15sp"
                     android:background="@drawable/roundblue"
-                    android:textColor="#ffff"/>
+                    android:textColor="#ffff"
+                    android:onClick="cerin"/>
             </TableRow>
         </TableLayout>
 
