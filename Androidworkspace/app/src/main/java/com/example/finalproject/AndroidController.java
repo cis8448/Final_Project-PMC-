@@ -229,7 +229,6 @@ public class AndroidController {
         //pc방 찾기
         if (state.equals("PcSearch")){
             Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
-            ((MainActivity)activity).address = Server.GetServerAddress(activity);
             activity.startActivity(PcSearch);
         }
 

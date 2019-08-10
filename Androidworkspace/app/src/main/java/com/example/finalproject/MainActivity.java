@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public Bitmap[] pictures;
+    public Object address;
 
 
     AndroidController andcon = AndroidController.getInstance();
