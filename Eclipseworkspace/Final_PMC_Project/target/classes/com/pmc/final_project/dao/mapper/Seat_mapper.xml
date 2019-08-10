@@ -27,4 +27,7 @@
 		<select id="SelectRe" parameterType="String" resultType="String">
 			SELECT S_NORESERVE FROM SEAT WHERE S_ID = #{#s_id}
 		</select>
+		<select id="GetPicture2" resultType="String" parameterType="String">
+		SELECT C_CONTENT FROM COMMENTS WHERE C_P_ID = #{id}
+	</select>
 	</mapper>

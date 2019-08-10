@@ -23,5 +23,7 @@ public interface ISeatDao {
 
 	public String SelectRe(String s_id);
 
+	public String GetPicture2(String id);
+
 
 }

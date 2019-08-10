@@ -3,31 +3,49 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pmc.final_project.dao.INotice">
-	<select id="getNoticeList" parameterType="String" resultType="PcRoomNoticeBean">
+
+	<select id="getNoticeList" parameterType="String"
+		resultType="PcRoomNoticeBean">
 		SELECT * FROM NOTICE WHERE NO_CATE = #{cate}
 	</select>
-	<select id="getNoticeDetail" parameterType="String" resultType="PcRoomNoticeBean">
+	<select id="getNoticeDetail" parameterType="String"
+		resultType="PcRoomNoticeBean">
 		SELECT * FROM NOTICE WHERE NO_NUM = #{b_num}
 	</select>
+
 	<update id="UpdateNotice" parameterType="PcRoomNoticeBean">
-		UPDATE NOTICE SET NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+		UPDATE NOTICE SET
+		NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title}, NO_CONTENT
+		=
+		#{no_content} WHERE NO_NUM = #{no_num}
+
 	</update>
 	<delete id="DeleteNotice" parameterType="String">
-		DELETE FROM NOTICE WHERE NO_NUM = #{b_num}
+		DELETE FROM NOTICE WHERE
+		NO_NUM = #{b_num}
 	</delete>
-	<select id="getServiceList" parameterType="String" resultType="PcRoomNoticeBean">
+
+	<select id="getServiceList" parameterType="String"
+		resultType="PcRoomNoticeBean">
 		SELECT * FROM SERVICE WHERE NO_CATE = #{cate}
 	</select>
-	<select id="getServiceDetail" parameterType="String" resultType="PcRoomNoticeBean">
+	<select id="getServiceDetail" parameterType="String"
+		resultType="PcRoomNoticeBean">
 		SELECT * FROM SERVICE WHERE NO_NUM = #{b_num}
 	</select>
 	<update id="UpdateService" parameterType="PcRoomNoticeBean">
-		UPDATE SERVICE SET NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title}, NO_CONTENT = #{no_content} WHERE NO_NUM = #{no_num}
+		UPDATE SERVICE SET
+		NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title},
+		NO_CONTENT =
+		#{no_content} WHERE NO_NUM = #{no_num}
 	</update>
+
 	<delete id="DeleteService" parameterType="String">
-		DELETE FROM SERVICE WHERE NO_NUM = #{b_num}
+		DELETE FROM SERVICE
+		WHERE NO_NUM = #{b_num}
 	</delete>
-	<select id="SelectP_id" parameterType="String" resultType="String">
+	<select id="SelectP_id" parameterType="String"
+		resultType="String">
 		SELECT NO_P_ID FROM SERVICE WHERE NO_NUM = #{b_num}
 	</select>
 
@@ -41,7 +59,8 @@
 		parameterType="HashMap">
 		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
 		NO_NUM,SE_TITLE AS
-		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS
+		NO_CATE
 		FROM SERVICE WHERE SE_CATE = #{cate}
 	</select>
 	<select id="OM_NoticeInfo" parameterType="String"
@@ -53,15 +72,25 @@
 		resultType="PcRoomNoticeBean">
 		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID,SE_NUM AS
 		NO_NUM,SE_TITLE AS
-		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS NO_CATE
+		NO_TITLE,SE_CONTENT AS NO_CONTENT,SE_CATE AS
+		NO_CATE
 		FROM SERVICE WHERE SE_NUM=#{no_num}
 	</select>
 	<select id="OMNoticeSearch" parameterType="String"
 		resultType="PcRoomNoticeBean">
-		SELECT * FROM NOTICE WHERE NO_P_ID LIKE #{res2} OR NO_TITLE
+		SELECT * FROM NOTICE WHERE NO_P_ID LIKE #{res2} OR
+		NO_TITLE
 		LIKE #{res2}
 	</select>
 
-	
+	<insert id="OM_NInsert" parameterType="PcRoomNoticeBean"
+		keyProperty="no_num">
+		<selectKey keyProperty="no_num" resultType="int"
+			order="BEFORE">
+			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO NOTICE VALUES
+		(#{no_p_id},${no_num},#{no_title},#{no_content},#{no_date},#{no_cate})
+	</insert>
 
 </mapper>

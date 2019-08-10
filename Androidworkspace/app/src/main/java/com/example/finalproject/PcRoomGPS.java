@@ -19,6 +19,7 @@ public class PcRoomGPS extends AppCompatActivity {
     TextView sido;
     private ArrayList<PcRoomBean> data = null;
 
+
     AndroidController andcon = AndroidController.getInstance();
 
     @Override

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp"
-    android:orientation="vertical">
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <!-- 회원 관리정책 -->
     <LinearLayout
@@ -80,14 +84,17 @@
             android:textSize="20sp"/>
 
         <RadioGroup
+            android:id="@+id/RadioGp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
+                android:id="@+id/check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="동의"/>
             <RadioButton
+                android:id="@+id/noncheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="거부"/>
@@ -98,12 +105,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <!-- 회원가입 정보 입력-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="20dp">
+
+
+
+
+
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="35dp"
@@ -140,32 +153,40 @@
                 android:hint="생년월일"
                 android:textSize="12sp"
                 android:id="@+id/edtBirth"/>
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:hint="휴대폰번호"
+                    android:textSize="12sp"
+                    android:id="@+id/edtPhone"/>
+
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="35dp"
                 android:hint="이메일"
                 android:textSize="12sp"
                 android:id="@+id/edtEmail"/>
+
+
         </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:text="중복 확인"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:onClick="idoverlap"/>
     </LinearLayout>
 
+
     <Button
+        android:id="@+id/SignUpNext"
         android:layout_marginLeft="120dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="제출하기"
+        android:enabled="false"
         android:onClick="SignUpNext"/>
+    </LinearLayout>
 
-
-
-
-
-
-
-
-</LinearLayout>
+</ScrollView>

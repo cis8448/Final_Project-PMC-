@@ -29,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:hint="UserId"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:id="@+id/edtId"/>
         </TableRow>
         <TableRow>
             <ImageView
@@ -43,7 +44,8 @@
                 android:hint="Password"
                 android:textSize="20sp"
                 android:inputType="textPassword"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:id="@+id/edtpw"/>
         </TableRow>
     </TableLayout>
     <LinearLayout
@@ -66,16 +68,24 @@
             android:textSize="15sp"
             android:onClick="SignUpSelect"/>
     </LinearLayout>
-    <Button
-        android:layout_marginLeft="30dp"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:text="피모씨 PC로 로그인"
-        android:textSize="15sp"/>
-    <Button
-        android:layout_marginLeft="30dp"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:text="간편 로그인"
-        android:textSize="15sp"/>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="피모씨 PC로 로그인"
+            android:textSize="15sp"
+            android:onClick="LoginStart"/>
+        <com.kakao.usermgmt.LoginButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/kakaiLogin">
+        </com.kakao.usermgmt.LoginButton>
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="간편 로그인"
+            android:textSize="15sp"
+            android:onClick="EasyLogin"/>
 </LinearLayout>

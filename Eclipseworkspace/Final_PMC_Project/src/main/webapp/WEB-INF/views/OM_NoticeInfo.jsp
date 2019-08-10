@@ -197,13 +197,13 @@ h2 {
 			<li class="mainmenu"><a href="./OM_Approval">PC방업주관리</a></li>
 			<li class="mainmenu"><a href="./OM_MemberList">PC방전체회원</a></li>
 			<li class="mainmenu"><a href="./OM_Notice?cate=0">PC방 공지사항</a></li>
-			<li class="mainmenu"><a href="./OM_Service?cate=0">PC방 고객센터</a></li>
+			<li class="mainmenu"><a href="./OM_Service?cate=1">PC방 고객센터</a></li>
 		</ul>
 	</header>
 	<aside>
 		<ul id="SubMenu">
 			<li class="SubMenu"><a href="./OM_Notice?cate=0">PC방 공지</a></li>
-			<li class="SubMenu"><a href="./OM_Notice?cate=1">앱 공지</a></li>
+			<li class="SubMenu"><a href="./OM_Notice?cate=2">앱 공지</a></li>
 		</ul>
 	</aside>
 	<section>
@@ -227,12 +227,17 @@ h2 {
 
 		<br>
 		<div class="LastButton">
-			<a href="./OM_Notice" class="button2">뒤로가기</a>
+			<a href="#" onclick="back()" class="button2">뒤로가기</a>
 		</div>
 	</section>
 	<footer>
 		<h1>ICIA Pc Project</h1>
 	</footer>
 </body>
-
+<script>
+function back(){
+	history.back();
+	location.reload
+}
+</script>
 </html>

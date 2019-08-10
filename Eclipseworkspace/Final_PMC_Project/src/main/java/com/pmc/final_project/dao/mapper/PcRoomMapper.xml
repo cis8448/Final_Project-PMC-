@@ -7,7 +7,7 @@
 		INSERT INTO SBPCROOM
 		(p_id,p_pass,p_name,p_phone,p_email,p_addr,p_holiday,p_dong,p_sido,p_gugun)
 		VALUES
-		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},2,#{p_dong},#{p_sido},#{p_gugun})
+		(#{p_id},#{p_pass},#{p_name},#{p_phone},#{p_email},#{p_addr},0,#{p_dong},#{p_sido},#{p_gugun})
 	</insert>
 
 
@@ -110,12 +110,49 @@
 		P_HOLIDAY=#{holiday} WHERE P_ID =#{id}
 	</update>
 	<select id="HoliSel" parameterType="String" resultType="String">
-		SELECT P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
+		SELECT
+		P_HOLIDAY FROM PCROOM WHERE P_ID=#{p_id}
 	</select>
+	
+	<update id="fileupdate1" parameterType="HashMap">
+		UPDATE PCROOM SET
+		P_PICTURE1=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+	<update id="fileupdate2" parameterType="HashMap">
+		UPDATE PCROOM SET
+		P_PICTURE2=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+	<update id="fileupdate3" parameterType="HashMap">
+		UPDATE PCROOM SET
+		P_PICTURE3=#{sysFileName} WHERE P_ID=#{sysid}
+	</update>
+
 	<select id="GetPicture" resultType="String">
 		SELECT P_PICTURE1 FROM PCROOM
 	</select>
-
-
-
+	<select id="Memberidoverlap" resultType="String" parameterType="String">
+		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
+	</select>
+	<insert id="InsertMember" parameterType="Member">
+		INSERT INTO MEMBER(M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_POINT) 
+					VALUES(#{m_id},#{m_pass},#{m_name},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_point})
+	</insert>
+	<insert id="InsertKakaoMember" parameterType="Member">
+	INSERT INTO MEMBER(M_KAKAOID,M_ID,M_PASS,M_NAME,M_NICKNAME,M_EMAIL,M_PHONE,M_BIRTHDAY,M_POINT) 
+					VALUES(#{m_kakaoid},#{m_id},#{m_pass},#{m_name},#{m_nickname},#{m_email},#{m_phone},#{m_birthday},#{m_point})
+	</insert>
+	<select id="EazyLogin" parameterType="String" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_KAKAOID = #{id}
+	</select>
+	<select id="MemberLogin" parameterType="HashMap" resultType="Member">
+		SELECT * FROM MEMBER WHERE M_ID = #{id} AND M_PASS = #{pass}
+	</select>
+	<select id="MemberGetId" parameterType="String" resultType="String">
+		SELECT M_ID FROM MEMBER WHERE M_PHONE = #{hp}
+	</select>
+	
+	<update id="UpdatePass" parameterType="HashMap">
+		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
+	</update>
+	
 </mapper>
