@@ -402,7 +402,7 @@ public class PcroomManagement {
 				json = "0";
 			}
 		}
-		return null;
+		return json;
 	}
 
 
@@ -434,7 +434,7 @@ public class PcroomManagement {
 		String json = null;
 		map.put("id", id);
 		map.put("pass", pass);
-		if(pDao.MemberGetId(map)) {
+		if(pDao.UpdatePass(map)) {
 			json = "1";
 		}else {
 			json = "0";

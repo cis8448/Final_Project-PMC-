@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class EasySignUp extends AppCompatActivity {
     AndroidController andcon = AndroidController.getInstance();
     public Button btnSignSend,SignUpNext;
-    public EditText edtId, edtPass, edtPass2, edtName,edtNickName;
+    public EditText edtId, edtPass, edtPass2, edtName,edtNickName,edtPhone;
     int number;
     public int count;
     RadioGroup RadioGp;
@@ -23,14 +23,16 @@ public class EasySignUp extends AppCompatActivity {
         edtNickName = findViewById(R.id.edtNickName);
         edtId = findViewById(R.id.edtId);
         edtPass = findViewById(R.id.edtPass);
+        edtPass2 = findViewById(R.id.edtPass2);
         edtName = findViewById(R.id.edtName);
+        edtPhone = findViewById(R.id.edtPhone);
         SignUpNext = findViewById(R.id.SignUpNext);
-        RadioGp = findViewById(R.id.RadioGp);
+        RadioGp = findViewById(R.id.RadioEzGP);
         RadioGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (radioGroup.getCheckedRadioButtonId()){
-                    case R.id.check:
+                    case R.id.Excheck:
                         if(number == 0){
                             number++;
                             count++;
@@ -39,7 +41,7 @@ public class EasySignUp extends AppCompatActivity {
                             }
                         }
                         break;
-                    case R.id.noncheck:
+                    case R.id.Exnoncheck:
                         if(number == 1){
                             number--;
                             count--;
@@ -55,7 +57,7 @@ public class EasySignUp extends AppCompatActivity {
     public void Easyidoverlap (View v){
         String id = edtId.getText().toString();
         if(!id.equals("")) {
-            andcon.sub(EasySignUp.this, "Memberidoverlap");
+            andcon.sub(EasySignUp.this, "EasyMemberidoverlap");
             if(count==2){
                 SignUpNext.setEnabled(true);
             }
@@ -70,7 +72,8 @@ public class EasySignUp extends AppCompatActivity {
         String pass2 = edtPass2.getText().toString();
         String Name = edtName.getText().toString();
         String Nick = edtNickName.getText().toString();
-        if (pass.equals("") && pass2.equals("") && Name.equals("") && Nick.equals("")) {
+        String phone = edtPhone.getText().toString();
+        if (pass.equals("") || pass2.equals("") || Name.equals("") || Nick.equals("") ||phone.equals("")) {
             Toast.makeText(this, "정보를 모두 입력해 주세요", Toast.LENGTH_SHORT).show();
         } else {
             if (pass.equals(pass2)) {
@@ -79,6 +82,7 @@ public class EasySignUp extends AppCompatActivity {
                 memberBean.setM_pass(pass);
                 memberBean.setM_name(Name);
                 memberBean.setM_nickname(Nick);
+                memberBean.setM_phone(phone);
                 andcon.member = memberBean;
                 andcon.sub(this, "InsertMember");
             } else {

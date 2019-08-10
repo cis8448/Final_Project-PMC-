@@ -66,9 +66,9 @@
                     <ImageView
                         android:layout_width="250dp"
                         android:layout_height="130dp"
-                        android:background="@drawable/bell"
                         android:layout_marginTop="45dp"
                         android:id="@+id/pcroomimg2"
+                        android:scaleType="fitXY"
                         />
 
 
@@ -200,7 +200,6 @@
                     android:visibility="visible"
                     android:id="@+id/nLoginMenu">
 
-                    >
 
                     <!--로그인 버튼(로그인 후 로그아웃으로 변경) -->
                     <Button

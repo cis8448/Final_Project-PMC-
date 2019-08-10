@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         info = findViewById(R.id.info);
         pcroomimg1 = findViewById(R.id.pcroomimg2);
 
+        andcon.setActivity(this);
+
         //메뉴버튼 클릭시 메뉴창 출력
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
