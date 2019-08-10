@@ -21,7 +21,7 @@ import java.util.List;
 public class SignUpSelect extends AppCompatActivity {
     AndroidController andcon = AndroidController.getInstance();
     LoginButton kakabtn;
-    MemberBean memberBean;
+    MemberBean memberBean = new MemberBean();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,7 @@ public class SignUpSelect extends AppCompatActivity {
         keys.add("kakao_account.birthday");
         keys.add("kakao_account.email");
         keys.add("properties.profile_image");
+        keys.add("kakao_account.age_range");
         UserManagement.getInstance().me(keys, new MeV2ResponseCallback() {
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
@@ -46,9 +47,9 @@ public class SignUpSelect extends AppCompatActivity {
 
             @Override
             public void onSuccess(MeV2Response result) {
-                memberBean.setM_kakaoid(result.getId()+"");
+                memberBean.setM_kakaoid(result.getId());
                 memberBean.setM_profile(result.getProfileImagePath());
-                memberBean.setM_birthday(result.getKakaoAccount().getBirthyear());
+                memberBean.setM_birthday(result.getKakaoAccount().getAgeRange().toString());
                 memberBean.setM_email(result.getKakaoAccount().getEmail());
                 andcon.member = memberBean;
                 andcon.sub(SignUpSelect.this, "EasySignUpOpen");

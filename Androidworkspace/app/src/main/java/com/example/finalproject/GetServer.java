@@ -8,11 +8,6 @@ import java.io.InputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.logging.Handler;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -46,7 +41,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
 
         }
@@ -62,6 +57,7 @@ public class GetServer {
         retrofit = new Retrofit.Builder().baseUrl(Local)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+        Sever = retrofit.create(JSPServer.class);
         new Thread() {
             public void run() {
                 try {
@@ -77,7 +73,37 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean EazyMemberIdOverLap(String State, Activity activity){
+
+        localURL = State;
+        final String id = ((EasySignUp)activity).edtId.getText().toString();
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.Memberidoverlap(localURL,id).execute().body();
+                    if(state.equals("0")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -94,7 +120,7 @@ public class GetServer {
             public void run() {
                 try {
                     state = Sever.InsertMember(localURL,memberBean).execute().body();
-                    if(state.equals("0")){
+                    if(state.equals("1")){
                         overLap = true;
                     }else{
                         overLap = false;
@@ -105,13 +131,13 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
         return overLap;
     }
-    public boolean EazyLogin(final String kakaoID, String State, Activity act){
+    public boolean EazyLogin(final long kakaoID, String State, Activity act){
         localURL = State;
         retrofit = new Retrofit.Builder().baseUrl(Local)
                 .addConverterFactory(GsonConverterFactory.create())

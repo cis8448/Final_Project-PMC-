@@ -2,7 +2,16 @@ package com.example.finalproject;
 
 public class MemberBean {
 
-    private String m_kakaoid;
+    private long m_kakaoid;
+
+    public long getM_kakaoid() {
+        return m_kakaoid;
+    }
+
+    public void setM_kakaoid(long m_kakaoid) {
+        this.m_kakaoid = m_kakaoid;
+    }
+
     private String m_id;
     private String m_pass;
     private String m_name;
@@ -17,13 +26,7 @@ public class MemberBean {
         m_point = "0";
     }
 
-    public String getM_kakaoid() {
-        return m_kakaoid;
-    }
 
-    public void setM_kakaoid(String m_kakaoid) {
-        this.m_kakaoid = m_kakaoid;
-    }
 
     public String getM_id() {
         return m_id;

@@ -11,12 +11,13 @@ import java.util.ArrayList;
 
 public class AndroidController {
     ArrayList<MemberBean> allmem;
-    public MemberBean member;
+    public MemberBean member = new MemberBean();
 
     Activity MainAct;
     Activity SubAct;
-    GetServer Server = new GetServer();
+
     int number;
+    int easynumber;
 
     GetServer2 server2 = new GetServer2();
 
@@ -51,6 +52,7 @@ public class AndroidController {
     public void sub(Activity activity, String state){
         //사진 가져오기
         if(state.equals("GetPicture")){
+            GetServer Server = new GetServer();
             ((MainActivity)activity).pictures = Server.GetServerPicture(activity);
         }
         //로그인페이지 이동
@@ -61,11 +63,6 @@ public class AndroidController {
         //회원가입 선택 페이지로 이동
         if(state.equals("signUpSelectOpen")){
             Intent Open = new Intent("com.example.finalproject.SignUpSelect");
-            activity.startActivity(Open);
-        }
-        //카카오로 회원가입버튼을 눌렀을 경우 페이지 이동
-        if(state.equals("EasySignUpOpen")){
-            Intent Open = new Intent("com.example.finalproject.EasySignUp");
             activity.startActivity(Open);
         }
         //회원 가입 화면 열기
@@ -82,7 +79,7 @@ public class AndroidController {
         }
         //아이디 중복 확인
         if(state.equals("Memberidoverlap")){
-
+            GetServer Server = new GetServer();
             if(Server.MemberIdOverLap("Memberidoverlap",activity)){
                 Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
                 if(number == 0) {
@@ -103,8 +100,55 @@ public class AndroidController {
                 }
             }
         }
+        //아이디 중복 확인
+        if(state.equals("Memberidoverlap")){
+            GetServer Server = new GetServer();
+            if(Server.MemberIdOverLap("Memberidoverlap",activity)){
+                Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                if(number == 0) {
+                    number++;
+                    ((SignUp)activity).count++;
+                    if(((SignUp)activity).count ==2){
+                        ((SignUp)activity).SignUpNext.setEnabled(true);
+                    }
+                }
+            }else{
+                Toast.makeText(activity, "아이디를 사용하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(number == 1) {
+                    number--;
+                    ((SignUp)activity).count--;
+                    if(((SignUp)activity).count ==1){
+                        ((SignUp)activity).SignUpNext.setEnabled(false);
+                    }
+                }
+            }
+        }
+        //이지로그인
+        if(state.equals("EasyMemberidoverlap")){
+            GetServer Server = new GetServer();
+            if(Server.EazyMemberIdOverLap("Memberidoverlap",activity)){
+                Toast.makeText(activity, "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                if(number == 0) {
+                    easynumber++;
+                    ((EasySignUp)activity).count++;
+                    if(((EasySignUp)activity).count ==2){
+                        ((EasySignUp)activity).SignUpNext.setEnabled(true);
+                    }
+                }
+            }else{
+                Toast.makeText(activity, "아이디를 사용하실 수 없습니다.", Toast.LENGTH_SHORT).show();
+                if(number == 1) {
+                    easynumber--;
+                    ((EasySignUp)activity).count--;
+                    if(((EasySignUp)activity).count ==1){
+                        ((EasySignUp)activity).SignUpNext.setEnabled(false);
+                    }
+                }
+            }
+        }
         //회원가입 처리
         if(state.equals("InsertMember")){
+            GetServer Server = new GetServer();
             if(Server.GetMemberSignUp("InsertMember",activity)) {
                 Toast.makeText(activity, "회원가입에 성공했습니다.", Toast.LENGTH_SHORT).show();
                 member = null;
@@ -117,16 +161,18 @@ public class AndroidController {
         }
         //로그인 처리
          if(state.equals("MemberLogin")){
+             GetServer Server = new GetServer();
             if(Server.MemberLogin(state,activity)){
                 Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
                 activity.finish();
                 sub(MainAct,"MainActLoginSetting");
             }else{
-                Toast.makeText(activity, "카카오로 계정으로 가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "가입한 정보가 없습니다.", Toast.LENGTH_SHORT).show();
             }
          }
          //간편 로그인 처리
         if(state.equals("EazyLosin")){
+            GetServer Server = new GetServer();
             if(Server.EazyLogin(member.getM_kakaoid(),state,activity)){
                 Toast.makeText(activity, "로그인에 성공했습니다." , Toast.LENGTH_SHORT).show();
                 activity.finish();
@@ -147,6 +193,7 @@ public class AndroidController {
         }
         //인증 완료 아이디 불러오기
         if(state.equals("getIdOpen")){
+            GetServer Server = new GetServer();
             Intent Open = new Intent("com.example.finalproject.MyIdCheck");
             if(Server.MemberGetId(state,activity,member.getM_phone())) {
                 activity.startActivity(Open);
@@ -163,6 +210,7 @@ public class AndroidController {
         }
         //비밀번호 변경
         if(state.equals("UpdatePass")){
+            GetServer Server = new GetServer();
             if(Server.UpdatePass(state,activity,member.getM_id(),member.getM_pass())){
                 Toast.makeText(activity, "비밀번호가 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show();
                 activity.finish();

@@ -212,7 +212,7 @@ public class MainController {
 		return json;
 	}
 	@RequestMapping(value = "/InsertMember")
-	public @ResponseBody String InsertMember(Member member) {
+	public @ResponseBody String InsertMember(@RequestBody Member member) {
 		String json = pm.InsertMember(member);
 		return json;
 	}

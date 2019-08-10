@@ -13,7 +13,6 @@ public interface JSPServer {
         Call<PictureBean> getPictures(@Path("URL") String URL);
 
     @POST("final_project/{URL}")
-
         Call<String> Memberidoverlap(@Path("URL") String URL, @Query("id") String id);
 
     @POST("final_project/{URL}")
@@ -22,7 +21,7 @@ public interface JSPServer {
     @POST("final_project/{URL}")
     Call<String> InsertMember(@Path("URL")String URL, @Body MemberBean bean);
     @POST("final_project/{URL}")
-    Call<MemberBean> EazyLogin(@Path("URL") String URL ,@Query("id") String id);
+    Call<MemberBean> EazyLogin(@Path("URL") String URL ,@Query("id") long id);
     @POST("final_project/{URL}")
     Call<MemberBean> MemberLogin(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
     @POST("final_project/{URL}")

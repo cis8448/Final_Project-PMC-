@@ -80,7 +80,7 @@ public interface IPcRoom {
 
 	public String MemberGetId(String hp);
 
-	public boolean MemberGetId(HashMap<String, String> map);
+	public boolean UpdatePass(HashMap<String, String> map);
 
 
 

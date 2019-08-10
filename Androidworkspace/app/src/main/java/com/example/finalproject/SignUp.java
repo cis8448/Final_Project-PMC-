@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class SignUp extends AppCompatActivity {
     AndroidController andcon = AndroidController.getInstance();
     public Button btnSignSend,SignUpNext;
-    public EditText edtId, edtPass, edtPass2, edtName, edtBirth, edtEmail,edtNickName;
+    public EditText edtId, edtPass, edtPass2, edtName, edtBirth, edtEmail,edtNickName,edtPhone;
     int number;
     public int count;
     RadioGroup RadioGp;
@@ -24,9 +24,11 @@ public class SignUp extends AppCompatActivity {
         edtNickName = findViewById(R.id.edtNickName);
         edtId = findViewById(R.id.edtId);
         edtPass = findViewById(R.id.edtPass);
+        edtPass2 = findViewById(R.id.edtPass2);
         edtName = findViewById(R.id.edtName);
         edtBirth = findViewById(R.id.edtBirth);
         edtEmail = findViewById(R.id.edtEmail);
+        edtPhone= findViewById(R.id.edtPhone);
         SignUpNext = findViewById(R.id.SignUpNext);
         RadioGp = findViewById(R.id.RadioGp);
         RadioGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -76,7 +78,8 @@ public class SignUp extends AppCompatActivity {
         String Birth =edtBirth.getText().toString();
         String Email =edtEmail.getText().toString();
         String Nick =edtNickName.getText().toString();
-        if(pass.equals("")&&pass2.equals("")&&Name.equals("")&&Birth.equals("")&&Email.equals("")&&Nick.equals("")){
+        String phone =edtPhone.getText().toString();
+        if(pass.equals("")||pass2.equals("")||Name.equals("")||Birth.equals("")||Email.equals("")||Nick.equals("")||phone.equals("")){
             Toast.makeText(this, "정보를 모두 입력해 주세요", Toast.LENGTH_SHORT).show();
         }else{
             if(pass.equals(pass2)){
@@ -87,6 +90,7 @@ public class SignUp extends AppCompatActivity {
                 memberBean.setM_birthday(Birth);
                 memberBean.setM_email(Email);
                 memberBean.setM_nickname(Nick);
+                memberBean.setM_phone(phone);
                 andcon.member = memberBean;
                 andcon.sub(this,"InsertMember");
             }else{

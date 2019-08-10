@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onSuccess(MeV2Response result) {
-                andcon.member.setM_kakaoid(result.getId()+"");
+                andcon.member.setM_kakaoid(result.getId());
                 andcon.sub(Login.this,"EazyLosin");
             }
         });
