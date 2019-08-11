@@ -13,13 +13,9 @@ public class AndroidController {
     ArrayList<MemberBean> allmem;
     public ArrayList<MyPcBean> Mypcs;
     public MemberBean member = new MemberBean();
-<<<<<<< HEAD
     public boolean Check;
-=======
     public MyPcBean mypc = new MyPcBean();
 
-
->>>>>>> 3b7e28a6865137b37981d5d99fec8f0d58bd4030
     Activity MainAct;
     Activity SubAct;
 
@@ -279,9 +275,10 @@ public class AndroidController {
         if (state.equals("btnMyPc")){
             GetServer Server = new GetServer();
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
-            if(Server.MyPcGetName(state,activity,mypc.getSP_m_id())) {
-                activity.startActivity(btnMyPc);
+            if(Server.MyPcGetName(state,activity,member.getM_id())) {
+
                 activity.finish();
+                activity.startActivity(btnMyPc);
             }else{
 
             }

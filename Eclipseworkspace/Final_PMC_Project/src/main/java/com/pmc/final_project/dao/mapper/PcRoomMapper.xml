@@ -154,13 +154,13 @@
 	<update id="UpdatePass" parameterType="HashMap">
 		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
 	</update>
-<<<<<<< HEAD
+
 	<select id="SaerchEmail" parameterType="String" resultType="String">
 		SELECT M_EMAIL FROM MEMBER WHERE M_PHONE = #{hp}
-=======
+	</select>
+
 	<select id="SelectMyPc" parameterType="String" resultType="MyPcBean">
 		SELECT * FROM MYPCLIST WHERE SP_M_ID = #{name}
->>>>>>> 3b7e28a6865137b37981d5d99fec8f0d58bd4030
 	</select>
 	
 </mapper>

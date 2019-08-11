@@ -83,11 +83,10 @@ public interface IPcRoom {
 
 	public boolean UpdatePass(HashMap<String, String> map);
 
-<<<<<<< HEAD
 	public String SaerchEmail(String hp);
-=======
+
 	public List<MyPcBean> SelectMyPc(String name);
->>>>>>> 3b7e28a6865137b37981d5d99fec8f0d58bd4030
+
 
 
 

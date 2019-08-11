@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.171/";
+    String Local = "http://192.168.0.172/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -322,7 +322,7 @@ public class GetServer {
                 try {
                     ArrayList<MyPcBean> Mypcs = Sever.MyPcGet(localURL,Name).execute().body();
                     andcon.Mypcs = Mypcs;
-                    if(andcon.mypc.getSP_m_id() != null){
+                    if(andcon.Mypcs != null){
                         overLap = true;
                     }else{
                         overLap = false;
