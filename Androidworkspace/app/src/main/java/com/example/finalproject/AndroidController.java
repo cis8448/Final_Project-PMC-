@@ -43,6 +43,9 @@ public class AndroidController {
         if(state.equals("SettingPictuer")){
             ((MainActivity)activity).pictures = Server.pictures;
         }
+//        if(state.equals("getProductPicture")){
+//            ((ProductList)activity).productpicture = Server.GetServerProductPicture(activity);
+//        }
 
 
         //메뉴 버튼 처리
@@ -91,6 +94,11 @@ public class AndroidController {
         //상품 주문
         if (state.equals("ProductOrder")){
             Intent ProductOrder = new Intent("com.example.finalproject.ProductList");
+            activity.startActivity(ProductOrder);
+        }
+        //상품 주문 -> 장바구니
+        if (state.equals("ProductBasket")){
+            Intent ProductOrder = new Intent("com.example.finalproject.ProductBasket");
             activity.startActivity(ProductOrder);
         }
 

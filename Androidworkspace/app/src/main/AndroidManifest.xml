@@ -19,7 +19,7 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".PcRoomGPS">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -100,6 +100,12 @@
         <activity android:name=".ProductList">
             <intent-filter>
                 <action android:name="com.example.finalproject.ProductList" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ProductBasket">
+            <intent-filter>
+                <action android:name="com.example.finalproject.ProductBasket" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

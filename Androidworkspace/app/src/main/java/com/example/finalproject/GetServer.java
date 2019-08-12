@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.finalproject.Bean.ProductBean;
+
 import java.io.InputStream;
 
 import java.net.HttpURLConnection;
@@ -24,6 +26,9 @@ public class GetServer {
     public Bitmap pictures[];
     PictureBean pictureBean;
     JSPServer Sever;
+    public Bitmap ProductPictures[];
+    ProductBean productBean;
+
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -74,4 +79,38 @@ public class GetServer {
         }
         return bt;
     }
+
+//    public Bitmap[] GetServerProductPicture(final Activity act) {
+//        localURL = "getProductPicture";
+//        retrofit = new Retrofit.Builder().baseUrl(Local)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        Sever = retrofit.create(JSPServer.class);
+//
+//        new Thread() {
+//            public void run() {
+//                try {
+//                    productBean = Sever.getProductPictures(localURL).execute().body();
+//                    ProductPictures = GetProductPictures(productBean);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.start();
+//        try {
+//            Thread.sleep(500);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return ProductPictures;
+//    }
+//
+//    public Bitmap[] GetProductPictures(ProductBean bean){
+//        Bitmap[] bt = new Bitmap[0];
+//        try{
+//            if
+//        }
+//    }
+
+
 }
