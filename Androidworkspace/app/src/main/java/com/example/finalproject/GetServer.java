@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.171/";
+    String Local = "http://192.168.0.172/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -218,7 +218,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -237,6 +237,36 @@ public class GetServer {
             public void run() {
                 try {
                     state = Sever.UpdatePass(localURL,ids,pass).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean GetMyInfo(String State,Activity act,String hp){
+        localURL = State;
+
+        final String Hp = hp;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.GetMyInfo(localURL,Hp).execute().body();
                     if(state.equals("1")){
                         overLap = true;
                     }else{
@@ -292,7 +322,7 @@ public class GetServer {
                 try {
                     ArrayList<MyPcBean> Mypcs = Sever.MyPcGet(localURL,Name).execute().body();
                     andcon.Mypcs = Mypcs;
-                    if(andcon.mypc.getSP_m_id() != null){
+                    if(andcon.Mypcs != null){
                         overLap = true;
                     }else{
                         overLap = false;

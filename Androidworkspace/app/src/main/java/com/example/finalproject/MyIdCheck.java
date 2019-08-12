@@ -13,15 +13,15 @@ public class MyIdCheck extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_id_check);
-        idtxt = findViewById(R.id.idtxt);
-        idtxt.setText(andcon.member.getM_id());
+//        idtxt = findViewById(R.id.idtxt);
+//        idtxt.setText(andcon.member.getM_id());
     }
 
-    public void idcheckfinish(View v){
-        finish();
-    }
-
-    public void PassUpdateOpen(View v){
-        andcon.sub(this,"PassUpdateOpen");
-    }
+//    public void idcheckfinish(View v){
+//        finish();
+//    }
+//
+//    public void PassUpdateOpen(View v){
+//        andcon.sub(this,"PassUpdateOpen");
+//    }
 }

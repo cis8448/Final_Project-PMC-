@@ -13,8 +13,8 @@ public class AndroidController {
     ArrayList<MemberBean> allmem;
     public ArrayList<MyPcBean> Mypcs;
     public MemberBean member = new MemberBean();
+    public boolean Check;
     public MyPcBean mypc = new MyPcBean();
-
 
     Activity MainAct;
     Activity SubAct;
@@ -193,18 +193,19 @@ public class AndroidController {
         }
         //랜덤값을 카카오 메세지로 보내기
         if(state.equals("send")){
-            //카카오메세지보내기
+            GetServer Server = new GetServer();
+            Check = Server.GetMyInfo(state, activity,member.getM_phone());
         }
         //인증 완료 아이디 불러오기
         if(state.equals("getIdOpen")){
             GetServer Server = new GetServer();
-            Intent Open = new Intent("com.example.finalproject.MyIdCheck");
             if(Server.MemberGetId(state,activity,member.getM_phone())) {
+                Intent Open = new Intent("com.example.finalproject.MyIdCheck");
                 activity.startActivity(Open);
-                activity.finish();
             }else{
                 Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
             }
+            activity.finish();
         }
         // 비밀번호 변경 페이지 오픈
         if(state.equals("PassUpdateOpen")){
@@ -226,6 +227,14 @@ public class AndroidController {
 
         //메인화면 로그인 처리
         if(state.equals("MainActLoginSetting")){
+            ((MainActivity)MainAct).mainlow2.setVisibility(View.VISIBLE);
+            ((MainActivity)MainAct).mainlow1.setVisibility(View.GONE);
+            ((MainActivity)MainAct).pointtxt.setText(member.getM_point());
+            ((MainActivity)MainAct).loginbtn.setVisibility(View.GONE);
+            ((MainActivity)MainAct).logoutbtn.setVisibility(View.VISIBLE);
+            ((MainActivity)MainAct).nametxt.setText(member.getM_name()+"님");
+            ((MainActivity)MainAct).minipoint.setText(member.getM_point()+"p");
+            ((MainActivity)MainAct).scroll.setVisibility(View.VISIBLE);
 
         }
         //메뉴 버튼 처리
@@ -266,9 +275,10 @@ public class AndroidController {
         if (state.equals("btnMyPc")){
             GetServer Server = new GetServer();
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
-            if(Server.MyPcGetName(state,activity,mypc.getSP_m_id())) {
-                activity.startActivity(btnMyPc);
+            if(Server.MyPcGetName(state,activity,member.getM_id())) {
+
                 activity.finish();
+                activity.startActivity(btnMyPc);
             }else{
 
             }

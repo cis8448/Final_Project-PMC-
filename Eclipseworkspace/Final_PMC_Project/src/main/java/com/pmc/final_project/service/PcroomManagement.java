@@ -447,10 +447,21 @@ public class PcroomManagement {
 	}
 
 
+
+	public String send(String hp) {
+		String json = null;
+		String email = pDao.SaerchEmail(hp);
+		if( email!= null) {
+			json ="1";
+		}else{
+			json ="0";
+		}
+		return json;
+	}
+
 	public String MyPcGetName(String name) {
 		List<MyPcBean> pList = pDao.SelectMyPc(name);
 		String json = new Gson().toJson(pList);
-		
 		return json;
 	}
 
