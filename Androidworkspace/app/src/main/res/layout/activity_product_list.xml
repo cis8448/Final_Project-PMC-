@@ -64,10 +64,12 @@
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="40dp"
+                    android:id="@+id/HsvCate">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
                         <Button
                             android:layout_width="50dp"
                             android:layout_height="40dp"
@@ -82,7 +84,8 @@
                         android:columnWidth="130dp"
                         android:numColumns="5"
                         android:horizontalSpacing="5dp"
-                        android:verticalSpacing="10dp">
+                        android:verticalSpacing="10dp"
+                        android:id="@+id/GridProduct">
                     </GridView>
 
                 <Button
@@ -91,7 +94,8 @@
                     android:text="상품주문"
                     android:background="@drawable/round"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:onClick="ProductBasket"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -127,8 +131,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:text="로그인 하러 가기"
-                            android:textSize="20sp"
-                            android:onClick="LoginGo"/>
+                            android:textSize="20sp" />
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
