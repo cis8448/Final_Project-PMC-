@@ -443,6 +443,13 @@ public class PcroomManagement {
 	}
 
 
+	public String PcInfo() {
+		List<PcRoomBean> plist = pDao.info();
+		String json = new Gson().toJson(plist);
+		return json;
+	}
+
+
 
 
 }

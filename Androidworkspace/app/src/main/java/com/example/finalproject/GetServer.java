@@ -8,6 +8,8 @@ import java.io.InputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -15,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.172/";
+    String Local = "http://192.168.0.166/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -23,6 +25,7 @@ public class GetServer {
     String state;
     boolean overLap;
     MemberBean memberBean;
+
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -165,7 +168,7 @@ public class GetServer {
         return overLap;
     }
     public boolean MemberLogin(String State, Activity act){
-        localURL = state;
+        localURL = State;
         final String id = andcon.member.getM_id();
         final String pw = andcon.member.getM_pass();
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -278,4 +281,35 @@ public class GetServer {
     }
 
 
+    public boolean GetServerPcinfo(String State, Activity act) {
+        localURL = State;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run() {
+                try {
+                    PcRoomBean pcRoomBean= Sever.getPcinfo(localURL).execute().body();
+                    andcon.pcRoomBean = pcRoomBean;
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+
+        }
+
+        return overLap;
+
+    }
 }

@@ -54,6 +54,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PcRoomGPS">
+            <intent-filter>
+                <action android:name="android.intent.action.PcRoomGPS" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
         <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.SignUp" />
@@ -105,13 +113,6 @@
         <activity android:name=".ProductBasket">
             <intent-filter>
                 <action android:name="com.example.finalproject.ProductBasket" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".PcRoomGPS">
-            <intent-filter>
-                <action android:name="com.example.finalproject.PcRoomGPS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

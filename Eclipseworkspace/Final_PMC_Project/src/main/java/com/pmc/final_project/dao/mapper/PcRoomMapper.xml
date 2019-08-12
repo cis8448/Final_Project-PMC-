@@ -155,4 +155,8 @@
 		UPDATE MEMBER SET M_PASS = #{pass} WHERE M_ID = #{id}
 	</update>
 	
+	<select id="info" resultType="PcRoomBean">
+		SELECT * FROM PCROOM
+	</select>
+	
 </mapper>

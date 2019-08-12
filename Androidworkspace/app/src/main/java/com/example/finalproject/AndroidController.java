@@ -12,7 +12,9 @@ import java.util.ArrayList;
 public class AndroidController {
     ArrayList<MemberBean> allmem;
     public MemberBean member = new MemberBean();
-
+    public PcRoomBean pcRoomBean = new PcRoomBean();
+    public Listsetting.PcRoomAdapter adapterSet;
+    Listsetting listset;
     Activity MainAct;
     Activity SubAct;
 
@@ -277,7 +279,13 @@ public class AndroidController {
         //pc방 찾기
         if (state.equals("PcSearch")){
             Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
-            activity.startActivity(PcSearch);
+            GetServer Server = new GetServer();
+            if(Server.GetServerPcinfo(state,activity)) {
+                activity.startActivity(PcSearch);
+                activity.finish();
+            }else{
+                Toast.makeText(activity, "데이터를 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
+            }
         }
 
         //1:1 문의
@@ -285,8 +293,9 @@ public class AndroidController {
             Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
             activity.startActivity(Inquiry);
         }
-        if(state.equals("GetPicture")){
-
+        if (state.equals("sido")){
+            listset = new Listsetting(allmem , 1);
+            ((PcRoomGPS) activity).pcadapterSet = listset.memberListSetting();
         }
 
     }
