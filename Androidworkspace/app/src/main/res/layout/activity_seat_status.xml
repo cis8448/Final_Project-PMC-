@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    tools:context=".SeatStatus">
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,174 +15,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <!-- 메인 상단 메뉴 3개 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="left">
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/btn1"
-                    android:background="@drawable/menubutton"/>
-                <ImageButton
-                    android:layout_marginLeft="140dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/bell"
-                    android:scaleType="fitCenter"
-                    android:background="#FFFFFF"
-                    android:id="@+id/alarm"/>
-                <ImageButton
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/profile"
-                    android:scaleType="fitCenter"
-                    android:background="#FFFFFF"
-                    android:id="@+id/info"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/left"
-                    android:layout_marginLeft="10dp"
-                    android:onClick="imgbtn"/>
-
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <ImageView
-                        android:layout_width="250dp"
-                        android:layout_height="130dp"
-                        android:layout_marginTop="45dp"
-                        android:id="@+id/pcroomimg2"
-                        android:scaleType="fitXY"
-                        />
-
-
-                </FrameLayout>
-
-
-                <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/right"
-                    android:id="@+id/rightbtn"
-                    android:onClick="imgbtn"/>
-            </LinearLayout>
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></FrameLayout>
-
-
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="로그인 해주세요."
-                    android:textSize="25dp"
-
-                    android:layout_gravity="center"
-                    android:id="@+id/mainlow1"
-                    android:visibility="visible" />
-
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mainlow2"
-                    android:visibility="gone">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <!-- 피시방 스피너 -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-
-                            <Spinner
-                                android:layout_marginLeft="10dp"
-                                android:layout_width="200dp"
-                                android:layout_height="40dp">
-                            </Spinner>
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="상세보기"
-                                android:background="@drawable/roundblue"
-                                android:textColor="#FFFF"/>
-                        </LinearLayout>
-                        <!-- 마일리지 -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:layout_marginLeft="10dp"
-                                android:layout_width="200dp"
-                                android:layout_height="40dp"
-                                android:text="1,000,000P"
-                                android:gravity="center"
-                                android:background="@drawable/roundgreen"
-                                android:textColor="#FFFF"
-                                android:id="@+id/pointtxt">
-                            </TextView>
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="적립하기"
-                                android:background="@drawable/roundblue"
-                                android:textColor="#FFFF"/>
-
-                        </LinearLayout>
-                        <ImageButton
-                            android:layout_marginTop="30dp"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/plus"
-                            android:scaleType="fitCenter"
-                            android:background="#FFFFFF"
-                            android:layout_gravity="center"/>
-                    </LinearLayout>
-                </LinearLayout> <!-- 피시방 스피너, 마일리지 -->
-
-            </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/btn1"
+            android:background="@drawable/menubutton"/>
+        <ImageButton
+            android:layout_marginLeft="140dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/bell"
+            android:scaleType="fitCenter"
+            android:background="#FFFFFF"
+            android:id="@+id/alarm"/>
+        <ImageButton
+            android:layout_marginLeft="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile"
+            android:scaleType="fitCenter"
+            android:background="#FFFFFF"
+            android:id="@+id/info"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:id="@+id/img1"
+        android:src="@drawable/aa"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list1"/>
+    </LinearLayout>
         </LinearLayout>
-
-
-
-
         <!--드로우 레이아웃 메뉴 -->
         <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="250dp"
-        android:layout_height="match_parent"
-        android:weightSum="100"
-        android:layout_gravity="start"
-        android:background="#FFFFFF">
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:weightSum="100"
+            android:layout_gravity="start"
+            android:background="#FFFFFF">
 
             <!-- 비로그인 메뉴 (출력, 미출력) -->
             <LinearLayout
@@ -200,22 +82,19 @@
                     android:orientation="vertical"
                     android:visibility="visible"
                     android:id="@+id/nLoginMenu">
-
-
                     <!--로그인 버튼(로그인 후 로그아웃으로 변경) -->
                     <Button
                         android:layout_width="120dp"
                         android:layout_height="40dp"
+                        android:text="Login"
+                        android:textSize="20sp"
+                        android:onClick="LoginGo"
+                        android:background="@drawable/roundlogin"
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:id="@+id/loginbtn"
-                        android:background="@drawable/roundlogin"
-                        android:onClick="LoginGo"
-                        android:text="Login"
-                        android:textSize="20sp"
-                        android:visibility="visible" />
-
+                        android:visibility="gone"/>
 
                     <Button
                         android:layout_width="120dp"
@@ -227,8 +106,7 @@
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:id="@+id/logoutbtn"
-                        android:visibility="gone"/>
+                        android:id="@+id/logoutbtn"/>
 
 
                 </FrameLayout>
@@ -240,9 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/scroll"
-                android:visibility="visible">
-
+                android:id="@+id/scroll">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -257,25 +133,19 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
-
-
-
                         <TextView
                             android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="이한주님"
-                            android:textSize="20sp"
-                            android:id="@+id/nametxt"/>
+                            android:textSize="20sp"/>
                         <!-- TextView에 글자 빈공간으로 바꾸기-->
                         <TextView
                             android:layout_marginLeft="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="소유한마일리지 : 1000p"
-                            android:textSize="10sp"
-                            android:id="@+id/minipoint"/>
+                            android:textSize="10sp"/>
                     </LinearLayout>
                     <ImageView
                         android:layout_width="match_parent"
@@ -432,8 +302,6 @@
                                 android:text="PC방"
                                 android:layout_marginLeft="10dp"
                                 android:textSize="15sp"/>
-
-
                         </TableRow>
                         <!-- PC방 서브메뉴-->
                         <TableLayout
@@ -487,9 +355,6 @@
                                 android:text="기타"
                                 android:layout_marginLeft="10dp"
                                 android:textSize="15sp"/>
-
-
-
                         </TableRow>
                         <!-- 기타 서브메뉴 -->
                         <TableLayout
@@ -517,7 +382,6 @@
                 </ScrollView>
             </LinearLayout>
         </LinearLayout>
-
     </androidx.drawerlayout.widget.DrawerLayout>
 
 

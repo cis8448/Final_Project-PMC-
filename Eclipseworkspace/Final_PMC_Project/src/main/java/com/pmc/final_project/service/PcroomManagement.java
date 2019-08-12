@@ -22,8 +22,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.google.gson.Gson;
+import com.pmc.final_project.bean.Member;
+import com.pmc.final_project.bean.MyPcBean;
 import com.pmc.final_project.bean.PcRoomBean;
-
+import com.pmc.final_project.dao.IMemberDao;
 import com.pmc.final_project.dao.IPcRoom;
 import com.pmc.final_project.util.FileProcess;
 import com.pmc.final_project.util.FindUtil;
@@ -37,6 +39,9 @@ public class PcroomManagement {
 
 	@Autowired
 	private IPcRoom pDao;
+	
+	@Autowired
+	private IMemberDao mDao;
 
 	@Autowired
 	private HttpSession session;
@@ -249,14 +254,14 @@ public class PcroomManagement {
 		String view = null;
 
 		String check = multi.getParameter("fileCheck");
-		String _id = multi.getParameter("_id");
-		System.out.println(_id);
-
+		
+	
+		System.out.println("sel="+multi.getParameter("sel"));
 		boolean f = false;
 
 		if(check.equals("1")) {
 			
-			f= fileProc.upFile(multi,_id);
+			f= fileProc.upFile(multi);
 		}
 		if(f) {
 			view = "SignUp";
@@ -359,9 +364,6 @@ public class PcroomManagement {
 		// TODO Auto-generated method stub
 		mav = new ModelAndView();
 
-		
-		
-
 		String view = "PCPictureUpdate";
 		mav.setViewName(view);
 		return mav;
@@ -379,6 +381,87 @@ public class PcroomManagement {
 		pMap.put("Picture2", pList.get(1));
 		pMap.put("Picture3", pList.get(2));
 		String json = new Gson().toJson(pMap);
+		return json;
+	}
+
+
+	public String Memberidoverlap(String id) {
+		String json = pDao.Memberidoverlap(id);
+		return json;
+	}
+
+
+	public String InsertMember(Member member) {
+		String json = null;
+		if(member.getM_kakaoid() == 0) {
+			if(pDao.InsertMember(member)) {
+				json = "1";
+			}else{
+				json = "0";
+			}
+		}else {
+			if(pDao.InsertKakaoMember(member)) {
+				json = "1";
+			}else{
+				json = "0";
+			}
+		}
+		return json;
+	}
+
+
+	public String EazyLogin(String kakaoId) {
+		Member mlist = pDao.EazyLogin(kakaoId);
+		String json = new Gson().toJson(mlist);
+		return json;
+	}
+
+
+	public String MemberLogin(String id, String pass) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pass", pass);
+		Member mlist = pDao.MemberLogin(map);
+		String json = new Gson().toJson(mlist);
+		return json;
+	}
+
+
+	public String MemberGetId(String hp) {
+		String json = pDao.MemberGetId(hp);
+		return json;
+	}
+
+
+	public String UpdatePass(String id, String pass) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		String json = null;
+		map.put("id", id);
+		map.put("pass", pass);
+		if(pDao.UpdatePass(map)) {
+			json = "1";
+		}else {
+			json = "0";
+		}
+		return json;
+	}
+
+
+
+	public String send(String hp) {
+		String json = null;
+		String email = pDao.SaerchEmail(hp);
+		if( email!= null) {
+			json ="1";
+		}else{
+			json ="0";
+		}
+		return json;
+	}
+
+	public String MyPcGetName(String name) {
+		List<MyPcBean> pList = pDao.SelectMyPc(name);
+		String json = new Gson().toJson(pList);
 		return json;
 	}
 

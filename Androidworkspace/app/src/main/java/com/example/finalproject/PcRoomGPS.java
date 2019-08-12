@@ -14,11 +14,14 @@ import java.util.ArrayList;
 
 public class PcRoomGPS extends AppCompatActivity {
 
+
     public ListView ListView1, ListView2;
     TextView sido;
     private ArrayList<PcRoomBean> data = null;
 
+
     AndroidController andcon = AndroidController.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

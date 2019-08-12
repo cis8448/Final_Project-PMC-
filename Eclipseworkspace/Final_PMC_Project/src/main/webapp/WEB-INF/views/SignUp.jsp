@@ -243,6 +243,7 @@ window.onload = function() {
 		//form 데이터 가져오기
 		var fData = new FormData();
 		fData.append("fileCheck", $("#fileCheck").val());
+		fData.append("sel",'0');
 		fData.append("_id", $("#userid").val());
 		console.log($("#userid").val());
 		var files = $obj[0].files;

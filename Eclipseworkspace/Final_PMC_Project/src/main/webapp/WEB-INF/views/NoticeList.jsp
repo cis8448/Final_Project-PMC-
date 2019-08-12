@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
 <html>
@@ -11,18 +11,18 @@ request.setCharacterEncoding("UTF-8");
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-window.onload = function(){
-	var ck = '${cate}'
-	var cc = document.getElementById("btn1")
+	window.onload = function() {
+		var ck = '${cate}'
+		var cc = document.getElementById("btn1")
 
-	if(ck==	1){
-		cc.disabled = true;
+		if (ck == 1) {
+			cc.disabled = true;
+		}
+		if (ck == 2) {
+			cc.disabled = false;
+		}
+
 	}
-	if(ck==	2){
-		cc.disabled = false;
-	}	
-	
-}
 </script>
 </head>
 <style>
@@ -124,9 +124,9 @@ footer {
 }
 
 img {
-	width: 150px;
+	width: 300px;
 	height: 200px;
-	padding: 10px;
+	
 }
 
 table {
@@ -144,15 +144,15 @@ table {
 </style>
 <body>
 
-	<div>
-		<img src="./resources/image/dd.png">
-	</div>
+	
+		<img src="./resources/img/dd.png">
+	
 	<ul id="Menu">
-		<li class="mainmenu"><a href="./Main">좌석</a></li>
+		<li class="mainmenu"><a href="./SeatState">좌석</a></li>
 		<li class="mainmenu"><a href="./Product">상품</a></li>
 		<li class="mainmenu"><a href="./MemberList">회원</a></li>
 		<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-		<li class="mainmenu"><a href="./NoticeList">기타</a></li>
+		<li class="mainmenu"><a href="#">기타</a></li>
 	</ul>
 
 
@@ -162,7 +162,7 @@ table {
 		<aside>
 			<ul id="SubMenu">
 				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
-				<li class="Submenu"><a href="./NoticeList?cate=1" value="1">PC방공지사항</a></li>
+				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
 				<li class="Submenu"><a href="./ServiceList?cate=3">일반고객센터</a></li>
 				<li class="Submenu"><a href="./ServiceList?cate=4">PC방고객센터</a></li>
 			</ul>
@@ -181,10 +181,10 @@ table {
 				<td style="width: 60%">제목</td>
 				<td>글내용</td>
 				<td>작성날짜</td>
-		
+
 			</tr>
 
-			<form action="WriteFrm?cate=${cate}"  method="post">
+			<form action="WriteFrm?cate=${cate}" method="post">
 				<c:forEach var="pcroomnoticebean" items="${nList}">
 					<tr>
 						<td align="center">${pcroomnoticebean.no_p_id}</td>
@@ -216,10 +216,9 @@ table {
 </body>
 
 <script type="text/javascript">
-	function write(){
-		location.href="WriteFrm?cate=";	
+	function write() {
+		location.href = "WriteFrm?cate=";
 	}
-
 </script>
 
 </html>

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -23,6 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
@@ -61,17 +63,6 @@ public class MainController {
 
 		return "LoginFail";   
 	}
-	//	@RequestMapping(value="/JSPIdOverLap", method = RequestMethod.POST)
-	//	public @ResponseBody String JSPIdOverLap(@RequestBody String id) {
-	//
-	//		logger.info("JSPIdOverLap execute ");
-	//
-	//		String  str = "";
-	//
-	//
-	//		return str;
-	//
-	//	}
 
 
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)//uri 매핑
@@ -154,7 +145,7 @@ public class MainController {
 	//Ajax로 처리하는 Write 메소드
 	@RequestMapping(value="/fileupload" ,method = RequestMethod.POST)
 	public ModelAndView boardWriteAjax(MultipartHttpServletRequest multi) {
-
+		//sel = 0 , 회원가입할때 서류 등록 // sel = 1, 사진 3장 올릴때 . 
 		mav= pm.fileupload(multi);
 
 
@@ -213,6 +204,50 @@ public class MainController {
 		System.out.println("들어왓니?");
 		String json = pm.GetPicture();
 		System.out.println("끝");
+		return json;
+	}
+	@RequestMapping(value = "/Memberidoverlap")
+	public @ResponseBody String Memberidoverlap(@RequestParam("id") String id) {
+		String json = pm.Memberidoverlap(id);
+		return json;
+	}
+	@RequestMapping(value = "/InsertMember")
+	public @ResponseBody String InsertMember(@RequestBody Member member) {
+		String json = pm.InsertMember(member);
+		return json;
+	}
+	@RequestMapping(value = "/EazyLogin")
+	public @ResponseBody String EazyLogin(@RequestParam("id") String kakaoId) {
+		String json = pm.EazyLogin(kakaoId);
+		return json;
+	}
+	@RequestMapping(value = "/MemberLogin",produces = "application/text; charset=utf8")
+	public @ResponseBody String MemberLogin(@RequestParam("id") String id,@RequestParam("pass") String pass){
+		String json = pm.MemberLogin(id,pass);
+		return json;
+	}
+	@RequestMapping(value = "/getIdOpen")
+	public @ResponseBody String MemberGetId(@RequestParam("hp") String hp) {
+		String json = pm.MemberGetId(hp); 
+		json = new Gson().toJson(json);
+		return json;
+	}
+	@RequestMapping(value = "/UpdatePass")
+	public @ResponseBody String UpdatePass(@RequestParam("id") String id,@RequestParam("pass") String pass) {
+		String json = pm.UpdatePass(id,pass); 
+		return json;
+	}
+
+	@RequestMapping(value = "/send")
+	public @ResponseBody String send(@RequestParam("hp") String hp) {
+		String json = pm.send(hp);
+		return json;
+	}
+	
+	@RequestMapping(value = "/btnMyPc",produces = "application/text; charset=utf8")
+	public @ResponseBody String MyPcGetName(@RequestParam("id") String name) {
+		String json = pm.MyPcGetName(name); 
+
 		return json;
 	}
 

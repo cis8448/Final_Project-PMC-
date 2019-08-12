@@ -12,7 +12,7 @@ public class PcRoomNoticeBean {
 	private String no_title; //공지사항 게시글제목
 	private String no_content; //공지사항 게시글내용
 	private String no_date; //공지사항 작성시간
-	private int no_cate; //공지사항 카테고리
+	private String no_cate; //공지사항 카테고리
 	private String no_m_id;// 작성자  
 	
 	public String getNo_m_id() {
@@ -51,10 +51,10 @@ public class PcRoomNoticeBean {
 	public void setNo_date(String no_date) {
 		this.no_date = no_date;
 	}
-	public int getNo_cate() {
+	public String getNo_cate() {
 		return no_cate;
 	}
-	public void setNo_cate(int no_cate) {
+	public void setNo_cate(String no_cate) {
 		this.no_cate = no_cate;
 	}
 	

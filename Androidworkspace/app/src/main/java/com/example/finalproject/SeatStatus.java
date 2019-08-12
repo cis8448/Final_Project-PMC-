@@ -3,45 +3,35 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
-
-
-
-public class MainActivity extends AppCompatActivity {
+public class SeatStatus extends AppCompatActivity {
 
 
     public Bitmap[] pictures;
-    public Object address;
-
-
-
-
-
     AndroidController andcon = AndroidController.getInstance();
     DrawerLayout DL;
-    ImageButton btn1;
-    ImageView pcroomimg1;
-    public LinearLayout scroll,mainlow2;
-    public TextView mainlow1,pointtxt,nametxt,minipoint;
-    ImageButton alarm,info;
-    public Button loginbtn,logoutbtn;
-    int count = 0;
+    ImageButton btn1,alarm,info;
+    ImageView img1;
+    LinearLayout scroll,mainlow2;
+    TextView mainlow1;
+    Button loginbtn,logoutbtn;
+    ListView list1 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_seat_status);
         DL = findViewById(R.id.drawlay);
         btn1 = findViewById(R.id.btn1);
         scroll = findViewById(R.id.scroll);
@@ -51,11 +41,8 @@ public class MainActivity extends AppCompatActivity {
         logoutbtn = findViewById(R.id.logoutbtn);
         alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
-        pointtxt= findViewById(R.id.pointtxt);
-        nametxt= findViewById(R.id.nametxt);
-        pcroomimg1 = findViewById(R.id.pcroomimg2);
-        minipoint =findViewById(R.id.minipoint);
-        andcon.setActivity(this);
+        img1 = findViewById(R.id.img1);
+        list1 = findViewById(R.id.list1);
 
         //메뉴버튼 클릭시 메뉴창 출력
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -64,10 +51,18 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
+        String id = "test2";
         if(pictures == null) {
-            andcon.sub(this, "GetPicture");
-//            pcroomimg1.setImageBitmap(pictures[0]);
+            andcon.sub2(this, "GetPicture2",id);
+            img1.setImageBitmap(pictures[0]);
         }
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
 
     }
@@ -87,29 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //버튼 클릭 -> PC방 이미지 변경 처리
-    public void imgbtn(View view){
-        switch (view.getId()){
-            case R.id.rightbtn:
-                count++;
-                if(count > 2){
-                    count = 0;
-                }
-                pcroomimg1.setImageBitmap(pictures[count]);
-                break;
 
-            default:
-                count--;
-                if(count ==-1){
-                    count=2;
-                }
-                pcroomimg1.setImageBitmap(pictures[count]);
-                break;
-        }
-
-
-
-    }
     //세팅 버튼
     public void btnSetting(View view){
         andcon.sub(this,"btnSetting");
@@ -160,8 +133,5 @@ public class MainActivity extends AppCompatActivity {
     public void Inquiry(View view){
         andcon.sub(this,"Inquiry");
     }
-
-
-
 
 }

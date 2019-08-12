@@ -59,7 +59,7 @@ table {
 			data : id,
 			dataType : 'json',
 			success : function(data) {
-				location.href = './OM_Approvalx'
+				location.href = './OM_Approvalx'    
 			},
 			error : function(error) {
 				
