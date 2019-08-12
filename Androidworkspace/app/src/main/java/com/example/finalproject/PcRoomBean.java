@@ -140,6 +140,7 @@ public class PcRoomBean {
     public void setP_sysName3(String p_sysName3) {
         this.p_sysName3 = p_sysName3;
     }
+
     public PcRoomBean(String p_sido) {
         this.p_sido = p_sido;
 

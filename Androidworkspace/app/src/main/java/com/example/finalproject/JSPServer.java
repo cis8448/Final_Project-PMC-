@@ -33,8 +33,8 @@ public interface JSPServer {
     Call<String> UpdatePass(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
     @POST("final_project/{URL}")
     Call<String> GetMyInfo(@Path("URL") String URL ,@Query("hp") String hp);
-
     @POST("final_project/{URL}")
     Call<ArrayList<MyPcBean>> MyPcGet(@Path("URL") String URL, @Query("id") String name);
-
+    @POST("final_project/{URL}")
+    Call<PcRoomBean> getPcinfo(@Path("URL") String URL);
 }

@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.172/";
+    String Local = "http://192.168.0.166/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -341,4 +341,35 @@ public class GetServer {
     }
 
 
+    public boolean GetServerPcinfo(String State, Activity act) {
+        localURL = State;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run() {
+                try {
+                    PcRoomBean pcRoomBean= Sever.getPcinfo(localURL).execute().body();
+                    andcon.pcRoomBean = pcRoomBean;
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+
+        }
+
+        return overLap;
+
+    }
 }
