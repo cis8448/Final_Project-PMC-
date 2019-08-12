@@ -222,6 +222,14 @@ public class AndroidController {
                 Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
+<<<<<<< HEAD
+=======
+//        if(state.equals("getProductPicture")){
+//            ((ProductList)activity).productpicture = Server.GetServerProductPicture(activity);
+//        }
+
+
+>>>>>>> e36e9090bd3b677f9e0da2c7e9a1fd6be8e763b0
         //메인화면 로그인 처리
         if (state.equals("MainActLoginSetting")) {
 
@@ -263,8 +271,28 @@ public class AndroidController {
         //가입한 피시방
         if (state.equals("btnMyPc")) {
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
+<<<<<<< HEAD
             activity.startActivity(btnMyPc);
         }
+=======
+            if(Server.MyPcGetName(state,activity,member.getM_id())) {
+
+                activity.finish();
+                activity.startActivity(btnMyPc);
+            }else{
+
+            }
+
+        }
+
+        if (state.equals("pcdetail")){
+            Intent pcdetail = new Intent("com.example.finalproject.PcRoomInfo");
+            activity.startActivity(pcdetail);
+        }
+
+
+
+>>>>>>> e36e9090bd3b677f9e0da2c7e9a1fd6be8e763b0
 
         //좌석 현황
         if (state.equals("SeatState")) {
@@ -275,6 +303,11 @@ public class AndroidController {
         //상품 주문
         if (state.equals("ProductOrder")) {
             Intent ProductOrder = new Intent("com.example.finalproject.ProductList");
+            activity.startActivity(ProductOrder);
+        }
+        //상품 주문 -> 장바구니
+        if (state.equals("ProductBasket")){
+            Intent ProductOrder = new Intent("com.example.finalproject.ProductBasket");
             activity.startActivity(ProductOrder);
         }
 
