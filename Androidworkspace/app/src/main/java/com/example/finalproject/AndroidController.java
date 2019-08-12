@@ -283,10 +283,15 @@ public class AndroidController {
 
             }
 
-
-
-
         }
+
+        if (state.equals("pcdetail")){
+            Intent pcdetail = new Intent("com.example.finalproject.PcRoomInfo");
+            activity.startActivity(pcdetail);
+        }
+
+
+
 
         //좌석 현황
         if (state.equals("SeatState")){

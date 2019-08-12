@@ -96,6 +96,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PcRoomInfo">
+            <intent-filter>
+                <action android:name="com.example.finalproject.PcRoomInfo" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
         <activity android:name=".ProductList">
             <intent-filter>
                 <action android:name="com.example.finalproject.ProductList" />

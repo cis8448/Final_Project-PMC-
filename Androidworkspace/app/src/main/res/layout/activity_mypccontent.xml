@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:text="피시방 이름"
         android:layout_marginLeft="10dp"
-        android:id="@+id/pcname"/>
+        android:id="@+id/pcname"
+        android:onClick="pcdetail"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +38,8 @@
             android:text="인천 광역시 계양구 ~~~"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:id="@+id/pclocation"/>
+            android:id="@+id/pclocation"
+            android:onClick="pcdetail"/>
 
     </LinearLayout>
 
