@@ -11,12 +11,14 @@ import java.util.ArrayList;
 
 public class AndroidController {
     ArrayList<MemberBean> allmem;
+    public ArrayList<MyPcBean> Mypcs;
     public MemberBean member = new MemberBean();
-    public PcRoomBean pcRoomBean = new PcRoomBean();
-    public Listsetting.PcRoomAdapter adapterSet;
-    Listsetting listset;
+    public boolean Check;
+    public MyPcBean mypc = new MyPcBean();
+
     Activity MainAct;
     Activity SubAct;
+
 
     int number;
     int easynumber;
@@ -191,18 +193,19 @@ public class AndroidController {
         }
         //랜덤값을 카카오 메세지로 보내기
         if(state.equals("send")){
-            //카카오메세지보내기
+            GetServer Server = new GetServer();
+            Check = Server.GetMyInfo(state, activity,member.getM_phone());
         }
         //인증 완료 아이디 불러오기
         if(state.equals("getIdOpen")){
             GetServer Server = new GetServer();
-            Intent Open = new Intent("com.example.finalproject.MyIdCheck");
             if(Server.MemberGetId(state,activity,member.getM_phone())) {
+                Intent Open = new Intent("com.example.finalproject.MyIdCheck");
                 activity.startActivity(Open);
-                activity.finish();
             }else{
                 Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
             }
+            activity.finish();
         }
         // 비밀번호 변경 페이지 오픈
         if(state.equals("PassUpdateOpen")){
@@ -220,8 +223,18 @@ public class AndroidController {
                 Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
+
+
         //메인화면 로그인 처리
         if(state.equals("MainActLoginSetting")){
+            ((MainActivity)MainAct).mainlow2.setVisibility(View.VISIBLE);
+            ((MainActivity)MainAct).mainlow1.setVisibility(View.GONE);
+            ((MainActivity)MainAct).pointtxt.setText(member.getM_point());
+            ((MainActivity)MainAct).loginbtn.setVisibility(View.GONE);
+            ((MainActivity)MainAct).logoutbtn.setVisibility(View.VISIBLE);
+            ((MainActivity)MainAct).nametxt.setText(member.getM_name()+"님");
+            ((MainActivity)MainAct).minipoint.setText(member.getM_point()+"p");
+            ((MainActivity)MainAct).scroll.setVisibility(View.VISIBLE);
 
         }
         //메뉴 버튼 처리
@@ -260,8 +273,19 @@ public class AndroidController {
 
         //가입한 피시방
         if (state.equals("btnMyPc")){
+            GetServer Server = new GetServer();
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
-            activity.startActivity(btnMyPc);
+            if(Server.MyPcGetName(state,activity,member.getM_id())) {
+
+                activity.finish();
+                activity.startActivity(btnMyPc);
+            }else{
+
+            }
+
+
+
+
         }
 
         //좌석 현황
@@ -279,13 +303,7 @@ public class AndroidController {
         //pc방 찾기
         if (state.equals("PcSearch")){
             Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
-            GetServer Server = new GetServer();
-            if(Server.GetServerPcinfo(state,activity)) {
-                activity.startActivity(PcSearch);
-                activity.finish();
-            }else{
-                Toast.makeText(activity, "데이터를 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
-            }
+            activity.startActivity(PcSearch);
         }
 
         //1:1 문의
@@ -293,9 +311,12 @@ public class AndroidController {
             Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
             activity.startActivity(Inquiry);
         }
-        if (state.equals("sido")){
-            listset = new Listsetting(allmem , 1);
-            ((PcRoomGPS) activity).pcadapterSet = listset.memberListSetting();
+        if(state.equals("GetPicture")){
+
+        }
+        if(state.equals("getMypcAdapter")){
+            MyPcRoomAdapterSetting mypc = new MyPcRoomAdapterSetting(Mypcs);
+            ((WhenPcroom)activity).adapter = mypc.mypcSearch();
         }
 
     }

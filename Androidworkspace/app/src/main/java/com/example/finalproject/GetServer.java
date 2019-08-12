@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetServer {
     AndroidController andcon = AndroidController.getInstance();
     Retrofit retrofit;
-    String Local = "http://192.168.0.166/";
+    String Local = "http://192.168.0.172/";
     String localURL ;
     public Bitmap pictures[];
     PictureBean pictureBean;
@@ -25,7 +25,7 @@ public class GetServer {
     String state;
     boolean overLap;
     MemberBean memberBean;
-
+    MyPcBean mypcBean;
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
         retrofit = new Retrofit.Builder().baseUrl(Local)
@@ -197,7 +197,7 @@ public class GetServer {
         return overLap;
     }
     public boolean MemberGetId(String State, Activity act,String hp){
-        localURL = state;
+        localURL = State;
         final String Hp = hp;
         retrofit = new Retrofit.Builder().baseUrl(Local)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -218,14 +218,14 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
         return overLap;
     }
     public boolean UpdatePass(String State, Activity act,String id,String pw){
-        localURL = state;
+        localURL = State;
 
         final String ids = id;
         final String pass = pw;
@@ -237,6 +237,36 @@ public class GetServer {
             public void run() {
                 try {
                     state = Sever.UpdatePass(localURL,ids,pass).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public boolean GetMyInfo(String State,Activity act,String hp){
+        localURL = State;
+
+        final String Hp = hp;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.GetMyInfo(localURL,Hp).execute().body();
                     if(state.equals("1")){
                         overLap = true;
                     }else{
@@ -280,20 +310,19 @@ public class GetServer {
         return bt;
     }
 
-
-    public boolean GetServerPcinfo(String State, Activity act) {
+    public boolean MyPcGetName(String State, Activity act,String name){
         localURL = State;
+        final String Name = name;
         retrofit = new Retrofit.Builder().baseUrl(Local)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Sever = retrofit.create(JSPServer.class);
-
         new Thread() {
             public void run() {
                 try {
-                    PcRoomBean pcRoomBean= Sever.getPcinfo(localURL).execute().body();
-                    andcon.pcRoomBean = pcRoomBean;
-                    if(state.equals("1")){
+                    ArrayList<MyPcBean> Mypcs = Sever.MyPcGet(localURL,Name).execute().body();
+                    andcon.Mypcs = Mypcs;
+                    if(andcon.Mypcs != null){
                         overLap = true;
                     }else{
                         overLap = false;
@@ -306,10 +335,10 @@ public class GetServer {
         try {
             Thread.sleep(1000);
         }catch (Exception e){
-
+            e.printStackTrace();
         }
-
         return overLap;
-
     }
+
+
 }

@@ -20,7 +20,7 @@ public class Certification extends AppCompatActivity {
 
     AndroidController andcon = AndroidController.getInstance();
     LinearLayout visi1, visi2;
-    EditText ceredt;
+    EditText ceredt,roundtext;
     private TextView downcount;
 
     private static final long TIMER_DURATION = 10000L;
@@ -37,29 +37,36 @@ public class Certification extends AppCompatActivity {
         downcount = findViewById(R.id.downcount);
         visi1 = findViewById(R.id.visi1);
         visi2 = findViewById(R.id.visi2);
+        roundtext = findViewById(R.id.roundtext);
         ceredt = findViewById(R.id.ceredt);
     }
 
     public void send(View view) {
         Random random = new Random();
-        Cernumber = random.nextInt(99999)+"";
-        andcon.sub(this,"send");
+        Cernumber = 1234+"";//random.nextInt(99999)+"";
+        andcon.member.setM_phone(roundtext.getText().toString());
+        andcon.sub(Certification.this,"send");
 
-        view.setEnabled(false);
-        mCountDownTimer = new CountDownTimer(TIMER_DURATION, TIMER_INTERVAL) {
+        if(andcon.Check) {
+            visi2.setVisibility(View.VISIBLE);
+            mCountDownTimer = new CountDownTimer(TIMER_DURATION, TIMER_INTERVAL) {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                downcount.setText(String.format(Locale.getDefault(), "%d"+"초", millisUntilFinished / 1000L));
-                mTimeRemaining = millisUntilFinished; // Saving timeRemaining in Activity for pause/resume of CountDownTimer.
-            }
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    downcount.setText(String.format(Locale.getDefault(), "%d" + "초", millisUntilFinished / 1000L));
+                    mTimeRemaining = millisUntilFinished; // Saving timeRemaining in Activity for pause/resume of CountDownTimer.
+                }
 
-            @Override
-            public void onFinish() {
-                downcount.setText("인증시간 만료");
-                Cernumber = null;
-            }
-        }.start();
+                @Override
+                public void onFinish() {
+                    downcount.setText("인증시간 만료");
+                    Cernumber = null;
+                }
+            }.start();
+            view.setEnabled(false);
+        }else{
+            Toast.makeText(this, "해당 번호로 가입된 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
