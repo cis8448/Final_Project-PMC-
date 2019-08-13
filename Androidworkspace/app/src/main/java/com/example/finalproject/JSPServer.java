@@ -33,9 +33,9 @@ public interface JSPServer {
     Call<String> UpdatePass(@Path("URL") String URL ,@Query("id") String id,@Query("pass") String pw);
     @POST("final_project/{URL}")
     Call<String> GetMyInfo(@Path("URL") String URL ,@Query("hp") String hp);
-
     @POST("final_project/{URL}")
     Call<ArrayList<MyPcBean>> MyPcGet(@Path("URL") String URL, @Query("id") String name);
+<<<<<<< HEAD
 
     @POST("final_project/{URL}")
     Call<String> bookmarkup(@Path("URL") String URL,@Body MyPcBean bean);
@@ -47,4 +47,8 @@ public interface JSPServer {
     Call<String> pcjonDelete(@Path("URL") String URL,@Query("p_id") String p_id,@Query("m_id") String m_id);
 
 
+=======
+    @POST("final_project/{URL}")
+    Call<PcRoomBean> getPcinfo(@Path("URL") String URL);
+>>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
 }

@@ -13,15 +13,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
     public Bitmap[] pictures;
-    public Object address;
+    public String address;
 
 
 
@@ -64,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
+
+
         if(pictures == null) {
             andcon.sub(this, "GetPicture");
-//            pcroomimg1.setImageBitmap(pictures[0]);
+//         pcroomimg1.setImageBitmap(pictures[0]);
         }
 
 
@@ -141,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
     public void btnMyPc(View view){
         andcon.sub(this,"btnMyPc");
     }
+
+
 
     //좌석현황
     public void SeatState(View view){

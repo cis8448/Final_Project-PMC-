@@ -1,0 +1,37 @@
+diff a/Androidworkspace/app/src/main/java/com/example/finalproject/GetServer.java b/Androidworkspace/app/src/main/java/com/example/finalproject/GetServer.java	(rejected hunks)
+@@ -281,4 +281,35 @@
+     }
+ 
+ 
++    public boolean GetServerPcinfo(String State, Activity act) {
++        localURL = State;
++        retrofit = new Retrofit.Builder().baseUrl(Local)
++                .addConverterFactory(GsonConverterFactory.create())
++                .build();
++        Sever = retrofit.create(JSPServer.class);
++
++        new Thread() {
++            public void run() {
++                try {
++                    PcRoomBean pcRoomBean= Sever.getPcinfo(localURL).execute().body();
++                    andcon.pcRoomBean = pcRoomBean;
++                    if(state.equals("1")){
++                        overLap = true;
++                    }else{
++                        overLap = false;
++                    }
++                } catch (Exception e) {
++                    e.printStackTrace();
++                }
++            }
++        }.start();
++        try {
++            Thread.sleep(1000);
++        }catch (Exception e){
++
++        }
++
++        return overLap;
++
++    }
+ }

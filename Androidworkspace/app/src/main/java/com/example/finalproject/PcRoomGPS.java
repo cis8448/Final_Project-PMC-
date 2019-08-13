@@ -14,11 +14,10 @@ import java.util.ArrayList;
 
 public class PcRoomGPS extends AppCompatActivity {
 
-
+    public Listsetting.PcRoomAdapter pcadapterSet;
     public ListView ListView1, ListView2;
-    TextView sido;
-    private ArrayList<PcRoomBean> data = null;
 
+    PcRoomBean pcRoomBean = new PcRoomBean();
 
     AndroidController andcon = AndroidController.getInstance();
 
@@ -30,16 +29,12 @@ public class PcRoomGPS extends AppCompatActivity {
         ListView1 = findViewById(R.id.ListView1);
         ListView2 = findViewById(R.id.ListView2);
 
-        data = new ArrayList<>();
 
-        PcRoomBean PcRoomBean1 = new PcRoomBean("경기도");
-        PcRoomBean PcRoomBean2 = new PcRoomBean("인천시");
 
-        data.add(PcRoomBean1);
-        data.add(PcRoomBean2);
+        if(pcadapterSet == null){
+            andcon.sub(this, "sido");
+        }
 
-        final PcRoomAdapter adapter = new PcRoomAdapter(this, R.layout.activity_pc_room_one_list, data);
-        ListView1.setAdapter(adapter);
 
 
         ListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,16 +43,16 @@ public class PcRoomGPS extends AppCompatActivity {
             public void onItemClick(AdapterView adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getApplicationContext(), PcRoomGPS.class);
 
-                intent.putExtra("SIDO", data.get(position).getP_SIDO());
-                intent.putExtra("GUGUN", data.get(position).getP_GUGUN());
-                intent.putExtra("DONG", data.get(position).getP_DONG());
-                intent.putExtra("ADDR", data.get(position).getP_ADDR());
-
-
-                sido = findViewById(R.id.sido);
-                sido.setText(intent.getStringExtra("SIDO"));
-
-                ListView2.setAdapter(adapter);
+//                intent.putExtra("SIDO", data.get(position).getP_SIDO());
+//                intent.putExtra("GUGUN", data.get(position).getP_GUGUN());
+//                intent.putExtra("DONG", data.get(position).getP_DONG());
+//                intent.putExtra("ADDR", data.get(position).getP_ADDR());
+//
+//
+//                sido = findViewById(R.id.sido);
+//                sido.setText(intent.getStringExtra("SIDO"));
+//
+//                ListView2.setAdapter(adapter);
             }
         });
 

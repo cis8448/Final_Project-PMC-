@@ -89,8 +89,11 @@ public interface IPcRoom {
 
 	public void bookmarkUp(MyPcBean myPcBean);
 
+<<<<<<< HEAD
 	public boolean pcjoinDelete(HashMap<String, String> maps);
 
+=======
+>>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
 
 
 

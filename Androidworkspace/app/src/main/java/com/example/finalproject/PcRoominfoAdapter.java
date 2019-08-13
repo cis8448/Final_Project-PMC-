@@ -9,26 +9,26 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PcRoomAdapter extends BaseAdapter {
-    private LayoutInflater inflater;
-    private ArrayList<PcRoomBean> data;
+public class PcRoominfoAdapter extends BaseAdapter {
+    private ArrayList<MyPcBean> data;
+    TextView MyPcName;
     private int Layout;
-    TextView sido;
+    private LayoutInflater inflater;
 
-    public PcRoomAdapter(Context context, int Layout, ArrayList<PcRoomBean> data){
+    public PcRoominfoAdapter(Context context, int Layout, ArrayList<MyPcBean> data){
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.data = data;
         this.Layout = Layout;
     }
 
     @Override
-    public int getCount() { //리스트 안에 갯수
+    public int getCount(){
         return data.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return data.get(position).getP_SIDO();
+        return data.get(position).getP_name();
     }
 
     @Override
@@ -42,11 +42,12 @@ public class PcRoomAdapter extends BaseAdapter {
         if (view == null) {
             view = inflater.inflate(Layout, viewGroup, false);
         }
-        PcRoomBean pcRoomBean = data.get(position);
+        MyPcBean myPcBean= data.get(position);
 
-        sido = view.findViewById(R.id.sido);
+        MyPcName = view.findViewById(R.id.MyPcName);
 
-        sido.setText(pcRoomBean.getP_SIDO());
+        MyPcName.setText(myPcBean.getP_name());
+
 
         return view;
     }

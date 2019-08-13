@@ -162,6 +162,13 @@
 	<select id="SelectMyPc" parameterType="String" resultType="MyPcBean">
 		SELECT * FROM MYPCLIST WHERE SP_M_ID = #{name}
 	</select>
+	<update id="bookmarkUp" parameterType="MyPcBean">
+		UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
+	</update>
+	
+	<select id="info" resultType="PcRoomBean">
+		SELECT * FROM PCROOM
+	</select>
 	
 	<update id="bookmarkUp" parameterType="MyPcBean">
       UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}

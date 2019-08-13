@@ -52,10 +52,10 @@ public class SeatStatus extends AppCompatActivity {
             }
         });
         String id = "test2";
-        if(pictures == null) {
-            andcon.sub2(this, "GetPicture2",id);
-            img1.setImageBitmap(pictures[0]);
-        }
+//        if(pictures == null) {
+//            andcon.sub2(this, "GetPicture2",id);
+//            img1.setImageBitmap(pictures[0]);
+//        }
 
 
     }
