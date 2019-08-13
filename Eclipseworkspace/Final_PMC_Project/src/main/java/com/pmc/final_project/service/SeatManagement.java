@@ -442,5 +442,15 @@ public class SeatManagement {
 		return json;
 	}
 
+	public String seatSearch(String id) {
+		String seat = sDao.seatSearch(id);
+		String seatuse = sDao.useseatSearch(id);
+		seat = seatuse + "/" + seat;
+		String json = new Gson().toJson(seat);
+		
+		
+		return json;
+	}
+
 	
 }

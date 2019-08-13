@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.Member;
+import com.pmc.final_project.bean.MyPcBean;
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
@@ -250,7 +251,17 @@ public class MainController {
 
 		return json;
 	}
-
+	
+	@RequestMapping(value = "/bookmarkUp",produces = "application/text; charset=utf8")
+	   public @ResponseBody String bookmarkUp(@RequestBody MyPcBean myPcBean) {
+	      String json = pm.bookmarkUp(myPcBean);
+	      return json;
+	   }
+	@RequestMapping(value = "/pcjoinDelete")
+	public @ResponseBody String pcjoinDelete(@RequestParam("m_id") String m_id,@RequestParam("p_id") String p_id) {
+		String json = pm.pcjoinDelete(m_id,p_id);
+		return json;
+	}
 
 
 }

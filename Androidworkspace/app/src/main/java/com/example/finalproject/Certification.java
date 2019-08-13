@@ -95,7 +95,7 @@ public class Certification extends AppCompatActivity {
         mCountDownTimer.cancel();
         mCountDownTimer = null;
     }
-    public void cerin(View v){
+    public void certifiInter(View v){
         String count = downcount.getText().toString();
         String edt = ceredt.getText().toString();
         if(!count.equals("인증시간 만료")){

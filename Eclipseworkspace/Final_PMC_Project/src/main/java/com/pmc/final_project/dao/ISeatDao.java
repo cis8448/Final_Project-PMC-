@@ -25,5 +25,9 @@ public interface ISeatDao {
 
 	public String GetPicture2(String id);
 
+	public String seatSearch(String id);
+
+	public String useseatSearch(String id);
+
 
 }

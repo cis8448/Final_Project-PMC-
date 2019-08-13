@@ -163,4 +163,11 @@
 		SELECT * FROM MYPCLIST WHERE SP_M_ID = #{name}
 	</select>
 	
+	<update id="bookmarkUp" parameterType="MyPcBean">
+      UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
+   </update>
+   <delete id="pcjoinDelete" parameterType="HashMap">
+   	DELETE FROM SIGNPC WHERE SP_M_ID = #{m_id} AND SP_P_ID = #{p_id}
+   </delete>
+	
 </mapper>

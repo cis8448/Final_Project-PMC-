@@ -200,7 +200,7 @@ public class AndroidController {
         if(state.equals("getIdOpen")){
             GetServer Server = new GetServer();
             if(Server.MemberGetId(state,activity,member.getM_phone())) {
-                Intent Open = new Intent("com.example.finalproject.MyIdCheck");
+                Intent Open = new Intent("com.example.finalproject.myIdChecks");
                 activity.startActivity(Open);
             }else{
                 Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
@@ -318,6 +318,29 @@ public class AndroidController {
             MyPcRoomAdapterSetting mypc = new MyPcRoomAdapterSetting(Mypcs);
             ((WhenPcroom)activity).adapter = mypc.mypcSearch();
         }
+
+        if(state.equals("bookmarkUp")){
+            GetServer Server = new GetServer();
+            String info  =Server.bookmarkup(state,activity);
+            if(info.equals("1")) {
+                Toast.makeText(activity, "북마크 등록에 성공하셨습니다", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(activity, "북마크 등록해제에 성공하셨습니다", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(state.equals("PcDetileOpen")){
+            Intent Open = new Intent("com.example.finalproject.PcRoomInfo");
+            activity.startActivity(Open);
+        }
+        if(state.equals("Seatsearch")){
+            GetServer Server = new GetServer();
+            ((PcRoomInfo)activity).seats.setText(Server.Seatsearch(state,activity));
+        }
+        if(state.equals("pcjoinDelete")){
+            GetServer Server = new GetServer();
+            Check = Server.pcjonDelete(state,activity);
+        }
+
 
     }
 }

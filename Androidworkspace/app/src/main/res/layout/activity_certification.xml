@@ -110,7 +110,7 @@
                     android:textSize="15sp"
                     android:background="@drawable/roundblue"
                     android:textColor="#ffff"
-                    android:onClick="cerin"/>
+                    android:onClick="certifiInter"/>
             </TableRow>
         </TableLayout>
 

@@ -1,16 +1,28 @@
 package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PcRoomInfo extends AppCompatActivity {
 
     AndroidController andcon = AndroidController.getInstance();
-    ImageView pcroomimg,pcroomimg1,pcroomimg2;
-    int count = 0;
+    ImageView pcroomimg1;
+    public TextView MyPcName,addr,hptxt,timetxt,seats;
+    Button joinbtn;
+    MyPcBean info =andcon.UpdateMypcs;
+    PictureBean pictureBean = new PictureBean();
+    Bitmap[] imgsrc;
+    int count;
+    ImageButton btn1;
+    DrawerLayout DL;
 
 
     @Override

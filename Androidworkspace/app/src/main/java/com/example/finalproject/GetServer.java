@@ -25,6 +25,7 @@ public class GetServer {
     String state;
     boolean overLap;
     MemberBean memberBean;
+    Activity activity;
     MyPcBean mypcBean;
     public Bitmap[] GetServerPicture(final Activity act){
         localURL = "GetPicture";
@@ -161,7 +162,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -190,7 +191,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -248,7 +249,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -278,7 +279,7 @@ public class GetServer {
             }
         }.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -326,6 +327,80 @@ public class GetServer {
                         overLap = true;
                     }else{
                         overLap = false;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+    public  String bookmarkup(String State,Activity act){
+        localURL = State;
+        activity = act;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.bookmarkup(localURL,andcon.UpdateMypcs).execute().body();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return state;
+    }
+
+    public String Seatsearch(String State, Activity act){
+        localURL = State;
+        activity = act;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.Seatsearch(localURL,andcon.UpdateMypcs.getP_id()).execute().body();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return state;
+    }
+    public boolean pcjonDelete(String State, Activity act){
+        localURL = State;
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+        new Thread() {
+            public void run() {
+                try {
+                    state = Sever.pcjonDelete(localURL,andcon.UpdateMypcs.getP_id(),andcon.UpdateMypcs.getSP_m_id()).execute().body();
+                    if(state.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap =false;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -30,4 +30,10 @@
 		<select id="GetPicture2" resultType="String" parameterType="String">
 		SELECT C_CONTENT FROM COMMENTS WHERE C_P_ID = #{id}
 	</select>
+	<select id="seatSearch" parameterType="String" resultType="String">
+		SELECT COUNT(*) FROM SEAT WHERE S_P_ID = #{id}
+	</select>
+	<select id="useseatSearch" parameterType="String" resultType="String">
+		SELECT COUNT(*) FROM SEAT WHERE S_P_ID = #{id} AND S_STATE = '사용' OR S_STATE = '예약'
+	</select>
 	</mapper>

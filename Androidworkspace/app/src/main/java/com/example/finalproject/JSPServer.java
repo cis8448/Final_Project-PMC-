@@ -37,4 +37,14 @@ public interface JSPServer {
     @POST("final_project/{URL}")
     Call<ArrayList<MyPcBean>> MyPcGet(@Path("URL") String URL, @Query("id") String name);
 
+    @POST("final_project/{URL}")
+    Call<String> bookmarkup(@Path("URL") String URL,@Body MyPcBean bean);
+
+    @POST("final_project/{URL}")
+    Call<String> Seatsearch(@Path("URL") String URL,@Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<String> pcjonDelete(@Path("URL") String URL,@Query("p_id") String p_id,@Query("m_id") String m_id);
+
+
 }

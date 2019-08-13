@@ -68,5 +68,10 @@ public class SeatController {
 		
 		return json;
 	}
+	@RequestMapping(value = "/Seatsearch")
+	public @ResponseBody String seatSearch(@RequestParam("id")String id) {
+		String json = sm.seatSearch(id);
+		return json;
+	}
 
 }

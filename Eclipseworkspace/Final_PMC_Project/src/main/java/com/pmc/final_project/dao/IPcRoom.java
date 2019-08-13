@@ -87,6 +87,10 @@ public interface IPcRoom {
 
 	public List<MyPcBean> SelectMyPc(String name);
 
+	public void bookmarkUp(MyPcBean myPcBean);
+
+	public boolean pcjoinDelete(HashMap<String, String> maps);
+
 
 
 
