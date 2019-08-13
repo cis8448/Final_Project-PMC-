@@ -166,4 +166,8 @@
 		UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
 	</update>
 	
+	<select id="info" resultType="PcRoomBean">
+		SELECT * FROM PCROOM
+	</select>
+	
 </mapper>

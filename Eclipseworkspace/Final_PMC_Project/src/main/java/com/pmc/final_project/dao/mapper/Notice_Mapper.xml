@@ -32,6 +32,7 @@
 	<select id="getServiceDetail" parameterType="String"
 		resultType="PcRoomNoticeBean">
 		SELECT * FROM SERVICE WHERE NO_NUM = #{b_num}
+		
 	</select>
 	<update id="UpdateService" parameterType="PcRoomNoticeBean">
 		UPDATE SERVICE SET

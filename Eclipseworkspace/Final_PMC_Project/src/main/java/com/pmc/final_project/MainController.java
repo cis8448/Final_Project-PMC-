@@ -239,6 +239,11 @@ public class MainController {
 		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
+	@RequestMapping(value = "/PcSearch")
+	public @ResponseBody String getPcinfo() {
+		String json = pm.PcInfo();
+		return json;
+	}
 
 	@RequestMapping(value = "/send")
 	public @ResponseBody String send(@RequestParam("hp") String hp) {
