@@ -64,9 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
+
+
         if(pictures == null) {
             andcon.sub(this, "GetPicture");
-//            pcroomimg1.setImageBitmap(pictures[0]);
+//         pcroomimg1.setImageBitmap(pictures[0]);
         }
 
 
@@ -141,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
     public void btnMyPc(View view){
         andcon.sub(this,"btnMyPc");
     }
+
+
 
     //좌석현황
     public void SeatState(View view){

@@ -464,6 +464,25 @@ public class PcroomManagement {
 		String json = new Gson().toJson(pList);
 		return json;
 	}
+	
+	public String MyPcName(String mname) {
+		List<MyPcBean> pList = pDao.SelectMyPc(mname);
+		String json = new Gson().toJson(pList);
+		return json;
+	}
+
+
+	public String bookmarkUp(MyPcBean myPcBean) {
+		pDao.bookmarkUp(myPcBean);
+		String json = null;
+		if(myPcBean.getST_star().equals("1")) {
+			json = "1";
+		}else {
+			json = "0";
+		}
+		
+		return json;
+	}
 
 
 

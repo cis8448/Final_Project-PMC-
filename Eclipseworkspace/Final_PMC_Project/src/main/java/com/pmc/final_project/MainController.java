@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.Member;
+import com.pmc.final_project.bean.MyPcBean;
 import com.pmc.final_project.bean.PcRoomBean;
 import com.pmc.final_project.service.PcroomManagement;
 import com.pmc.final_project.service.SeatManagement;
@@ -251,6 +253,16 @@ public class MainController {
 		return json;
 	}
 
+	@RequestMapping(value = "/pcdetail",produces = "application/text; charset=utf8")
+	public @ResponseBody String MyPcName(@RequestParam("id") String mname) {
+		String json = pm.MyPcName(mname); 
 
+		return json;
+	}
+	@RequestMapping(value = "/bookmarkUp",produces = "application/text; charset=utf8")
+	public @ResponseBody String bookmarkUp(@RequestBody MyPcBean myPcBean) {
+		String json = pm.bookmarkUp(myPcBean);
+		return json;
+	}
 
 }

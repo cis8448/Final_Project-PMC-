@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class AndroidController {
     ArrayList<MemberBean> allmem;
     public ArrayList<MyPcBean> Mypcs;
+    public MyPcBean UpdateMypcs;
     public MemberBean member = new MemberBean();
     public boolean Check;
     public MyPcBean mypc = new MyPcBean();
@@ -47,11 +48,7 @@ public class AndroidController {
     public static void cutComtroll(){
         androidcontroller = null;
     }
-    public void sub2(Activity activity,String state,String id){
-        if(state.equals("GetPicture2")){
-            ((SeatStatus)activity).pictures =server2.GetServerPicture(activity,id);
-        }
-    }
+
 
     public void sub(Activity activity, String state){
         //사진 가져오기
@@ -288,10 +285,8 @@ public class AndroidController {
 
         }
 
-        if (state.equals("pcdetail")){
-            Intent pcdetail = new Intent("com.example.finalproject.PcRoomInfo");
-            activity.startActivity(pcdetail);
-        }
+
+
 
 
 
@@ -327,10 +322,28 @@ public class AndroidController {
         if(state.equals("GetPicture")){
 
         }
-        if(state.equals("getMypcAdapter")){
-            MyPcRoomAdapterSetting mypc = new MyPcRoomAdapterSetting(Mypcs);
-            ((WhenPcroom)activity).adapter = mypc.mypcSearch();
+        if(state.equals("bookmarkUp")){
+            GetServer Server = new GetServer();
+            String info  =Server.bookmarkup(state,activity);
+            if(info.equals("1")) {
+                Toast.makeText(activity, "북마크 등록에 성공하셨습니다", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(activity, "북마크 등록해제에 성공하셨습니다", Toast.LENGTH_SHORT).show();
+            }
         }
+        if(state.equals("PcDetileOpen")){
+            Intent Open = new Intent("com.example.finalproject.PcRoomInfo");
+            activity.startActivity(Open);
+        }
+        if(state.equals("Seatsearch")){
+            GetServer Server = new GetServer();
+            ((PcRoomInfo)activity).seats.setText(Server.Seatsearch(state,activity));
+        }
+        if(state.equals("pcjoinDelete")){
+            GetServer Server = new GetServer();
+            Check = Server.pcjonDelete(state,activity);
+    }
+
 
     }
 }

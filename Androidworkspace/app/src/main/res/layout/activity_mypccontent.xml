@@ -10,10 +10,9 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <ImageButton
+    <Button
         android:layout_width="30dp"
         android:layout_height="40dp"
-        android:background="@drawable/star"
         android:id="@+id/starbtn" />
 
 
@@ -23,14 +22,14 @@
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
+        android:id="@+id/mypcname">
     <TextView
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:text="피시방 이름"
         android:layout_marginLeft="10dp"
         android:id="@+id/pcname"
-        android:onClick="pcdetail"/>
+        />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +38,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:id="@+id/pclocation"
-            android:onClick="pcdetail"/>
+            />
 
     </LinearLayout>
 
@@ -48,7 +47,6 @@
         android:layout_width="50dp"
         android:layout_height="40sp"
         android:text="삭제"
-        android:background="@drawable/roundgreen"
         android:id="@+id/delete"/>
 </LinearLayout>
 
