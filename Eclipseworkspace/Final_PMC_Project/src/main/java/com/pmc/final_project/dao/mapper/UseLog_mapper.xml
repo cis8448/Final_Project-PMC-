@@ -3,12 +3,24 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pmc.final_project.dao.IUseLogDao">
-	<select id="getmemberuseLog"  parameterType="String" resultType="UseLogBean" >
-		SELECT * FROM USELOG WHERE U_M_ID=#{m_id} 		
+	<select id="getmemberuseLog" parameterType="String"
+		resultType="UseLogBean">
+		SELECT * FROM USELOG WHERE U_M_ID=#{m_id}
 	</select>
-	
-	<select id="getUseLogCount" resultType="int" parameterType="String">
+
+	<select id="getUseLogCount" resultType="int"
+		parameterType="String">
 		SELECT COUNT(U_M_ID) FROM USELOG WHERE U_M_ID=#{m_id}
 	</select>
+
+	<insert id="InsertReserve" parameterType="HashMap">
+		INSERT INTO USELOG VALUES
+		(#{s_m_id},#{u_s_id},#{u_code},TO_DATE(#{u_start},'YYYY-MM-DD HH24:MI'),
+		TO_DATE(#{u_start},'YYYY-MM-DD HH24:MI')+(INTERVAL '10' MINUTE),#{u_cate})
+	</insert>
+	<insert id="reserveDelete" parameterType="HashMap">
+		INSERT INTO USELOG VALUES
+		(#{s_m_id},#{u_s_id},#{u_code},SYSDATE,SYSDATE,#{u_cate})
+	</insert>
 
 </mapper>

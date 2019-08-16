@@ -8,31 +8,41 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AndroidController {
-    public ArrayList<MyPcBean> Mypcs;
+    Map<String, String> map = new HashMap<>();
+    public ArrayList<SeatBean> seats = new ArrayList<>();
     ArrayList<MemberBean> allmem;
+    public ArrayList<MyPcBean> Mypcs;
+    public MyPcBean UpdateMypcs;
     public MemberBean member = new MemberBean();
-    public PcRoomBean pcRoomBean = new PcRoomBean();
-    public Listsetting.PcRoomAdapter adapterSet;
     public boolean Check;
-    Listsetting listset;
+    public MyPcBean mypc = new MyPcBean();
+    ArrayList<PcRoomBean> allpcroom;
+    public String selectsido;
+    SeatBean sb = new SeatBean();
+   // Map map;
+
     Activity MainAct;
     Activity SubAct;
+
 
     int number;
     int easynumber;
 
-    GetServer2 server2 = new GetServer2();
+
 
 
     static AndroidController androidcontroller;
 
-    private AndroidController(){
+    private AndroidController() {
 
     }
+
     public static AndroidController getInstance() {
-        if (androidcontroller == null){
+        if (androidcontroller == null) {
             androidcontroller = new AndroidController();
         }
         return androidcontroller;
@@ -41,19 +51,18 @@ public class AndroidController {
     public void setActivity(Activity act) {
         MainAct = act;
     }//액티비티저장
+
     public void setActivity2(Activity act) {
         SubAct = act;
     }
-    public static void cutComtroll(){
+
+    public static void cutComtroll() {
         androidcontroller = null;
     }
-    public void sub2(Activity activity,String state,String id){
-        if(state.equals("GetPicture2")){
-            ((SeatStatus)activity).pictures =server2.GetServerPicture(activity,id);
-        }
-    }
+
 
     public void sub(Activity activity, String state) {
+
         //사진 가져오기
         if (state.equals("GetPicture")) {
             GetServer Server = new GetServer();
@@ -193,23 +202,19 @@ public class AndroidController {
         }
         //랜덤값을 카카오 메세지로 보내기
         if (state.equals("send")) {
-            //카카오메세지보내기
+            GetServer Server = new GetServer();
+            Check = Server.GetMyInfo(state, activity, member.getM_phone());
         }
         //인증 완료 아이디 불러오기
         if (state.equals("getIdOpen")) {
             GetServer Server = new GetServer();
-<<<<<<< HEAD
-            if(Server.MemberGetId(state,activity,member.getM_phone())) {
-                Intent Open = new Intent("com.example.finalproject.myIdChecks");
-=======
-            Intent Open = new Intent("com.example.finalproject.MyIdCheck");
             if (Server.MemberGetId(state, activity, member.getM_phone())) {
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
+                Intent Open = new Intent("com.example.finalproject.MyIdCheck");
                 activity.startActivity(Open);
-                activity.finish();
             } else {
                 Toast.makeText(activity, "아이디 찾기에 실패했습니다. 다시 시도해주세요", Toast.LENGTH_SHORT).show();
             }
+            activity.finish();
         }
         // 비밀번호 변경 페이지 오픈
         if (state.equals("PassUpdateOpen")) {
@@ -227,16 +232,21 @@ public class AndroidController {
                 Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
-<<<<<<< HEAD
-=======
 //        if(state.equals("getProductPicture")){
 //            ((ProductList)activity).productpicture = Server.GetServerProductPicture(activity);
 //        }
 
 
->>>>>>> e36e9090bd3b677f9e0da2c7e9a1fd6be8e763b0
         //메인화면 로그인 처리
         if (state.equals("MainActLoginSetting")) {
+            ((MainActivity) MainAct).mainlow2.setVisibility(View.VISIBLE);
+            ((MainActivity) MainAct).mainlow1.setVisibility(View.GONE);
+            ((MainActivity) MainAct).pointtxt.setText(member.getM_point());
+            ((MainActivity) MainAct).loginbtn.setVisibility(View.GONE);
+            ((MainActivity) MainAct).logoutbtn.setVisibility(View.VISIBLE);
+            ((MainActivity) MainAct).nametxt.setText(member.getM_name() + "님");
+            ((MainActivity) MainAct).minipoint.setText(member.getM_point() + "p");
+            ((MainActivity) MainAct).scroll.setVisibility(View.VISIBLE);
 
         }
         //메뉴 버튼 처리
@@ -275,29 +285,14 @@ public class AndroidController {
 
         //가입한 피시방
         if (state.equals("btnMyPc")) {
+            GetServer Server = new GetServer();
             Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
-<<<<<<< HEAD
-            activity.startActivity(btnMyPc);
-        }
-=======
-            if(Server.MyPcGetName(state,activity,member.getM_id())) {
-
-                activity.finish();
+            if (Server.MyPcGetName(state, activity, member.getM_id())) {
                 activity.startActivity(btnMyPc);
-            }else{
-
             }
 
         }
 
-        if (state.equals("pcdetail")){
-            Intent pcdetail = new Intent("com.example.finalproject.PcRoomInfo");
-            activity.startActivity(pcdetail);
-        }
-
-
-
->>>>>>> e36e9090bd3b677f9e0da2c7e9a1fd6be8e763b0
 
         //좌석 현황
         if (state.equals("SeatState")) {
@@ -311,7 +306,7 @@ public class AndroidController {
             activity.startActivity(ProductOrder);
         }
         //상품 주문 -> 장바구니
-        if (state.equals("ProductBasket")){
+        if (state.equals("ProductBasket")) {
             Intent ProductOrder = new Intent("com.example.finalproject.ProductBasket");
             activity.startActivity(ProductOrder);
         }
@@ -319,13 +314,7 @@ public class AndroidController {
         //pc방 찾기
         if (state.equals("PcSearch")) {
             Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
-            GetServer Server = new GetServer();
-            if (Server.GetServerPcinfo(state, activity)) {
-                activity.startActivity(PcSearch);
-                activity.finish();
-            } else {
-                Toast.makeText(activity, "데이터를 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
-            }
+            activity.startActivity(PcSearch);
         }
 
         //1:1 문의
@@ -333,41 +322,124 @@ public class AndroidController {
             Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
             activity.startActivity(Inquiry);
         }
-        if (state.equals("sido")) {
-            listset = new Listsetting(allmem, 1);
-            ((PcRoomGPS) activity).pcadapterSet = listset.memberListSetting();
+        if (state.equals("GetPicture")) {
 
         }
-<<<<<<< HEAD
-        if(state.equals("getMypcAdapter")){
-            MyPcRoomAdapterSetting mypc = new MyPcRoomAdapterSetting(Mypcs);
-            ((WhenPcroom)activity).adapter = mypc.mypcSearch();
-        }
-
-        if(state.equals("bookmarkUp")){
+        if (state.equals("bookmarkUp")) {
             GetServer Server = new GetServer();
-            String info  =Server.bookmarkup(state,activity);
-            if(info.equals("1")) {
+            String info = Server.bookmarkup(state, activity);
+            if (info.equals("1")) {
                 Toast.makeText(activity, "북마크 등록에 성공하셨습니다", Toast.LENGTH_SHORT).show();
-            }else {
+            } else {
                 Toast.makeText(activity, "북마크 등록해제에 성공하셨습니다", Toast.LENGTH_SHORT).show();
             }
         }
-        if(state.equals("PcDetileOpen")){
+        if (state.equals("PcDetileOpen")) {
             Intent Open = new Intent("com.example.finalproject.PcRoomInfo");
             activity.startActivity(Open);
+            activity.finish();
         }
-        if(state.equals("Seatsearch")){
+        if (state.equals("Seatsearch")) {
             GetServer Server = new GetServer();
-            ((PcRoomInfo)activity).seats.setText(Server.Seatsearch(state,activity));
+            ((PcRoomInfo) activity).seats.setText(Server.Seatsearch(state, activity));
         }
-        if(state.equals("pcjoinDelete")){
+        if (state.equals("pcjoinDelete")) {
             GetServer Server = new GetServer();
-            Check = Server.pcjonDelete(state,activity);
+            Check = Server.pcjonDelete(state, activity);
+        }
+        if(state.equals("sido")){
+            GetServer Server = new GetServer();
+            ArrayList<String> sido = Server.Getsido(state,activity);
+            Listsetting listsetting = new Listsetting(sido,1);
+            ((PcRoomGPS)activity).pcadapterSet = listsetting.pcRoomListSetting();
+        }
+        if(state.equals("DongListSet")){
+            GetServer Server = new GetServer();
+            ArrayList<String> dongs = Server.DongListSet(state,activity,selectsido);
+            if(dongs ==null) {
+                dongs= new ArrayList<>();
+            }
+
+            Listsetting listsetting = new Listsetting(dongs,1);
+            ((PcRoomGPS)activity).dongadapter = listsetting.pcRoomListSetting();
+        }
+        if(state.equals("dongPcList")){
+            GetServer Server = new GetServer();
+            Intent btnMyPc = new Intent("com.example.finalproject.WhenPcroom");
+            if (Server.dongPcList(state, activity,selectsido)) {
+                activity.startActivity(btnMyPc);
+
+            }
+        }
+
+        if(state.equals("reserveDelete")){
+            GetServer server = new GetServer();
+            if(server.reserveDelete("reserveDelete",activity)){
+                Toast.makeText(activity, "예약취소 완료!", Toast.LENGTH_SHORT).show();
+
+            }else{
+                Toast.makeText(activity, "예약취소 실패!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        if(state.equals("reserveConfirm")){
+            GetServer server = new GetServer();
+            if(server.reserveConfirm("reserveConfirm",activity)){
+                ((Reservation) activity).confirm="1";
+            }else{
+                ((Reservation) activity).confirm="0";
+            }
+        }
+        if (state.equals("reserve")) {
+            GetServer server2 = new GetServer();
+            if (server2.SetReserve("reserve", activity)) {
+                Toast.makeText(activity, "예약완료!", Toast.LENGTH_SHORT).show();
+                ((Reservation) activity).finish();
+            } else {
+                Toast.makeText(activity, "예약실패!", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (state.equals("Reservationopen")) {
+            Intent Open = new Intent("com.example.finalproject.Reservation");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        //좌석 배치도 불러오기
+        if (state.equals("GetPicture2")) {
+            GetServer server2 = new GetServer();
+            ((SeatStatus) activity).pictures = server2.GetServerPicture2(activity);
+        }
+        //좌석 리스트 불러오기
+        if (state.equals("GetSeatList")) {
+            GetServer server2 = new GetServer();
+            seats = server2.GetSeatList(activity);
+            uselogBean use = server2.Getuselog("GetUseLog",activity);
+            ((SeatStatus) activity).arSeat = seats;
+        }
+
+        if (state.equals("SeatDetailOpen")) {
+            Intent Open = new Intent("com.example.finalproject.SeatDetail");
+            activity.startActivity(Open);
+        }
+        if(state.equals("pcjoinbtn")){
+            GetServer Server = new GetServer();
+            if(Server.pcjoinbtn("pcjoinbtn",activity)){
+                for(int i = 0;i < Mypcs.size(); i++){
+                    if(Mypcs.get(i).getP_id().equals(UpdateMypcs.getP_id())&&
+                            Mypcs.get(i).getST_m_id()==null){
+                        Mypcs.set(i,UpdateMypcs);
+                    }
+                }
+                ((PcRoomInfo)activity).info = UpdateMypcs;
+                ((PcRoomInfo)activity).startbtn.setVisibility(View.VISIBLE);
+                ((PcRoomInfo)activity).timetxt.setVisibility(View.VISIBLE);
+                ((PcRoomInfo)activity).timetxt.setText("남은 시간 : " + UpdateMypcs.getSP_time());
+                ((PcRoomInfo)activity).joinbtn.setText("충전하기");
+                Toast.makeText(activity, "가입완료", Toast.LENGTH_SHORT).show();
+            }
         }
 
 
-=======
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
     }
+
 }

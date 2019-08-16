@@ -2,12 +2,14 @@ package com.pmc.final_project;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,17 +63,47 @@ public class SeatController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/GetPicture2")
-	public @ResponseBody String GetPicture2(@RequestParam("id") String str) {
 	
-		String json = sm.GetPicture(str);
-		
-		return json;
-	}
 	@RequestMapping(value = "/Seatsearch")
 	public @ResponseBody String seatSearch(@RequestParam("id")String id) {
 		String json = sm.seatSearch(id);
 		return json;
 	}
+	
+	@RequestMapping(value = "/GetPicture2")
+	   public @ResponseBody String GetPicture2(@RequestParam("id") String str) {
+	      
+	      String json = sm.GetPicture2(str);
+	      
+	      return json;
+	   }
+	   
+	   @RequestMapping(value = "/GetSeatList",produces = "application/text; charset=utf8")
+	   public @ResponseBody String GetSeatList(@RequestParam("id") String id) {
+	   
+	      String json = sm.GetSeatList(id);
+	      
+	      return json;
+	   }
+	   @RequestMapping(value = "/reserve")
+	   public @ResponseBody String InsertMember(@RequestBody Map map) {
+	      
+	      String json = sm.reserve(map);
+	      return json;
+	   }
+	   
+	   @RequestMapping(value = "/reserveConfirm")
+	   public @ResponseBody String reserveConfirm(@RequestBody Map map) {
+	      System.out.println(map.get("m_id").toString()+map.get("p_id").toString());
+	      String json = sm.reserveConfirm(map);
+	      return json;
+	   }
+	   
+	   @RequestMapping(value = "/reserveDelete")
+	   public @ResponseBody String reserveDelete(@RequestBody Map map) {
+	      
+	      String json = sm.reserveDelete(map);
+	      return json;
+	   }
 
 }

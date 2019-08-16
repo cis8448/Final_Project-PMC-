@@ -3,6 +3,7 @@ package com.pmc.final_project;
 import java.util.HashMap;
 
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -239,11 +239,6 @@ public class MainController {
 		String json = pm.UpdatePass(id,pass); 
 		return json;
 	}
-	@RequestMapping(value = "/PcSearch")
-	public @ResponseBody String getPcinfo() {
-		String json = pm.PcInfo();
-		return json;
-	}
 
 	@RequestMapping(value = "/send")
 	public @ResponseBody String send(@RequestParam("hp") String hp) {
@@ -257,7 +252,6 @@ public class MainController {
 
 		return json;
 	}
-<<<<<<< HEAD
 	
 	@RequestMapping(value = "/bookmarkUp",produces = "application/text; charset=utf8")
 	   public @ResponseBody String bookmarkUp(@RequestBody MyPcBean myPcBean) {
@@ -269,19 +263,34 @@ public class MainController {
 		String json = pm.pcjoinDelete(m_id,p_id);
 		return json;
 	}
-=======
-
-	@RequestMapping(value = "/pcdetail",produces = "application/text; charset=utf8")
-	public @ResponseBody String MyPcName(@RequestParam("id") String mname) {
-		String json = pm.MyPcName(mname); 
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
-
+	@RequestMapping(value = "/PcSearch",produces = "application/text; charset=utf8")
+	public @ResponseBody String getPcinfo() {
+		String json = pm.PcInfo();
 		return json;
 	}
-	@RequestMapping(value = "/bookmarkUp",produces = "application/text; charset=utf8")
-	public @ResponseBody String bookmarkUp(@RequestBody MyPcBean myPcBean) {
-		String json = pm.bookmarkUp(myPcBean);
+
+	@RequestMapping(value = "/sido",produces = "application/text; charset=utf8")
+	public @ResponseBody String sido() {
+		String json = pm.getsido();
 		return json;
 	}
+	@RequestMapping(value = "/DongListSet",produces = "application/text; charset=utf8")
+	public @ResponseBody String DongListSet(@RequestParam("sido")String sido) {
+		String json = pm.DongListSet(sido);
+		return json;
+	}
+	@RequestMapping(value = "/dongPcList",produces = "application/text; charset=utf8")
+	public @ResponseBody String dongPcList(@RequestParam("dong")String dong) {
+		String json = pm.dongPcList(dong);
+		return json;
+	}
+	
+	@RequestMapping(value = "/PCSignUp",produces = "application/text; charset=utf8")
+	public @ResponseBody String PCSignUp(@RequestBody Map map) {
+		
+		String json = pm.PCSignUp(map);
+		return json;
+	}
+
 
 }

@@ -1,0 +1,19 @@
+diff a/Eclipseworkspace/Final_PMC_Project/src/main/java/com/pmc/final_project/service/SeatManagement.java b/Eclipseworkspace/Final_PMC_Project/src/main/java/com/pmc/final_project/service/SeatManagement.java	(rejected hunks)
+@@ -357,17 +357,14 @@
+ 			try {
+ 			 a = jsons.get("a").getAsString();
+ 			}catch (Exception e) {
+-				System.out.println("a");
+ 			}
+ 			try {
+ 				 b = jsons.get("b").getAsString();
+ 				}catch (Exception e) {
+-					System.out.println("b");
+ 				}
+ 			try {
+ 				 c = jsons.get("c").getAsString();
+ 				}catch (Exception e) {
+-					System.out.println("c");
+ 				}
+ 			if(a != null && !num.equals("a")) {
+ 				map.put("a",a);

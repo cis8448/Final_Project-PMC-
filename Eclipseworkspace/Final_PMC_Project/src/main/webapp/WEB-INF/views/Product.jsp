@@ -33,9 +33,9 @@
         input{font-size: 16px; width: 325px; padding: 10px; border: 0px; outline: none; float: left; }
         button{width: 50px; height: 100%; border: 1px solid; background: #1b5ac2; outline: none; float: right; color: #ffffff}
         .my-box {margin-top:20px; border:1px solid; width : 1200px; height: 500px; padding:10px; }
-   		.margin{margin-left: 1020px;}
-   		.btnfont{font-size: 18px; width: 100px; height: 50px;}
-   		
+         .margin{margin-left: 1020px;}
+         .btnfont{font-size: 18px; width: 100px; height: 50px;}
+         
         
     </style>
 <body>
@@ -69,8 +69,8 @@
        <input type="text" placeholder="상품 이름 검색" id="SearchArea" value="">
     <button type="button" onclick="ProductSearch()">검색</button>
     </div><br>
-	<div class="my-box">
-	<table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
+   <div class="my-box">
+   <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
        <tr align="center" bgcolor="skybule">
             <td>카테고리</td>
             <td>이름</td>
@@ -79,8 +79,8 @@
             <td>비고</td>
        </tr>     
        <tbody id="resultSearch">
-       	<c:forEach var="ProductBean" items="${prList}">
-       	<tr align="center">
+          <c:forEach var="ProductBean" items="${prList}">
+          <tr align="center">
           <td id="Search">${ProductBean.pc_name}</td>
           <td>${ProductBean.pr_name}</td>
           <td>${ProductBean.pr_qty}</td>
@@ -90,21 +90,22 @@
        </c:forEach>
       </tbody>
     </table>
-	</div><br>
-	<div class="margin">
-	<button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
-	<button class="btnfont" type="button" onclick="cateadd()">카테고리 추가</button>
-	</div>
+   </div><br>
+   <div class="margin">
+   <button class="btnfont"><a href="./ProductAdd">상품 추가</a></button>
+   <button class="btnfont" type="button" onclick="cateadd()">카테고리 추가</button>
+   </div>
     </section>
     <footer>
         <h1>ICIA Pc Project</h1>
+        asdfkhjaskldfj
     </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     
     function cateadd(){
-	var inputString = prompt('추가할 카테고리를 입력해주세요', '');
+   var inputString = prompt('추가할 카테고리를 입력해주세요', '');
         $.ajax({
         type : 'post',
         url  : 'productcateadd',
@@ -113,84 +114,83 @@
         dataType : "json",
         success : function(data){
         if(data.ttt == "성공"){
-            $("#SubMenu").append('<li class="SubMenu"><a href="./cateinfo?pc_id='+data.pc_id+'" id="${productcate.pc_id}">'+data.name+'</a><button type="button" onclick="catedel('+data.pc_id+')">X</button><button type="button" onclick="cateupdate('+data.pc_id+')" >수정</button></li>');
-            
+            $("#SubMenu").append('<li class="SubMenu"><a href="./cateinfo?pc_id=' + data.pc_id + '" id="'+data.pc_id+'">'+data.name+'</a><button type="button" onclick="catedel(\''+data.pc_id+'\')">X</button><button type="button" onclick="cateupdate(\''+ data.pc_id +'\')">수정</button></li>');
         }
         
     }         
-	});
+   });
 }
         
     function catedel(elem){
-    	$.ajax({
+       $.ajax({
             type : 'post',
             url  : 'productcateDelete',
             data : elem,
             contentType : "application/json; charset=UTF-8" ,
             dataType : "json",
             success : function(data){
-            	if(data.success == "0"){
+               if(data.success == "0"){
                     document.getElementById(elem).parentNode .remove();
             }else{
-            	alert("실패")
+               alert("실패")
             }
             
         }         
     })
     }
-    	 function cateupdate(elem){
-    	    	var inputString = prompt('변경하실 카테고리를 입력하세요','');
-    	    	var param = 'pc_id='+elem+'&pc_name='+inputString
-    	    	console.log(param)
-    	    	$.ajax({
-    	            type : 'post',
-    	            url  : 'productcateupdate',
-    	            data : param,
-    	            //contentType : "application/json; charset=UTF-8" ,
-    	            dataType : "json",
-    	            success : function(data){
-    	            	if(data.success == "0"){
-    	                    document.getElementById(elem).innerHTML = data.pc_name
-    	            }else{
-    	            	alert("실패")
-    	            }
-    	            
-    	        }         
-    	    });    	
-    	
+        function cateupdate(elem){
+              var inputString = prompt('변경하실 카테고리를 입력하세요','');
+              var param = 'pc_id='+elem+'&pc_name='+inputString
+              console.log(param)
+              $.ajax({
+                   type : 'post',
+                   url  : 'productcateupdate',
+                   data : param,
+                   //contentType : "application/json; charset=UTF-8" ,
+                   dataType : "json",
+                   success : function(data){
+                      if(data.success == "0"){
+                           document.getElementById(elem).innerHTML = data.pc_name
+                   }else{
+                      alert("실패")
+                   }
+                   
+               }         
+           });       
+       
 };
-	function ProductSearch() {
-	
-	var res = $('#SearchArea').val();//입력한 값 받아오기
-	
-	console.log(res);
-	
-	$.ajax({
-		type:'post',
-		url:'ProductSearch',
-		data:res,
-		dataType:'json',
-		contentType : "application/json; charset=UTF-8",
-		success: function(data){
-			console.log(data)
-			var tbl = document.getElementById('resultSearch');
-			var result = "";
-			for(var i=0;i<data.length;i++){
-				result += '<tr align="center">'
-				result += '<td id="Search">'+data[i].pc_name+'</td>'
-				result += '<td>'+data[i].pr_name+'</td>'
-				result += '<td>'+data[i].pr_qty+'</td>'
-				result += '<td>'+data[i].pr_price+'</td>'
-				result += '<td><a href="./ProductDetail?pr_id='+data[i].pr_id+'">상세보기</a></td>'
-				result += '</tr>'
-						
-		}		
-				
-				tbl.innerHTML = result;
-		
-		}
-	});
-	
+   function ProductSearch() {
+   
+   var res = $('#SearchArea').val();//입력한 값 받아오기
+   
+   console.log(res);
+   
+   $.ajax({
+      type:'post',
+      url:'ProductSearch',
+      data:res,
+      dataType:'json',
+      contentType : "application/json; charset=UTF-8",
+      success: function(data){
+         console.log(data)
+         var tbl = document.getElementById('resultSearch');
+         var result = "";
+         for(var i=0;i<data.length;i++){
+            result += '<tr align="center">'
+            result += '<td id="Search">'+data[i].pc_name+'</td>'
+            result += '<td>'+data[i].pr_name+'</td>'
+            result += '<td>'+data[i].pr_qty+'</td>'
+            result += '<td>'+data[i].pr_price+'</td>'
+            result += '<td><a href="./ProductDetail?pr_id='+data[i].pr_id+'">상세보기</a></td>'
+            result += '</tr>'
+                  
+      }      
+            
+            tbl.innerHTML = result;
+      
+      }
+   });
+   
 };
 </script>
 </html>

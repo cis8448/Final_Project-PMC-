@@ -89,11 +89,19 @@ public interface IPcRoom {
 
 	public void bookmarkUp(MyPcBean myPcBean);
 
-<<<<<<< HEAD
 	public boolean pcjoinDelete(HashMap<String, String> maps);
+	
+	public List<PcRoomBean> info();
 
-=======
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
+	public List<String> getsido();
+
+	public List<String> DongListSet(String sido);
+
+	public List<MyPcBean> dongPcList(String dong);
+
+	public boolean PCSignUp(Map map);
+
+	public MyPcBean Reselect(Map map);
 
 
 
@@ -109,3 +117,4 @@ public interface IPcRoom {
 
 
 }
+

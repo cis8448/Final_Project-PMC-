@@ -11,8 +11,8 @@
 		SELECT COUNT(*) FROM PCMEMBER WHERE P_ID=#{p_id}
 	</select>
 	
-	<select id="getmemberInfo" resultType="Member" parameterType="String">
-		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id}
+	<select id="getmemberInfo" resultType="Member" parameterType="HashMap">
+		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id} AND P_ID=#{p_id}
 	</select>
 	
 	<update id="memberTimeAdd" parameterType="HashMap">
@@ -35,16 +35,16 @@
 		SELECT COUNT(*) FROM PCMEMBER
 	</select>
 	
-	<select id="getOMmemberInfo" resultType="Member" parameterType="String">
-		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id}
+	<select id="getOMmemberInfo" resultType="Member" parameterType="HashMap">
+		SELECT * FROM PCMEMBER WHERE M_ID=#{m_id} AND P_ID=#{p_id}
 	</select>
 	
 	<select id="OMMemberSearch" parameterType="String" resultType="Member">
 		SELECT * FROM PCMEMBER WHERE M_NAME LIKE #{res2} OR M_ID LIKE #{res2}
 	</select>
 	
-	<select id="getBlockSearch" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID=#{m_id}
+	<select id="getBlockSearch" parameterType="HashMap" resultType="int">
+		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID=#{m_id} AND B_P_ID=#{p_id}
 	</select>
 	
 	<insert id="BlockInsert" parameterType="HashMap">
@@ -55,7 +55,7 @@
 	<delete id="BlockDelete" parameterType="HashMap">
 		DELETE FROM BLOCK WHERE B_M_ID=#{m_id} AND B_P_ID=#{p_id}
 	</delete>
-	<select id="SelBlock" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID =#{m_id}
+	<select id="SelBlock" parameterType="HashMap" resultType="int">
+		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID =#{m_id} AND B_P_ID=#{p_id}
 	</select>
 </mapper>

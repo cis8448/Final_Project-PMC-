@@ -1,6 +1,7 @@
 package com.example.finalproject;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -18,8 +19,7 @@ public interface JSPServer {
         Call<String> Memberidoverlap(@Path("URL") String URL, @Query("id") String id);
 
 
-    @POST("final_project/{URL}")
-    Call<PictureBean> getPictures2(@Path("URL") String URL ,@Query("id") String id);
+
 
     @POST("final_project/{URL}")
     Call<String> InsertMember(@Path("URL")String URL, @Body MemberBean bean);
@@ -35,7 +35,7 @@ public interface JSPServer {
     Call<String> GetMyInfo(@Path("URL") String URL ,@Query("hp") String hp);
     @POST("final_project/{URL}")
     Call<ArrayList<MyPcBean>> MyPcGet(@Path("URL") String URL, @Query("id") String name);
-<<<<<<< HEAD
+
 
     @POST("final_project/{URL}")
     Call<String> bookmarkup(@Path("URL") String URL,@Body MyPcBean bean);
@@ -46,9 +46,37 @@ public interface JSPServer {
     @POST("final_project/{URL}")
     Call<String> pcjonDelete(@Path("URL") String URL,@Query("p_id") String p_id,@Query("m_id") String m_id);
 
-
-=======
     @POST("final_project/{URL}")
-    Call<PcRoomBean> getPcinfo(@Path("URL") String URL);
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
+    Call<ArrayList<PcRoomBean>> getPcinfo(@Path("URL") String URL);
+    @POST("final_project/{URL}")
+    Call<ArrayList<String>> Getsido(@Path("URL") String URL);
+    @POST("final_project/{URL}")
+    Call<ArrayList<String>> DongListSet(@Path("URL") String URL,@Query("sido") String sido);
+    @POST("final_project/{URL}")
+    Call<ArrayList<MyPcBean>> dongPcList(@Path("URL") String URL,@Query("dong") String dong);
+
+    @POST("final_project/{URL}")
+    Call<MyPcBean> pcjoinbtn(@Path("URL") String URL,@Body Map map);
+
+
+    @POST("final_project/{URL}")
+    Call<ArrayList<SeatBean>> GetSeat(@Path("URL") String URL, @Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<PictureBean> getPictures2(@Path("URL") String URL , @Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<String> SetReserve(@Path("URL")String URL,@Body Map map);
+
+
+    @POST("final_project/{URL}")
+    Call<String> reserveConfirm(@Path("URL")String URL,@Body Map map);
+
+
+    @POST("final_project/{URL}")
+    Call<String> reserveDelete(@Path("URL")String URL,@Body Map map);
+
+    @POST("final_project/{URL}")
+    Call<ArrayList<uselogBean>> Getuselog(@Path("URL") String URL,@Query("id") String id);
+
 }

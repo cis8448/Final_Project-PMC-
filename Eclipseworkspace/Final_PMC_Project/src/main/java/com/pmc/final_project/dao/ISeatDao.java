@@ -2,6 +2,7 @@ package com.pmc.final_project.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.pmc.final_project.bean.SeatBean;
 
@@ -28,6 +29,14 @@ public interface ISeatDao {
 	public String seatSearch(String id);
 
 	public String useseatSearch(String id);
+
+	public boolean InsertsReserve(Map map);
+
+	public int reserveConfirm(Map map);
+
+	public boolean reserveDelete(Map map);
+	
+	
 
 
 }

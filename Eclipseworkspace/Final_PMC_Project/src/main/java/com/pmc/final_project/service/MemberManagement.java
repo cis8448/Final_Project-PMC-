@@ -65,13 +65,17 @@ public class MemberManagement {
 	}
 	
 	public ModelAndView getmemberInfo(String m_id) {
+		String id=(String)session.getAttribute("id");
 		mav = new ModelAndView();
 		String view = null;
 		
-		Member member = mDao.getmemberInfo(m_id);
-		int cnt = mDao.getBlockSearch(m_id);
-		int ct = mDao.SelBlock(m_id);
-		System.out.println("몇이노"+ct);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", id);
+		map.put("m_id", m_id);
+		
+		Member member = mDao.getmemberInfo(map);
+		int cnt = mDao.getBlockSearch(map);
+		int ct = mDao.SelBlock(map);
 		if(ct==1) {
 			mav.addObject("ct",1);
 			
@@ -158,10 +162,15 @@ public class MemberManagement {
 		return mempaging.makeHtmlpaging();
 	}
 	public ModelAndView getOMmemberInfo(String m_id) {
+		String id=(String)session.getAttribute("id");
 		mav = new ModelAndView();
 		String view = null;
 		
-		Member OMmember = mDao.getOMmemberInfo(m_id);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("p_id", id);
+		map.put("m_id", m_id);
+		
+		Member OMmember = mDao.getOMmemberInfo(map);
 		
 		mav.addObject("OMmember", OMmember);
 		
@@ -201,7 +210,7 @@ public class MemberManagement {
 		map2.put("p_id", p_id);
 		map2.put("m_id", m_id);
 		
-		int cnt = mDao.getBlockSearch(m_id);
+		int cnt = mDao.getBlockSearch(map);
 		System.out.println(cnt+"여기는요");
 		HashMap<String, String> maps = new HashMap<String, String>();
 		if(cnt == 0) {

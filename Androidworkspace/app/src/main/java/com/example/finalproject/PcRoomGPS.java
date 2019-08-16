@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class PcRoomGPS extends AppCompatActivity {
 
-    public Listsetting.PcRoomAdapter pcadapterSet;
+    public Listsetting.PcRoomAdapter pcadapterSet,dongadapter;
     public ListView ListView1, ListView2;
 
     PcRoomBean pcRoomBean = new PcRoomBean();
@@ -33,6 +32,7 @@ public class PcRoomGPS extends AppCompatActivity {
 
         if(pcadapterSet == null){
             andcon.sub(this, "sido");
+            ListView1.setAdapter(pcadapterSet);
         }
 
 
@@ -41,18 +41,21 @@ public class PcRoomGPS extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView adapterView, View view, int position, long l) {
-                Intent intent = new Intent(getApplicationContext(), PcRoomGPS.class);
+                TextView txt = view.findViewById(R.id.sido);
+                andcon.selectsido = txt.getText().toString();
+                andcon.sub(PcRoomGPS.this,"DongListSet");
+                ListView2.setAdapter(dongadapter);
+                dongadapter.notifyDataSetChanged();
+            }
+        });
+        ListView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView txt = view.findViewById(R.id.sido);
+                andcon.selectsido = txt.getText().toString();
+                andcon.sub(PcRoomGPS.this,"dongPcList");
 
-//                intent.putExtra("SIDO", data.get(position).getP_SIDO());
-//                intent.putExtra("GUGUN", data.get(position).getP_GUGUN());
-//                intent.putExtra("DONG", data.get(position).getP_DONG());
-//                intent.putExtra("ADDR", data.get(position).getP_ADDR());
-//
-//
-//                sido = findViewById(R.id.sido);
-//                sido.setText(intent.getStringExtra("SIDO"));
-//
-//                ListView2.setAdapter(adapter);
+
             }
         });
 
@@ -62,3 +65,4 @@ public class PcRoomGPS extends AppCompatActivity {
 
 
 }
+

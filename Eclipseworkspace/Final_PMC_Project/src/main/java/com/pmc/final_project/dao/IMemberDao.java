@@ -11,7 +11,7 @@ public interface IMemberDao {
 
 	public int getMemberCount(String id);
 
-	public Member getmemberInfo(String m_id);
+	public Member getmemberInfo(Map<String, String> map);
 
 	public boolean memberTimeAdd(Map<String, String> map);
 
@@ -23,17 +23,17 @@ public interface IMemberDao {
 
 	public int getOMmemberCount();
 
-	public Member getOMmemberInfo(String m_id);
+	public Member getOMmemberInfo(Map<String, String> map);
 
 	public List<Member> OMMemberSearch(String res);
 
-	public int getBlockSearch(String m_id);
+	public int getBlockSearch(Map<String, String> map);
 
 	public boolean BlockInsert(Map<String, String> map);
 
 	public boolean BlockDelete(Map<String, String> map);
 
-	public int SelBlock(String m_id);
+	public int SelBlock(Map<String, String> map);
 
 	
 

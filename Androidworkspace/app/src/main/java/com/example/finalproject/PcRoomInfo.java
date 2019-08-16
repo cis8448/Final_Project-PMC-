@@ -3,7 +3,9 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PcRoomInfo extends AppCompatActivity {
 
@@ -18,13 +21,20 @@ public class PcRoomInfo extends AppCompatActivity {
     ImageView pcroomimg1;
     public TextView MyPcName,addr,hptxt,timetxt,seats;
     Button joinbtn;
-    MyPcBean info =andcon.UpdateMypcs;
+    public MyPcBean info =andcon.UpdateMypcs;
     PictureBean pictureBean = new PictureBean();
     Bitmap[] imgsrc;
     int count;
-    ImageButton btn1;
+    ImageButton btn1,startbtn;
     DrawerLayout DL;
 
+
+    @Override
+    public void onBackPressed() {
+        Intent Open = new Intent(this,WhenPcroom.class);
+        startActivity(Open);
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +52,17 @@ public class PcRoomInfo extends AppCompatActivity {
         btn1 =findViewById(R.id.btn1);
         andcon.setActivity(this);
         DL = findViewById(R.id.drawlay);
+        startbtn = findViewById(R.id.startbtn);
 
 
+
+        if(info.getSP_m_id() == null ||!(andcon.member.getM_id().equals(info.getSP_m_id()))){
+            timetxt.setVisibility(View.INVISIBLE);
+            startbtn.setVisibility(View.INVISIBLE);
+        }else{
+            timetxt.setVisibility(View.VISIBLE);
+            startbtn.setVisibility(View.VISIBLE);
+        }
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +76,9 @@ public class PcRoomInfo extends AppCompatActivity {
         }else{
             joinbtn.setText("가입하기");
         }
+
+
+
         if(info.getP_picture1() != null ||info.getP_picture2() != null || info.getP_picture3() != null) {
                 pictureBean.setPicture1(info.getP_picture1());
                 pictureBean.setPicture2(info.getP_picture2());
@@ -148,6 +170,38 @@ public class PcRoomInfo extends AppCompatActivity {
             break;
         }
     }
-
+    public void starpush(View v){
+        if (info.getST_star().equals("1")) {
+            info.setST_star("0");
+            andcon.UpdateMypcs = info;
+            for(int i = 0; i < andcon.Mypcs.size();i++){
+                if(andcon.Mypcs.get(i).getST_m_id().equals(info.getST_m_id())&&
+                        andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
+                    andcon.Mypcs.get(i).setST_star("0");
+                }
+            }
+            startbtn.setBackgroundResource(R.drawable.clickstar);
+            andcon.sub(this, "bookmarkUp");
+        }else{
+            info.setST_star("1");
+            andcon.UpdateMypcs = info;
+            for(int i = 0; i < andcon.Mypcs.size();i++){
+                if(andcon.Mypcs.get(i).getST_m_id().equals(info.getST_m_id())&&
+                    andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
+                    andcon.Mypcs.get(i).setST_star("1");
+                }
+            }
+            startbtn.setBackgroundResource(R.drawable.star);
+            andcon.sub(this, "bookmarkUp");
+        }
+    }
+    public void pcjoinbtn(View v){
+        if(joinbtn.getText().equals("가입하기")) {
+            andcon.sub(this, "pcjoinbtn");
+        }
+    }
+    public void SeatOpen(View v){
+        andcon.sub(this,"SeatState");
+    }
 
 }

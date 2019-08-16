@@ -212,7 +212,7 @@ input {
 			</tr>
 			<c:forEach var="SeatBean" items="${Slist}">
 				<tr>
-					<td>${SeatBean.s_id}</td>
+					<td>${SeatBean.s_id}번 PC</td>
 					<td>${SeatBean.s_state}</td>
 					<td>${SeatBean.m_id}</td>
 					<td>${SeatBean.m_time}</td>

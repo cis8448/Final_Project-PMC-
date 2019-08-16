@@ -447,13 +447,6 @@ public class PcroomManagement {
 	}
 
 
-	public String PcInfo() {
-		List<PcRoomBean> plist = pDao.info();
-		String json = new Gson().toJson(plist);
-		return json;
-	}
-
-
 
 	public String send(String hp) {
 		String json = null;
@@ -471,7 +464,6 @@ public class PcroomManagement {
 		String json = new Gson().toJson(pList);
 		return json;
 	}
-<<<<<<< HEAD
 	public String bookmarkUp(MyPcBean myPcBean) {
 	      pDao.bookmarkUp(myPcBean);
 	      String json = null;
@@ -491,53 +483,59 @@ public class PcroomManagement {
 		maps.put("m_id", m_id);
 		maps.put("p_id", p_id);
 		if(pDao.pcjoinDelete(maps)) {
-=======
-	
-	public String MyPcName(String mname) {
-		List<MyPcBean> pList = pDao.SelectMyPc(mname);
+			json = "1";
+		}else {
+			json = "0";
+		}
+		return json;
+	}
+	public String PcInfo() {
+		List<PcRoomBean> plist = pDao.info();
+		String json = new Gson().toJson(plist);
+		System.out.println(json);
+		return json;
+	}
+
+
+
+
+public String getsido() {
+		List<String> sidoList = pDao.getsido();
+		String json = new Gson().toJson(sidoList);
+		return json;
+	}
+
+
+	public String DongListSet(String sido) {
+		List<String> sidoList = pDao.DongListSet(sido);
+		String json = new Gson().toJson(sidoList);
+		return json;
+	}
+
+
+	public String dongPcList(String dong) {
+		List<MyPcBean> pList = pDao.dongPcList(dong);
 		String json = new Gson().toJson(pList);
 		return json;
 	}
 
 
-	public String bookmarkUp(MyPcBean myPcBean) {
-		pDao.bookmarkUp(myPcBean);
+	public String PCSignUp(Map map) {
+		// TODO Auto-generated method stub
 		String json = null;
-		if(myPcBean.getST_star().equals("1")) {
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
-			json = "1";
-		}else {
-			json = "0";
-		}
-<<<<<<< HEAD
-=======
 		
->>>>>>> 42b5c8de5cdfe92b4c0704c0e0cd70e5ca64a967
+		if(pDao.PCSignUp(map)) {
+		
+			MyPcBean bean = pDao.Reselect(map);
+			json = new Gson().toJson(bean);
+		}else {
+			json = "";
+		}
+		
 		return json;
 	}
 
 
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

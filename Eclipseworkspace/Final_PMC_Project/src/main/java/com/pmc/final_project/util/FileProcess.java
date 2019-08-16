@@ -38,7 +38,7 @@ public class FileProcess {
 
 	public boolean upFile(MultipartHttpServletRequest multi) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\13\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		String path = root + "resources\\file\\";
 
 		File dir = new File(path);
@@ -60,9 +60,9 @@ public class FileProcess {
 			String oriName = mf.getOriginalFilename();
 		
 			
-			String _id = (String)session.getAttribute("id");
 			
-			fMap.put("sysid",_id);
+			
+			
 			fMap.put("oriFileName", oriName);
 			//a.txt
 			//실제 저장할 파일 이름 생성
@@ -80,12 +80,19 @@ public class FileProcess {
 				fMap.put("sel",sel);
 				
 				if(sel.equals("0")) {
+					fMap.put("sysid",multi.getParameter("_id"));
 					f = pDao.fileupdate(fMap);					
 				}if(sel.equals("1")) {
+					String _id = (String)session.getAttribute("id");
+					fMap.put("sysid",_id);
 					f = pDao.fileupdate1(fMap);
 				}if(sel.equals("2")) {
+					String _id = (String)session.getAttribute("id");
+					fMap.put("sysid",_id);
 					f = pDao.fileupdate2(fMap);
 				}if(sel.equals("3")) {
+					String _id = (String)session.getAttribute("id");
+					fMap.put("sysid",_id);
 					f = pDao.fileupdate3(fMap);
 				}
 			}catch(IOException e) {
@@ -125,7 +132,7 @@ public class FileProcess {
 
 	public HashMap<String, String> ProductFile(MultipartHttpServletRequest multi, String _id) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		System.out.println(root);
 		String path = root + "resources/file/";
 
@@ -171,7 +178,7 @@ public class FileProcess {
 	}
 	public HashMap<String, String> Productup(MultipartHttpServletRequest multi, String _id) {
 		// TODO Auto-generated method stub
-		String root = "C:\\Users\\94\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
+		String root = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\";
 		
 		String path = root + "resources/file/";
 		HashMap<String, String> fMap = new HashMap<String, String>();

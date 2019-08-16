@@ -31,7 +31,6 @@
 		SELECT P_ID FROM PCROOM WHERE (P_NAME=#{p_name} AND
 		P_PHONE=#{p_phone})
 	</select>
-
 	<update id="pwsearch" parameterType="hashmap">
 		UPDATE PCROOM SET
 		P_PASS=#{KeyCode} WHERE P_ID=#{cid}
@@ -162,13 +161,6 @@
 	<select id="SelectMyPc" parameterType="String" resultType="MyPcBean">
 		SELECT * FROM MYPCLIST WHERE SP_M_ID = #{name}
 	</select>
-	<update id="bookmarkUp" parameterType="MyPcBean">
-		UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
-	</update>
-	
-	<select id="info" resultType="PcRoomBean">
-		SELECT * FROM PCROOM
-	</select>
 	
 	<update id="bookmarkUp" parameterType="MyPcBean">
       UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
@@ -176,5 +168,23 @@
    <delete id="pcjoinDelete" parameterType="HashMap">
    	DELETE FROM SIGNPC WHERE SP_M_ID = #{m_id} AND SP_P_ID = #{p_id}
    </delete>
+   <select id="info" resultType="PcRoomBean">
+		SELECT * FROM PCROOM
+	</select>
+	<select id="getsido" resultType="String">
+		SELECT DISTINCT P_SIDO FROM PCROOM WHERE P_ID != 'master'
+	</select>
+	<select id="DongListSet" parameterType="String" resultType="String">
+	SELECT DISTINCT P_DONG FROM PCROOM WHERE P_SIDO = #{sido} 
+	</select>
+	<select id="dongPcList" parameterType="String" resultType="MyPcBean">
+		SELECT * FROM MYPCLIST WHERE P_DONG = #{dong}
+	</select>
 	
+	<insert id="PCSignUp" parameterType="HashMap">
+		INSERT INTO SIGNPC VALUES (#{p_id},#{m_id},DEFAULT,0)
+	</insert>
+	<select id="Reselect" parameterType="HashMap" resultType="MyPcBean">
+		SELECT * FROM MYPCLIST WHERE P_ID = #{p_id} AND SP_M_ID = #{m_id}
+	</select>
 </mapper>

@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
     //좌석현황
     public void SeatState(View view){
-        andcon.sub(this,"SeatState");
+
     }
     //상품주문
     public void ProductOrder(View view){

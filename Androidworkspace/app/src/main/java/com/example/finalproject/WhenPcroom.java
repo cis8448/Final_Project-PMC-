@@ -24,15 +24,24 @@ import java.util.ArrayList;
 
 public class WhenPcroom extends AppCompatActivity {
     public MyPcRoomAdapter adapter;
-    private ArrayList<MyPcBean> data = null;
+    private ArrayList<MyPcBean> data = new ArrayList<>();
     public ListView mypclist;
     MyPcBean mpb;
-    TextView pclocation,pcname;
+    TextView pclocation,pcname,ltx1;
     int itemposition;
     ImageButton btn1;
     DrawerLayout DL;
+    int s;
 
     AndroidController andcon = AndroidController.getInstance();
+
+    @Override
+    public void onBackPressed() {
+        andcon.selectsido = null;
+        super.onBackPressed();
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +53,11 @@ public class WhenPcroom extends AppCompatActivity {
         mypclist = findViewById(R.id.mypclist);
         DL = findViewById(R.id.drawlay);
         btn1 =findViewById(R.id.btn1);
+        ltx1 = findViewById(R.id.ltx1);
         andcon.setActivity(this);
+        if(andcon.selectsido != null){
+            ltx1.setText(andcon.selectsido + "PC방 목록");
+        }
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -60,14 +73,6 @@ public class WhenPcroom extends AppCompatActivity {
             adapter = new MyPcRoomAdapter(andcon.Mypcs);
         }
         mypclist.setAdapter(adapter);
-        data = new ArrayList<>();
-
-        mypclist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });
 
     }
     //세팅 버튼
@@ -121,7 +126,6 @@ public class WhenPcroom extends AppCompatActivity {
     public void Inquiry(View view){
         andcon.sub(this,"Inquiry");
     }
-
 }
 
 
@@ -173,32 +177,39 @@ class MyPcRoomAdapter extends BaseAdapter {
 
         pcname.setText(mypcbean.getP_name());
         pclocation.setText(mypcbean.getP_sido() + mypcbean.getP_gugun() + mypcbean.getP_dong() + mypcbean.getP_addr());
-        if (mypcbean.getST_star().equals("1")) {
-            startbtn.setBackgroundResource(R.drawable.clickstar);
-        } else {
-            startbtn.setBackgroundResource(R.drawable.star);
-        }
-        startbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(data.get(position).getST_star().equals("1")){
-                    data.get(position).setST_star("0");
-                    andcon.Mypcs.get(position).setST_star("0");
-                    andcon.UpdateMypcs = andcon.Mypcs.get(position);
-                    startbtn.setBackgroundResource(R.drawable.clickstar);
-                    andcon.sub(((WhenPcroom)context),"bookmarkUp");
-                    ((WhenPcroom)context).adapter.notifyDataSetChanged();
 
-                }else{
-                    data.get(position).setST_star("1");
-                    andcon.Mypcs.get(position).setST_star("1");
-                    andcon.UpdateMypcs = andcon.Mypcs.get(position);
-                    startbtn.setBackgroundResource(R.drawable.star);
-                    andcon.sub(((WhenPcroom)context),"bookmarkUp");
-                    ((WhenPcroom)context).adapter.notifyDataSetChanged();
-                }
+
+        if(mypcbean.getST_m_id() != null && andcon.member.getM_id().equals(mypcbean.getST_m_id())) {
+            if (mypcbean.getST_star() != null && mypcbean.getST_star().equals("1")) {
+                startbtn.setBackgroundResource(R.drawable.clickstar);
+            } else {
+                startbtn.setBackgroundResource(R.drawable.star);
             }
-        });
+            startbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (data.get(position).getST_star().equals("1")) {
+                        data.get(position).setST_star("0");
+                        andcon.Mypcs.get(position).setST_star("0");
+                        andcon.UpdateMypcs = andcon.Mypcs.get(position);
+                        startbtn.setBackgroundResource(R.drawable.clickstar);
+                        andcon.sub(((WhenPcroom) context), "bookmarkUp");
+                        ((WhenPcroom) context).adapter.notifyDataSetChanged();
+
+                    } else {
+                        data.get(position).setST_star("1");
+                        andcon.Mypcs.get(position).setST_star("1");
+                        andcon.UpdateMypcs = andcon.Mypcs.get(position);
+                        startbtn.setBackgroundResource(R.drawable.star);
+                        andcon.sub(((WhenPcroom) context), "bookmarkUp");
+                        ((WhenPcroom) context).adapter.notifyDataSetChanged();
+                    }
+                }
+            });
+        }else{
+            startbtn.setVisibility(View.INVISIBLE);
+            delete.setVisibility(View.INVISIBLE);
+        }
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -211,7 +211,7 @@ input {
 			</tr>
 			<c:forEach var="SeatBean" items="${Slist}">
 			<tr>
-				<td name='seatIds'>${SeatBean.s_id}</td>
+				<td name='seatIds'>${SeatBean.s_id}¹ø PC</td>
 				<td>${SeatBean.s_state}</td>
 				<td>${SeatBean.m_id}</td>
 				<td>${SeatBean.m_time}</td>

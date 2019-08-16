@@ -60,6 +60,9 @@
 	<delete id="ProductDeletes">
 		DELETE FROM PRODUCT WHERE PR_PC_ID = #{ID}
 	</delete>
+	    <select id="getpcidList" resultType="ProductBean" parameterType="String">
+	        SELECT PR_PC_ID AS PC_ID, PR_PC_ID, PR_ID, PR_NAME, PR_PRICE, PR_IMG, PR_QTY FROM PRODUCT WHERE PR_PC_ID= #{p_id}	   
+	    </select>
 	
 	<select id="productSearch" parameterType="HashMap" resultType="ProductBean">
 		SELECT * FROM PRODUCTALL WHERE PC_P_ID=#{p_id} AND PR_NAME LIKE #{res}

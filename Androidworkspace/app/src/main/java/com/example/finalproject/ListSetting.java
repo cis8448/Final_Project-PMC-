@@ -1,47 +1,71 @@
 package com.example.finalproject;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
-import com.example.finalproject.Bean.ProductBean;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListSetting {
+public class Listsetting {
 
-    ArrayList<ProductBean> allproduct;
+    ArrayList<String> allpcinfo;
 
-    int[] img; //이미지
+    public Listsetting(Object amem, int category) {
+        if (category == 1) {
+            allpcinfo = (ArrayList<String>) amem;
+        }
 
-    public class ProductAdapterSet extends BaseAdapter{
-        ArrayList<ProductBean> allproduct;
-        public ProductAdapterSet(ArrayList allpro){
-            this.allproduct = allpro;
+    }
+    public PcRoomAdapter memberListSetting(){
+        PcRoomAdapter memberAdapter = new PcRoomAdapter(allpcinfo);
+        return memberAdapter;
+    }
+    public PcRoomAdapter pcRoomListSetting(){
+        PcRoomAdapter pcroomAdapter = new PcRoomAdapter(allpcinfo);
+        return pcroomAdapter;
+    }
+
+    public class PcRoomAdapter extends BaseAdapter {
+        ArrayList<String> allpcinfo;
+
+        TextView sido;
+
+
+        public PcRoomAdapter(ArrayList allpc) {
+            this.allpcinfo = allpc;
         }
 
         @Override
-        public int getCount() {
-            return allproduct.size();
+        public int getCount() { //리스트 안에 갯수
+            return allpcinfo.size();
         }
 
         @Override
-        public Object getItem(int i) {
-            return allproduct.get(i);
+        public Object getItem(int position) {
+            return allpcinfo.get(position);
         }
 
         @Override
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int position) {
+            return position;
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            ProductBean productbean;
-            int productPos = i;
+        public View getView(int position, View convertView, ViewGroup parent) {
 
+            final Context context = parent.getContext();
+            if(convertView == null){
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_pc_room_one_list,parent,false);
+            }
 
-            return null;
+            sido = convertView.findViewById(R.id.sido);
+            String text = allpcinfo.get(position);
+            sido.setText(text);
+            return convertView;
         }
     }
 }
