@@ -1,7 +1,6 @@
-package com.example.finalproject.Bean;
-
+package com.example.finalproject;
+import android.graphics.Bitmap;
 public class ProductBean {
-
     private String pc_id;       //상품 카테고리 ID
     private String pr_id;       //상품 ID
     private String pr_name;     //상품 이름
@@ -10,7 +9,15 @@ public class ProductBean {
     private int pr_qty;         //상품 갯수
     private String pc_name;     //상품 카테고리 이름
     private String p_id;        //피시방 아이디
+    private Bitmap bimg;
 
+    public Bitmap getBimg() {
+        return bimg;
+    }
+
+    public void setBimg(Bitmap bimg) {
+        this.bimg = bimg;
+    }
 
     public String getPc_id() {
         return pc_id;

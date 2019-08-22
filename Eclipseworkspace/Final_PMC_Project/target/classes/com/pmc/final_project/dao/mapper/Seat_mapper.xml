@@ -12,7 +12,7 @@
 	</insert>
 	<select id="selectAll" resultType="SeatBean"
 		parameterType="String">
-		SELECT * FROM PCUSING WHERE P_ID = #{ID}
+		SELECT * FROM SEAT WHERE S_P_ID = #{ID}
 	</select>
 	<delete id="deleteSeat" parameterType="SeatBean">
 		DELETE FROM SEAT WHERE S_ID = #{s_id}
@@ -59,4 +59,7 @@
 		UPDATE SEAT SET
 		S_M_ID=#{dd},S_STATE=#{s_state} WHERE S_ID = #{u_s_id}
 	</update>
+	<select id="CheckUsing" parameterType="String" resultType="String">
+		SELECT COUNT(*) FROM SEAT WHERE S_M_ID = #{id} AND S_CATE = '사용'
+	</select>
 </mapper>

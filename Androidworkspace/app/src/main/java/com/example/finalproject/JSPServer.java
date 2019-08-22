@@ -79,4 +79,13 @@ public interface JSPServer {
     @POST("final_project/{URL}")
     Call<ArrayList<uselogBean>> Getuselog(@Path("URL") String URL,@Query("id") String id);
 
+    @POST("final_project/{URL}")
+    Call<ArrayList<String>> cateSearch(@Path("URL") String URL,@Query("id") String p_id);
+    @POST("final_project/{URL}")
+    Call<ArrayList<ProductBean>> Getproduct(@Path("URL") String URL);
+    @POST("final_project/{URL}")
+    Call<String> insertPay(@Path("URL") String URL ,@Body ArrayList<PayBean> payBeans,@Query("id") String id);
+    @POST("final_project/{URL}")
+    Call<String> CheckUsing(@Path("URL") String URL,@Query("id") String p_id);
+
 }

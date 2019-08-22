@@ -27,6 +27,7 @@ import com.google.gson.JsonParser;
 import com.pmc.final_project.bean.FileBean;
 
 import com.pmc.final_project.bean.SeatBean;
+import com.pmc.final_project.bean.UseLogBean;
 import com.pmc.final_project.dao.IFileDao;
 import com.pmc.final_project.dao.ISeatDao;
 import com.pmc.final_project.dao.IUseLogDao;
@@ -460,8 +461,22 @@ public class SeatManagement {
 		      String json = new Gson().toJson(pMap);
 		      return json;
 		   }
-		   public String GetSeatList(String id) {
+	   public String GetSeatList(String id) {
 		      List<SeatBean> seats = sDao.selectAll(id);
+		      String p_id = "pc"+id+"%"; 
+		      List<UseLogBean> use = uDao.SelectRE(p_id);
+		      
+		      for(int i = 0; i < seats.size();i++) {
+		    	  for(int j = 0; j < use.size();j++) {
+		    		  if(seats.get(i).getS_id().equals(use.get(j).getU_s_id())) {
+		    			  if(use.get(j).getU_m_id() != null) {
+		    				  seats.get(i).setM_id(use.get(j).getU_m_id());
+		    				  seats.get(i).setS_state("예약");
+		    			  }
+		    		  }
+		    	  }
+		      }
+		      
 		      List<SeatBean> seatset = new ArrayList<SeatBean>();
 		      for(int i =0;i < seats.size();i++) {
 		         for(int j = 0; j < seats.size(); j++) {
@@ -481,15 +496,13 @@ public class SeatManagement {
 		      String json = null;
 		      map.put("u_code", map.get("u_start").toString()+rand.nextInt(10000));
 
-		      if(sDao.InsertsReserve(map)) {
+		      
 		         if(uDao.InsertReserve(map)) {
 		            json = "1";
 		         }else {
 		            json = "0";
 		         }
-		      }else{
-		         json = "0";
-		      }
+		      
 
 
 		      return json;
@@ -530,6 +543,11 @@ public class SeatManagement {
 
 		      return json;
 		   }
+
+		public String CheckUsing(String m_id) {
+			String json = sDao.CheckUsing(m_id);
+			return json;
+		}
 
 	
 }

@@ -347,6 +347,20 @@ public class ProductManagement {
 		return json;
 		
 	}
+	
+
+	public String mCateSearch(String id) {
+		List<String> cList = prDao.SelcetCate(id);
+		String json = new Gson().toJson(cList);
+		return json;
+	}
+
+	public String mProduct() {
+		List<ProductBean> pList = prDao.mProduct();
+		String json = new Gson().toJson(pList);
+		
+		return json;
+	}
 }
 	
 

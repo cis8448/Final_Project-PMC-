@@ -22,5 +22,10 @@
 		INSERT INTO USELOG VALUES
 		(#{s_m_id},#{u_s_id},#{u_code},SYSDATE,SYSDATE,#{u_cate})
 	</insert>
+	
+	<select id="SelectRE" parameterType="String" resultType="UseLogBean">
+		SELECT * FROM USELOG WHERE U_S_ID LIKE #{p_id} AND U_FINISH > SYSDATE AND U_CATE = 1
+	</select>
+	
 
 </mapper>

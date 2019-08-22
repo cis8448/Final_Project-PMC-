@@ -169,7 +169,7 @@ from {
 	</table>
 
 	<section>
-		<form action="./NoticeUpdate?no_num=${pcroomnoticebean.no_num}" method="post">
+		<form action="./NoticeUpdate?no_num=${nList.no_num}" method="post">
 			<a href="./NoticeList" style="float: right">돌아가기</a>
 				<table border="1px solid black">
 				
@@ -178,11 +178,11 @@ from {
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="no_title" value="${pcroomnoticebean.no_title}"></td>
+					<td><input type="text" name="no_title" value="${nList.no_title}"></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea name="no_content">${pcroomnoticebean.no_content}</textarea></td>
+					<td><textarea name="no_content">${nList.no_content}</textarea></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="수정완료"></td>

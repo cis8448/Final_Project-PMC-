@@ -105,5 +105,10 @@ public class SeatController {
 	      String json = sm.reserveDelete(map);
 	      return json;
 	   }
+	   @RequestMapping(value = "/CheckUsing")
+	   public @ResponseBody String CheckUsing(@RequestParam("id") String m_id) {
+		   String json = sm.CheckUsing(m_id);
+		   return json;
+	   }
 
 }

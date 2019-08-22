@@ -42,15 +42,8 @@ public class Reservation extends AppCompatActivity {
 //        andcon.sub(this,"reserveSelect");
 
 
-        if (andcon.sb.getM_id() != null&&andcon.sb.getM_id().equals(andcon.member.getM_id())) {
-            rbtn1.setText("예약취소");
-        }
-        if (andcon.sb.getS_noreserve().equals("불가  ") || andcon.sb.getS_state().equals("예약  ") || andcon.sb.getS_state().equals("사용  ")) {
-            rbtn1.setEnabled(false);
-            if (andcon.sb.getM_id().equals(andcon.member.getM_id())) {
-                rbtn1.setEnabled(true);
-            }
-        }
+
+
 
 
         rtx1.setText("예약자 : " + andcon.member.getM_id());
@@ -78,18 +71,20 @@ public class Reservation extends AppCompatActivity {
                     andcon.map.put("u_code", 0 + "");
                     andcon.map.put("u_cate", 1 + "");
                     andcon.map.put("u_start", getTime + " " + tp1.getHour() + ":" + tp1.getMinute());
+
                     andcon.sub(Reservation.this, "reserve");
 
-                } else {
-                    andcon.map.put("s_state", "대기");
-                    andcon.map.put("s_m_id", andcon.member.getM_id());
-                    andcon.map.put("u_s_id", andcon.sb.getS_id());
-                    andcon.map.put("u_code", 0 + "");
-                    andcon.map.put("u_cate", 2 + "");
-                    andcon.map.put("u_start", getTime1);
-                    andcon.sub(Reservation.this, "reserveDelete");
-
                 }
+//                else {
+//                    andcon.map.put("s_state", "대기");
+//                    andcon.map.put("s_m_id", andcon.member.getM_id());
+//                    andcon.map.put("u_s_id", andcon.sb.getS_id());
+//                    andcon.map.put("u_code", 0 + "");
+//                    andcon.map.put("u_cate", 2 + "");
+//                    andcon.map.put("u_start", getTime1);
+//                    andcon.sub(Reservation.this, "reserveDelete");
+//
+//                }
             }
         });
         rbtn2.setOnClickListener(new View.OnClickListener() {

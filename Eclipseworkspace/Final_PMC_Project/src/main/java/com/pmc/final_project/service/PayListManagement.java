@@ -1,5 +1,6 @@
 package com.pmc.final_project.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.pmc.final_project.bean.PayMentDetail;
+import com.pmc.final_project.bean.Paybean;
 import com.pmc.final_project.dao.IPayDao;
 import com.pmc.final_project.dao.IProductDao;
 import com.pmc.final_project.util.Paging;
@@ -167,6 +169,18 @@ public class PayListManagement {
 		String json = new Gson().toJson(payList);
 		
 		return json;
+	}
+
+
+
+	public String insertPay(String id, ArrayList<Paybean> payBean) {
+		String usecode  = payDao.selectUselog(id);
+		for(int i = 0 ; i < payBean.size();i++) {
+			payBean.get(i).setPl_u_code(usecode);
+			payDao.insertPay(payBean.get(i));
+		}
+		
+		return "1";
 	}
 
 

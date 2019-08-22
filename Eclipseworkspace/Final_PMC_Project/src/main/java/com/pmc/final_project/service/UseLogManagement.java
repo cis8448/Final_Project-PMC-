@@ -1,6 +1,7 @@
 package com.pmc.final_project.service;
 
 import java.nio.channels.SeekableByteChannel;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.pmc.final_project.bean.UseLogBean;
 import com.pmc.final_project.dao.IUseLogDao;
 import com.pmc.final_project.util.Paging;
@@ -58,6 +60,16 @@ public class UseLogManagement {
 				
 		return mempaging.makeHtmlpaging();
 	}
+
+//	public String Getuselog(String id) {
+//		// TODO Auto-generated method stub
+//		id = "pc"+id+"%";
+//		
+//		ArrayList<UseLogBean> a = uDao.Getuselog(id);
+//		String json = new Gson().toJson(a);
+//		
+//		return json;
+//	}
 }
 
 	

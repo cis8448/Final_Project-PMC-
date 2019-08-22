@@ -25,5 +25,11 @@
 	<select id="cateSearch" resultType="PayMentDetail" parameterType="String">
 		SELECT * FROM PAYLIST WHERE PC_NAME=#{selcate}
 	</select>
+	<select id="selectUselog" parameterType="String" resultType="String">
+		SELECT U_CODE FROM USELOG WHERE U_M_ID = #{id} AND U_CATE = '사용';
+	</select>
+	<insert id="insertPay" parameterType="Paybean">
+		INSERT INTO PAYLOG VALUES (#{pl_u_code},#{pl_pr_id},#{pl_qty},#{pl_price},#{pl_payment} ,default)
+	</insert>
 
 </mapper>

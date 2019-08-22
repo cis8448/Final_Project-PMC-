@@ -68,4 +68,11 @@
 		SELECT * FROM PRODUCTALL WHERE PC_P_ID=#{p_id} AND PR_NAME LIKE #{res}
 	</select>
 	
+	<select id="SelcetCate" resultType="String" parameterType="String">
+		SELECT DISTINCT PC_NAME FROM PRODUCTCATE WHERE PC_P_ID = #{id}
+	</select> 
+	<select id="mProduct" resultType="ProductBean">
+		SELECT * FROM PRODUCTALL
+	</select>
+	
 </mapper>

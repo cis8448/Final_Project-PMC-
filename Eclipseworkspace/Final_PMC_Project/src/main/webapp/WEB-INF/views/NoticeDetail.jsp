@@ -162,26 +162,28 @@ textarea {
 	</table>
 
 	<section>
-		<a href="./NoticeList" style="float: right">돌아가기</a>
+		<a href="./NoticeList?cate=1" style="float: right">돌아가기</a>
+		<form action="./NoticeUpdateOpen?no_num=" id="frm">
 			<table border="1px solid black">
-				
+				<p name ="no_num">${nList.no_num}</p>
 				<tr>
 					<td colspan="2">상세보기</td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td>${pcroomnoticebean.no_title}</td>
+					<td name="no_title">${nList.no_title}</td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea name="no_content" readonly="readonly";>${pcroomnoticebean.no_content}</textarea></td>
+					<td><textarea name="no_content" readonly="readonly";>${nList.no_content}</textarea></td>
 				</tr>
 				<tr>
 					
-					<td><a class="login-link" href="./NoticeDelete?no_num=${pcroomnoticebean.no_num}"> 글 삭제</a></td>
-					<td><a class="login-link" href="./NoticeUpdateOpen?no_num=${pcroomnoticebean.no_num}"> 글수정</a></td>
+					<td><a class="login-link" href="./NoticeDelete?no_num=${nList.no_num}"> 글 삭제</a></td>
+					<td><a class="login-link" href="#" onclick="document.getElementById('frm').submit();"> 글수정</a></td>
 				</tr>
 			</table>
+		</form>
 			
 						
 							
@@ -250,5 +252,6 @@ function replyInsert(se_num){
 		}
 	});
 }
+
 </script>
 </html>

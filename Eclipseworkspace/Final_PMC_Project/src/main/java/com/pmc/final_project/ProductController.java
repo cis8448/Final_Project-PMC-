@@ -126,4 +126,16 @@ public class ProductController {
 		
 		return mav;
 	}
+
+	@RequestMapping(value = "/cateSearch",produces = "application/text; charset=utf8")
+	public @ResponseBody String cateSearch(@RequestParam("id") String id) {
+		String json = prm.mCateSearch(id);
+		
+		return json;
+	}
+	@RequestMapping(value = "/mProduct",produces = "application/text; charset=utf8")
+	public @ResponseBody String Product() {
+		String json = prm.mProduct();
+		return json;
+	}
 }

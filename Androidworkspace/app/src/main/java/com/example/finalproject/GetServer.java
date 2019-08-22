@@ -784,4 +784,140 @@ public class GetServer {
         }
         return uselogBeans;
     }
+    public void cateSearch(String State, Activity act){
+        localURL = State;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run(){
+                try{
+                    andcon.cates = Sever.cateSearch(localURL,andcon.UpdateMypcs.getP_id()).execute().body();
+                    if(andcon.cates !=null);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void Getproduct(String State,Activity act){
+        localURL = State;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run(){
+                try{
+                    andcon.MyProduct = Sever.Getproduct(localURL).execute().body();
+                    if(andcon.cates !=null);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public  void insertPay(String State,Activity activity){
+        localURL = State;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run(){
+                try{
+                    String state = Sever.insertPay(localURL,andcon.payBeans,andcon.member.getM_id()).execute().body();
+                    if(andcon.cates !=null);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean CheckUsing(String State,Activity activity) {
+        localURL = State;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run() {
+                try {
+                    String check = Sever.CheckUsing(localURL,andcon.member.getM_id()).execute().body();
+                    if(check.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                    if (andcon.cates != null) ;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return overLap;
+    }
+
+    public String SelectReserve(String state, Activity activity) {
+        localURL = state;
+
+        retrofit = new Retrofit.Builder().baseUrl(Local)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Sever = retrofit.create(JSPServer.class);
+
+        new Thread() {
+            public void run() {
+                try {
+                    String check = Sever.CheckUsing(localURL,andcon.member.getM_id()).execute().body();
+                    if(check.equals("1")){
+                        overLap = true;
+                    }else{
+                        overLap = false;
+                    }
+                    if (andcon.cates != null) ;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "1";
+    }
 }

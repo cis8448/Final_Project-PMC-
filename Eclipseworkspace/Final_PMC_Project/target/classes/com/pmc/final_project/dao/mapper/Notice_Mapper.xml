@@ -22,28 +22,28 @@
 	</update>
 	<delete id="DeleteNotice" parameterType="String">
 		DELETE FROM NOTICE WHERE
-		NO_NUM = #{b_num}
+		NO_NUM = #{no_num}
 	</delete>
 
 	<select id="getServiceList" parameterType="String"
 		resultType="PcRoomNoticeBean">
-		SELECT * FROM SERVICE WHERE NO_CATE = #{cate}
+		SELECT * FROM SERVICE WHERE SE_CATE = #{cate}
 	</select>
 	<select id="getServiceDetail" parameterType="String"
 		resultType="PcRoomNoticeBean">
-		SELECT * FROM SERVICE WHERE NO_NUM = #{b_num}
+		SELECT * FROM SERVICE WHERE SE_NUM = #{b_num}
 		
 	</select>
 	<update id="UpdateService" parameterType="PcRoomNoticeBean">
 		UPDATE SERVICE SET
-		NO_P_ID = #{no_p_id}, NO_TITLE = #{no_title},
-		NO_CONTENT =
-		#{no_content} WHERE NO_NUM = #{no_num}
+		SE_P_ID = #{no_p_id}, SE_TITLE = #{no_title},
+		SE_CONTENT =
+		#{no_content} WHERE SE_NUM = #{no_num}
 	</update>
 
 	<delete id="DeleteService" parameterType="String">
 		DELETE FROM SERVICE
-		WHERE NO_NUM = #{b_num}
+		WHERE SE_NUM = #{b_num}
 	</delete>
 	<select id="SelectP_id" parameterType="String"
 		resultType="String">
@@ -92,6 +92,12 @@
 		</selectKey>
 		INSERT INTO NOTICE VALUES
 		(#{no_p_id},${no_num},#{no_title},#{no_content},#{no_date},#{no_cate})
+	</insert>
+	<select id="getPcNoticeList" parameterType="HashMap" resultType="PcRoomNoticeBean">
+		SELECT * FROM NOTICE WHERE NO_CATE = #{cate} AND NO_P_ID = #{p_id}
+	</select>
+	<insert id="InserNotice" parameterType="PcRoomNoticeBean">
+		INSERT INTO NOTICE VALUES(#{no_p_id},${no_num},#{no_title},#{no_content},sysdate,#{no_cate})
 	</insert>
 
 </mapper>

@@ -3,24 +3,29 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ProductList extends AppCompatActivity {
     AndroidController andcon = AndroidController.getInstance();
-
-    public Bitmap[] productpicture;
 
     GridView GridProduct;
     TextView TvName;
@@ -32,6 +37,11 @@ public class ProductList extends AppCompatActivity {
     TextView mainlow1;
     ImageButton alarm,info;
     Button loginbtn,logoutbtn;
+    Spinner ProductCate;
+    public ArrayAdapter arrayAdapter;
+    public Listsetting.ProductAdapter productAdapter;
+    public ArrayList<ProductBean> selpro = new ArrayList<>();
+    public TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,37 +55,57 @@ public class ProductList extends AppCompatActivity {
         scroll = findViewById(R.id.scroll);
         mainlow2 = findViewById(R.id.mainlow2);
         mainlow1 = findViewById(R.id.mainlow1);
-        loginbtn =findViewById(R.id.loginbtn);
+        loginbtn = findViewById(R.id.loginbtn);
         logoutbtn = findViewById(R.id.logoutbtn);
         alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
+        ProductCate = findViewById(R.id.ProductCate);
 
-        //메뉴버튼 클릭시 메뉴창 출력
-        btn1.setOnClickListener(new View.OnClickListener() {
+
+        //카테고리 리스트 없을때 출력
+        if(arrayAdapter == null){
+            andcon.sub(this,"cateSearch");
+        }
+        ProductCate.setAdapter(arrayAdapter);
+
+        ProductCate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                DL.openDrawer(Gravity.LEFT);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                andcon.posicate = andcon.cates.get(i);
+                andcon.cateProduct.clear();
+                andcon.sub(ProductList.this,"mProduct");
+                GridProduct.setAdapter(productAdapter);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
-        if(productpicture == null){
-            andcon.sub(this,"getProductPicture");
-            ProductImg.setImageBitmap(productpicture[0]);
-        }
 
-
-        //상품을 클릭
         GridProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TvName = view.findViewById(R.id.ProductName);
-                TvPrice = view.findViewById(R.id.ProductPrice);
-                andcon.sub(ProductList.this,"ProductOrder");
+                andcon.selectpro=new ProductBean();
+                andcon.selectpro.setPr_id(andcon.cateProduct.get(i).getPr_id());
+                andcon.selectpro.setPr_name(andcon.cateProduct.get(i).getPr_name());
+                andcon.selectpro.setPr_price(andcon.cateProduct.get(i).getPr_price());
+                andcon.selectpro.setPr_qty(andcon.cateProduct.get(i).getPr_qty());
+                andcon.selectpro.setPr_qty(1);
+                andcon.sub(ProductList.this,"ProductAdd");
             }
         });
     }
 
+
     public void ProductBasket(View view){
-        andcon.sub(this,"ProductBasket");
+
+        if(andcon.selectpros.size() == 0){
+            Toast.makeText(this, "주문하신 상품이 없습니다.", Toast.LENGTH_SHORT).show();
+        }else {
+            andcon.sub(this,"ProductBasket");
+        }
     }
 }

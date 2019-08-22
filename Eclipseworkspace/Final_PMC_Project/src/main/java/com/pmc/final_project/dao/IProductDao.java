@@ -44,6 +44,8 @@ public interface IProductDao {
 
 	List<ProductBean> productSearch(Map<String, String> map);
 
+	List<String> SelcetCate(String id);
 
+	List<ProductBean> mProduct();
 
 }

@@ -20,11 +20,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="left">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/btn1"
-                    android:text="메뉴"/>
+                    android:background="@drawable/menubutton"/>
                 <ImageButton
                     android:layout_marginLeft="100dp"
                     android:layout_width="50dp"
@@ -62,31 +62,22 @@
                     android:layout_height="100dp"
                     android:src="@drawable/pmc1"/>
 
-                <HorizontalScrollView
+                <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:id="@+id/HsvCate">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <Button
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:text="라면"/>
-                    </LinearLayout>
-                </HorizontalScrollView><!-- 카테고리 버튼 -->
+                    android:id="@+id/ProductCate">
+                </Spinner>
 
 
-                    <GridView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:columnWidth="130dp"
-                        android:numColumns="5"
-                        android:horizontalSpacing="5dp"
-                        android:verticalSpacing="10dp"
-                        android:id="@+id/GridProduct">
-                    </GridView>
+                <GridView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:columnWidth="130dp"
+                    android:numColumns="3"
+                    android:horizontalSpacing="5dp"
+                    android:verticalSpacing="10dp"
+                    android:id="@+id/GridProduct">
+                </GridView>
 
                 <Button
                     android:layout_width="match_parent"

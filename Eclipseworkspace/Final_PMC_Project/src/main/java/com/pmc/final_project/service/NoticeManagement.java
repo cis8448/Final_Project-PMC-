@@ -41,9 +41,18 @@ public class NoticeManagement {
 	public ModelAndView getNoticeList(String cate) {
 		mav = new ModelAndView();
 		List<PcRoomNoticeBean> nl = null;
-		nl = nDao.getNoticeList(cate);
+		if(cate.equals("0")) {	
+			nl = nDao.getNoticeList(cate);
+		}else {
+			HashMap<String, String> map = new HashMap<String, String>();
+			String	p_id = (String)session.getAttribute("id");
+			map.put("cate", cate);
+			map.put("p_id", p_id);			
+			nl = nDao.getPcNoticeList(map);
+		}
+			
 		mav.addObject("nList",nl);
-		mav.setViewName("NotoceList");
+		mav.setViewName("NoticeList");
 		return mav;
 	}
 	public ModelAndView getServiceList(String cate) {
@@ -127,6 +136,13 @@ public class NoticeManagement {
 		String json = new Gson().toJson(omsList);
 		
 		return json;
+	}
+	public ModelAndView InserNotice(PcRoomNoticeBean noticeBean) {
+		ModelAndView mav = new ModelAndView();
+		noticeBean.setNo_p_id((String)session.getAttribute("id"));
+		nDao.InserNotice(noticeBean);
+		mav.setViewName("redirect:NoticeList?cate="+noticeBean.getNo_cate());
+		return mav;
 	}
 	
 	

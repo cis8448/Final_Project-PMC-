@@ -3,10 +3,15 @@ package com.example.finalproject;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Path;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,12 +28,21 @@ public class AndroidController {
     ArrayList<PcRoomBean> allpcroom;
     public String selectsido;
     SeatBean sb = new SeatBean();
+    public ProductBean selectpro;
+    public ArrayList<ProductBean> selectpros = new ArrayList<>();
+    public ArrayList<ProductBean> MyProduct = new ArrayList<>();
+    public ArrayList<ProductBean> cateProduct = new ArrayList<>();
+    public ArrayList<PayBean> payBeans = new ArrayList<>();
+    public PayBean payBean = new PayBean();
+    public String posicate;
+    public ArrayList<String> cates;
+    public String ReserveState;
    // Map map;
 
     Activity MainAct;
     Activity SubAct;
 
-
+    public int sumprice;
     int number;
     int easynumber;
 
@@ -62,6 +76,7 @@ public class AndroidController {
 
 
     public void sub(Activity activity, String state) {
+
 
         //사진 가져오기
         if (state.equals("GetPicture")) {
@@ -232,11 +247,6 @@ public class AndroidController {
                 Toast.makeText(activity, "비밀번호 변경 실패 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
         }
-//        if(state.equals("getProductPicture")){
-//            ((ProductList)activity).productpicture = Server.GetServerProductPicture(activity);
-//        }
-
-
         //메인화면 로그인 처리
         if (state.equals("MainActLoginSetting")) {
             ((MainActivity) MainAct).mainlow2.setVisibility(View.VISIBLE);
@@ -255,34 +265,26 @@ public class AndroidController {
             Intent btnSetting = new Intent("com.example.finalproject.Preferences");
             activity.startActivity(btnSetting);
         }
-
         //홈으로 가기
         if (state.equals("btnHome")) {
             Intent btnHome = new Intent("com.example.finalproject.MainActivity");
             activity.startActivity(btnHome);
         }
-
-
         //전체 공지사항
         if (state.equals("Notice")) {
             Intent Notice = new Intent("com.example.finalproject.PcRoomNotice");
             activity.startActivity(Notice);
         }
-
-
         //내 정보 버튼 처리
         if (state.equals("btnMyInfo")) {
             Intent btnMyInfo = new Intent("com.example.finalproject.MyInfo");
             activity.startActivity(btnMyInfo);
         }
-
         //퀵 메뉴 설정
         if (state.equals("btnQuick")) {
             Intent btnQuick = new Intent("com.example.finalproject.QuickMenuSelect");
             activity.startActivity(btnQuick);
         }
-
-
         //가입한 피시방
         if (state.equals("btnMyPc")) {
             GetServer Server = new GetServer();
@@ -292,38 +294,35 @@ public class AndroidController {
             }
 
         }
-
-
         //좌석 현황
         if (state.equals("SeatState")) {
             Intent SeatState = new Intent("com.example.finalproject.SeatStatus");
             activity.startActivity(SeatState);
         }
-
         //상품 주문
         if (state.equals("ProductOrder")) {
-            Intent ProductOrder = new Intent("com.example.finalproject.ProductList");
-            activity.startActivity(ProductOrder);
+            GetServer server = new GetServer();
+            if(server.CheckUsing(state,activity)) {
+                Intent ProductOrder = new Intent("com.example.finalproject.ProductList");
+                activity.startActivity(ProductOrder);
+            }else{
+                Toast.makeText(activity, "현재 해당 피시방에서 PC를 사용하고 있지 않습니다. 좌석 로그인 후 다시 이용해주세요", Toast.LENGTH_SHORT).show();
+            }
         }
         //상품 주문 -> 장바구니
         if (state.equals("ProductBasket")) {
             Intent ProductOrder = new Intent("com.example.finalproject.ProductBasket");
             activity.startActivity(ProductOrder);
         }
-
         //pc방 찾기
         if (state.equals("PcSearch")) {
             Intent PcSearch = new Intent("com.example.finalproject.PcRoomGPS");
             activity.startActivity(PcSearch);
         }
-
         //1:1 문의
         if (state.equals("Inquiry")) {
             Intent Inquiry = new Intent("com.example.finalproject.PcRoomInquire");
             activity.startActivity(Inquiry);
-        }
-        if (state.equals("GetPicture")) {
-
         }
         if (state.equals("bookmarkUp")) {
             GetServer Server = new GetServer();
@@ -371,17 +370,16 @@ public class AndroidController {
 
             }
         }
-
         if(state.equals("reserveDelete")){
             GetServer server = new GetServer();
             if(server.reserveDelete("reserveDelete",activity)){
+                ((SeatDetail)activity).dbtn1.setText("예약하기");
                 Toast.makeText(activity, "예약취소 완료!", Toast.LENGTH_SHORT).show();
 
             }else{
                 Toast.makeText(activity, "예약취소 실패!", Toast.LENGTH_SHORT).show();
             }
         }
-
         if(state.equals("reserveConfirm")){
             GetServer server = new GetServer();
             if(server.reserveConfirm("reserveConfirm",activity)){
@@ -394,6 +392,7 @@ public class AndroidController {
             GetServer server2 = new GetServer();
             if (server2.SetReserve("reserve", activity)) {
                 Toast.makeText(activity, "예약완료!", Toast.LENGTH_SHORT).show();
+                ((SeatDetail)SubAct).dbtn1.setText("예약취소");
                 ((Reservation) activity).finish();
             } else {
                 Toast.makeText(activity, "예약실패!", Toast.LENGTH_SHORT).show();
@@ -413,7 +412,6 @@ public class AndroidController {
         if (state.equals("GetSeatList")) {
             GetServer server2 = new GetServer();
             seats = server2.GetSeatList(activity);
-            uselogBean use = server2.Getuselog("GetUseLog",activity);
             ((SeatStatus) activity).arSeat = seats;
         }
 
@@ -438,7 +436,125 @@ public class AndroidController {
                 Toast.makeText(activity, "가입완료", Toast.LENGTH_SHORT).show();
             }
         }
+        if(state.equals("cateSearch")){
+            GetServer Server = new GetServer();
+            Server.cateSearch(state,activity);
+            ((ProductList)activity).arrayAdapter = new ArrayAdapter(activity,android.R.layout.simple_spinner_dropdown_item,cates);
+        }
 
+        if (state.equals("mProduct")) {
+            GetServer Server = new GetServer();
+            if (MyProduct.size() == 0) {
+                Server.Getproduct(state, activity);
+            }
+            for (int i = 0; i < MyProduct.size(); i++) {
+                if (posicate.equals(MyProduct.get(i).getPc_name())) {
+                    cateProduct.add(MyProduct.get(i));
+
+                }
+            }
+
+            new Thread() {
+                public void run() {
+                    for (int i = 0; i < cateProduct.size(); i++) {
+                        if (!cateProduct.get(i).
+
+                                getPr_img().
+
+                                equals("No_image.png")) {
+                            try {
+                                URL url = new URL("http://192.168.0.168/final_project/resources/file/" + cateProduct.get(i).getPr_img());
+                                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                                InputStream is = conn.getInputStream();
+                                cateProduct.get(i).setBimg(BitmapFactory.decodeStream(is));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                URL url = new URL("http://192.168.0.168/final_project/resources/file/No_image.png");
+                                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                                InputStream is = conn.getInputStream();
+                                cateProduct.get(i).setBimg(BitmapFactory.decodeStream(is));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            };
+            try {
+                Thread.sleep(1000);
+            }catch (Exception e){
+
+            }
+
+            Listsetting listSetting = new Listsetting(cateProduct,2);
+            ((ProductList) activity).productAdapter = listSetting.AllProduct();
+            if (((ProductList) activity).GridProduct.getAdapter() == null) {
+                ((ProductList)activity).GridProduct.setAdapter(((ProductList)activity).productAdapter);
+            } else {
+                ((ProductList) activity).productAdapter.notifyDataSetChanged();
+            }
+        }
+
+        if(state.equals("ProductAdd")){
+            if(selectpros.size() ==0) {
+                selectpros.add(selectpro);
+            }else {
+                int overlap = 0;
+                for (int i = 0; i < selectpros.size(); i++) {
+                    if(selectpros.get(i).getPr_id().equals(selectpro.getPr_id())){
+                        int qty = selectpros.get(i).getPr_qty();
+                        selectpro.setPr_price(Integer.parseInt(selectpros.get(i).getPr_price())+Integer.parseInt(selectpro.getPr_price())+"");
+                        selectpro.setPr_qty(++qty);
+                        selectpros.set(i,selectpro);
+                        overlap = 1;
+                    }
+                    if(selectpros.size()-1==i){
+                        if(overlap !=1) {
+                            selectpros.add(selectpro);
+                            break;
+                        }
+
+                    }
+
+                }
+                selectpro = null;
+            }
+            Toast.makeText(activity, "상품이 추가되었습니다.", Toast.LENGTH_SHORT).show();
+        }
+        if(state.equals("selectProadapter")){
+            Listsetting listsetting = new Listsetting(selectpros,2);
+            ((ProductBasket)activity).adapter= listsetting.SelectProductAdapter();
+        }
+        if(state.equals("PayOpen")){
+            Intent Open = new Intent("com.example.finalproject.PayOpen");
+            setActivity2(activity);
+            activity.startActivity(Open);
+        }
+        if(state.equals("EndingPay")){
+            GetServer server = new GetServer();
+        for(int i =0; i < selectpros.size(); i++) {
+            PayBean payBean2 = new PayBean();
+            payBean2.setPl_pr_id(selectpros.get(i).getPr_id());
+            payBean2.setPl_price(selectpros.get(i).getPr_price());
+            payBean2.setPl_qty(selectpros.get(i).getPr_qty()+"");
+            payBean2.setPl_payment(payBean.getPl_payment());
+            payBeans.add(payBean2);
+            }
+        server.insertPay(state,activity);
+            Toast.makeText(activity, "결재가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+        SubAct.finish();
+        activity.finish();
+        }
+
+        //내정보 예약여부 가져오기
+        if (state.equals("SelectReserve")) {
+            GetServer Server = new GetServer();
+            ReserveState= Server.SelectReserve(state,activity);
+            ((MyInfo) activity).TvUserRese.setText(member.getM_name()+ReserveState);
+        }
 
     }
 

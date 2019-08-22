@@ -1,5 +1,6 @@
 package com.pmc.final_project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +41,10 @@ public interface INotice {
 	boolean DeleteService(String b_num);
 
 	Object SelectP_id(String b_num);
+
+	List<PcRoomNoticeBean> getPcNoticeList(HashMap<String, String> map);
+
+	void InserNotice(PcRoomNoticeBean noticeBean);
 
 
 }

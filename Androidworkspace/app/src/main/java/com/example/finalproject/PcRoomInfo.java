@@ -70,8 +70,7 @@ public class PcRoomInfo extends AppCompatActivity {
             }
         });
 
-
-        if(info.getSP_m_id() !=null){
+        if(info.getSP_m_id() !=null&&info.getSP_m_id().equals(andcon.member.getM_id())){
             joinbtn.setText("충전하기");
         }else{
             joinbtn.setText("가입하기");

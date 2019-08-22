@@ -227,14 +227,14 @@ select { width: 100px;height: 30px}
                     <td><h3>좌석 상태 : ${SeatSet.s_state}</h3></td>
                 </tr>
                 <tr>
-                    <td><h3>사용자 : ${SeatSet.m_id}</h3></td>
-                    <td><h3>남은 시간 : ${SeatSet.m_time}</h3></td>
+                    <td><h3>사용자 : <span id = "m_id">${SeatSet.m_id}</span></h3></td>
+                    <td><h3>>남은 시간 : <span id = "times">${SeatSet.m_time}</span></h3></td>
                 </tr>
                 <tr>
                     <td><h3>생년월일 :${SeatSet.m_birthday}</h3></td>
                     <td>
                     	<h3>시간추가 :
-                    		<select>
+                    		<select id="sel">
                     			<option>1</option>
                     			<option>2</option>
                     			<option>3</option>
@@ -242,7 +242,7 @@ select { width: 100px;height: 30px}
                     			<option>10</option>
                     			<option>12</option>
                     		</select>
-                    		<button type="button" >충전</button>
+                    		<button type="button" onclick="TimeAdd()">충전</button>
                     	</h3>
                     </td>
                 </tr>
@@ -365,5 +365,35 @@ function chager(){
     })
     
 }
+function TimeAdd() {
+
+	var res = $("#sel option:selected").val();
+	var m_id = document.getElementById('m_id').innerHTML;
+	
+	//var t = parseInt($("#t").val());
+	var result = 'time='+res+'&m_id='+m_id
+	console.log(m_id)
+	if(m_id != null && m_id != ""){
+		console.log(result);
+		$.ajax({
+			type : 'post',
+			url : 'TimeAdd',
+			data : result,
+			//contentType : "application/json; charset=UTF-8",
+			dataType : 'json',
+			success : function(data) {
+				var time = document.getElementById('times');
+				time.innerHTML = data.cnt;
+			
+			},
+			error : function(data) {
+				console.log("ang")
+			
+			}
+		});
+	}else{
+		console.log("댄당")
+	}
+};
 </script>
 </html>

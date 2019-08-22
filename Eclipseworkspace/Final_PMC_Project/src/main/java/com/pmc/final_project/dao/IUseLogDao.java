@@ -1,5 +1,6 @@
 package com.pmc.final_project.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,10 @@ public interface IUseLogDao {
 	boolean InsertReserve(Map map);
 
 	boolean reserveDelete(Map map);
+
+//	ArrayList<UseLogBean> Getuselog(String id);
+
+	List<UseLogBean> SelectRE(String p_id);
 
 
 }

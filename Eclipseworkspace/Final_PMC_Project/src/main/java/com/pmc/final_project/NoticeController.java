@@ -52,43 +52,52 @@ public class NoticeController {
 	}
 	//글작성폼
 	@RequestMapping(value ="/WriteFrm")
-	public ModelAndView WriteFrm(@RequestParam String cate) {
+	public ModelAndView WriteFrm(@RequestParam() String cate) {
 
 		mav = new ModelAndView();
-		mav.addObject("cate",cate);
+		mav.addObject("cate","1");
 
 		mav.setViewName("WriteFrm");
 		return mav;
 	}
+	@RequestMapping(value = "/writeinsert")
+	public ModelAndView writeinsert(PcRoomNoticeBean noticeBean) {
+		mav = nm.InserNotice(noticeBean);
+		return mav;
+	}
+	
 
 	@RequestMapping(value = "/NoticeList")
-	public ModelAndView boardList(String Cate) {
+	public ModelAndView boardList(@RequestParam("cate") String Cate) {
 		mav = nm.getNoticeList(Cate);
 		return mav;
 	}
 
-	@RequestMapping(value = "./NoticeDetail")
-	public ModelAndView boardDetail(@RequestParam("b_num")String b_num) {
+	@RequestMapping(value = "/NoticeDetail")
+	public ModelAndView boardDetail(@RequestParam("no_num")String b_num) {
 		mav = nm.getNoticeDetile(b_num);
 		return mav;
 	}
-	@RequestMapping(value = "./NoticeUpdateOpen")
-	public String NoticeUpdateOpen(PcRoomNoticeBean noBean) {
-		return "NoticeUpdate";
+	@RequestMapping(value = "/NoticeUpdateOpen")
+	public ModelAndView NoticeUpdateOpen(PcRoomNoticeBean noBean) {
+		mav = new ModelAndView();
+		mav.addObject("nList",noBean);
+		mav.setViewName("NoticeUpdate");
+		return mav;
 	}
-	@RequestMapping(value = "NoticeUpdate")
+	@RequestMapping(value = "/NoticeUpdate")
 	public ModelAndView NoticeUpdate(PcRoomNoticeBean noBean) {
 		mav = nm.getNoticeUpdate(noBean);
 		return mav;
 	}
-	@RequestMapping(value = "NoticeDelete")
-	public ModelAndView NotoceDelete(String b_num) {
+	@RequestMapping(value = "/NoticeDelete")
+	public ModelAndView NotoceDelete(@RequestParam("no_num")String b_num) {
 		mav = nm.DeleteNotice(b_num);
 
 		return mav;
 	}
 	@RequestMapping(value = "/ServiceList")
-	public ModelAndView ServiceList(String Cate) {
+	public ModelAndView ServiceList(@RequestParam("cate")String Cate) {
 		mav = nm.getServiceList(Cate);
 		return mav;
 	}
@@ -98,12 +107,12 @@ public class NoticeController {
 		mav = nm.getServiceDetile(b_num);
 		return mav;
 	}
-	@RequestMapping(value = "ServiceUpdate")
+	@RequestMapping(value = "/ServiceUpdate")
 	public ModelAndView ServiceUpdate(PcRoomNoticeBean noBean) {
 		mav = nm.getServiceUpdate(noBean);
 		return mav;
 	}
-	@RequestMapping(value = "ServiceDelete")
+	@RequestMapping(value = "/ServiceDelete")
 	public ModelAndView ServiceDelete(String b_num) {
 		mav = nm.DeleteService(b_num);
 

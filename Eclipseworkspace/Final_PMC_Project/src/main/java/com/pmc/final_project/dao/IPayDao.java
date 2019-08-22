@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.pmc.final_project.bean.PayMentDetail;
+import com.pmc.final_project.bean.Paybean;
 
 public interface IPayDao {
 
@@ -20,6 +21,10 @@ public interface IPayDao {
 	public List<PayMentDetail> cateSearch(String selcate);
 
 	public List<PayMentDetail> datesearch(Map<String, String> map);
+
+	public String selectUselog(String id);
+
+	public void insertPay(Paybean paybean);
 
 	
 
