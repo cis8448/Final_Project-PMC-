@@ -467,7 +467,7 @@ public class PcroomManagement {
 	public String bookmarkUp(MyPcBean myPcBean) {
 	      pDao.bookmarkUp(myPcBean);
 	      String json = null;
-	      if(myPcBean.getST_star().equals("1")) {
+	      if(myPcBean.getSP_bookmark().equals("1")) {
 	         json = "1";
 	      }else {
 	         json = "0";

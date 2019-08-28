@@ -32,7 +32,19 @@ public class UseLogController {
 		
 		return mav;
 	}
-	
+	@RequestMapping(value = "/SelectReserveChecking")
+	   public @ResponseBody String SelectReserveChecking(@RequestParam("id") String id) {
+		 System.out.println("SelectReserveChecking");
+		   String json = um.SelectReserveChecking(id);
+		   return json;
+	   }
+	 
+	 @RequestMapping(value = "/BookMarkList")
+	   public @ResponseBody String BookMarkList(@RequestParam("id") String id) {
+		 	System.out.println("BookMarkList");
+		   String json = um.BookMarkList(id);
+		   return json;
+	   }
 //	 @RequestMapping(value = "/GetUseLog",produces = "application/text; charset=utf8")
 //	   public @ResponseBody String Getuselog(@RequestParam("id") String id) {
 //	   

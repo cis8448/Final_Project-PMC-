@@ -52,17 +52,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <Button
             android:layout_marginLeft="30dp"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="ID/Password"
-            android:textSize="15sp"
-            android:onClick="FindIdPassOpen"/>
-
-        <Button
-            android:layout_width="130dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:text="회원가입"
             android:textSize="15sp"
@@ -75,7 +67,7 @@
             android:text="피모씨 PC로 로그인"
             android:textSize="15sp"
             android:onClick="LoginStart"/>
-        <com.kakao.usermgmt.LoginButton
+        <!--<com.kakao.usermgmt.LoginButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
@@ -87,5 +79,5 @@
             android:layout_height="wrap_content"
             android:text="간편 로그인"
             android:textSize="15sp"
-            android:onClick="EasyLogin"/>
+            android:onClick="EasyLogin"/>-->
 </LinearLayout>

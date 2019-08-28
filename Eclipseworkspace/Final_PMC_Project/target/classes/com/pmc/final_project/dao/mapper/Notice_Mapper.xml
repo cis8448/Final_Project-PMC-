@@ -27,7 +27,7 @@
 
 	<select id="getServiceList" parameterType="String"
 		resultType="PcRoomNoticeBean">
-		SELECT * FROM SERVICE WHERE SE_CATE = #{cate}
+		SELECT SE_M_ID AS NO_M_ID,SE_P_ID AS NO_P_ID, SE_NUM AS NO_NUM, SE_TITLE AS NO_TITLE, SE_CONTENT AS NO_CONTENT, SE_CATE AS NO_CATE  FROM SERVICE WHERE SE_CATE = #{cate}
 	</select>
 	<select id="getServiceDetail" parameterType="String"
 		resultType="PcRoomNoticeBean">

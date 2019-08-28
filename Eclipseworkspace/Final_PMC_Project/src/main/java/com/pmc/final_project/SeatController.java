@@ -29,7 +29,12 @@ public class SeatController {
 	HttpSession session;
 	@Autowired
 	SeatManagement sm;
-
+	@RequestMapping(value = "/GetCountCheck")
+	   public @ResponseBody String GetCountCheck(@RequestParam("id") String id) {
+		System.out.println(id+"잘들어오니?");
+		   String json = sm.GetCountCheck(id);
+		   return json;
+	   }
 	@RequestMapping(value = "/seatInsert")
 	public @ResponseBody String seatInsert(MultipartHttpServletRequest multi) {
 		HashMap<String, String> ll = new HashMap<String, String>();
@@ -110,5 +115,6 @@ public class SeatController {
 		   String json = sm.CheckUsing(m_id);
 		   return json;
 	   }
+	   
 
 }

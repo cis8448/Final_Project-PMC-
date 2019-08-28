@@ -62,9 +62,9 @@ public class PayListManagement {
 	      String p_id = (String)session.getAttribute("id");
 	      
 	      int num = (CateNum == null) ? 1 : CateNum;
-	      
+	      List<String> cates = payDao.selectCate(p_id); 
 	      cateList = payDao.getPayList(p_id);
-	      
+	      mav.addObject("cates",cates);
 	      mav.addObject("cateList", cateList);
 	      view = "CatePayList";
 	      mav.setViewName(view);
@@ -183,6 +183,14 @@ public class PayListManagement {
 		return "1";
 	}
 
+
+public String SelectPayList1(String id) {
+		// TODO Auto-generated method stub
+		ArrayList<PayMentDetail> pay = payDao.SelectPayList1(id);
+		
+		String json = new Gson().toJson(pay);		
+		return json;
+	}
 
 
 //	private String getPayPaging(int num) {

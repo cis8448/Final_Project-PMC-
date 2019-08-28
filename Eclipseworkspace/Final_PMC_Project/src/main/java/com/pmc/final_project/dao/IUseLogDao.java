@@ -20,5 +20,9 @@ public interface IUseLogDao {
 
 	List<UseLogBean> SelectRE(String p_id);
 
+	ArrayList<String> BookMarkList(String id);
+
+	String SelectReserveChecking(String id);
+
 
 }

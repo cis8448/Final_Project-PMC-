@@ -203,9 +203,7 @@ public class MainController {
 	}
 	@RequestMapping(value = "/GetPicture")
 	public @ResponseBody String GetPicture() {
-		System.out.println("들어왓니?");
 		String json = pm.GetPicture();
-		System.out.println("끝");
 		return json;
 	}
 	@RequestMapping(value = "/Memberidoverlap")

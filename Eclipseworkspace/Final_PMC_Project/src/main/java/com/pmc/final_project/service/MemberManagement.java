@@ -235,6 +235,22 @@ public class MemberManagement {
 
 		return json;
 	}
+	public String MyInfoUpdate(Member member) {
+		// TODO Auto-generated method stub
+		String json = null;
+		String check;
+		System.out.println(member.getM_id()+"아이디");
+		System.out.println(member.getM_nickname()+"닉네임");
+		System.out.println(member.getM_email()+"이메일");
+		System.out.println(member.getM_phone()+"폰넘버");
 
+		if(mDao.MyInfoUpdate(member)) {
+			check="1";
+		}else {
+			check="0";
+		}
+		json = new Gson().toJson(check);
+		return json;
+	}
 
 }

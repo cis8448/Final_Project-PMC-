@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("Member")
 public class Member {
 	
-	private int m_kakaoid;
+	private long m_kakaoid;
 	private String m_id;
 	private String m_pass;
 	private String m_name;
@@ -17,10 +17,11 @@ public class Member {
 	private String m_point;
 	private String m_time;
 
-	public int getM_kakaoid() {
+	
+	public long getM_kakaoid() {
 		return m_kakaoid;
 	}
-	public void setM_kakaoid(int m_kakaoid) {
+	public void setM_kakaoid(long m_kakaoid) {
 		this.m_kakaoid = m_kakaoid;
 	}
 	public String getM_id() {

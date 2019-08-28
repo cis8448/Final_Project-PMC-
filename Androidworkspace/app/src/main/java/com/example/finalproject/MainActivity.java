@@ -13,6 +13,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+
 import java.util.ArrayList;
 
 
@@ -44,13 +48,12 @@ public class MainActivity extends AppCompatActivity {
         DL = findViewById(R.id.drawlay);
         btn1 = findViewById(R.id.btn1);
         scroll = findViewById(R.id.scroll);
-        mainlow2 = findViewById(R.id.mainlow2);
+
         mainlow1 = findViewById(R.id.mainlow1);
         loginbtn =findViewById(R.id.loginbtn);
         logoutbtn = findViewById(R.id.logoutbtn);
-        alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
-        pointtxt= findViewById(R.id.pointtxt);
+
         nametxt= findViewById(R.id.nametxt);
         pcroomimg1 = findViewById(R.id.pcroomimg2);
         minipoint =findViewById(R.id.minipoint);
@@ -63,11 +66,16 @@ public class MainActivity extends AppCompatActivity {
                 DL.openDrawer(Gravity.LEFT);
             }
         });
+        UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+            @Override
+            public void onCompleteLogout() {
 
+            }
+        });
 
         if(pictures == null) {
             andcon.sub(this, "GetPicture");
-//         pcroomimg1.setImageBitmap(pictures[0]);
+         pcroomimg1.setImageBitmap(pictures[1]);
         }
 
 
@@ -81,10 +89,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void LogOut(View view){
-
-
-        andcon.sub(this,"LogOut");
-
+        andcon.member = null;
+        andcon.member = new MemberBean();
+        andcon.sub(this,"logout");
     }
 
 

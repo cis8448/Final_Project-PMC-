@@ -11,82 +11,63 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/myinfo"
-        android:padding="5dp"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/myinfo"
+            android:padding="5dp"/>
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TableRow
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round"
-                android:gravity="center"
-                android:text="로그인 한 유저이름"
-                android:textColor="#ffff"
-                android:textSize="15sp"
-                android:id="@+id/TvUserName"/>
-            <Button
-                android:layout_width="75dp"
-                android:layout_height="40dp"
-                android:text="수정"
-                android:layout_marginTop="10dp"/>
-        </TableRow>
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
+                    android:text="로그인 한 유저이름"
+                    android:textColor="#ffff"
+                    android:textSize="15sp"
+                    android:id="@+id/TvUserName"
+                    />
+
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:text="수정"
+                    android:id="@+id/ubtn1"
+                    />
+
+
+            </TableRow>
             <TableRow>
+            </TableRow>
+            <TableRow android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="생년월일(예약 여부 표시)"
+                    android:background="#FFFF"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:id="@+id/TvUserRese"/>
 
-        </TableRow>
-        <TableRow android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="생년월일(예약 여부 표시)"
-                android:background="#FFFF"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"
-                android:id="@+id/TvUserRese"/>
-
-        </TableRow>
-    </TableLayout>
+            </TableRow>
+        </TableLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="내 마일리지"
-        android:background="@drawable/roundblue"
-        android:textColor="#FFFF"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"/>
-
-
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="100000P"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="12.8dp"
-        android:background="@drawable/roundgreen"
-        android:textSize="25dp"
-        android:textColor="#FFFF"
-        android:gravity="end"/>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -101,16 +82,18 @@
             android:text="예약 확인"
             android:textColor="#FFFF"
             android:layout_marginTop="40dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/mbtn1"/>
 
-        <Button
+        <!--<Button
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/round"
             android:text="PC방 즐겨찾기 관리"
             android:textColor="#FFFF"
             android:layout_marginTop="40dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/mbtn2"/>-->
 
         <Button
             android:layout_width="300dp"
@@ -119,7 +102,8 @@
             android:text="결제 내역 보기"
             android:textColor="#FFFF"
             android:layout_marginTop="40dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:id="@+id/mbtn3"/>
     </LinearLayout>
 
 </LinearLayout>

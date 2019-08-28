@@ -43,14 +43,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	list-style: none;
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 
 #SubMenu {
 	margin-top: 250px;
@@ -156,7 +149,7 @@ table {
 		<li class="mainmenu"><a href="./Product">상품</a></li>
 		<li class="mainmenu"><a href="./MemberList">회원</a></li>
 		<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-		<li class="mainmenu"><a href="#">기타</a></li>
+		
 	</ul>
 
 
@@ -167,8 +160,8 @@ table {
 			<ul id="SubMenu">
 				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
 				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=3">일반고객센터</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=4">PC방고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
 			</ul>
 		</aside>
 	</table>
@@ -188,7 +181,7 @@ table {
 
 			</tr>
 
-			<form action="WriteService?cate=${cate }" method="post">
+			<form action="WriteFrm?cate=${cate}" method="post">
 				<c:forEach var="pcroomnoticebean" items="${nList}">
 					<tr>
 						<td align="center">${pcroomnoticebean.no_m_id}</td>
@@ -219,6 +212,13 @@ table {
 </body>
 
 <script type="text/javascript">
+	var num = ${cate}
+	var btn =document.getElementById("btn1")
+	if(num == 0){
+		btn.setAttribute("disabled","true")
+	}else{
+		btn.removeAttribute("")
+	}
 	function write(){
 		location.href="WriteFrm?cate=";	
 	}

@@ -53,11 +53,9 @@ public class ProductList extends AppCompatActivity {
         DL = findViewById(R.id.drawlay);
         btn1 = findViewById(R.id.btn1);
         scroll = findViewById(R.id.scroll);
-        mainlow2 = findViewById(R.id.mainlow2);
         mainlow1 = findViewById(R.id.mainlow1);
         loginbtn = findViewById(R.id.loginbtn);
         logoutbtn = findViewById(R.id.logoutbtn);
-        alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
         ProductCate = findViewById(R.id.ProductCate);
 

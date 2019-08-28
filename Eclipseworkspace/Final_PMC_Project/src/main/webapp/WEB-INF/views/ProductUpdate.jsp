@@ -23,14 +23,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	list-style: none;
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 
 #SubMenu {
 	height: 100px
@@ -217,24 +210,13 @@ button {
 
 		</div>
 		<ul id="Menu">
-            <li class="mainmenu"><a href="./SeatState">좌석</a></li>
-            <li class="mainmenu"><a href="#">상품</a></li>
-            <li class="mainmenu"><a href="./MemberList">회원</a></li>
-            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+		<li class="mainmenu"><a href="./SeatState">좌석</a></li>
+			<li class="mainmenu"><a href="#">상품</a></li>
+			<li class="mainmenu"><a href="./MemberList">회원</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+			
 		</ul>
 	</header>
-	<aside>
-		<ul id="SubMenu">
-			<li class="SubMenu"><a href="#">전체</a></li>
-			<li class="SubMenu"><a href="#">라면</a></li>
-			<li class="SubMenu"><a href="#">식사</a></li>
-			<li class="SubMenu"><a href="#">음료</a></li>
-			<li class="SubMenu"><a href="#">커피</a></li>
-			<li class="SubMenu"><a href="#">토핑추가</a></li>
-			<li class="SubMenu"><a href="#">카테고리 추가</a></li>
-		</ul>
-	</aside>
 	<section>
 		<h1 class="add">상품 수정</h1>
 		<table border="1px solid black" class="ii">
@@ -311,8 +293,8 @@ button {
 	console.log(img.src)
 	upload.addEventListener('change', function(e) {
 		var name = upload.value.substring(upload.value.indexOf('.'));
-		if (name == '.jpg' || name == '.png' || name == '.gif'
-				|| name == '.JPG' || name == '.PNG' || name == '.GIF') {
+		if (name == '.jpg' || name == '.png'
+				|| name == '.JPG' || name == '.PNG' ) {
 			var get_file = e.target.files;
 			var reader = new FileReader();
 			reader.onload = (function(aImg) {
@@ -329,7 +311,7 @@ button {
 			num = 1;
 		} else {
 			upload.value = '';
-			alert("'jpg, png, gif 파일만 가능합니다'");
+			alert("'jpg, png 파일만 가능합니다'");
 		}
 	});
 

@@ -52,6 +52,7 @@ public class NoticeManagement {
 		}
 			
 		mav.addObject("nList",nl);
+		mav.addObject("cate",cate);
 		mav.setViewName("NoticeList");
 		return mav;
 	}
@@ -59,8 +60,11 @@ public class NoticeManagement {
 		mav = new ModelAndView();
 		List<PcRoomNoticeBean> nl = null;
 		nl = nDao.getServiceList(cate);
+		
 		mav.addObject("nList",nl);
-		mav.setViewName("NotoceList");
+		mav.addObject("cate",cate);
+		
+		mav.setViewName("ServiceList");
 		return mav;
 	}
 	public ModelAndView getNoticeDetile(String b_num) {

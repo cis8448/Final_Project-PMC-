@@ -165,13 +165,13 @@ textarea {
 		<a href="./NoticeList?cate=1" style="float: right">돌아가기</a>
 		<form action="./NoticeUpdateOpen?no_num=" id="frm">
 			<table border="1px solid black">
-				<p name ="no_num">${nList.no_num}</p>
+				<input type="hidden" readonly="readonly" name="no_num" value="${nList.no_num}">
 				<tr>
 					<td colspan="2">상세보기</td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td name="no_title">${nList.no_title}</td>
+					<td><input type="text" readonly="readonly" name="no_title" value="${nList.no_title}"></td>
 				</tr>
 				<tr>
 					<td>내용</td>

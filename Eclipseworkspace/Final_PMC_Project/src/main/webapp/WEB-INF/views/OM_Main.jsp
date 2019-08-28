@@ -37,12 +37,9 @@ table {
 				onclick="btn1(1)"></th>
 			<th><input type="button" value="승인  피시방관리" style=""
 				onclick="btn1(2)"></th>
-			<th><input type="button" value="좌석 관리" style=""
-				onclick="btn1(3)"></th>
 			<th><input type="button" value="고객센터 관리" style=""
 				onclick="btn1(4)"></th>
-			<th><input type="button" value="공지사항 관리" style=""
-				onclick="btn1(5)"></th>
+			
 		</tr>
 	</table>
 </body>
@@ -54,13 +51,9 @@ table {
 			location.href = "OM_Approval";
 		} else if (a == 2) {
 			location.href = "OM_Approvalx";
-		} else if (a == 3) {
-			location.href = "OM_SeatState";
 		} else if (a == 4) {
-			location.href = "OM_Service?cate=0";
-		} else if (a == 5) {
-			location.href = "OM_Notice?cate=0";
-		} else if (a == 6) {
+			location.href = "OM_MemberList";
+		}  else if (a == 6) {
 
 		}
 

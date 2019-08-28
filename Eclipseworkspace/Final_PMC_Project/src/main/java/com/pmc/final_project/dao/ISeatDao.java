@@ -37,6 +37,8 @@ public interface ISeatDao {
 	public boolean reserveDelete(Map map);
 
 	public String CheckUsing(String m_id);
+
+	public String GetCountCheck(String m_id);
 	
 	
 

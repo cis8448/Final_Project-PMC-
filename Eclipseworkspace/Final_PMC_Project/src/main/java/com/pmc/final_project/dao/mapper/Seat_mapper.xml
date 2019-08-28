@@ -56,10 +56,13 @@
 		SELECT COUNT(*) FROM PCUSING WHERE M_ID = #{m_id} AND P_ID=#{p_id}
 	</select>
 	<update id="reserveDelete" parameterType="HashMap">
-		UPDATE SEAT SET
-		S_M_ID=#{dd},S_STATE=#{s_state} WHERE S_ID = #{u_s_id}
+		UPDATE USELOG SET
+		U_CATE = #{u_cate} WHERE U_FINISH > SYSDATE AND U_CATE = '1' AND U_M_ID = #{s_m_id}
 	</update>
 	<select id="CheckUsing" parameterType="String" resultType="String">
-		SELECT COUNT(*) FROM SEAT WHERE S_M_ID = #{id} AND S_CATE = '사용'
+		SELECT COUNT(*) FROM SEAT WHERE S_M_ID = #{id} AND S_STATE = '사용  '
+	</select>
+	<select id="GetCountCheck" parameterType="String" resultType="String">
+		SELECT COUNT(*) FROM USELOG WHERE U_FINISH > SYSDATE AND U_CATE = '1' AND U_M_ID = #{id}
 	</select>
 </mapper>

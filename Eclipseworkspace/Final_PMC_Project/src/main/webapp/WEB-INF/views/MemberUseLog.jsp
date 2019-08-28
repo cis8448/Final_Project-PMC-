@@ -12,7 +12,7 @@
         html,body,ul{margin: 0;padding: 0;}
         div{display: inline-block;}
         ul{list-style: none}
-        #Menu{list-style: none;display: inline-block;background-color: gainsboro;margin-bottom: 30px; width: 1200px; margin-left: 130px}
+        #Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
         #SubMenu{height: 100px}
         a{text-decoration: none; color: inherit;}
         .mainmenu{float: left;; line-height: 100px; width: 19.8%; text-align: center;border: 1px solid black; font-size: 50px}
@@ -22,7 +22,7 @@
         header{position: fixed; z-index: 999;background-color: white;width: 100%}
         aside{position:  relative; top: 180px;float: left;width: 10%; left: 70px}
         section{position: relative; top: 10px;float: left;width: 80%; margin-left: 250px;}
-        footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;position: fixed;bottom: 0px;width: 100%}
+        footer{background-color: antiquewhite;display: block;content: '';clear: both;text-align: center;;bottom: 0px;width: 100%}
         .SubMenu:hover{text-decoration: underline}
         .mainmenu:hover{background-color: azure}
         img{width:300px;height:200px; padding:10px;}
@@ -47,7 +47,7 @@
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+  
         </ul>    
     </header>
     <aside>
@@ -59,13 +59,14 @@
      <br>
    <table border="1" bordercolor="#3D3D3D" width ="1200" height="100" align = "center" >
    			<tr bgcolor="blue" align ="center">
-				<p><td colspan = "4" span style="color:white">회원 사용기록</td></p>
+				<p><td colspan = "5" span style="color:white">회원 사용기록</td></p>
     		</tr>
     	<tr align="center" bgcolor="skybule">
     		<td>회원아이디</td>
     		<td>좌석아이디</td>
     		<td>시작일</td>
     		<td>종료일</td>
+    		<td>구분</td>
     	</tr> <!-- 여기서 시작 foreach -->
     	<c:forEach var="uselog" items="${uList}">
     	<tr align="center">
@@ -73,6 +74,7 @@
     		<td>${uselog.u_s_id}</td>
     		<td>${uselog.u_start}</td>
     		<td>${uselog.u_finish}</td>
+    		<td>${uselog.u_cate}</td>
     	</tr>
     	</c:forEach>
 

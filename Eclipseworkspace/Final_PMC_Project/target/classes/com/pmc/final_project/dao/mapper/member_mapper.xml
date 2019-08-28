@@ -58,4 +58,9 @@
 	<select id="SelBlock" parameterType="HashMap" resultType="int">
 		SELECT COUNT(*) FROM BLOCK WHERE B_M_ID =#{m_id} AND B_P_ID=#{p_id}
 	</select>
+	<update id="MyInfoUpdate" parameterType="Member">
+		UPDATE MEMBER SET
+		M_NICKNAME=#{m_nickname},M_EMAIL=#{m_email},M_PHONE=#{m_phone}
+		WHERE M_ID = #{m_id}
+	</update>
 </mapper>

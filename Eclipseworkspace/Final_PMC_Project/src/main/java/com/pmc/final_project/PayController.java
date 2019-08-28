@@ -65,7 +65,12 @@ public class PayController {
 		String json = pm.insertPay(id,payBean);
 		return json;
 	}
-
+	@RequestMapping(value = "/SelectPayList1",produces = "application/text; charset=utf8")
+	public @ResponseBody String SelectPayList1(@RequestParam("id") String id) {
+		System.out.println("SelectPayList1");
+		String json = pm.SelectPayList1(id);
+		return json;
+	}
 	
 
 }

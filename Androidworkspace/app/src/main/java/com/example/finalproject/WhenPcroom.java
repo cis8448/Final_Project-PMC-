@@ -60,12 +60,7 @@ public class WhenPcroom extends AppCompatActivity {
         }
 
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DL.openDrawer(Gravity.LEFT);
-            }
-        });
+
 
 
 
@@ -179,8 +174,8 @@ class MyPcRoomAdapter extends BaseAdapter {
         pclocation.setText(mypcbean.getP_sido() + mypcbean.getP_gugun() + mypcbean.getP_dong() + mypcbean.getP_addr());
 
 
-        if(mypcbean.getST_m_id() != null && andcon.member.getM_id().equals(mypcbean.getST_m_id())) {
-            if (mypcbean.getST_star() != null && mypcbean.getST_star().equals("1")) {
+        if(mypcbean.getSP_m_id() != null && andcon.member.getM_id().equals(mypcbean.getSP_m_id())) {
+            if (mypcbean.getSP_bookmark() != null && mypcbean.getSP_bookmark().equals("1")) {
                 startbtn.setBackgroundResource(R.drawable.clickstar);
             } else {
                 startbtn.setBackgroundResource(R.drawable.star);
@@ -188,17 +183,17 @@ class MyPcRoomAdapter extends BaseAdapter {
             startbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (data.get(position).getST_star().equals("1")) {
-                        data.get(position).setST_star("0");
-                        andcon.Mypcs.get(position).setST_star("0");
+                    if (data.get(position).getSP_bookmark().equals("1")) {
+                        data.get(position).setSP_bookmark("0");
+                        andcon.Mypcs.get(position).setSP_bookmark("0");
                         andcon.UpdateMypcs = andcon.Mypcs.get(position);
                         startbtn.setBackgroundResource(R.drawable.clickstar);
                         andcon.sub(((WhenPcroom) context), "bookmarkUp");
                         ((WhenPcroom) context).adapter.notifyDataSetChanged();
 
                     } else {
-                        data.get(position).setST_star("1");
-                        andcon.Mypcs.get(position).setST_star("1");
+                        data.get(position).setSP_bookmark("1");
+                        andcon.Mypcs.get(position).setSP_bookmark("1");
                         andcon.UpdateMypcs = andcon.Mypcs.get(position);
                         startbtn.setBackgroundResource(R.drawable.star);
                         andcon.sub(((WhenPcroom) context), "bookmarkUp");

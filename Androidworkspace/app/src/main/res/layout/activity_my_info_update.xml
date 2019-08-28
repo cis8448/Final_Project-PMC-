@@ -35,12 +35,9 @@
                     android:gravity="center"
                     android:text="이름"
                     android:textColor="#ffff"
-                    android:textSize="15sp" />
-                <Button
-                    android:layout_width="75dp"
-                    android:layout_height="40dp"
-                    android:text="회원탈퇴"
-                    android:layout_marginTop="10dp"/>
+                    android:textSize="15sp"
+                    android:id="@+id/mtx"/>
+
             </TableRow>
             <TableRow>
 
@@ -52,7 +49,8 @@
                     android:text="생년월일(예약 여부 표시)"
                     android:background="#FFFF"
                     android:layout_marginTop="5dp"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:id="@+id/tttx"/>
 
             </TableRow>
         </TableLayout>
@@ -73,24 +71,25 @@
             android:orientation="horizontal">
 
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:text="별명"
-            android:background="@drawable/round"
-            android:textColor="#FFFF"
-            android:layout_marginTop="10dp"/>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:text="별명"
+                android:background="@drawable/round"
+                android:textColor="#FFFF"
+                android:layout_marginTop="10dp"/>
 
 
-       <EditText
-        android:layout_marginLeft="10dp"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="@drawable/roundtext"
-        android:layout_marginTop="10dp"
-        android:hint="내용을 입력해주세요."
-        android:textSize="14sp"
-        android:gravity="center"/>
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/roundtext"
+                android:layout_marginTop="10dp"
+                android:hint="내용을 입력해주세요."
+                android:textSize="14sp"
+                android:gravity="center"
+                android:id="@+id/mtx1"/>
 
         </LinearLayout>
 
@@ -99,57 +98,52 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:background="@drawable/round"
-            android:text="이메일"
-            android:textColor="#FFFF"
-            android:layout_marginTop="15dp"
-            android:gravity="center"/>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:background="@drawable/round"
+                android:text="이메일"
+                android:textColor="#FFFF"
+                android:layout_marginTop="15dp"
+                android:gravity="center"/>
 
-        <EditText
-            android:layout_marginLeft="10dp"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:background="@drawable/roundtext"
-            android:layout_marginTop="15dp"
-            android:hint="내용을 입력해주세요."
-            android:textSize="14sp"
-            android:gravity="center"/>
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/roundtext"
+                android:layout_marginTop="15dp"
+                android:hint="내용을 입력해주세요."
+                android:textSize="14sp"
+                android:gravity="center"
+                android:id="@+id/mtx2"/>
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/round"
-            android:gravity="center"
-            android:text="핸드폰 번호 수정"
-            android:textColor="#FFFF" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round"
+                android:gravity="center"
+                android:text="핸드폰 번호 수정"
+                android:textColor="#FFFF" />
 
-        <EditText
-            android:layout_marginLeft="10dp"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:background="@drawable/roundtext"
-            android:layout_marginTop="15dp"
-            android:hint="내용을 입력해주세요."
-            android:textSize="14sp"
-            android:gravity="center"/>
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:text="확인"
-            android:background="@drawable/round"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="8dp"
-            android:textColor="#FFFF"/>
-    </LinearLayout>
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:background="@drawable/roundtext"
+                android:layout_marginTop="15dp"
+                android:hint="내용을 입력해주세요."
+                android:textSize="14sp"
+                android:gravity="center"
+                android:id="@+id/mtx3"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -160,16 +154,10 @@
         android:background="@drawable/round"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="5dp"
-        android:textColor="#FFFF"/>
+        android:textColor="#FFFF"
+        android:id="@+id/mybtn2"/>
 
-    <Button
-        android:layout_width="310dp"
-        android:layout_height="50dp"
-        android:text="비밀번호 변경"
-        android:background="@drawable/round"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="15sp"
-        android:textColor="#FFFF"/>
+
 
 
 </LinearLayout>

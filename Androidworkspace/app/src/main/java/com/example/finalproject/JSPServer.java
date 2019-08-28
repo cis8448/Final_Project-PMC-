@@ -87,5 +87,21 @@ public interface JSPServer {
     Call<String> insertPay(@Path("URL") String URL ,@Body ArrayList<PayBean> payBeans,@Query("id") String id);
     @POST("final_project/{URL}")
     Call<String> CheckUsing(@Path("URL") String URL,@Query("id") String p_id);
+    @POST("final_project/{URL}")
+    Call<String> GetCountCheck(@Path("URL") String URL,@Query("id") String id);
+    @POST("final_project/{URL}")
+    Call<ArrayList<PayMentDetail>> SelectPayList1(@Path("URL") String URL, @Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<String> SelectReserveChecking(@Path("URL") String URL, @Query("id") String p_id);
+
+    @POST("final_project/{URL}")
+    Call<Map<String,String>> SelectReserveinfo1(@Path("URL") String URL, @Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<ArrayList<String>> BookMarkList(@Path("URL") String URL, @Query("id") String id);
+
+    @POST("final_project/{URL}")
+    Call<String> MyInfoUpdate(@Path("URL") String URL, @Body MemberBean member);
 
 }

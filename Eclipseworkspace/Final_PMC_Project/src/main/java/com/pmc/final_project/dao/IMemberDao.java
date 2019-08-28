@@ -35,6 +35,8 @@ public interface IMemberDao {
 
 	public int SelBlock(Map<String, String> map);
 
+	public boolean MyInfoUpdate(Member member);
+
 	
 
 	

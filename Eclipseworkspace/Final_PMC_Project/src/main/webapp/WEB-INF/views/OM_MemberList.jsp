@@ -12,7 +12,7 @@
         html,body,ul{margin: 0;padding: 0;}
         div{display: inline-block;}
         ul{list-style: none}
-        #Menu{list-style: none;display: inline-block;background-color: gainsboro;margin-bottom: 30px; width: 1100px; margin-left: 150px}
+        #Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1100px; margin-left: 300px}
         #SubMenu{height: 100px}
         a{text-decoration: none; color: inherit;}
         .mainmenu{float: left;; line-height: 100px; width: 33%; text-align: center;border: 1px solid black; font-size: 30px}
@@ -43,7 +43,7 @@
         <ul id="Menu">
             <li class="mainmenu"><a href="./OM_Approval">PC방업주관리</a></li>
             <li class="mainmenu"><a href="./OM_MemberList">PC방전체회원</a></li>
-            <li class="mainmenu"><a href="./#">PC방공지사항</a></li>
+            
         </ul>    
     </header>
     <aside>

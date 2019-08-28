@@ -91,13 +91,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Preferences">
-            <intent-filter>
-                <action android:name="com.example.finalproject.Preferences" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".PcRoomNotice">
             <intent-filter>
                 <action android:name="com.example.finalproject.PcRoomNotice" />
@@ -108,13 +101,6 @@
         <activity android:name=".MyInfo">
             <intent-filter>
                 <action android:name="com.example.finalproject.MyInfo" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".QuickMenuSelect">
-            <intent-filter>
-                <action android:name="com.example.finalproject.QuickMenuSelect" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -147,13 +133,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PcRoomInquire">
-            <intent-filter>
-                <action android:name="com.example.finalproject.PcRoomInquire" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".EasySignUp">
             <intent-filter>
                 <action android:name="com.example.finalproject.EasySignUp" />
@@ -178,6 +157,30 @@
         <activity android:name=".Reservation">
             <intent-filter>
                 <action android:name="com.example.finalproject.Reservation" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".BookMark">
+            <intent-filter>
+                <action android:name="com.example.finalproject.BookMark" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PayList">
+            <intent-filter>
+                <action android:name="com.example.finalproject.PayList" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MyInfoUpdate">
+            <intent-filter>
+                <action android:name="com.example.finalproject.MyInfoUpdate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

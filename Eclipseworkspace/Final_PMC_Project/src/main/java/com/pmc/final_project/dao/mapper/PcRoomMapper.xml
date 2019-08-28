@@ -127,7 +127,7 @@
 	</update>
 
 	<select id="GetPicture" resultType="String">
-		SELECT P_PICTURE1 FROM PCROOM
+		SELECT P_PICTURE1 FROM PCROOM WHERE P_ID != 'master'
 	</select>
 	<select id="Memberidoverlap" resultType="String" parameterType="String">
 		SELECT COUNT(*) FROM MEMBER WHERE M_ID = #{id}
@@ -163,7 +163,7 @@
 	</select>
 	
 	<update id="bookmarkUp" parameterType="MyPcBean">
-      UPDATE STAR SET ST_STAR = #{ST_star} WHERE ST_M_ID = #{ST_m_id}
+      UPDATE SIGNPC SET SP_BOOKMARK = #{SP_bookmark} WHERE SP_M_ID = #{SP_m_id}
    </update>
    <delete id="pcjoinDelete" parameterType="HashMap">
    	DELETE FROM SIGNPC WHERE SP_M_ID = #{m_id} AND SP_P_ID = #{p_id}

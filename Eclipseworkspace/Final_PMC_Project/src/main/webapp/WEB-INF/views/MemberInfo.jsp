@@ -34,15 +34,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	list-style: none;
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
-
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 #SubMenu {
 	height: 100px
 }
@@ -196,7 +188,7 @@ h2 {
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+            
         </ul>
 	</header>
 	<aside>

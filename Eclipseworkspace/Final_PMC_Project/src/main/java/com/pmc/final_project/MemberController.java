@@ -5,10 +5,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pmc.final_project.bean.Member;
 import com.pmc.final_project.service.MemberManagement;
 
 @Controller
@@ -49,5 +52,12 @@ public class MemberController {
 		
 		return mav;
 	}
+	@RequestMapping(value = "/MyInfoUpdate",produces = "application/text; charset=utf8")
+	public @ResponseBody String MyInfoUpdate(@RequestBody Member member) {
+		
+		String json = mm.MyInfoUpdate(member);
+		return json;
+	}
+	
 	
 }

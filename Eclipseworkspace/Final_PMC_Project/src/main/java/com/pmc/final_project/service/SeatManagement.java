@@ -549,5 +549,11 @@ public class SeatManagement {
 			return json;
 		}
 
+		public String GetCountCheck(String m_id) {
+			String json = sDao.GetCountCheck(m_id);
+			System.out.println(json);
+			return json;
+		}
+
 	
 }

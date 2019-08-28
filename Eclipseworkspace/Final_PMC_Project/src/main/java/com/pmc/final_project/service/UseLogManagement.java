@@ -35,6 +35,13 @@ public class UseLogManagement {
 		
 		uList = uDao.getmemberuseLog(m_id);
 
+		for(int i =0 ; i < uList.size();i++) {
+			if(uList.get(i).getU_cate().equals("1   ")) {
+				uList.get(i).setU_cate("예약");
+			}else if(uList.get(i).getU_cate().equals("3   ")){
+				uList.get(i).setU_cate("예약취소");
+			}
+		}
 		
 		mav.addObject("uList", uList);
 		mav.addObject("uselogPaging", getUseLogPaging(num, m_id));
@@ -60,7 +67,29 @@ public class UseLogManagement {
 				
 		return mempaging.makeHtmlpaging();
 	}
+	public String SelectReserveChecking(String id) {
+		// TODO Auto-generated method stub
+		
+		String check = uDao.SelectReserveChecking(id); 
+		
+		
+		String json = new Gson().toJson(check);
+		return json;
+	}
 
+	public String BookMarkList(String id) {
+		// TODO Auto-generated method stub
+		String json = null;
+		
+		ArrayList<String> bookmarkpc = uDao.BookMarkList(id);
+		for(int i = 0 ; i<bookmarkpc.size();i++) {
+//
+		}
+		
+		json = new Gson().toJson(bookmarkpc);
+		
+		return json;
+	}
 //	public String Getuselog(String id) {
 //		// TODO Auto-generated method stub
 //		id = "pc"+id+"%";

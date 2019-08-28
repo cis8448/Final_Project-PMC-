@@ -24,13 +24,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 
 #SubMenu {
 	height: 100px
@@ -173,7 +167,7 @@ input {
 			<li class="mainmenu"><a href="./Product">상품</a></li>
 			<li class="mainmenu"><a href="./MemberList">회원</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+			
 		</ul>
 	</header>
 	<aside>
@@ -181,13 +175,9 @@ input {
 		<div>
 			<a href=#>'${id}'님 안녕하세요</a>
 			<p />
-			<form action=>
-				<input type="button" value="정보 수정" onclick="btn2()">
-			</form>
-
-			<form action="#">
-			<input type="button" onclick="btn1()" id="button1" value="" style="width: 70px;height: 30px;">
-			</form>
+			<button onclick="btn2()">정보 수정</button>
+			<button onclick="btn3()">PC방 사진등록</button>
+			
 		</div>
 
 		<ul id="SubMenu">
@@ -370,12 +360,19 @@ function btn1() {
 
 </script>
 <script type="text/javascript">
-function btn2(){
-	var url = "PCInfoUpdate";
-	var name = "popup2222";
-	var option = "width=700 , height=600"; 
-	window.open(url,name,option);
-}
-
+	function btn2() {
+		var url = "PCInfoUpdate";
+		var name = "popup2222";
+		var option = "width=700 , height=600";
+		window.open(url, name, option);
+	}
+</script>
+<script type="text/javascript">
+	function btn3() {
+		var url = "PCPictureUpdate";
+		var name = "popup21";
+		var option = "width=700 , height=600";
+		window.open(url, name, option);
+	}
 </script>
 </html>

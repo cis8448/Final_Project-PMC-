@@ -10,20 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-	window.onload = function() {
-		var ck = '${cate}'
-		var cc = document.getElementById("btn1")
 
-		if (ck == 1) {
-			cc.disabled = true;
-		}
-		if (ck == 2) {
-			cc.disabled = false;
-		}
-
-	}
-</script>
 </head>
 <style>
 html, body, ul {
@@ -159,12 +146,12 @@ table {
 
 
 	<table>
-		<aside>
+		<aside>s
 			<ul id="SubMenu">
 				<li class="Submenu"><a href="./NoticeList?cate=0">일반공지사항</a></li>
 				<li class="Submenu"><a href="./NoticeList?cate=1">PC방공지사항</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=3">일반고객센터</a></li>
-				<li class="Submenu"><a href="./ServiceList?cate=4">PC방고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=0">일반고객센터</a></li>
+				<li class="Submenu"><a href="./ServiceList?cate=1">PC방고객센터</a></li>
 			</ul>
 		</aside>
 	</table>
@@ -183,7 +170,7 @@ table {
 				<td>작성날짜</td>
 
 			</tr>
-
+		
 			<form action="WriteFrm?cate=${cate}" method="post">
 				<c:forEach var="pcroomnoticebean" items="${nList}">
 					<tr>
@@ -196,7 +183,6 @@ table {
 					</tr>
 				</c:forEach>
 		</table>
-
 
 		<input type="submit" value="글작성" id="btn1">
 		</form>
@@ -216,9 +202,19 @@ table {
 </body>
 
 <script type="text/javascript">
+
+
+	var num = ${cate}
+	var btn =document.getElementById("btn1")
+	if(num == 0){
+		btn.setAttribute("disabled","true")
+	}else{
+		btn.removeAttribute("")
+	}
 	function write() {
 		location.href = "WriteFrm?cate=";
 	}
+	
 </script>
 
 </html>

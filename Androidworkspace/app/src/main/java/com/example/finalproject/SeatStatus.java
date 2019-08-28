@@ -50,7 +50,6 @@ public class SeatStatus extends AppCompatActivity {
         tx1 = findViewById(R.id.tx1);
         loginbtn = findViewById(R.id.loginbtn);
         logoutbtn = findViewById(R.id.logoutbtn);
-        alarm = findViewById(R.id.alarm);
         info = findViewById(R.id.info);
         img1 = findViewById(R.id.img1);
         list1 = findViewById(R.id.list1);

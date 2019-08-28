@@ -21,13 +21,11 @@ import java.util.List;
 public class Login extends AppCompatActivity {
     AndroidController andcon = AndroidController.getInstance();
 
-    LoginButton kakaoBtn;
     EditText edtId,edtpw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        kakaoBtn = findViewById(R.id.kakaiLogin);
         edtId = findViewById(R.id.edtId);
         edtpw = findViewById(R.id.edtpw);
     }
@@ -58,14 +56,13 @@ public class Login extends AppCompatActivity {
         UserManagement.getInstance().me(keys, new MeV2ResponseCallback() {
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
-                kakaoBtn.performClick();
                 Toast.makeText(Login.this, "카카오 로그인 후 다시 시도해 주세요", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onSuccess(MeV2Response result) {
                 andcon.member.setM_kakaoid(result.getId());
-                andcon.sub(Login.this,"EazyLosin");
+                andcon.sub(Login.this,"EazyLogin");
             }
         });
     }

@@ -155,7 +155,7 @@ public class ManagerManagement {
 		String oriFileName = (String)params.get("oriFileName");
 		String sysFileName = (String)params.get("sysFileName");
 		String root = (String)params.get("root");
-		String path = root + "resources/file/"+sysFileName;
+		String path = "C:\\Users\\52\\Documents\\Final_Project-PMC-\\Eclipseworkspace\\Final_PMC_Project\\src\\main\\webapp\\resources\\file\\"+sysFileName;
 
 		HttpServletResponse resp= (HttpServletResponse)params.get("resp");
 
@@ -171,6 +171,11 @@ public class ManagerManagement {
 		int num = (pageNum == null) ? 1 : pageNum;
 
 		sbpclist =pDao.selectAll2(num);
+		for(int i= 0;i<sbpclist.size();i++) {
+			if(sbpclist.get(i).getP_id().equals("master")) {
+				sbpclist.remove(i);
+			}
+		}
 		mav.addObject("sbpclist", sbpclist);
 		mav.addObject("paging", getPaging(num));
 
@@ -283,6 +288,23 @@ public class ManagerManagement {
 		mav.setViewName(view);
 		
 		return mav;
+	}
+	public String MyInfoUpdate(Member member) {
+		// TODO Auto-generated method stub
+		String json = null;
+		String check;
+		System.out.println(member.getM_id()+"아이디");
+		System.out.println(member.getM_nickname()+"닉네임");
+		System.out.println(member.getM_email()+"이메일");
+		System.out.println(member.getM_phone()+"폰넘버");
+
+		if(mDao.MyInfoUpdate(member)) {
+			check="1";
+		}else {
+			check="0";
+		}
+		json = new Gson().toJson(check);
+		return json;
 	}
 
 

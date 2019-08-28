@@ -26,14 +26,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
-
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 #SubMenu {
 	height: 100px
 }
@@ -184,7 +177,7 @@ select { width: 100px;height: 30px}
 			<li class="mainmenu"><a href="./Product">상품</a></li>
 			<li class="mainmenu"><a href="./MemberList">회원</a></li>
 			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-			<li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+			
 		</ul>
 	</header>
 	<aside>
@@ -192,13 +185,9 @@ select { width: 100px;height: 30px}
 		<div>
 			<a href=#>'${id}'님 안녕하세요</a>
 			<p />
-			<form action="#">
-				<input type="submit" value="정보 수정">
-			</form>
-
-			<form action="#">
-			<input type="button" onclick="btn1()" id="button1" value="" style="width: 70px;height: 30px;">
-			</form>
+			<button onclick="btn2()">정보 수정</button>
+			<button onclick="btn3()">PC방 사진등록</button>
+			
 		</div>
 
 		<ul id="SubMenu">
@@ -228,23 +217,10 @@ select { width: 100px;height: 30px}
                 </tr>
                 <tr>
                     <td><h3>사용자 : <span id = "m_id">${SeatSet.m_id}</span></h3></td>
-                    <td><h3>>남은 시간 : <span id = "times">${SeatSet.m_time}</span></h3></td>
+                    <td><h3>남은 시간 : <span id = "times">${SeatSet.m_time}</span></h3></td>
                 </tr>
                 <tr>
                     <td><h3>생년월일 :${SeatSet.m_birthday}</h3></td>
-                    <td>
-                    	<h3>시간추가 :
-                    		<select id="sel">
-                    			<option>1</option>
-                    			<option>2</option>
-                    			<option>3</option>
-                    			<option>5</option>
-                    			<option>10</option>
-                    			<option>12</option>
-                    		</select>
-                    		<button type="button" onclick="TimeAdd()">충전</button>
-                    	</h3>
-                    </td>
                 </tr>
                 <tr>
                     <td><h3></h3></td>
@@ -294,7 +270,7 @@ function chagerSeat(elem){
         var tbl = document.getElementById('tbl');
         var result ='<tr><td><h3>PC 번호 : '+data.s_id+'번 Pc</h3></td><td><h3>좌석 상태 : '+data.s_state+'</h3></td></tr>'
         result +='<tr><td><h3>사용자 : '+data.m_id+'</h3></td><td><h3>남은 시간 :'+ data.m_time+'</h3></td></tr>'
-        result +='<tr><td><h3>생년월일 :'+data.m_birthday+'</h3></td><td><h3>시간추가 :<select><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option><option>12</option></select><button type="button" >충전</button></h3></td></tr>'
+        result +='<tr><td><h3>생년월일 :'+data.m_birthday+'</h3></td></tr>'
         result +='<tr><td><h3></h3></td><td><h3>예약 : <span id="state">'+data.s_noreserve+'</span></h3><button type="button" onclick="chager()">변경</button></td></tr>'
         result +='<tr><td><h3 id="spec1">그래픽카드 : '+d[0]+'</h3><button type="button" onclick="specin(1)">수정하기</button></td></tr>'
         result +='<tr><td><h3 id="spec2">CPU : '+d[1]+'</h3><button type="button" onclick="specin(2)">수정하기</button></td></tr>'
@@ -365,35 +341,21 @@ function chager(){
     })
     
 }
-function TimeAdd() {
-
-	var res = $("#sel option:selected").val();
-	var m_id = document.getElementById('m_id').innerHTML;
-	
-	//var t = parseInt($("#t").val());
-	var result = 'time='+res+'&m_id='+m_id
-	console.log(m_id)
-	if(m_id != null && m_id != ""){
-		console.log(result);
-		$.ajax({
-			type : 'post',
-			url : 'TimeAdd',
-			data : result,
-			//contentType : "application/json; charset=UTF-8",
-			dataType : 'json',
-			success : function(data) {
-				var time = document.getElementById('times');
-				time.innerHTML = data.cnt;
-			
-			},
-			error : function(data) {
-				console.log("ang")
-			
-			}
-		});
-	}else{
-		console.log("댄당")
+</script>
+<script type="text/javascript">
+	function btn2() {
+		var url = "PCInfoUpdate";
+		var name = "popup2222";
+		var option = "width=700 , height=600";
+		window.open(url, name, option);
 	}
-};
+</script>
+<script type="text/javascript">
+	function btn3() {
+		var url = "PCPictureUpdate";
+		var name = "popup21";
+		var option = "width=700 , height=600";
+		window.open(url, name, option);
+	}
 </script>
 </html>

@@ -23,14 +23,7 @@ ul {
 	list-style: none
 }
 
-#Menu {
-	list-style: none;
-	display: inline-block;
-	background-color: gainsboro;
-	margin-bottom: 30px;
-	width: 1200px;
-	margin-left: 130px
-}
+#Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
 
 #SubMenu {
 	height: 100px
@@ -218,10 +211,10 @@ button {
 		</div>
 		<ul id="Menu">
             <li class="mainmenu"><a href="./SeatState">좌석</a></li>
-            <li class="mainmenu"><a href="#">상품</a></li>
-            <li class="mainmenu"><a href="./MemberList">회원</a></li>
-            <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+			<li class="mainmenu"><a href="#">상품</a></li>
+			<li class="mainmenu"><a href="./MemberList">회원</a></li>
+			<li class="mainmenu"><a href="./MemberPayList">매출</a></li>
+			
 		</ul>
 	</header>
 	<section>
@@ -304,8 +297,8 @@ button {
 	console.log(img.src)
 	upload.addEventListener('change', function(e) {
 		var name = upload.value.substring(upload.value.indexOf('.'));
-		if (name == '.jpg' || name == '.png' || name == '.gif'
-				|| name == '.JPG' || name == '.PNG' || name == '.GIF') {
+		if (name == '.jpg' || name == '.png' ||
+				name == '.JPG' || name == '.PNG' ) {
 			var get_file = e.target.files;
 			var reader = new FileReader();
 			reader.onload = (function(aImg) {
@@ -323,7 +316,7 @@ button {
 		} else {
 			
 			upload.value = '';
-			alert("'jpg, png, gif 파일만 가능합니다'");
+			alert("'jpg, png 파일만 가능합니다'");
 		}
 	});
 

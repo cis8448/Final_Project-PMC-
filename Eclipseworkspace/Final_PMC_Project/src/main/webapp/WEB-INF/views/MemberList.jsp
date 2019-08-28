@@ -12,7 +12,7 @@
         html,body,ul{margin: 0;padding: 0;}
         div{display: inline-block;}
         ul{list-style: none}
-        #Menu{list-style: none;display: inline-block;background-color: gainsboro;margin-bottom: 30px; width: 1200px; margin-left: 130px}
+        #Menu{list-style: none;display: inline-block;background-color: white;margin-bottom: 30px; width: 1200px; margin-left: 130px}
         #SubMenu{height: 100px}
         a{text-decoration: none; color: inherit;}
         .mainmenu{float: left;; line-height: 100px; width: 19.8%; text-align: center;border: 1px solid black; font-size: 50px}
@@ -45,7 +45,7 @@
             <li class="mainmenu"><a href="./Product">상품</a></li>
             <li class="mainmenu"><a href="#">회원</a></li>
             <li class="mainmenu"><a href="./MemberPayList">매출</a></li>
-            <li class="mainmenu"><a href="./NoticeList?cate=0">기타</a></li>
+            
         </ul>    
     </header>
     <aside>

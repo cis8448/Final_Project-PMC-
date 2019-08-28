@@ -27,6 +27,7 @@ public class PcRoomInfo extends AppCompatActivity {
     int count;
     ImageButton btn1,startbtn;
     DrawerLayout DL;
+    GetServer Server = new GetServer();
 
 
     @Override
@@ -55,20 +56,19 @@ public class PcRoomInfo extends AppCompatActivity {
         startbtn = findViewById(R.id.startbtn);
 
 
-
         if(info.getSP_m_id() == null ||!(andcon.member.getM_id().equals(info.getSP_m_id()))){
             timetxt.setVisibility(View.INVISIBLE);
             startbtn.setVisibility(View.INVISIBLE);
         }else{
             timetxt.setVisibility(View.VISIBLE);
             startbtn.setVisibility(View.VISIBLE);
-        }
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DL.openDrawer(Gravity.LEFT);
+            if(info.getSP_bookmark().equals("1")){
+                startbtn.setImageResource(R.drawable.clickstar);
+            }else{
+                startbtn.setImageResource(R.drawable.star);
             }
-        });
+        }
+
 
         if(info.getSP_m_id() !=null&&info.getSP_m_id().equals(andcon.member.getM_id())){
             joinbtn.setText("충전하기");
@@ -82,9 +82,9 @@ public class PcRoomInfo extends AppCompatActivity {
                 pictureBean.setPicture1(info.getP_picture1());
                 pictureBean.setPicture2(info.getP_picture2());
                 pictureBean.setPicture3(info.getP_picture3());
-                GetServer Server = new GetServer();
-                imgsrc = Server.GetPictures(pictureBean);
+                andcon.sub(this,"pcinfoimg");
                 pcroomimg1.setImageBitmap(imgsrc[0]);
+
         }
 
 
@@ -170,27 +170,27 @@ public class PcRoomInfo extends AppCompatActivity {
         }
     }
     public void starpush(View v){
-        if (info.getST_star().equals("1")) {
-            info.setST_star("0");
+        if (info.getSP_bookmark().equals("1")) {
+            info.setSP_bookmark("0");
             andcon.UpdateMypcs = info;
             for(int i = 0; i < andcon.Mypcs.size();i++){
-                if(andcon.Mypcs.get(i).getST_m_id().equals(info.getST_m_id())&&
-                        andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
-                    andcon.Mypcs.get(i).setST_star("0");
-                }
-            }
-            startbtn.setBackgroundResource(R.drawable.clickstar);
-            andcon.sub(this, "bookmarkUp");
-        }else{
-            info.setST_star("1");
-            andcon.UpdateMypcs = info;
-            for(int i = 0; i < andcon.Mypcs.size();i++){
-                if(andcon.Mypcs.get(i).getST_m_id().equals(info.getST_m_id())&&
-                    andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
-                    andcon.Mypcs.get(i).setST_star("1");
+                        if(andcon.Mypcs.get(i).getSP_m_id().equals(info.getSP_m_id())&&
+                                andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
+                            andcon.Mypcs.get(i).setSP_bookmark("0");
                 }
             }
             startbtn.setBackgroundResource(R.drawable.star);
+            andcon.sub(this, "bookmarkUp");
+        }else{
+            info.setSP_bookmark("1");
+            andcon.UpdateMypcs = info;
+            for(int i = 0; i < andcon.Mypcs.size();i++){
+                if(andcon.Mypcs.get(i).getSP_m_id().equals(info.getSP_m_id())&&
+                    andcon.Mypcs.get(i).getP_id().equals(info.getP_id())){
+                    andcon.Mypcs.get(i).setSP_bookmark("1");
+                }
+            }
+            startbtn.setBackgroundResource(R.drawable.clickstar);
             andcon.sub(this, "bookmarkUp");
         }
     }

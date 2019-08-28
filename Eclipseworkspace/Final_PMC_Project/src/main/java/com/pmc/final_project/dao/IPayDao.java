@@ -1,5 +1,6 @@
 package com.pmc.final_project.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,13 @@ public interface IPayDao {
 	public String selectUselog(String id);
 
 	public void insertPay(Paybean paybean);
+
+	public List<String> selectCate(String p_id);
+
+	public ArrayList<PayMentDetail> SelectPayList1(String id);
+
+	
+
 
 	
 

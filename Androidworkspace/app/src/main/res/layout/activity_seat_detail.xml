@@ -22,16 +22,9 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="35dp">
 
-        <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20sp"
-            android:gravity="center"
-            android:text="그래픽 카드 : "
-            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dtx1"
@@ -40,16 +33,10 @@
             android:gravity="center"
             android:text="ㅁㄴㅇㅁㄴㅇ"
             android:textColor="@color/com_kakao_brown"
-            android:textSize="15sp" />
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"/>
 
-        <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20sp"
-            android:gravity="center"
-            android:text="CPU : "
-            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dtx2"
@@ -58,16 +45,10 @@
             android:gravity="center"
             android:text="ㅁㄴㅇㅁㄴㅇ"
             android:textColor="@color/com_kakao_brown"
-            android:textSize="15sp" />
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"/>
 
-        <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20sp"
-            android:gravity="center"
-            android:text="모니터 : "
-            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/dtx3"
@@ -76,7 +57,8 @@
             android:gravity="center"
             android:text="ㅁㄴㅇㅁㄴㅇ"
             android:textColor="@color/com_kakao_brown"
-            android:textSize="15sp" />
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

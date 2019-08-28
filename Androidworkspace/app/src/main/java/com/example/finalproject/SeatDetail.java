@@ -104,7 +104,8 @@ public class SeatDetail extends AppCompatActivity {
                     andcon.map.put("u_s_id", andcon.sb.getS_id());
                     andcon.map.put("u_code", 0 + "");
                     andcon.map.put("u_cate", 3 + "");
-                    andcon.map.put("u_start", andcon.map.get("u_start"));
+
+                    andcon.map.put("u_start",getTime1);
                     andcon.sub(SeatDetail.this, "reserveDelete");
                 }
 
